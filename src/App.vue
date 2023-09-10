@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import ResumeView from './views/ResumeView.vue'
 </script>
 
 <template>
-  <RouterView />
+  <ResumeView />
 </template>
 
 <style scoped></style>

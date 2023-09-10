@@ -1,7 +1,8 @@
 <script setup lang="ts"></script>
 
+
 <template>
-    <h1>Resume</h1>
+    <div>Resume</div>
 </template>
 
 <style></style>
