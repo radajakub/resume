@@ -1,8 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import IntroductionComponent from '@/components/IntroductionComponent.vue';
+</script>
 
 
 <template>
-    <div>Resume</div>
+    <IntroductionComponent />
 </template>
 
 <style></style>
