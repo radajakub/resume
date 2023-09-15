@@ -32,7 +32,7 @@ a,
 
 hr {
   border: 1px dotted #ff0000;
-  border-style: none none dotted;
+  border-style: dotted;
   background-color: #fff;
   color: var(--color-border);
   height: var(--separator-thickness);

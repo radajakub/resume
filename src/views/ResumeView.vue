@@ -21,9 +21,9 @@ const about_me = personal_json['aboutme'];
     <!-- introduction row [personal column, about me column] -->
     <div class="intro-row">
         <IntroductionComponent />
-        <div class="about-me-col">
+        <!-- <div class="about-me-col">
             <AboutMeComponent :aboutme="about_me" />
-        </div>
+        </div> -->
     </div>
     <!-- education row -->
     <!-- <SchoolComponent v-for="education in educations" :education="education" /> -->
