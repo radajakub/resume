@@ -1,0 +1,149 @@
+{
+    "all": [
+        {
+            "school": "Gymnazium Praha 6 Nad Aleji TODO",
+            "faculty": null,
+            "specialization": "general",
+            "start": {
+                "year": 2010,
+                "month": 9,
+                "day": 1
+            },
+            "end": {
+                "year": 2010,
+                "month": 9,
+                "day": 1
+            },
+            "level": "high school",
+            "logo-path": "",
+            "link": "",
+            "grade": {
+                "GPA": "1.0",
+                "scale": " - 1 (best) to 5 (worst)"
+            },
+            "graduation": {
+                "grade": "1.0",
+                "honors": true
+            },
+            "description": "TODO",
+            "courses": null
+        },
+        {
+            "school": "Czech Technical University in Prague",
+            "faculty": "Faculty of Electrical Engineering",
+            "specialization": "Artificial Intelligence and Computer Science",
+            "start": {
+                "year": 2010,
+                "month": 9,
+                "day": 1
+            },
+            "end": {
+                "year": 2010,
+                "month": 9,
+                "day": 1
+            },
+            "level": "Bachelor",
+            "logo-path": "",
+            "link": "",
+            "grade": {
+                "GPA": "1.0",
+                "scale": " - 1 (best) to 5 (worst)"
+            },
+            "graduation": {
+                "grade": "1.0",
+                "honors": true
+            },
+            "description": "TODO",
+            "grade-scale": "A-F",
+            "courses": [
+                {
+                    "name": "TODO",
+                    "grade": ""
+                }
+            ],
+            "thesis": {
+                "name": "TODO",
+                "grade": "A",
+                "misc": "TODO"
+            }
+        },
+        {
+            "school": "Korean Advanced Insitute of Science and Technology (KAIST)",
+            "faculty": "Faculty of Electrical Engineering",
+            "specialization": null,
+            "start": {
+                "year": 2010,
+                "month": 9,
+                "day": 1
+            },
+            "end": {
+                "year": 2010,
+                "month": 9,
+                "day": 1
+            },
+            "level": "Master",
+            "logo-path": "",
+            "link": "",
+            "grade": {
+                "GPA": "1.0",
+                "scale": " - 1 (best) to 5 (worst)"
+            },
+            "graduation": {
+                "grade": "1.0",
+                "honors": true
+            },
+            "description": "TODO",
+            "grade-scale": "A-F",
+            "courses": [
+                {
+                    "name": "TODO",
+                    "grade": ""
+                }
+            ],
+            "thesis": {
+                "name": "TODO",
+                "grade": "A",
+                "misc": "TODO"
+            }
+        },
+        {
+            "school": "Czech Technical University in Prague",
+            "faculty": "Faculty of Electrical Engineering",
+            "specialization": "Artificial Intelligence and Computer Science",
+            "start": {
+                "year": 2010,
+                "month": 9,
+                "day": 1
+            },
+            "end": {
+                "year": 2010,
+                "month": 9,
+                "day": 1
+            },
+            "level": "Bachelor",
+            "logo-path": "",
+            "link": "",
+            "grade": {
+                "GPA": "1.0",
+                "scale": " - 1 (best) to 5 (worst)"
+            },
+            "graduation": {
+                "grade": "1.0",
+                "honors": true
+            },
+            "description": "TODO",
+            "grade-scale": "A-F",
+            "courses": [
+                {
+                    "name": "TODO",
+                    "grade": ""
+                }
+            ],
+            "thesis": {
+                "name": "TODO",
+                "grade": "A",
+                "misc": "TODO"
+            }
+        }
+    ]
+}

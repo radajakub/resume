@@ -1,0 +1,26 @@
+{
+    "all": [
+        {
+            "topic": "",
+            "name": "",
+            "related": "Institution",
+            "description": {
+                "short": "",
+                "full": ""
+            },
+            "github": "",
+            "languages": [],
+            "start": {
+                "year": 2010,
+                "month": 9,
+                "day": 1
+            },
+            "end": {
+                "year": 2010,
+                "month": 9,
+                "day": 1
+            },
+            "technologies": []
+        }
+    ]
+}

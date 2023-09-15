@@ -29,3 +29,37 @@ a,
     padding: 0 2rem;
   }
 }
+
+hr {
+  border: 1px dotted #ff0000;
+  border-style: none none dotted;
+  background-color: #fff;
+  color: var(--color-border);
+  height: var(--separator-thickness);
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 30pt;
+}
+
+.thin-border {
+  border: var(--outer-border-thickness) solid var(--color-border);
+}
+
+.rounded-border {
+  border-radius: var(--outer-border-radius);
+}
+
+.padded {
+  padding: var(--outer-border-padding-vertical) var(--outer-border-padding-horizontal);
+}
+
+.mv-20 {
+  margin-top: 20rem;
+  margin-bottom: 20rem;
+}
+
+.centered {
+  text-align: center;
+}

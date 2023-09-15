@@ -1,0 +1,23 @@
+{
+    "all": [
+        {
+            "title": "Software engineer",
+            "focus": "Components for web applications",
+            "company": "Scalesoft",
+            "logo": "TODO",
+            "mode": "part-time",
+            "languages": [],
+            "description": "TODO",
+            "start": {
+                "year": 2010,
+                "month": 9,
+                "day": 1
+            },
+            "end": {
+                "year": 2010,
+                "month": 9,
+                "day": 1
+            }
+        }
+    ]
+}

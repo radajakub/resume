@@ -1,0 +1,110 @@
+{
+    "first-name": "Jakub",
+    "last-name": "Rada",
+    "date_of_birth": {
+        "year": 2000,
+        "month": 2,
+        "day": 25
+    },
+    "location": {
+        "city": "Prague",
+        "country": "Czech Republic",
+        "flexible": true
+    },
+    "languages": [
+        {
+            "czech": "native",
+            "english": "fluent",
+            "spanish": "intermediate"
+        }
+    ],
+    "interests": [
+        "running",
+        "programming",
+        "gym",
+        "reading",
+        "learning",
+        "rap music"
+    ],
+    "contacts": {
+        "email": "dev.jakubrada@icloud.com",
+        "phone": "+420604730409",
+        "other": [
+            {
+                "type": "linkedin",
+                "link": "",
+                "use": true
+            },
+            {
+                "type": "github",
+                "link": "",
+                "use": true
+            },
+            {
+                "type": "discord",
+                "link": "",
+                "use": false
+            },
+            {
+                "type": "leetcode",
+                "link": "",
+                "use": false
+            },
+            {
+                "type": "hackerrank",
+                "link": "",
+                "use": true
+            },
+            {
+                "type": "kaggle",
+                "link": "",
+                "use": true
+            },
+            {
+                "type": "npmjs",
+                "link": "",
+                "use": true
+            }
+        ]
+    },
+    "aboutme": {
+        "paragraphs": [
+            "First paragraph",
+            "Second paragraph",
+            "Third paragraph"
+        ]
+    },
+    "goals": {
+        "paragraphs": [
+            "First paragraph",
+            "Second paragraph",
+            "Third paragraph"
+        ]
+    },
+    "skills": [
+        {
+            "category": "Programming",
+            "skills": [
+                ""
+            ]
+        },
+        {
+            "category": "Application Frameworks",
+            "skills": [
+                ""
+            ]
+        },
+        {
+            "category": "AI/ML",
+            "skills": [
+                ""
+            ]
+        },
+        {
+            "category": "Personal traits",
+            "skills": [
+                ""
+            ]
+        }
+    ]
+}

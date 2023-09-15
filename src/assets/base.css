@@ -59,6 +59,13 @@
   --color-text: var(--vt-c-text-light-1); */
 
   --section-gap: 160px;
+
+  --outer-border-thickness: 1pt;
+  --separator-thickness: 1pt;
+  --outer-border-radius: 2pt;
+  --outer-border-padding-horizontal: 20pt;
+  --outer-border-padding-vertical: 20pt;
+
 }
 
 /* dark color scheme */
@@ -87,10 +94,7 @@
 body {
   min-height: 100vh;
   color: var(--color-text);
-  background: var(--color-background);
-  line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--color-background);
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
