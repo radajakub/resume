@@ -1,0 +1,23 @@
+{
+    "all": [
+        {
+            "start": {
+                "day": 0,
+                "month": 0,
+                "year": 0
+            },
+            "focus": "",
+            "logo": "",
+            "company": "",
+            "title": "",
+            "mode": "",
+            "languages": [],
+            "description": "",
+            "end": {
+                "day": 0,
+                "month": 0,
+                "year": 0
+            }
+        }
+    ]
+}

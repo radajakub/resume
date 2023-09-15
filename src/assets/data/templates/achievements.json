@@ -1,0 +1,25 @@
+{
+    "all": [
+        {
+            "name": "",
+            "place": "",
+            "start": {
+                "day": 0,
+                "month": 0,
+                "year": 0
+            },
+            "link": "",
+            "institution": "",
+            "description": {
+                "short": "",
+                "full": ""
+            },
+            "category": "",
+            "end": {
+                "day": 0,
+                "month": 0,
+                "year": 0
+            }
+        }
+    ]
+}

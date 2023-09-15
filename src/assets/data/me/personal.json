@@ -1,6 +1,7 @@
 {
-    "first-name": "Jakub",
-    "last-name": "Rada",
+    "first_name": "Jakub",
+    "last_name": "Rada",
+    "title": "AI/ML Master student, Researcher, Software Engineer",
     "date_of_birth": {
         "year": 2000,
         "month": 2,
@@ -32,12 +33,12 @@
         "other": [
             {
                 "type": "linkedin",
-                "link": "",
+                "link": "www.linkedin.com/in/radajakub",
                 "use": true
             },
             {
                 "type": "github",
-                "link": "",
+                "link": "https://github.com/radajakub",
                 "use": true
             },
             {
@@ -47,23 +48,18 @@
             },
             {
                 "type": "leetcode",
-                "link": "",
+                "link": "https://leetcode.com/jakubrada/",
                 "use": false
             },
             {
                 "type": "hackerrank",
-                "link": "",
-                "use": true
+                "link": "https://www.hackerrank.com/jakubrada",
+                "use": false
             },
             {
                 "type": "kaggle",
-                "link": "",
-                "use": true
-            },
-            {
-                "type": "npmjs",
-                "link": "",
-                "use": true
+                "link": "https://www.kaggle.com/radajakub",
+                "use": false
             }
         ]
     },
@@ -85,25 +81,44 @@
         {
             "category": "Programming",
             "skills": [
-                ""
+                "C/C++",
+                "Julia",
+                "Python",
+                "Rust",
+                "Haskell",
+                "Java",
+                "Typescript",
+                "Dart",
+                "Racket"
             ]
         },
         {
             "category": "Application Frameworks",
             "skills": [
-                ""
+                "Flutter",
+                "Web",
+                "Angular",
+                "Vue.js",
+                "Node.js",
+                "Django"
             ]
         },
         {
             "category": "AI/ML",
             "skills": [
-                ""
+                "PyTorch",
+                "Scikit-learn",
+                "DeepMind Control Suite"
             ]
         },
         {
-            "category": "Personal traits",
+            "category": "Other skills and traits",
             "skills": [
-                ""
+                "Adaptability",
+                "Precision",
+                "Quick learning",
+                "Attention to detail",
+                "Clean code"
             ]
         }
     ]

@@ -1,0 +1,149 @@
+{
+    "all": [
+        {
+            "school": "",
+            "link": "",
+            "level": "",
+            "description": "",
+            "courses": null,
+            "grade": {
+                "GPA": "",
+                "scale": ""
+            },
+            "start": {
+                "day": 0,
+                "month": 0,
+                "year": 0
+            },
+            "logo-path": "",
+            "specialization": "",
+            "end": {
+                "day": 0,
+                "month": 0,
+                "year": 0
+            },
+            "graduation": {
+                "honors": true,
+                "grade": ""
+            },
+            "faculty": null
+        },
+        {
+            "school": "",
+            "link": "",
+            "thesis": {
+                "name": "",
+                "misc": "",
+                "grade": ""
+            },
+            "level": "",
+            "description": "",
+            "courses": [
+                {
+                    "name": "",
+                    "grade": ""
+                }
+            ],
+            "grade": {
+                "GPA": "",
+                "scale": ""
+            },
+            "start": {
+                "day": 0,
+                "month": 0,
+                "year": 0
+            },
+            "logo-path": "",
+            "specialization": "",
+            "grade-scale": "",
+            "end": {
+                "day": 0,
+                "month": 0,
+                "year": 0
+            },
+            "graduation": {
+                "honors": true,
+                "grade": ""
+            },
+            "faculty": ""
+        },
+        {
+            "school": "",
+            "link": "",
+            "thesis": {
+                "name": "",
+                "misc": "",
+                "grade": ""
+            },
+            "level": "",
+            "description": "",
+            "courses": [
+                {
+                    "name": "",
+                    "grade": ""
+                }
+            ],
+            "grade": {
+                "GPA": "",
+                "scale": ""
+            },
+            "start": {
+                "day": 0,
+                "month": 0,
+                "year": 0
+            },
+            "logo-path": "",
+            "specialization": null,
+            "grade-scale": "",
+            "end": {
+                "day": 0,
+                "month": 0,
+                "year": 0
+            },
+            "graduation": {
+                "honors": true,
+                "grade": ""
+            },
+            "faculty": ""
+        },
+        {
+            "school": "",
+            "link": "",
+            "thesis": {
+                "name": "",
+                "misc": "",
+                "grade": ""
+            },
+            "level": "",
+            "description": "",
+            "courses": [
+                {
+                    "name": "",
+                    "grade": ""
+                }
+            ],
+            "grade": {
+                "GPA": "",
+                "scale": ""
+            },
+            "start": {
+                "day": 0,
+                "month": 0,
+                "year": 0
+            },
+            "logo-path": "",
+            "specialization": "",
+            "grade-scale": "",
+            "end": {
+                "day": 0,
+                "month": 0,
+                "year": 0
+            },
+            "graduation": {
+                "honors": true,
+                "grade": ""
+            },
+            "faculty": ""
+        }
+    ]
+}
