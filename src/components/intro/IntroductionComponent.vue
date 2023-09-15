@@ -15,7 +15,7 @@ const age = computeAge(new Date(_dob.year, _dob.month, _dob.day));
 
 <template>
     <div class="thin-border rounded-border frame">
-        <ProfilePictureComponent />
+        <ProfilePictureComponent :show-border="true" />
         <hr />
     </div>
 </template>

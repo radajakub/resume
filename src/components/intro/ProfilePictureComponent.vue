@@ -1,20 +1,23 @@
 <script setup lang="ts">
-import picture from '@/assets/pictures/profile_photo.jpg';
+const props = defineProps<{ showBorder: boolean }>();
 </script>
 
 <template>
-    <div class="outer-div">
-        <img :src="picture" alt="Profile photo" class="circular" />
-    </div>
+    <div class="avatar" :class="{ bordered: props.showBorder }"></div>
 </template>
 
 <style scoped>
-.outer-div {
-    overflow: hidden;
+.avatar {
+    background-image: url("@/assets/pictures/profile_photo.jpg");
+    width: var(--profile-picture-size);
+    height: var(--profile-picture-size);
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: none;
 }
 
-.circular {
-    clip-path: circle();
-    width: 20rem;
+.bordered {
+    border: var(--profile-picture-border-thickness) solid var(--profile-picture-border-color);
 }
 </style>

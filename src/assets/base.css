@@ -66,6 +66,9 @@
   --outer-border-padding-horizontal: 20pt;
   --outer-border-padding-vertical: 20pt;
 
+  --profile-picture-border-color: var(--base2);
+  --profile-picture-size: 200px;
+  --profile-picture-border-thickness: 2px;
 }
 
 /* dark color scheme */
