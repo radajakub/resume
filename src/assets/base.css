@@ -45,7 +45,6 @@
 :root {
   --color-background: var(--base3);
   --color-border: var(--base03);
-  --color-text: var(--base02);
   --color-text: var(--base03);
 
 
@@ -69,6 +68,9 @@
   --profile-picture-border-color: var(--base2);
   --profile-picture-size: 200px;
   --profile-picture-border-thickness: 2px;
+
+  --progress-bar-height: 10px;
+  --progress-bar-color: var(--green);
 }
 
 /* dark color scheme */
