@@ -1,7 +1,11 @@
 {
     "first_name": "Jakub",
     "last_name": "Rada",
-    "title": "AI/ML Master student, Researcher, Software Engineer",
+    "titles": [
+        "AI/ML Master student",
+        "Researcher",
+        "Software Engineer"
+    ],
     "date_of_birth": {
         "year": 2000,
         "month": 2,
