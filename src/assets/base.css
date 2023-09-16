@@ -22,12 +22,17 @@
 /* semantic color variables for this project */
 /* light color scheme */
 :root {
+  --base-padding-horizontal: 100px;
+  --base-padding-vertical: 50px;
+
   --color-background: var(--base3);
   --color-border: var(--base03);
   --color-text: var(--base03);
 
   --border-thickness: 1px;
   --border-radius: 2px;
+
+  --intro-width: 350px;
 
   --profile-picture-border-color: var(--base2);
   --profile-picture-size: 200px;
@@ -42,12 +47,3 @@
   :root {
   }
 } */
-
-body {
-  color: var(--color-text);
-  background-color: var(--color-background);
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}

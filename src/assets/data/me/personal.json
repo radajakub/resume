@@ -13,7 +13,7 @@
     },
     "location": {
         "city": "Prague",
-        "country": "Czech Republic",
+        "country": "Czechia",
         "flexible": true
     },
     "languages": [
@@ -42,28 +42,33 @@
             },
             {
                 "type": "github",
-                "link": "https://github.com/radajakub",
-                "use": true
+                "link": "github.com/radajakub",
+                "use": true,
+                "icon": ""
             },
             {
                 "type": "discord",
                 "link": "",
-                "use": false
+                "use": false,
+                "icon": ""
             },
             {
                 "type": "leetcode",
-                "link": "https://leetcode.com/jakubrada/",
-                "use": false
+                "link": "leetcode.com/jakubrada/",
+                "use": false,
+                "icon": ""
             },
             {
                 "type": "hackerrank",
-                "link": "https://www.hackerrank.com/jakubrada",
-                "use": false
+                "link": "www.hackerrank.com/jakubrada",
+                "use": false,
+                "icon": ""
             },
             {
                 "type": "kaggle",
-                "link": "https://www.kaggle.com/radajakub",
-                "use": false
+                "link": "www.kaggle.com/radajakub",
+                "use": false,
+                "icon": ""
             }
         ]
     },
