@@ -12,7 +12,7 @@ const percentage = computePercentage();
     <div class="wrapper">
         <div class="text">{{ percentage }}%</div>
         <div class="outline">
-            <div class="bar" :class="{ 'right-border': percentage != 100 }"></div>
+            <div class="bar" :width="percentage" :class="{ 'right-border': percentage != 100 }"></div>
         </div>
     </div>
 </template>
@@ -32,12 +32,12 @@ const percentage = computePercentage();
 .outline {
     position: relative;
     width: 100%;
-    height: 10px;
+    height: var(--progress-bar-height);
     border-top-left-radius: 80px;
     border-top-right-radius: 80px;
     border-bottom-left-radius: 80px;
     border-bottom-right-radius: 80px;
-    border: var(--outer-border-thickness) solid var(--color-border);
+    border: var(--border-thickness) solid var(--color-border);
     background: repeating-linear-gradient(45deg,
             transparent,
             transparent 2px,
@@ -55,13 +55,12 @@ const percentage = computePercentage();
     border-top-right-radius: inherit;
     border-bottom-left-radius: inherit;
     border-bottom-right-radius: inherit;
-    width: 20%;
     background-color: var(--progress-bar-color);
 }
 
 /* add right border only when the percentage is less than 100% */
 .right-border {
-    border-right: var(--outer-border-thickness) solid var(--color-border);
+    border-right: var(--border-thickness) solid var(--color-border);
 }
 
 .progress-enter-active,

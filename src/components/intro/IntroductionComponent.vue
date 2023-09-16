@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import ProfilePictureComponent from '@/components/intro/ProfilePictureComponent.vue';
 import personal from '@/assets/data/me/personal.json';
-import ProgressBarComponent from '../ProgressBarComponent.vue';
 
 function computeAge(dateOfBirth: Date) {
     const diff = Date.now() - dateOfBirth.getTime();

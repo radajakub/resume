@@ -26,11 +26,8 @@
   --color-border: var(--base03);
   --color-text: var(--base03);
 
-  --outer-border-thickness: 1pt;
-  --separator-thickness: 1pt;
-  --outer-border-radius: 2pt;
-  --outer-border-padding-horizontal: 20pt;
-  --outer-border-padding-vertical: 20pt;
+  --border-thickness: 1px;
+  --border-radius: 2px;
 
   --profile-picture-border-color: var(--base2);
   --profile-picture-size: 200px;
