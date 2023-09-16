@@ -1,35 +1,5 @@
 @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-}
-
-@media (hover: hover) {}
-
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
-}
-
 hr {
   border: 1px dotted #ff0000;
   border-style: dotted;
@@ -58,8 +28,4 @@ hr {
 .mv-20 {
   margin-top: 20rem;
   margin-bottom: 20rem;
-}
-
-.centered {
-  text-align: center;
 }
