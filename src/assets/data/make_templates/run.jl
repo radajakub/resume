@@ -17,8 +17,8 @@ templ_dir = joinpath(path, "..", "templates")
 print(data_dir)
 
 # delete all current templates
-for files in readdir(templ_dir, join=true)
-    rm(f)
+for file in readdir(templ_dir, join=true)
+    rm(file)
 end
 
 replace(::String) = ""
