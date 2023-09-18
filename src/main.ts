@@ -12,14 +12,23 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 /* import specific icons */
 import { faEnvelope, faMobile } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faGithub, faDiscord, faHackerrank, faKaggle } from '@fortawesome/free-brands-svg-icons';
 
 
 /* add icons to the library */
-library.add(faEnvelope, faMobile);
+library.add(
+    faEnvelope,
+    faMobile,
+    faLinkedin,
+    faGithub,
+    faDiscord,
+    faHackerrank,
+    faKaggle,
+);
 
 // create new application instance
 createApp(App)
     .component('font-awesome-icon', FontAwesomeIcon)
+    // .use(router)
     .mount('#app');
 
-// app.use(router)

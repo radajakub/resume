@@ -33,52 +33,60 @@
     ],
     "contacts": [
         {
-            "type": "+420 604 730 409",
+            "service": "Phone number",
+            "icon": "fa-solid fa-mobile",
+            "username": "+420 604 730 409",
             "link": "+420 604 730 409",
-            "use": true,
-            "icon": "fa-solid fa-mobile"
+            "use": true
         },
         {
-            "type": "dev.jakubrada@icloud.com",
+            "service": "Email address",
+            "icon": "fa-solid fa-envelope",
+            "username": "dev.jakubrada@icloud.com",
             "link": "dev.jakubrada@icloud.com",
-            "use": true,
-            "icon": "fa-solid fa-envelope"
+            "use": true
         },
         {
-            "type": "linkedin",
-            "link": "www.linkedin.com/in/radajakub",
-            "use": true,
-            "icon": ""
+            "service": "GitHub",
+            "icon": "fa-brands fa-github",
+            "username": "radajakub",
+            "link": "https://github.com/radajakub",
+            "use": true
         },
         {
-            "type": "github",
-            "link": "github.com/radajakub",
-            "use": true,
-            "icon": ""
+            "service": "LinkedIn",
+            "icon": "fa-brands fa-linkedin",
+            "username": "radajakub",
+            "link": "https://www.linkedin.com/in/radajakub",
+            "use": true
         },
         {
-            "type": "discord",
+            "service": "Discord",
+            "icon": "fa-brands fa-discord",
+            "username": "",
             "link": "",
-            "use": false,
-            "icon": ""
+            "use": false
         },
         {
-            "type": "leetcode",
-            "link": "leetcode.com/jakubrada/",
-            "use": false,
-            "icon": ""
+            "service": "LeetCode",
+            "icon": "",
+            "username": "jakubrada",
+            "link": "https://leetcode.com/jakubrada/",
+            "use": false
         },
         {
-            "type": "hackerrank",
-            "link": "www.hackerrank.com/jakubrada",
-            "use": false,
-            "icon": ""
+            "service": "HackerRank",
+            "icon": "fa-brands fa-hacckerrank",
+            "username": "jakubrada",
+            "link": "https://hackerrank.com/jakubrada/",
+            "use": false
         },
         {
-            "type": "kaggle",
-            "link": "www.kaggle.com/radajakub",
-            "use": false,
-            "icon": ""
+            "service": "Kaggle",
+            "icon": "fa-brands fa-kaggle",
+            "username": "radajakub",
+            "link": "https://www.kaggle.com/jakubrada/",
+            "use": false
         }
     ],
     "aboutme": {
