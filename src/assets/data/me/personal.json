@@ -31,47 +31,56 @@
         "learning",
         "rap music"
     ],
-    "contacts": {
-        "email": "dev.jakubrada@icloud.com",
-        "phone": "+420604730409",
-        "other": [
-            {
-                "type": "linkedin",
-                "link": "www.linkedin.com/in/radajakub",
-                "use": true
-            },
-            {
-                "type": "github",
-                "link": "github.com/radajakub",
-                "use": true,
-                "icon": ""
-            },
-            {
-                "type": "discord",
-                "link": "",
-                "use": false,
-                "icon": ""
-            },
-            {
-                "type": "leetcode",
-                "link": "leetcode.com/jakubrada/",
-                "use": false,
-                "icon": ""
-            },
-            {
-                "type": "hackerrank",
-                "link": "www.hackerrank.com/jakubrada",
-                "use": false,
-                "icon": ""
-            },
-            {
-                "type": "kaggle",
-                "link": "www.kaggle.com/radajakub",
-                "use": false,
-                "icon": ""
-            }
-        ]
-    },
+    "contacts": [
+        {
+            "type": "+420 604 730 409",
+            "link": "+420 604 730 409",
+            "use": true,
+            "icon": "fa-solid fa-mobile"
+        },
+        {
+            "type": "dev.jakubrada@icloud.com",
+            "link": "dev.jakubrada@icloud.com",
+            "use": true,
+            "icon": "fa-solid fa-envelope"
+        },
+        {
+            "type": "linkedin",
+            "link": "www.linkedin.com/in/radajakub",
+            "use": true,
+            "icon": ""
+        },
+        {
+            "type": "github",
+            "link": "github.com/radajakub",
+            "use": true,
+            "icon": ""
+        },
+        {
+            "type": "discord",
+            "link": "",
+            "use": false,
+            "icon": ""
+        },
+        {
+            "type": "leetcode",
+            "link": "leetcode.com/jakubrada/",
+            "use": false,
+            "icon": ""
+        },
+        {
+            "type": "hackerrank",
+            "link": "www.hackerrank.com/jakubrada",
+            "use": false,
+            "icon": ""
+        },
+        {
+            "type": "kaggle",
+            "link": "www.kaggle.com/radajakub",
+            "use": false,
+            "icon": ""
+        }
+    ],
     "aboutme": {
         "paragraphs": [
             "First paragraph",

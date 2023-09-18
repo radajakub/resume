@@ -29,7 +29,7 @@ var locationFormatted = `${location.city}, ${location.country}`;
 // }
 
 const contacts = personal.contacts;
-const filteredOtherContacts = contacts.other.filter((contact) => contact.use);
+const filteredContacts = contacts.filter((contact) => contact.use);
 
 </script>
 
@@ -56,9 +56,7 @@ const filteredOtherContacts = contacts.other.filter((contact) => contact.use);
             <SeparatorComponent />
         </div>
         <div class="ph-20">
-            <ContactComponent :link="contacts.phone" icon="fa-solid fa-mobile" />
-            <ContactComponent :link="contacts.email" icon="fa-solid fa-envelope" />
-            <ContactComponent v-for="contact in filteredOtherContacts" :link="contact.link" icon="fa-solid fa-envelope" />
+            <ContactComponent v-for="contact in filteredContacts" :link="contact.link" :icon="contact.icon" />
         </div>
         <!-- contacts information section -->
     </div>
