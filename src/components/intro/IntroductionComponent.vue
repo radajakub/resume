@@ -1,20 +1,12 @@
 <script setup lang="ts">
+import { computeAge, formatDate, profilePictureShowBorder, introComponentDottedSeparator } from '@/utils.ts';
+
 import ProfilePictureComponent from '@/components/intro/ProfilePictureComponent.vue';
 import SeparatorComponent from '@/components/SeparatorComponent.vue';
 import InfoComponent from '@/components/intro/InfoComponent.vue';
 import ContactComponent from '@/components/intro/ContactComponent.vue';
 
 import personal from '@/assets/data/me/personal.json';
-
-function computeAge(dateOfBirth: Date) {
-    const diff = Date.now() - dateOfBirth.getTime();
-    const ageDate = new Date(diff);
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-}
-
-function formatDate(date: Date) {
-    return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
-}
 
 const _dob = personal.date_of_birth;
 const dateOfBirth = new Date(_dob.year, _dob.month, _dob.day)
@@ -37,14 +29,14 @@ const filteredContacts = contacts.filter((contact) => contact.use);
     <div class="thin-border rounded-border pv-20 frame">
         <!-- photo and name section -->
         <div class="pb-10 center-self">
-            <ProfilePictureComponent :show-border="true" />
+            <ProfilePictureComponent :show-border="profilePictureShowBorder" />
         </div>
         <div class="center title ph-20">{{ personal.first_name }} {{ personal.last_name }}</div>
         <div class="ph-20">
             <div v-for="title in personal.titles" class="center text">{{ title }}</div>
         </div>
         <div class="pv-10">
-            <SeparatorComponent />
+            <SeparatorComponent :dotted="introComponentDottedSeparator" />
         </div>
         <!-- personal information section -->
         <div class="ph-20">
@@ -53,7 +45,7 @@ const filteredContacts = contacts.filter((contact) => contact.use);
             <InfoComponent name="Location" :value="locationFormatted" />
         </div>
         <div class="pv-10">
-            <SeparatorComponent />
+            <SeparatorComponent :dotted="introComponentDottedSeparator" />
         </div>
         <div class="ph-20">
             <ContactComponent v-for="contact in filteredContacts" :link="contact.link" :icon="contact.icon" />

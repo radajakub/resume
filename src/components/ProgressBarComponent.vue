@@ -1,11 +1,9 @@
 <script setup lang="ts">
+import { computePercentage } from '@/utils';
+
 const props = defineProps<{ color: string, max: number, curr: number }>();
 
-function computePercentage() {
-    return Math.max(Math.min(Math.ceil(props.curr * 100 / props.max), 100), 0);
-}
-
-const percentage = computePercentage();
+const percentage = computePercentage(props.curr, props.max);
 </script>
 
 <template>
