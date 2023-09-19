@@ -33,6 +33,10 @@ a:link {
     background: var(--color-background-hover);
 }
 
+.hover-box:active {
+    background: var(--color-background-click);
+}
+
 .border {
     border: var(--border-thickness) solid var(--color-border);
 }

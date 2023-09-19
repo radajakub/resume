@@ -27,6 +27,8 @@
 
   --color-background: var(--base3);
   --color-background-hover: var(--base2);
+  /* TODO make it only slightly darker than on hover, this is too much */
+  --color-background-click: var(--base1);
   --color-border: var(--base03);
   --color-text: var(--base03);
   --color-badge: var(--base01);

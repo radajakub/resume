@@ -6,6 +6,13 @@ body {
   background-color: var(--color-background);
   font-size: 15px;
   line-height: 1.5;
+
+  cursor: default;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
