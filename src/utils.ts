@@ -17,3 +17,9 @@ export function formatDate(date: Date) {
 export function computePercentage(curr: number, max: number) {
     return Math.max(Math.min(Math.ceil(curr * 100 / max), 100), 0);
 }
+
+export function openLink(url?: string) {
+    if (url != null) {
+        window.open(new URL(url), '_blank');
+    }
+}

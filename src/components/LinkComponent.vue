@@ -1,14 +1,15 @@
 <script setup lang="ts">
+import { openLink } from '@/utils.ts';
 
-const props = defineProps<{ url: string, border: boolean }>();
+const props = defineProps<{ url?: string, border?: boolean }>();
 </script>
 
 <template>
-    <a :href="props.url" target="_blank">
+    <div @click="() => openLink(url)">
         <div class="hover-box" :class="{ border: props.border }">
             <slot></slot>
         </div>
-    </a>
+    </div>
 </template>
 
 <style scoped>
