@@ -7,6 +7,7 @@ import InfoComponent from '@/components/intro/InfoComponent.vue';
 import ContactComponent from '@/components/intro/ContactComponent.vue';
 
 import personal from '@/assets/data/me/personal.json';
+import BadgeComponent from '@/components/BadgeComponent.vue';
 
 const _dob = personal.date_of_birth;
 const dateOfBirth = new Date(_dob.year, _dob.month, _dob.day)
@@ -33,7 +34,8 @@ const filteredContacts = contacts.filter((contact) => contact.use);
         </div>
         <div class="center title ph-20">{{ personal.first_name }} {{ personal.last_name }}</div>
         <div class="ph-20">
-            <div v-for="title in personal.titles" class="center text">{{ title }}</div>
+            <BadgeComponent v-for="title in personal.titles" class="text">{{ title }}</BadgeComponent>
+            <!-- <div v-for="title in personal.titles" class="center text">{{ title }}</div> -->
         </div>
         <div class="pv-10">
             <SeparatorComponent :dotted="introComponentDottedSeparator" />

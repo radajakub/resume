@@ -10,11 +10,13 @@ const props = defineProps<{ border?: boolean }>();
 
 <style scoped>
 .badge {
-    display: inline-block;
-    border-radius: var(--border-radius);
+    display: block;
+    width: fit-content;
+    border-radius: var(--badge-border-radius);
     padding: var(--badge-vertical-padding) var(--badge-horizontal-padding);
     background: var(--color-badge);
     color: var(--color-badge-text);
+    margin: var(--badge-vertical-padding) auto;
 }
 
 .border {

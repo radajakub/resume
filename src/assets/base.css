@@ -46,6 +46,7 @@
 
   --badge-horizontal-padding: 5px;
   --badge-vertical-padding: 2px;
+  --badge-border-radius: 5px;
 }
 
 /* TODO: dark color scheme */
