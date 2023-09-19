@@ -29,6 +29,8 @@
   --color-background-hover: var(--base2);
   --color-border: var(--base03);
   --color-text: var(--base03);
+  --color-badge: var(--base01);
+  --color-badge-text: var(--base3);
 
   --border-thickness: 1px;
   --border-radius: 2px;
@@ -41,6 +43,9 @@
 
   --progress-bar-height: 10px;
   --progress-bar-color: var(--green);
+
+  --badge-horizontal-padding: 5px;
+  --badge-vertical-padding: 2px;
 }
 
 /* TODO: dark color scheme */
