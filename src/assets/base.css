@@ -26,6 +26,7 @@
   --base-padding-vertical: 50px;
 
   --color-background: var(--base3);
+  --color-background-hover: var(--base2);
   --color-border: var(--base03);
   --color-text: var(--base03);
 
