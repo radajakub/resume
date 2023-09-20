@@ -32,6 +32,7 @@ const props = defineProps<{ icon: string, heading: string, value: string, url?: 
 }
 
 .icon {
+    font-size: 20px;
     margin: auto 10px;
     height: 100%;
     width: 20px;
