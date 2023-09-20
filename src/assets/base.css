@@ -31,6 +31,7 @@
   --color-background-click: var(--base1);
   --color-border: var(--base03);
   --color-text: var(--base03);
+  --color-text-light: var(--base02);
   --color-badge: var(--base01);
   --color-badge-text: var(--base3);
 

@@ -1,30 +1,58 @@
 <script setup lang="ts">
-const props = defineProps<{ name: string, value: string }>();
+import LinkComponent from '@/components/LinkComponent.vue';
+
+const props = defineProps<{ icon: string, heading: string, value: string, url?: string, border?: boolean }>();
+
+// const targetLink = ;
 </script>
 
 <template>
-    <div class="row">
-        <div class="col text bold">
-            {{ props.name }}
+    <LinkComponent :url="props.url != null ? props.url : '#'" :border="border">
+        <div class="row pv-5">
+            <div class="icon">
+                <font-awesome-icon :icon="props.icon" />
+            </div>
+            <div class="column">
+                <div class="heading">
+                    {{ props.heading }}
+                </div>
+                <div class="value">
+                    {{ props.value }}
+                </div>
+            </div>
         </div>
-        <div class="col text">
-            {{ props.value }}
-        </div>
-    </div>
+    </LinkComponent>
 </template>
 
 <style scoped>
 .row {
-    width: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
+    height: fit-content
 }
 
-.col {
-    width: 50%;
-    vertical-align: middle;
+.icon {
+    margin: auto 10px;
+    height: 100%;
+    width: 20px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    margin: auto 0;
+}
+
+.heading {
+    font-size: 15px;
+    font-weight: normal;
+    color: var(--color-text-light);
+}
+
+.value {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-text);
 }
 </style>

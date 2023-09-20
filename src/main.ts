@@ -11,7 +11,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 /* import specific icons */
-import { faEnvelope, faMobile, faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faMobile, faMapLocationDot, faCalendarDays, faCakeCandles } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub, faDiscord, faHackerrank, faKaggle } from '@fortawesome/free-brands-svg-icons';
 
 
@@ -20,6 +20,8 @@ library.add(
     faEnvelope,
     faMobile,
     faMapLocationDot,
+    faCalendarDays,
+    faCakeCandles,
     faLinkedin,
     faGithub,
     faDiscord,

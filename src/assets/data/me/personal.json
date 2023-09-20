@@ -7,11 +7,19 @@
         "Software Engineer"
     ],
     "date_of_birth": {
+        "name": "Date of birth",
+        "icon": "fa-solid fa-cake-candles",
         "year": 2000,
         "month": 2,
         "day": 25
     },
+    "age": {
+        "name": "Age",
+        "icon": "fa-solid fa-calendar-days"
+    },
     "location": {
+        "name": "Location",
+        "icon": "fa-solid fa-map-location-dot",
         "city": "Prague",
         "country": "Czechia",
         "flexible": true
@@ -43,7 +51,7 @@
             "service": "Email address",
             "icon": "fa-solid fa-envelope",
             "username": "dev.jakubrada@icloud.com",
-            "link": "dev.jakubrada@icloud.com",
+            "link": "mailto:dev.jakubrada@icloud.com",
             "use": true
         },
         {

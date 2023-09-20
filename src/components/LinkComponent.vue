@@ -25,7 +25,6 @@ a:link {
 .hover-box {
     display: block;
     border-radius: var(--border-radius);
-    height: 50px;
     cursor: pointer;
 }
 

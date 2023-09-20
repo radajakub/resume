@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import { computeAge, formatDate, profilePictureShowBorder, introComponentDottedSeparator } from '@/utils.ts';
 
+import BadgeComponent from '@/components/BadgeComponent.vue';
 import ProfilePictureComponent from '@/components/intro/ProfilePictureComponent.vue';
 import SeparatorComponent from '@/components/SeparatorComponent.vue';
 import InfoComponent from '@/components/intro/InfoComponent.vue';
-import ContactComponent from '@/components/intro/ContactComponent.vue';
 
 import personal from '@/assets/data/me/personal.json';
-import BadgeComponent from '@/components/BadgeComponent.vue';
 
 const _dob = personal.date_of_birth;
 const dateOfBirth = new Date(_dob.year, _dob.month, _dob.day)
-const age = computeAge(dateOfBirth);
+const age = `${computeAge(dateOfBirth)}`;
 const dateOfBirthFormatted = formatDate(dateOfBirth);
 
 const location = personal.location;
@@ -35,22 +34,23 @@ const filteredContacts = contacts.filter((contact) => contact.use);
         <div class="center title ph-20">{{ personal.first_name }} {{ personal.last_name }}</div>
         <div class="ph-20">
             <BadgeComponent v-for="title in personal.titles" class="text">{{ title }}</BadgeComponent>
-            <!-- <div v-for="title in personal.titles" class="center text">{{ title }}</div> -->
         </div>
         <div class="pv-10">
             <SeparatorComponent :dotted="introComponentDottedSeparator" />
         </div>
         <!-- personal information section -->
         <div class="ph-20">
-            <InfoComponent name="Date of birth" :value="dateOfBirthFormatted" />
-            <InfoComponent name="Age" :value="`${age} years`" />
-            <InfoComponent name="Location" :value="locationFormatted" />
+            <InfoComponent :icon="personal.date_of_birth.icon" :heading="personal.date_of_birth.name"
+                :value="dateOfBirthFormatted" />
+            <InfoComponent :icon="personal.age.icon" :heading="personal.age.name" :value="age" />
+            <InfoComponent :icon="personal.location.icon" :heading="personal.location.name" :value="locationFormatted" />
         </div>
         <div class="pv-10">
             <SeparatorComponent :dotted="introComponentDottedSeparator" />
         </div>
         <div class="ph-20">
-            <ContactComponent v-for="contact in filteredContacts" :link="contact.link" :icon="contact.icon" />
+            <InfoComponent v-for="contact in filteredContacts" :url="contact.link" :icon="contact.icon"
+                :heading="contact.service" :value="contact.username" />
         </div>
         <!-- contacts information section -->
     </div>
