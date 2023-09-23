@@ -30,6 +30,7 @@
   --color-background-hover: var(--base2);
   /* TODO make it only slightly darker than on hover, this is too much */
   --color-background-click: var(--base1);
+  --color-background-modal: var(--base3);
   --color-border: var(--base03);
   --color-text: var(--base03);
   --color-text-light: var(--base02);
@@ -52,12 +53,19 @@
   --badge-vertical-padding: 2px;
   --badge-border-radius: 5px;
 
+  /* shadows for boxes */
   --translation-size-pos: 4px;
   --translation-size-neg: -4px;
   --translation-size-pos-double: 8px;
   --translation-size-neg-double: -8px;
   --translation-time: 0.2s;
   --shadow-color: #000000;
+
+  /* modal transition */
+  --modal-translation-time: 0.3s;
+  --modal-transparency-color: rgba(0, 0, 0, 0.5);
+  --modal-shadow-color: rgba(0, 0, 0, 0.33);
+  --modal-shadow-size: 8px;
 }
 
 /* TODO: dark color scheme */

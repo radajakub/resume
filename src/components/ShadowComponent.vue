@@ -13,6 +13,7 @@
 }
 
 .shadowed {
+    cursor: pointer;
     transition: transform var(--translation-time) ease, box-shadow var(--translation-time) ease;
 }
 </style>

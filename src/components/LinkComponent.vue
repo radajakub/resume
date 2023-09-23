@@ -2,10 +2,16 @@
 import { openLink } from '@/utils.ts';
 
 const props = defineProps<{ url?: string, border?: boolean }>();
+
+const onClick = () => {
+    if (props.url != null) {
+        openLink(props.url);
+    }
+}
 </script>
 
 <template>
-    <div @click="() => openLink(url)">
+    <div @click="onClick">
         <div class="hover-box" :class="{ border: props.border }">
             <slot></slot>
         </div>
