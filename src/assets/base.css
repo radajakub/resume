@@ -17,6 +17,7 @@
   --blue: #268bd2;
   --cyan: #2aa198;
   --green: #859900;
+  --white: #ffffff;
 }
 
 /* semantic color variables for this project */
@@ -50,6 +51,13 @@
   --badge-horizontal-padding: 5px;
   --badge-vertical-padding: 2px;
   --badge-border-radius: 5px;
+
+  --translation-size-pos: 4px;
+  --translation-size-neg: -4px;
+  --translation-size-pos-double: 8px;
+  --translation-size-neg-double: -8px;
+  --translation-time: 0.2s;
+  --shadow-color: #000000;
 }
 
 /* TODO: dark color scheme */

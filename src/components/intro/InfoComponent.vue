@@ -36,6 +36,7 @@ const props = defineProps<{ icon: string, heading: string, value: string, url?: 
     margin: auto 20px auto 10px;
     height: 100%;
     width: 20px;
+    text-align: center;
 }
 
 .column {

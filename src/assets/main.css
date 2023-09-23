@@ -5,7 +5,6 @@ body {
   color: var(--color-text);
   background-color: var(--color-background);
   font-size: 15px;
-  line-height: 1.5;
 
   cursor: default;
 
@@ -43,7 +42,7 @@ body {
 
 .text {
   font-weight: normal;
-  font-size: 15pt;
+  font-size: 12pt;
 }
 
 .bold {
@@ -58,8 +57,8 @@ body {
   border-radius: var(--border-radius);
 }
 
-.padded {
-  padding: var(--border-padding-vertical) var(--border-padding-horizontal);
+.sharp-border {
+  border-radius: 0;
 }
 
 .pv-5 {
@@ -80,6 +79,11 @@ body {
   padding-bottom: 10px;
 }
 
+.ph-10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .pr-20 {
   padding-right: 20px;
 }
@@ -94,6 +98,22 @@ body {
   padding-right: 20px;
 }
 
+.p-10 {
+  padding: 20px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.p-30 {
+  padding: 30px;
+}
+
+.p-40 {
+  padding: 40px;
+}
+
 .mv-5 {
   margin-top: 5px;
   margin-bottom: 5px;
@@ -106,4 +126,12 @@ body {
 
 .debug {
   border: 1px solid red;
+}
+
+.white-bg {
+  background: var(--white);
+}
+
+.lighter-border {
+  border-color: var(--base0);
 }
