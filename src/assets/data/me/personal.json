@@ -24,21 +24,6 @@
         "country": "Czechia",
         "flexible": true
     },
-    "languages": [
-        {
-            "czech": "native",
-            "english": "fluent",
-            "spanish": "intermediate"
-        }
-    ],
-    "interests": [
-        "running",
-        "programming",
-        "gym",
-        "reading",
-        "learning",
-        "rap music"
-    ],
     "contacts": [
         {
             "service": "Phone number",
@@ -112,6 +97,25 @@
         ]
     },
     "skills": [
+        {
+            "category": "Languages",
+            "skills": [
+                "Czech",
+                "English",
+                "Spanish"
+            ]
+        },
+        {
+            "category": "Interests",
+            "skills": [
+                "running",
+                "programming",
+                "gym",
+                "reading",
+                "learning",
+                "rap music"
+            ]
+        },
         {
             "category": "Programming",
             "skills": [
