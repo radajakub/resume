@@ -11,7 +11,8 @@ export function computeAge(dateOfBirth: Date): number {
 
 // format dat to dd/mm/yyyy
 export function formatDate(date: Date): string {
-    return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+    const month = date.getMonth();
+    return `${date.getDate()}/${(month < 10 ? "0" : "") + month.toString()}/${date.getFullYear()}`;
 }
 
 export function computePercentage(curr: number, max: number): number {
