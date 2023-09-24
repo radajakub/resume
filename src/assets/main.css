@@ -124,6 +124,10 @@ body {
   margin-bottom: 10px;
 }
 
+mr-10 {
+  margin-right: 10px;
+}
+
 .debug {
   border: 1px solid red;
 }

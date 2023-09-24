@@ -99,6 +99,7 @@
     "skills": [
         {
             "category": "Languages",
+            "icon": "fa-solid fa-language",
             "skills": [
                 "Czech",
                 "English",
@@ -107,6 +108,7 @@
         },
         {
             "category": "Interests",
+            "icon": "fa-solid fa-dumbbell",
             "skills": [
                 "running",
                 "programming",
@@ -118,6 +120,7 @@
         },
         {
             "category": "Programming",
+            "icon": "fa-solid fa-code",
             "skills": [
                 "C/C++",
                 "Julia",
@@ -132,6 +135,7 @@
         },
         {
             "category": "Application Frameworks",
+            "icon": "fa-brands fa-app-store-ios",
             "skills": [
                 "Flutter",
                 "Web",
@@ -142,7 +146,8 @@
             ]
         },
         {
-            "category": "AI/ML",
+            "category": "AI/ML tools",
+            "icon": "fa-solid fa-brain",
             "skills": [
                 "PyTorch",
                 "Scikit-learn",
@@ -151,6 +156,7 @@
         },
         {
             "category": "Other skills and traits",
+            "icon": "fa-solid fa-person",
             "skills": [
                 "Adaptability",
                 "Precision",
