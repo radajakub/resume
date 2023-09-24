@@ -23,7 +23,7 @@
 /* semantic color variables for this project */
 /* light color scheme */
 :root {
-  --base-padding-horizontal: 100px;
+  --base-padding-horizontal: 50px;
   --base-padding-vertical: 50px;
 
   --color-background: var(--base3);
@@ -66,6 +66,10 @@
   --modal-transparency-color: rgba(0, 0, 0, 0.5);
   --modal-shadow-color: rgba(0, 0, 0, 0.33);
   --modal-shadow-size: 8px;
+
+  /* scroll dots */
+  --dots-color: var(--base2);
+  --dots-active-color: var(--base03);
 }
 
 /* TODO: dark color scheme */

@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 
 import ShadowComponent from '@/components/ShadowComponent.vue';
-import ModalComponent from '../ModalComponent.vue';
+import ModalComponent from '@/components/ModalComponent.vue';
 
 const props = defineProps<{
     aboutme: { [key: string]: string[] }
