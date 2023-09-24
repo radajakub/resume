@@ -27,9 +27,6 @@ const skills = personal_info.skills;
 }
 
 .about-me-col {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 400px;
+    height: fit-content;
 }
 </style>

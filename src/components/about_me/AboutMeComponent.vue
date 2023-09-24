@@ -17,8 +17,8 @@ const modalVisible = ref(false);
         <div class="container white-bg thin-border sharp-border" @click="() => modalVisible = true">
             <div class="p-10">
                 <div class="subtitle mb-10">About me</div>
-                <p v-for="paragraph in paragraphs" class="text pb-10 limited">
-                    {{ paragraph }}
+                <p class="text pb-10 ">
+                    {{ paragraphs[0] }}
                 </p>
             </div>
         </div>
