@@ -1,4 +1,5 @@
 @import './base.css';
+@import './margins.css';
 
 body {
   padding: var(--base-padding-vertical) var(--base-padding-horizontal);
@@ -59,85 +60,6 @@ body {
 
 .sharp-border {
   border-radius: 0;
-}
-
-.pv-5 {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.pt-10 {
-  padding-top: 10px;
-}
-
-.pb-10 {
-  padding-bottom: 10px;
-}
-
-.pv-10 {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.ph-10 {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.pr-20 {
-  padding-right: 20px;
-}
-
-.pv-20 {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.ph-20 {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.p-10 {
-  padding: 20px;
-}
-
-.p-20 {
-  padding: 20px;
-}
-
-.p-30 {
-  padding: 30px;
-}
-
-.p-40 {
-  padding: 40px;
-}
-
-.mv-5 {
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-
-.mv-10 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.mr-10 {
-  margin-right: 10px;
-}
-
-.mb-10 {
-  margin-bottom: 10px;
-}
-
-.mb-20 {
-  margin-bottom: 20px;
-}
-
-.mb-50 {
-  margin-bottom: 20px;
 }
 
 .debug {
