@@ -14,22 +14,30 @@ const modalVisible = ref(false);
 
 <template>
     <ShadowComponent>
-        <div class="white-bg thin-border sharp-border p-10 limited" @click="() => modalVisible = true">
-            <div class="subtitle pb-10">About me</div>
-            <div v-for="paragraph in paragraphs" class="text pb-10">
-                {{ paragraph }}
+        <div class="container white-bg thin-border sharp-border" @click="() => modalVisible = true">
+            <div class="p-10">
+                <div class="subtitle mb-10">About me</div>
+                <p v-for="paragraph in paragraphs" class="text pb-10 limited">
+                    {{ paragraph }}
+                </p>
             </div>
         </div>
         <ModalComponent :widthPerc=80 title="About me" @close="modalVisible = false" :show="modalVisible">
-            <div v-for="paragraph in paragraphs" class="text pb-10">
+            <p v-for="paragraph in paragraphs" class="text">
                 {{ paragraph }}
-            </div>
+            </p>
         </ModalComponent>
     </ShadowComponent>
 </template>
 
 <style scoped>
+.container {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
 .limited {
-    text-overflow: ellipsis;
+    overflow: hidden;
 }
 </style>

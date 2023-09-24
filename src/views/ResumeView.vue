@@ -2,20 +2,22 @@
 import IntroductionComponent from '@/components/intro/IntroductionComponent.vue';
 import AboutMeComponent from '@/components/about_me/AboutMeComponent.vue';
 import personal_info from '@/assets/data/me/personal.json';
+import SkillComponent from '@/components/about_me/SkillComponent.vue';
+import EducationComponent from '@/components/items/EducationComponent.vue';
 
 const about_me = personal_info.aboutme;
+const skills = personal_info.skills;
 </script>
 
 
 <template>
     <!-- introduction row [personal column, about me column] -->
-    <div class="intro-row">
+    <div class="intro-row mb-50">
         <IntroductionComponent />
-        <div class="about-me-col">
-            <AboutMeComponent :aboutme="about_me" />
+        <div class="about-me-col ml-20">
+            <AboutMeComponent :aboutme="about_me" class="mb-50" />
         </div>
     </div>
-    <!-- education row -->
 </template>
 
 <style scoped>
@@ -25,6 +27,10 @@ const about_me = personal_info.aboutme;
 }
 
 .about-me-col {
-    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    max-width: 800px;
 }
 </style>

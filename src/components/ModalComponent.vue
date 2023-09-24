@@ -14,12 +14,13 @@ const left_string = ((100 - actual_width) / 2).toString() + "%";
     <Teleport to="body">
         <Transition name="modal">
             <div v-if="props.show" class="modal-mask">
-                <div class="modal thin-border rounded-border" :style="{ width: actual_width_string, left: left_string }">
+                <div class="modal-container thin-border rounded-border"
+                    :style="{ width: actual_width_string, left: left_string }">
                     <div class="subtitle center pv-10">
                         {{ props.title }}
                     </div>
                     <SeparatorComponent />
-                    <div class="p-20">
+                    <div class="p-20 modal-body">
                         <slot></slot>
                     </div>
                     <SeparatorComponent />
@@ -43,20 +44,25 @@ const left_string = ((100 - actual_width) / 2).toString() + "%";
     width: 100%;
     height: 100%;
     background-color: var(--modal-transparency-color);
-    display: flex;
     transition: opacity var(--modal-translation-time) ease;
 }
 
-.modal {
+.modal-container {
     position: fixed;
     z-index: 999;
-    top: 20%;
+    top: 10%;
+    height: 80%;
     background-color: var(--color-background-modal);
     box-shadow: 0 0 var(--modal-shadow-size) var(--modal-shadow-color);
     transition: all var(--modal-translation-time) ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.modal-body {}
+.modal-body {
+    overflow: scroll;
+}
 
 .modal-enter-from {
     opacity: 0;
@@ -68,7 +74,7 @@ const left_string = ((100 - actual_width) / 2).toString() + "%";
 
 .modal-enter-from .modal-container,
 .modal-leave-to .modal-container {
-    -webkit-transform: scale(2);
-    transform: scale(2);
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
 }
 </style>

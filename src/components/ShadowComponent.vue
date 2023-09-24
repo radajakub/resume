@@ -13,6 +13,8 @@
 }
 
 .shadowed {
+    height: 100%;
+    width: 100%;
     cursor: pointer;
     transition: transform var(--translation-time) ease, box-shadow var(--translation-time) ease;
 }
