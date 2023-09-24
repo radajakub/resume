@@ -31,6 +31,5 @@ const skills = personal_info.skills;
     flex-direction: column;
     justify-content: space-between;
     height: 400px;
-    max-width: 800px;
 }
 </style>
