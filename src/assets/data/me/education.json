@@ -3,20 +3,20 @@
         {
             "school": "Gymnazium Praha 6 Nad Aleji TODO",
             "faculty": null,
-            "specialization": "general",
+            "specialization": "general education",
             "start": {
-                "year": 2010,
+                "year": 2011,
                 "month": 9,
                 "day": 1
             },
             "end": {
-                "year": 2010,
+                "year": 2019,
                 "month": 9,
                 "day": 1
             },
             "level": "high school",
-            "logo-path": "",
-            "link": "",
+            "logoPath": "logo_alej.png",
+            "link": "https://www.alej.cz/about-school/",
             "grade": {
                 "GPA": "1.0",
                 "scale": " - 1 (best) to 5 (worst)"
@@ -43,7 +43,7 @@
                 "day": 1
             },
             "level": "Bachelor",
-            "logo-path": "",
+            "logoPath": "",
             "link": "",
             "grade": {
                 "GPA": "1.0",
@@ -82,7 +82,7 @@
                 "day": 1
             },
             "level": "Master",
-            "logo-path": "",
+            "logoPath": "",
             "link": "",
             "grade": {
                 "GPA": "1.0",
@@ -121,7 +121,7 @@
                 "day": 1
             },
             "level": "Bachelor",
-            "logo-path": "",
+            "logoPath": "",
             "link": "",
             "grade": {
                 "GPA": "1.0",
