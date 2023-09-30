@@ -1,43 +1,29 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
-import ShadowComponent from '@/components/ShadowComponent.vue';
-import ModalComponent from '@/components/ModalComponent.vue';
+import MainModaledComponent from '../MainModaledComponent.vue';
 
 const props = defineProps<{
     aboutme: { [key: string]: string[] }
 }>();
 const paragraphs: string[] = props.aboutme.paragraphs;
-
-const modalVisible = ref(false);
 </script>
 
 <template>
-    <ShadowComponent>
-        <div class="container white-bg thin-border sharp-border" @click="() => modalVisible = true">
+    <MainModaledComponent modalTitle="About Me" :modalWidth=80>
+        <template #main>
             <div class="p-10">
                 <div class="subtitle mb-10">About me</div>
                 <p class="text pb-10 ">
                     {{ paragraphs[0] }}
                 </p>
             </div>
-        </div>
-        <ModalComponent :widthPerc=80 title="About me" @close="modalVisible = false" :show="modalVisible">
+        </template>
+        <template #modal>
             <p v-for="paragraph in paragraphs" class="text">
                 {{ paragraph }}
             </p>
-        </ModalComponent>
-    </ShadowComponent>
+        </template>
+    </MainModaledComponent>
 </template>
 
 <style scoped>
-.container {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-}
-
-.limited {
-    overflow: hidden;
-}
 </style>
