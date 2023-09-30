@@ -11,7 +11,7 @@ const onClick = () => {
 </script>
 
 <template>
-    <div @click="onClick">
+    <div @click.stop="onClick">
         <div class="hover-box" :class="{ border: props.border }">
             <slot></slot>
         </div>
@@ -19,15 +19,6 @@ const onClick = () => {
 </template>
 
 <style scoped>
-a,
-a:visited,
-a:active,
-a:link {
-    text-decoration: none;
-    color: inherit;
-    cursor: auto;
-}
-
 .hover-box {
     display: block;
     border-radius: var(--border-radius);
