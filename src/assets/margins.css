@@ -16,6 +16,11 @@
     padding-bottom: 10px;
 }
 
+.pv-5 {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .ph-10 {
     padding-left: 10px;
     padding-right: 10px;
@@ -36,7 +41,7 @@
 }
 
 .p-10 {
-    padding: 20px;
+    padding: 10px;
 }
 
 .p-20 {
