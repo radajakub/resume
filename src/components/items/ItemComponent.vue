@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import MainModaledComponent from '@/components/MainModaledComponent.vue';
-import SeparatorComponent from '@/components/SeparatorComponent.vue';
 import LinkComponent from '@/components/LinkComponent.vue';
+import RowComponent from '@/components/items/RowComponent.vue';
+import { ref, watch, watchEffect } from 'vue';
 
 const props = defineProps<{
     modalTitle: string,
@@ -12,38 +13,57 @@ const props = defineProps<{
     subtitles: string[],
     logoPath?: string,
     logoLink?: string,
+    midLeft?: string,
+    midRight?: string,
+    bottomLeft?: string,
+    bottomRight?: string,
 }>();
 
-const link = '@/assets/pictures/' + props.logoPath;
-console.log(link);
+const showMiddleRow = props.midLeft != null || props.midRight != null;
+const showBottomRow = props.bottomLeft != null || props.bottomRight != null;
+
+const logo = ref();
+watchEffect(async () => {
+    if (props.logoPath != null) {
+        logo.value = (await import('../../assets/pictures/' + props.logoPath)).default;
+    }
+});
+
 </script>
 
 <template>
-    <MainModaledComponent :modalTitle="props.modalTitle" :modalWidth="props.modalWidth" class="main-size">
+    <MainModaledComponent :modalTitle="props.modalTitle" :modalWidth="props.modalWidth" class="sized">
         <template #main>
             <div class="main-col">
-                <div class="header-row pv-5 ph-10">
+                <RowComponent :bottomSeparator=true :bottomSeparatorDotted=true>
                     <div class="text">{{ props.topLeft }}</div>
                     <div class="text">{{ props.topRight }}</div>
-                </div>
-                <SeparatorComponent :dotted="true" :noVerticalPadding="true" />
-                <div class="main-row pv-5 ph-10">
-                    <div class="title-col">
-                        <div class="subsubtitle">
-                            {{ props.title }}
-                        </div>
-                        <div class="text" v-for="subtitle in props.subtitles">
-                            {{ subtitle }}
-                        </div>
+                </RowComponent>
+                <div class="main-row">
+                    <div class="ph-10 pt-10 pb-5">
+                        <div class="subsubtitle">{{ props.title }}</div>
                     </div>
-                    <div class="logo-col" v-if="props.logoPath != null">
-                        <div class="logo-link">
+                    <RowComponent :expand=true>
+                        <div class="title-col pr-20">
+                            <div class="text" v-for="subtitle in props.subtitles">
+                                {{ subtitle }}
+                            </div>
+                        </div>
+                        <div class="logo-col" v-if="props.logoPath != null">
                             <LinkComponent :url="props.logoLink">
-                                <img :src="link" class="img-link p-10">
+                                <img :src="logo" class="img-link p-10">
                             </LinkComponent>
                         </div>
-                    </div>
+                    </RowComponent>
                 </div>
+                <RowComponent :topSeparator=true :topSeparatorDotted=true v-if="showMiddleRow">
+                    <div class="text">{{ props.midLeft }}</div>
+                    <div class="text">{{ props.midRight }}</div>
+                </RowComponent>
+                <RowComponent :topSeparator=true :topSeparatorDotted=true v-if="showBottomRow">
+                    <div class="text">{{ props.bottomLeft }}</div>
+                    <div class="text">{{ props.bottomRight }}</div>
+                </RowComponent>
             </div>
         </template>
         <template #modal></template>
@@ -51,26 +71,33 @@ console.log(link);
 </template>
 
 <style scoped>
-.main-size {
-    width: 400px;
+.sized {
+    width: 300px;
     height: 300px;
 }
 
-.header-row {
+.main-col {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-content: space-between;
+    height: 100%;
 }
 
 .main-row {
+    flex: 1;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+}
+
+.title-col {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .img-link {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
 }
 </style>

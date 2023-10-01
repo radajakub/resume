@@ -14,7 +14,7 @@
                 "month": 9,
                 "day": 1
             },
-            "level": "high school",
+            "level": "High school",
             "logoPath": "logo_alej.png",
             "link": "https://www.alej.cz/about-school/",
             "grade": {
@@ -25,6 +25,7 @@
                 "grade": "1.0",
                 "honors": true
             },
+            "short": "TODO",
             "description": "TODO",
             "courses": null
         },

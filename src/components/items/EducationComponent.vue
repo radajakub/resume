@@ -20,13 +20,17 @@ if (edu.faculty != null) {
 if (edu.specialization != null) {
     subtitles.push(edu.specialization);
 }
+if (edu.short != null) {
+    subtitles.push(edu.short);
+}
 
 </script>
 
 <template>
     <ItemComponent :topLeft="education.level" :topRight="interval.computePercentage() + '%'" :title="education.school"
-        :logoPath="education.logoPath" :logo-link="education.link" :subtitles="subtitles" :modalTitle="education.school"
-        :modalWidth="props.modalWidth" />
+        :logoPath="education.logoPath" :logo-link="education.link" :subtitles="subtitles" :midLeft="education.grade.GPA"
+        :midRight="education.graduation.honors ? 'Honors' : ''" :modalTitle="education.school"
+        :bottomLeft="education.start.year + ' - ' + education.end.year" :modalWidth="props.modalWidth" />
 </template>
 
 <style scoped>
