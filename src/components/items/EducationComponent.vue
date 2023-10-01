@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ItemComponent from '@/components/items/ItemComponent.vue';
-import { Interval } from '@/utils';
+import { Interval } from '@/classes/interval.ts';
 
 const props = defineProps<{
     education: Object,

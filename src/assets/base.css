@@ -18,6 +18,9 @@
   --cyan: #2aa198;
   --green: #859900;
   --white: #ffffff;
+
+  --light-gray: #f0f0f0;
+  --darker-gray: #d3d3d3;
 }
 
 /* semantic color variables for this project */
@@ -26,10 +29,12 @@
   --base-padding-horizontal: 50px;
   --base-padding-vertical: 50px;
 
+  /* TODO make it only slightly darker than on hover, this is too much */
   --color-background: var(--base3);
   --color-background-hover: var(--base2);
-  /* TODO make it only slightly darker than on hover, this is too much */
   --color-background-click: var(--base1);
+  --color-background-hover-on-white: var(--light-gray);
+  --color-background-click-on-white: var(--darker-gray);
   --color-background-modal: var(--base3);
   --color-border: var(--base03);
   --color-text: var(--base03);

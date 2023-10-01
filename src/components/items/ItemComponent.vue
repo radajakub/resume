@@ -25,7 +25,7 @@ const showBottomRow = props.bottomLeft != null || props.bottomRight != null;
 const logo = ref();
 watchEffect(async () => {
     if (props.logoPath != null) {
-        logo.value = (await import('../../assets/pictures/' + props.logoPath)).default;
+        logo.value = (await import(/* @vite-ignore */ '../../assets/pictures/' + props.logoPath)).default;
     }
 });
 
@@ -50,7 +50,8 @@ watchEffect(async () => {
                             </div>
                         </div>
                         <div class="logo-col" v-if="props.logoPath != null">
-                            <LinkComponent :url="props.logoLink">
+                            <LinkComponent :url="props.logoLink" :hoverColor="'var(--light-gray)'"
+                                :clickColor="'var(--darker-gray)'">
                                 <img :src="logo" class="img-link p-10">
                             </LinkComponent>
                         </div>

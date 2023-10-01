@@ -16,7 +16,7 @@
     "allowImportingTsExtensions": true,
     "paths": {
       "@/*": [
-        "./src/*"
+        "src/*"
       ]
     }
   }

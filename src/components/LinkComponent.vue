@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import { openLink } from '@/utils.ts';
 
-const props = defineProps<{ url?: string, border?: boolean }>();
+const props = defineProps<{ url?: string, border?: boolean, hoverColor?: string, clickColor?: string, bgColor?: string, }>();
 
 const onClick = () => {
     if (props.url != null) {
         openLink(props.url);
     }
 }
+
+const theme = {
+    background: props.bgColor ?? 'transparent',
+    hoverColor: props.hoverColor ?? 'var(--color-background-hover)',
+    clickColor: props.clickColor ?? 'var(--color-background-click)',
+}
+
 </script>
 
 <template>
@@ -23,14 +30,15 @@ const onClick = () => {
     display: block;
     border-radius: var(--border-radius);
     cursor: pointer;
+    background-color: v-bind('theme.background');
 }
 
 .hover-box:hover {
-    background: var(--color-background-hover);
+    background: v-bind('theme.hoverColor');
 }
 
 .hover-box:active {
-    background: var(--color-background-click);
+    background: v-bind('theme.clickColor');
 }
 
 .border {
