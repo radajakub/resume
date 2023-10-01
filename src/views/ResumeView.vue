@@ -39,7 +39,7 @@ const educations = education.all.sort((a, b) => {
         </div>
     </div>
     <div class="edu-col mb-50">
-        <div class="title mb-20">Education</div>
+        <div class="heading mb-20">Education</div>
         <div class="edu-row">
             <EducationComponent v-for="education in educations" :education="education" :modalWidth=80 class="mb-20" />
         </div>

@@ -31,7 +31,7 @@ const filteredContacts = contacts.filter((contact) => contact.use);
         <div class="pb-10 center-self">
             <ProfilePictureComponent :show-border="profilePictureShowBorder" />
         </div>
-        <div class="center title ph-20">{{ personal.first_name }} {{ personal.last_name }}</div>
+        <div class="center heading ph-20">{{ personal.first_name }} {{ personal.last_name }}</div>
         <div class="ph-20">
             <BadgeComponent v-for="title in personal.titles" class="text">{{ title }}</BadgeComponent>
         </div>

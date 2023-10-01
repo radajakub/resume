@@ -75,6 +75,12 @@
   /* scroll dots */
   --dots-color: var(--base2);
   --dots-active-color: var(--base03);
+
+  --bold: 700;
+  --semi-bold: 600;
+  --medium: 500;
+  --regular: 400;
+  --light: 300;
 }
 
 /* TODO: dark color scheme */

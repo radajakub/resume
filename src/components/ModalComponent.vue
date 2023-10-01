@@ -16,7 +16,7 @@ const left_string = ((100 - actual_width) / 2).toString() + "%";
             <div v-if="props.show" class="modal-mask">
                 <div class="modal-container thin-border rounded-border"
                     :style="{ width: actual_width_string, left: left_string }">
-                    <div class="subtitle center pv-10">
+                    <div class="title center pv-10">
                         {{ props.title }}
                     </div>
                     <SeparatorComponent />
@@ -25,7 +25,7 @@ const left_string = ((100 - actual_width) / 2).toString() + "%";
                     </div>
                     <SeparatorComponent />
                     <LinkComponent @click="$emit('close')">
-                        <div class="center subsubtitle pv-5">
+                        <div class="center subtitle pv-5">
                             Close
                         </div>
                     </LinkComponent>

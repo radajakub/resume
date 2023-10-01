@@ -11,7 +11,7 @@ const paragraphs: string[] = props.aboutme.paragraphs;
     <MainModaledComponent modalTitle="About Me" :modalWidth=80>
         <template #main>
             <div class="p-10">
-                <div class="subtitle mb-10">About me</div>
+                <div class="title mb-10">About me</div>
                 <p class="text pb-10 ">
                     {{ paragraphs[0] }}
                 </p>

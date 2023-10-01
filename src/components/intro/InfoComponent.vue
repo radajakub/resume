@@ -13,10 +13,10 @@ const props = defineProps<{ icon: string, heading: string, value: string, url?: 
                 <font-awesome-icon :icon="props.icon" />
             </div>
             <div class="column">
-                <div class="heading">
+                <div class="light-text light-color">
                     {{ props.heading }}
                 </div>
-                <div class="value">
+                <div class="subsubtitle value-color">
                     {{ props.value }}
                 </div>
             </div>
@@ -42,19 +42,15 @@ const props = defineProps<{ icon: string, heading: string, value: string, url?: 
 .column {
     display: flex;
     flex-direction: column;
-    line-height: 1;
+    line-height: 1.2;
     margin: auto 0;
 }
 
-.heading {
-    font-size: 15px;
-    font-weight: normal;
+.light-color {
     color: var(--color-text-light);
 }
 
-.value {
-    font-size: 20px;
-    font-weight: bold;
+.value-color {
     color: var(--color-text);
 }
 </style>

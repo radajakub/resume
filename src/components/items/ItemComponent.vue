@@ -41,7 +41,7 @@ watchEffect(async () => {
                 </RowComponent>
                 <div class="main-row">
                     <div class="ph-10 pt-10 pb-5">
-                        <div class="subsubtitle">{{ props.title }}</div>
+                        <div class="subtitle">{{ props.title }}</div>
                     </div>
                     <RowComponent :expand=true>
                         <div class="title-col pr-20">
