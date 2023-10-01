@@ -34,18 +34,18 @@
             "faculty": "Faculty of Electrical Engineering",
             "specialization": "Artificial Intelligence and Computer Science",
             "start": {
-                "year": 2010,
+                "year": 2019,
                 "month": 9,
                 "day": 1
             },
             "end": {
-                "year": 2010,
+                "year": 2022,
                 "month": 9,
                 "day": 1
             },
             "level": "Bachelor",
-            "logoPath": "",
-            "link": "",
+            "logoPath": "logo_cvut.jpg",
+            "link": "https://oi.fel.cvut.cz/en/",
             "grade": {
                 "GPA": "1.0",
                 "scale": " - 1 (best) to 5 (worst)"
@@ -71,20 +71,20 @@
         {
             "school": "Korean Advanced Insitute of Science and Technology (KAIST)",
             "faculty": "Faculty of Electrical Engineering",
-            "specialization": null,
+            "specialization": "Exchange student",
             "start": {
-                "year": 2010,
+                "year": 2023,
                 "month": 9,
                 "day": 1
             },
             "end": {
-                "year": 2010,
+                "year": 2023,
                 "month": 9,
                 "day": 1
             },
             "level": "Master",
-            "logoPath": "",
-            "link": "",
+            "logoPath": "logo_kaist.gif",
+            "link": "https://www.kaist.ac.kr/en/",
             "grade": {
                 "GPA": "1.0",
                 "scale": " - 1 (best) to 5 (worst)"
@@ -112,18 +112,18 @@
             "faculty": "Faculty of Electrical Engineering",
             "specialization": "Artificial Intelligence and Computer Science",
             "start": {
-                "year": 2010,
+                "year": 2022,
                 "month": 9,
                 "day": 1
             },
             "end": {
-                "year": 2010,
+                "year": 2025,
                 "month": 9,
                 "day": 1
             },
-            "level": "Bachelor",
-            "logoPath": "",
-            "link": "",
+            "level": "Master",
+            "logoPath": "logo_cvut.jpg",
+            "link": "https://oi.fel.cvut.cz/en/",
             "grade": {
                 "GPA": "1.0",
                 "scale": " - 1 (best) to 5 (worst)"

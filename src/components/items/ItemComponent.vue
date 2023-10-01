@@ -72,7 +72,7 @@ watchEffect(async () => {
 
 <style scoped>
 .sized {
-    width: 300px;
+    width: 400px;
     height: 300px;
 }
 
@@ -93,11 +93,11 @@ watchEffect(async () => {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .img-link {
-    width: 80px;
-    height: 80px;
+    max-width: 80px;
+    max-height: 80px;
 }
 </style>

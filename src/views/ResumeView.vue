@@ -10,7 +10,19 @@ import education from '@/assets/data/me/education.json';
 
 const about_me = personal_info.aboutme;
 // const skills = personal_info.skills;
-const educations = education.all;
+const educations = education.all.sort((a, b) => {
+    const yearDiff = b.end.year - a.end.year;
+    if (yearDiff != 0) {
+        return yearDiff;
+    }
+
+    const monthDiff = b.end.month - a.end.month;
+    if (monthDiff != 0) {
+        return monthDiff;
+    }
+
+    return b.end.day - a.end.day;
+})
 
 </script>
 
@@ -29,7 +41,7 @@ const educations = education.all;
     <div class="edu-col mb-50">
         <div class="title mb-20">Education</div>
         <div class="edu-row">
-            <EducationComponent :education="educations[0]" :modalWidth=80 />
+            <EducationComponent v-for="education in educations" :education="education" :modalWidth=80 class="mb-20" />
         </div>
     </div>
 </template>
@@ -38,6 +50,11 @@ const educations = education.all;
 .intro-row {
     display: flex;
     flex-direction: row;
+}
+
+.edu-row {
+    display: flex;
+    flex-direction: column;
 }
 
 .about-me-col {
