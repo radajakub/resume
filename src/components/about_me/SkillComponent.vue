@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SeparatorComponent from '@/components/SeparatorComponent.vue';
+import SeparatorComponent from "@/components/SeparatorComponent.vue";
 
 const props = defineProps<{ title: string, icon: string, skills: string[] }>();
 </script>
@@ -16,7 +16,7 @@ const props = defineProps<{ title: string, icon: string, skills: string[] }>();
         </div>
         <SeparatorComponent no-vertical-padding />
         <div class="skill-list p-10">
-            <div v-for="skill in props.skills" class="text bold"> {{ skill }}</div>
+            <div v-for="(skill, index) in props.skills" :key="index" class="text bold"> {{ skill }}</div>
         </div>
     </div>
 </template>

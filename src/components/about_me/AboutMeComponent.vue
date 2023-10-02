@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MainModaledComponent from '../MainModaledComponent.vue';
+import MainModaledComponent from "@/components/MainModaledComponent.vue";
 
 const props = defineProps<{
     aboutme: { [key: string]: string[] }
@@ -18,7 +18,7 @@ const paragraphs: string[] = props.aboutme.paragraphs;
             </div>
         </template>
         <template #modal>
-            <p v-for="paragraph in paragraphs" class="text">
+            <p v-for="(paragraph, index) in paragraphs" class="text" :key="index">
                 {{ paragraph }}
             </p>
         </template>

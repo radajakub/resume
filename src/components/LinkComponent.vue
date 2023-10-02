@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { openLink } from '@/utils.ts';
+import { openLink } from "@/utils.ts";
 
 const props = defineProps<{ url?: string, border?: boolean, hoverColor?: string, clickColor?: string, bgColor?: string, }>();
 
@@ -7,13 +7,13 @@ const onClick = () => {
     if (props.url != null) {
         openLink(props.url);
     }
-}
+};
 
 const theme = {
-    background: props.bgColor ?? 'transparent',
-    hoverColor: props.hoverColor ?? 'var(--color-background-hover)',
-    clickColor: props.clickColor ?? 'var(--color-background-click)',
-}
+    background: props.bgColor ?? "transparent",
+    hoverColor: props.hoverColor ?? "var(--color-background-hover)",
+    clickColor: props.clickColor ?? "var(--color-background-click)",
+};
 
 </script>
 

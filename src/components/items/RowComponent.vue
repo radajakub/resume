@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SeparatorComponent from '@/components/SeparatorComponent.vue';
+import SeparatorComponent from "@/components/SeparatorComponent.vue";
 
 const props = defineProps<{
     bottomSeparator?: boolean,

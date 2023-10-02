@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LinkComponent from '@/components/LinkComponent.vue';
+import LinkComponent from "@/components/LinkComponent.vue";
 
 const props = defineProps<{ icon: string, heading: string, value: string, url?: string, border?: boolean }>();
 

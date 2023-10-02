@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import MainModaledComponent from '@/components/MainModaledComponent.vue';
-import LinkComponent from '@/components/LinkComponent.vue';
-import RowComponent from '@/components/items/RowComponent.vue';
-import { ref, watch, watchEffect } from 'vue';
+import MainModaledComponent from "@/components/MainModaledComponent.vue";
+import LinkComponent from "@/components/LinkComponent.vue";
+import RowComponent from "@/components/items/RowComponent.vue";
+import { ref, watchEffect } from "vue";
 
 const props = defineProps<{
     modalTitle: string,
@@ -25,7 +25,7 @@ const showBottomRow = props.bottomLeft != null || props.bottomRight != null;
 const logo = ref();
 watchEffect(async () => {
     if (props.logoPath != null) {
-        logo.value = (await import(/* @vite-ignore */ '../../assets/pictures/' + props.logoPath)).default;
+        logo.value = (await import(/* @vite-ignore */ "../../assets/pictures/" + props.logoPath)).default;
     }
 });
 
@@ -45,7 +45,7 @@ watchEffect(async () => {
                     </div>
                     <RowComponent :expand=true>
                         <div class="title-col pr-20">
-                            <div class="text" v-for="subtitle in props.subtitles">
+                            <div class="text" v-for="(subtitle, index) in props.subtitles" :key="index">
                                 {{ subtitle }}
                             </div>
                         </div>

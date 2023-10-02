@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ItemComponent from '@/components/items/ItemComponent.vue';
-import { Interval } from '@/classes/interval.ts';
+import ItemComponent from "@/components/items/ItemComponent.vue";
+import { Interval } from "@/classes/interval.ts";
 
 const props = defineProps<{
     education: Object,
@@ -13,7 +13,7 @@ const start = edu.start;
 const end = edu.end;
 const interval = new Interval(start.year, start.month, start.day, end.year, end.month, end.day);
 
-const subtitles = []
+const subtitles = [];
 if (edu.faculty != null) {
     subtitles.push(edu.faculty);
 }

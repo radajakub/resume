@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
 
-import ShadowComponent from '@/components/ShadowComponent.vue';
-import ModalComponent from '@/components/ModalComponent.vue';
+import ShadowComponent from "@/components/ShadowComponent.vue";
+import ModalComponent from "@/components/ModalComponent.vue";
 
 const props = defineProps<{ modalTitle: string, modalWidth: number }>();
 
