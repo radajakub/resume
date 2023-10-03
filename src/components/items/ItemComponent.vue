@@ -50,8 +50,7 @@ watchEffect(async () => {
                             </div>
                         </div>
                         <div class="logo-col" v-if="props.logoPath != null">
-                            <LinkComponent :url="props.logoLink" :hoverColor="'var(--light-gray)'"
-                                :clickColor="'var(--darker-gray)'">
+                            <LinkComponent :url="props.logoLink" :white-bg=true>
                                 <img :src="logo" class="img-link p-10">
                             </LinkComponent>
                         </div>

@@ -7,7 +7,7 @@ const props = defineProps<{ icon: string, heading: string, value: string, url?: 
 
 <template>
     <LinkComponent :url="props.url != null ? props.url : '#'" :border="border">
-        <div class="row pv-5">
+        <div class="row p-5">
             <div class="icon">
                 <font-awesome-icon :icon="props.icon" />
             </div>
@@ -45,11 +45,11 @@ const props = defineProps<{ icon: string, heading: string, value: string, url?: 
     margin: auto 0;
 }
 
-.light-color {
+/* .light-color {
     color: var(--color-text-light);
-}
+} */
 
-.value-color {
+/* .value-color {
     color: var(--color-text);
-}
+} */
 </style>

@@ -3,6 +3,7 @@ import { inject } from "vue";
 
 import IntroductionComponent from "@/components/intro/IntroductionComponent.vue";
 import AboutMeComponent from "@/components/about_me/AboutMeComponent.vue";
+import CarouselComponent from "@/components/carousel/CarouselComponent.vue";
 import EducationComponent from "@/components/items/EducationComponent.vue";
 
 import { Data } from "@/data.ts";
@@ -17,11 +18,15 @@ const data: Data | undefined = inject("data");
         <IntroductionComponent />
         <div class="about-me-col ml-20">
             <AboutMeComponent class="mb-50" />
+            <div class="carousel-col mb-50">
+                <CarouselComponent title="Carousel"></CarouselComponent>
+            </div>
             <!-- <CarouselComponent :title="'Skills'" :showCount="3" :maxCount="skills.length">
                 <SkillComponent v-for="skill in skills" :title="skill.category" :icon="skill.icon" :skills="skill.skills" />
             </CarouselComponent> -->
         </div>
     </div>
+
     <div class="edu-col mb-50">
         <div class="heading mb-20">Education</div>
         <div class="edu-row">

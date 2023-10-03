@@ -1,18 +1,23 @@
 <script setup lang="ts">
 import { openLink } from "@/utils.ts";
 
-const props = defineProps<{ url?: string, border?: boolean, hoverColor?: string, clickColor?: string, bgColor?: string, }>();
+const props = defineProps<{ url?: string, border?: boolean, whiteBg?: boolean }>();
+
+const whiteBg = props.whiteBg ?? false;
+var hoverBgColor = "var(--color-background-hover)";
+var clickBgColor = "var(--color-border)";
+var clickColor = "var(--color-background)";
+if (whiteBg) {
+    hoverBgColor = "var(--color-background-hover-white)";
+    clickBgColor = "var(--color-background-click-white)";
+    clickColor = "var(--color-text)";
+}
+
 
 const onClick = () => {
     if (props.url != null) {
         openLink(props.url);
     }
-};
-
-const theme = {
-    background: props.bgColor ?? "transparent",
-    hoverColor: props.hoverColor ?? "var(--color-background-hover)",
-    clickColor: props.clickColor ?? "var(--color-background-click)",
 };
 
 </script>
@@ -30,15 +35,16 @@ const theme = {
     display: block;
     border-radius: var(--border-radius);
     cursor: pointer;
-    background-color: v-bind('theme.background');
+    background-color: transparent;
 }
 
 .hover-box:hover {
-    background: v-bind('theme.hoverColor');
+    background: v-bind('hoverBgColor');
 }
 
 .hover-box:active {
-    background: v-bind('theme.clickColor');
+    background: v-bind('clickBgColor');
+    color: v-bind('clickColor');
 }
 
 .border {

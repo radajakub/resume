@@ -33,8 +33,8 @@
   --color-background: var(--base3);
   --color-background-hover: var(--base2);
   --color-background-click: var(--base1);
-  --color-background-hover-on-white: var(--light-gray);
-  --color-background-click-on-white: var(--darker-gray);
+  --color-background-hover-white: var(--light-gray);
+  --color-background-click-white: var(--darker-gray);
   --color-background-modal: var(--base3);
   --color-border: var(--base03);
   --color-text: var(--base03);
@@ -72,7 +72,13 @@
   --modal-shadow-color: rgba(0, 0, 0, 0.33);
   --modal-shadow-size: 8px;
 
-  /* scroll dots */
+  --button-active-color: var(--color-border);
+  --button-inactive-color: var(--base0);
+
+  /* carousel */
+  --carousel-button-size: 40px;
+  --carousel-button-border: 2px;
+  --carousel-button-border-radius: 4px;
   --dots-color: var(--base2);
   --dots-active-color: var(--base03);
 
