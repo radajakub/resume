@@ -136,6 +136,7 @@ export class Grades {
 
 export class Education {
     readonly school: string;
+    readonly shortcut?: string;
     readonly faculty?: string;
     readonly specialization: string;
     readonly timeFrame: Interval;
@@ -147,8 +148,9 @@ export class Education {
     readonly courses: Course[];
     readonly grades: Grades;
 
-    constructor(school: string, faculty: string, specialization: string, timeFrame: Interval, level: string, logoPath: string, link: string, shortDescription: string, longDescription: string, courses: Course[], grades: Grades) {
+    constructor(school: string, shortcut: string, faculty: string, specialization: string, timeFrame: Interval, level: string, logoPath: string, link: string, shortDescription: string, longDescription: string, courses: Course[], grades: Grades) {
         this.school = school;
+        this.shortcut = shortcut == "" ? undefined : shortcut;
         this.faculty = faculty == "" ? undefined : faculty;
         this.specialization = specialization;
         this.timeFrame = timeFrame;
@@ -308,6 +310,7 @@ export class Data {
         // educations
         const alej = new Education(
             "Gymnazium Praha 6 Nad Aleji",
+            "GNA",
             "",
             "General education",
             new Interval(2011, 9, 1, 2019, 9, 1),
@@ -321,6 +324,7 @@ export class Data {
         );
         const feeBachelor = new Education(
             "Czech Technical University in Prague",
+            "FEE CTU",
             "Faculty of Electrical Engineering",
             "Artificial Intelligence and Computer Science",
             new Interval(2019, 9, 1, 2022, 9, 1),
@@ -333,7 +337,8 @@ export class Data {
             new Grades("A", "1-5", "A", true)
         );
         const kaist = new Education(
-            "Korean Advanced Insitute of Science and Technology (KAIST)",
+            "Korean Advanced Insitute of Science and Technology",
+            "KAIST",
             "Faculty of Electrical Engineering",
             "Exchange programme",
             new Interval(2023, 9, 1, 2023, 9, 1),
@@ -347,6 +352,7 @@ export class Data {
         );
         const feeMaster = new Education(
             "Czech Technical University in Prague",
+            "FEE CTU",
             "Faculty of Electrical Engineering",
             "Artificial Intelligence",
             new Interval(2022, 9, 1, 2025, 9, 1),

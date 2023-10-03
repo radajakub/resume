@@ -22,7 +22,8 @@ subtitles.push(education.shortDescription);
     <ItemComponent :topLeft="education.level" :topRight="education.timeFrame.computePercentage() + '%'"
         :title="education.school" :logoPath="education.logoPath" :logo-link="education.link" :subtitles="subtitles"
         :midLeft="education.grades.result" :midRight="education.grades.graduatedWithHonors ? 'Honors' : ''"
-        :modalTitle="education.school" :bottomLeft="education.timeFrame.yearRange()" :modalWidth="props.modalWidth" />
+        :modalTitle="education.school" :bottomLeft="education.timeFrame.yearRange()" :bottom-right="education.shortcut"
+        :modalWidth="props.modalWidth" />
 </template>
 
 <style scoped>
