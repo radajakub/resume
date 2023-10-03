@@ -25,7 +25,7 @@ const data: Data | undefined = inject("data");
     <div class="edu-col mb-50">
         <div class="heading mb-20">Education</div>
         <div class="edu-row">
-            <EducationComponent v-for="(education, index) in data?.educations" :key="index" :education="education"
+            <EducationComponent v-for="(education, index) in data?.educationsSorted()" :key="index" :education="education"
                 :modalWidth=80 class="mb-20" />
         </div>
     </div>

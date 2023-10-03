@@ -22,6 +22,10 @@ export class TimePoint {
         const ageDate = new Date(Date.now() - dateOfBirth.getTime());
         return Math.abs(ageDate.getUTCFullYear() - 1970);
     }
+
+    static descending(a: TimePoint, b: TimePoint) {
+        return b.toTime() - a.toTime();
+    }
 }
 
 export class Interval {
@@ -287,6 +291,10 @@ export class Data {
         this.works = works;
         this.projects = projects;
         this.achievements = achievements;
+    }
+
+    educationsSorted(): Education[] {
+        return this.educations.sort((a, b) => TimePoint.descending(a.timeFrame.end, b.timeFrame.end));
     }
 
     static init(): Data {
