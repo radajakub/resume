@@ -120,6 +120,22 @@ export class Course {
     }
 }
 
+export class Thesis {
+    readonly title: string;
+    readonly grade: string;
+    readonly badges: string[];
+    readonly description: string;
+    readonly awards: string[];
+
+    constructor(title: string, grade: string, badges: string[], description: string, awards: string[]) {
+        this.title = title;
+        this.grade = grade;
+        this.badges = badges;
+        this.description = description;
+        this.awards = awards;
+    }
+}
+
 export class Grades {
     readonly result: string;
     readonly scale: string;
@@ -147,8 +163,9 @@ export class Education {
     readonly longDescription: string;
     readonly courses: Course[];
     readonly grades: Grades;
+    readonly thesis?: Thesis;
 
-    constructor(school: string, shortcut: string, faculty: string, specialization: string, timeFrame: Interval, level: string, logoPath: string, link: string, shortDescription: string, longDescription: string, courses: Course[], grades: Grades) {
+    constructor(school: string, shortcut: string, faculty: string, specialization: string, timeFrame: Interval, level: string, logoPath: string, link: string, shortDescription: string, longDescription: string, courses: Course[], grades: Grades, thesis?: Thesis) {
         this.school = school;
         this.shortcut = shortcut == "" ? undefined : shortcut;
         this.faculty = faculty == "" ? undefined : faculty;
@@ -161,6 +178,7 @@ export class Education {
         this.longDescription = longDescription;
         this.courses = courses;
         this.grades = grades;
+        this.thesis = thesis;
     }
 }
 
