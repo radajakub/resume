@@ -1,27 +1,16 @@
 <script setup lang="ts">
-import { computeAge, formatDate, profilePictureShowBorder, introComponentDottedSeparator } from "@/utils.ts";
+import { profilePictureShowBorder, introComponentDottedSeparator } from "@/utils.ts";
 
 import BadgeComponent from "@/components/BadgeComponent.vue";
 import ProfilePictureComponent from "@/components/intro/ProfilePictureComponent.vue";
 import SeparatorComponent from "@/components/SeparatorComponent.vue";
 import InfoComponent from "@/components/intro/InfoComponent.vue";
+import { Data } from "@/data.ts";
+import { inject } from "vue";
 
-import personal from "@/assets/data/me/personal.json";
+const data: Data | undefined = inject("data");
 
-const _dob = personal.date_of_birth;
-const dateOfBirth = new Date(_dob.year, _dob.month, _dob.day);
-const age = `${computeAge(dateOfBirth)}`;
-const dateOfBirthFormatted = formatDate(dateOfBirth);
-
-const location = personal.location;
-var locationFormatted = `${location.city}, ${location.country}`;
-// TODO: add flexible location
-// if (location.flexible) {
-//     locationFormatted += " (flexible)";
-// }
-
-const contacts = personal.contacts;
-const filteredContacts = contacts.filter((contact) => contact.use);
+const filteredContacts = data?.contacts.filter((contact) => contact.use);
 
 </script>
 
@@ -31,26 +20,27 @@ const filteredContacts = contacts.filter((contact) => contact.use);
         <div class="pb-10 center-self">
             <ProfilePictureComponent :show-border="profilePictureShowBorder" />
         </div>
-        <div class="center heading ph-20">{{ personal.first_name }} {{ personal.last_name }}</div>
+        <div class="center heading ph-20">{{ data?.firstName }} {{ data?.lastName }}</div>
         <div class="ph-20">
-            <BadgeComponent v-for="(title, index) in personal.titles" :key="index" class="text">{{ title }}</BadgeComponent>
+            <BadgeComponent v-for="(title, index) in data?.titles" :key="index" class="text">{{ title }}</BadgeComponent>
         </div>
         <div class="pv-10">
             <SeparatorComponent :dotted="introComponentDottedSeparator" />
         </div>
         <!-- personal information section -->
         <div class="ph-20">
-            <InfoComponent :icon="personal.date_of_birth.icon" :heading="personal.date_of_birth.name"
-                :value="dateOfBirthFormatted" />
-            <InfoComponent :icon="personal.age.icon" :heading="personal.age.name" :value="age" />
-            <InfoComponent :icon="personal.location.icon" :heading="personal.location.name" :value="locationFormatted" />
+            <InfoComponent :icon="data?.dateOfBirth.icon!" :heading="data?.dateOfBirth.name!"
+                :value="data?.dateOfBirth.date.format()!" />
+            <InfoComponent :icon="data?.age.icon!" :heading="data?.age.name!"
+                :value="data?.dateOfBirth.date.computeAge().toString()!" />
+            <InfoComponent :icon="data?.location.icon!" :heading="data?.location.name!" :value="data?.location.format()!" />
         </div>
         <div class="pv-10">
             <SeparatorComponent :dotted="introComponentDottedSeparator" />
         </div>
         <div class="ph-20">
             <InfoComponent v-for="(contact, index) in filteredContacts" :key="index" :url="contact.link"
-                :icon="contact.icon" :heading="contact.service" :value="contact.username" />
+                :icon="contact.icon" :heading="contact.name" :value="contact.username" />
         </div>
         <!-- contacts information section -->
     </div>

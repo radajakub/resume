@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computePercentage } from '@/utils';
+import { computePercentage } from "@/utils.ts";
 
 const props = defineProps<{ color: string, max: number, curr: number }>();
 

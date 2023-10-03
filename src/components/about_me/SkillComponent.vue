@@ -1,22 +1,23 @@
 <script setup lang="ts">
 import SeparatorComponent from "@/components/SeparatorComponent.vue";
+import { Skill } from "@/data.ts";
 
-const props = defineProps<{ title: string, icon: string, skills: string[] }>();
+const props = defineProps<{ skill: Skill }>();
 </script>
 
 <template>
     <div class="skill sharp-border thin-border">
         <div class="header-line subsubtitle center p-10">
             <div class="mr-10 header-icon">
-                <font-awesome-icon :icon="props.icon" />
+                <font-awesome-icon :icon="props.skill.icon" />
             </div>
             <div class="header-title">
-                {{ props.title }}
+                {{ props.skill.name }}
             </div>
         </div>
         <SeparatorComponent no-vertical-padding />
         <div class="skill-list p-10">
-            <div v-for="(skill, index) in props.skills" :key="index" class="text bold"> {{ skill }}</div>
+            <div v-for="(skill, index) in props.skill.skills" :key="index" class="text bold"> {{ skill }}</div>
         </div>
     </div>
 </template>

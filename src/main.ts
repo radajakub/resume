@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faEnvelope, faMobile, faMapLocationDot, faCalendarDays, faCakeCandles, faLanguage, faCode, faBrain, faPerson, faDumbbell, faCaretLeft, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub, faDiscord, faHackerrank, faKaggle, faAppStoreIos } from "@fortawesome/free-brands-svg-icons";
 
+import { Data } from "@/data.ts";
 
 /* add icons to the library */
 library.add(
@@ -36,8 +37,11 @@ library.add(
     faAppStoreIos,
 );
 
+const data: Data = Data.init();
+
 // create new application instance
 createApp(App)
+    .provide("data", data)
     .component("font-awesome-icon", FontAwesomeIcon)
     .mount("#app");
 

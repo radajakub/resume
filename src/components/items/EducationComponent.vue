@@ -1,36 +1,28 @@
 <script setup lang="ts">
 import ItemComponent from "@/components/items/ItemComponent.vue";
-import { Interval } from "@/classes/interval.ts";
+import { Education } from "@/data.ts";
 
 const props = defineProps<{
-    education: Object,
+    education: Education,
     modalWidth: number,
 }>();
 
-const edu = props.education;
+const education = props.education;
 
-const start = edu.start;
-const end = edu.end;
-const interval = new Interval(start.year, start.month, start.day, end.year, end.month, end.day);
-
-const subtitles = [];
-if (edu.faculty != null) {
-    subtitles.push(edu.faculty);
+const subtitles: string[] = [];
+if (education.faculty != null) {
+    subtitles.push(education.faculty);
 }
-if (edu.specialization != null) {
-    subtitles.push(edu.specialization);
-}
-if (edu.short != null) {
-    subtitles.push(edu.short);
-}
+subtitles.push(education.specialization);
+subtitles.push(education.shortDescription);
 
 </script>
 
 <template>
-    <ItemComponent :topLeft="education.level" :topRight="interval.computePercentage() + '%'" :title="education.school"
-        :logoPath="education.logoPath" :logo-link="education.link" :subtitles="subtitles" :midLeft="education.grade.GPA"
-        :midRight="education.graduation.honors ? 'Honors' : ''" :modalTitle="education.school"
-        :bottomLeft="education.start.year + ' - ' + education.end.year" :modalWidth="props.modalWidth" />
+    <ItemComponent :topLeft="education.level" :topRight="education.timeFrame.computePercentage() + '%'"
+        :title="education.school" :logoPath="education.logoPath" :logo-link="education.link" :subtitles="subtitles"
+        :midLeft="education.grades.result" :midRight="education.grades.graduatedWithHonors ? 'Honors' : ''"
+        :modalTitle="education.school" :bottomLeft="education.timeFrame.yearRange()" :modalWidth="props.modalWidth" />
 </template>
 
 <style scoped>

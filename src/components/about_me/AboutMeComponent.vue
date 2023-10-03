@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import MainModaledComponent from "@/components/MainModaledComponent.vue";
+import { Data } from "@/data.ts";
+import { inject } from "vue";
 
-const props = defineProps<{
-    aboutme: { [key: string]: string[] }
-}>();
-const paragraphs: string[] = props.aboutme.paragraphs;
+const data: Data | undefined = inject("data");
 </script>
 
 <template>
@@ -13,12 +12,12 @@ const paragraphs: string[] = props.aboutme.paragraphs;
             <div class="p-10">
                 <div class="title mb-10">About me</div>
                 <p class="text pb-10 ">
-                    {{ paragraphs[0] }}
+                    {{ data?.aboutMe[0] }}
                 </p>
             </div>
         </template>
         <template #modal>
-            <p v-for="(paragraph, index) in paragraphs" class="text" :key="index">
+            <p v-for="(paragraph, index) in data?.aboutMe" class="text" :key="index">
                 {{ paragraph }}
             </p>
         </template>
