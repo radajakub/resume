@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import SeparatorComponent from '@/components/SeparatorComponent.vue';
-import LinkComponent from '@/components/LinkComponent.vue';
+import SeparatorComponent from "@/components/SeparatorComponent.vue";
+import LinkComponent from "@/components/LinkComponent.vue";
 
 const props = defineProps<{ show: boolean, title: string, widthPerc?: number }>();
-const emit = defineEmits<{ (e: 'close'): void }>();
+defineEmits<{ (e: "close"): void }>();
 
 const actual_width = (props.widthPerc ?? 60);
 const actual_width_string = actual_width.toString() + "%";
@@ -62,6 +62,7 @@ const left_string = ((100 - actual_width) / 2).toString() + "%";
 
 .modal-body {
     overflow: scroll;
+    flex: 1;
 }
 
 .modal-enter-from {
