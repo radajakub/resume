@@ -6,11 +6,12 @@ import { ref, watchEffect } from "vue";
 
 const props = defineProps<{
     modalTitle: string,
-    modalWidth: number,
+    modalWidth?: number,
     topLeft: string,
     topRight?: string,
     title: string,
     subtitles: string[],
+    shortText?: string,
     logoPath?: string,
     logoLink?: string,
     midLeft?: string,
@@ -45,16 +46,20 @@ watchEffect(async () => {
                     </div>
                     <RowComponent :expand=true>
                         <div class="title-col pr-20">
-                            <div class="text" v-for="(subtitle, index) in props.subtitles" :key="index">
+                            <div class="text" v-for="(subtitle, index) in props.subtitles" :key="index"
+                                :class="{ 'pb-5': index < props.subtitles.length - 1 }">
                                 {{ subtitle }}
                             </div>
                         </div>
                         <div class="logo-col" v-if="props.logoPath != null">
                             <LinkComponent :url="props.logoLink" :white-bg=true>
-                                <img :src="logo" class="img-link p-10">
+                                <img :src="logo" class="img-link p-5">
                             </LinkComponent>
                         </div>
                     </RowComponent>
+                    <div class="ph-10 pb-10 pt-5">
+                        {{ props.shortText }}
+                    </div>
                 </div>
                 <RowComponent :topSeparator=true :topSeparatorDotted=true v-if="showMiddleRow">
                     <div class="text">{{ props.midLeft }}</div>
@@ -73,7 +78,7 @@ watchEffect(async () => {
 <style scoped>
 .sized {
     width: 400px;
-    height: 300px;
+    height: 350px;
 }
 
 .main-col {
@@ -87,6 +92,7 @@ watchEffect(async () => {
     flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .title-col {
@@ -97,6 +103,7 @@ watchEffect(async () => {
 }
 
 .img-link {
+    display: block;
     max-width: 80px;
     max-height: 80px;
 }

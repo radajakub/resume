@@ -6,7 +6,6 @@ const props = defineProps<{
     bottomSeparatorDotted?: boolean,
     topSeparator?: boolean,
     topSeparatorDotted?: boolean,
-    expand?: boolean,
 }>();
 </script>
 
