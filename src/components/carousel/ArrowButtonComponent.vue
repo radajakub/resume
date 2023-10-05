@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
     direction: string,
-    active: true,
+    active: boolean,
 }>();
 
 const directionOptions = ["left", "right"];

@@ -4,7 +4,7 @@ import { ref } from "vue";
 import ShadowComponent from "@/components/ShadowComponent.vue";
 import ModalComponent from "@/components/ModalComponent.vue";
 
-const props = defineProps<{ modalTitle: string, modalWidth: number }>();
+const props = defineProps<{ modalTitle: string, modalWidth?: number }>();
 
 const modalVisible = ref(false);
 </script>
