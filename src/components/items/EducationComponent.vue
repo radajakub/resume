@@ -22,7 +22,10 @@ subtitles.push(education.specialization);
         :title="education.school" :logoPath="education.logoPath" :logo-link="education.link" :subtitles="subtitles"
         :short-text="education.shortDescription" :midLeft="education.grades.result"
         :midRight="education.grades.graduatedWithHonors ? 'Honors' : ''" :modalTitle="education.school"
-        :bottomLeft="education.timeFrame.yearRange()" :bottom-right="education.shortcut" :modalWidth="props.modalWidth" />
+        :bottomLeft="education.timeFrame.yearRange()" :bottom-right="education.shortcut" :modalWidth="props.modalWidth">
+        <template #modal>
+        </template>
+    </ItemComponent>
 </template>
 
 <style scoped>

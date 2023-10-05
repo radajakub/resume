@@ -71,7 +71,9 @@ watchEffect(async () => {
                 </RowComponent>
             </div>
         </template>
-        <template #modal></template>
+        <template #modal>
+            <slot name="modal"></slot>
+        </template>
     </MainModaledComponent>
 </template>
 
