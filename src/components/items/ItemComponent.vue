@@ -33,48 +33,50 @@ watchEffect(async () => {
 </script>
 
 <template>
-    <MainModaledComponent :modalTitle="props.modalTitle" :modalWidth="props.modalWidth" class="sized">
-        <template #main>
-            <div class="main-col">
-                <RowComponent :bottomSeparator=true :bottomSeparatorDotted=true>
-                    <div class="text">{{ props.topLeft }}</div>
-                    <div class="text">{{ props.topRight }}</div>
-                </RowComponent>
-                <div class="main-row">
-                    <div class="ph-10 pt-10 pb-5">
-                        <div class="subtitle">{{ props.title }}</div>
-                    </div>
-                    <RowComponent :expand=true>
-                        <div class="title-col pr-20">
-                            <div class="text" v-for="(subtitle, index) in props.subtitles" :key="index"
-                                :class="{ 'pb-5': index < props.subtitles.length - 1 }">
-                                {{ subtitle }}
-                            </div>
-                        </div>
-                        <div class="logo-col" v-if="props.logoPath != null">
-                            <LinkComponent :url="props.logoLink" :white-bg=true>
-                                <img :src="logo" class="img-link p-5">
-                            </LinkComponent>
-                        </div>
+    <div class="p-10">
+        <MainModaledComponent :modalTitle="props.modalTitle" :modalWidth="props.modalWidth" class="sized">
+            <template #main>
+                <div class="main-col">
+                    <RowComponent :bottomSeparator=true :bottomSeparatorDotted=true>
+                        <div class="text">{{ props.topLeft }}</div>
+                        <div class="text">{{ props.topRight }}</div>
                     </RowComponent>
-                    <div class="ph-10 pb-10 pt-5">
-                        {{ props.shortText }}
+                    <div class="main-row">
+                        <div class="ph-10 pt-10 pb-5">
+                            <div class="subtitle">{{ props.title }}</div>
+                        </div>
+                        <RowComponent>
+                            <div class="title-col pr-20">
+                                <div class="text" v-for="(subtitle, index) in props.subtitles" :key="index"
+                                    :class="{ 'pb-5': index < props.subtitles.length - 1 }">
+                                    {{ subtitle }}
+                                </div>
+                            </div>
+                            <div class="logo-col" v-if="props.logoPath != null">
+                                <LinkComponent :url="props.logoLink" :white-bg=true>
+                                    <img :src="logo" class="img-link p-5">
+                                </LinkComponent>
+                            </div>
+                        </RowComponent>
+                        <div class="ph-10 pb-10 pt-5">
+                            {{ props.shortText }}
+                        </div>
                     </div>
+                    <RowComponent :topSeparator=true :topSeparatorDotted=true v-if="showMiddleRow">
+                        <div class="text">{{ props.midLeft }}</div>
+                        <div class="text">{{ props.midRight }}</div>
+                    </RowComponent>
+                    <RowComponent :topSeparator=true :topSeparatorDotted=true v-if="showBottomRow">
+                        <div class="text">{{ props.bottomLeft }}</div>
+                        <div class="text">{{ props.bottomRight }}</div>
+                    </RowComponent>
                 </div>
-                <RowComponent :topSeparator=true :topSeparatorDotted=true v-if="showMiddleRow">
-                    <div class="text">{{ props.midLeft }}</div>
-                    <div class="text">{{ props.midRight }}</div>
-                </RowComponent>
-                <RowComponent :topSeparator=true :topSeparatorDotted=true v-if="showBottomRow">
-                    <div class="text">{{ props.bottomLeft }}</div>
-                    <div class="text">{{ props.bottomRight }}</div>
-                </RowComponent>
-            </div>
-        </template>
-        <template #modal>
-            <slot name="modal"></slot>
-        </template>
-    </MainModaledComponent>
+            </template>
+            <template #modal>
+                <slot name="modal"></slot>
+            </template>
+        </MainModaledComponent>
+    </div>
 </template>
 
 <style scoped>
