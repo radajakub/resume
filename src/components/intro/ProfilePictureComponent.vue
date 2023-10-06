@@ -8,7 +8,7 @@ const props = defineProps<{ showBorder: boolean }>();
 
 <style scoped>
 .avatar {
-    background-image: url("@/assets/pictures/profile_photo.jpg");
+    background-image: url("/pictures/profile_photo.jpg");
     width: var(--profile-picture-size);
     height: var(--profile-picture-size);
     background-size: cover;

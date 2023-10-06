@@ -2,7 +2,7 @@
 import MainModaledComponent from "@/components/MainModaledComponent.vue";
 import LinkComponent from "@/components/LinkComponent.vue";
 import RowComponent from "@/components/items/RowComponent.vue";
-import { ref, watchEffect } from "vue";
+// import { ref, watchEffect } from "vue";
 
 const props = defineProps<{
     modalTitle: string,
@@ -23,12 +23,15 @@ const props = defineProps<{
 const showMiddleRow = props.midLeft != null || props.midRight != null;
 const showBottomRow = props.bottomLeft != null || props.bottomRight != null;
 
-const logo = ref();
-watchEffect(async () => {
-    if (props.logoPath != null) {
-        logo.value = (await import(/* @vite-ignore */ "../../assets/pictures/" + props.logoPath)).default;
-    }
-});
+
+const logo = props.logoPath != null ? "/pictures/" + props.logoPath : "";
+
+// const logo = ref();
+// watchEffect(async () => {
+//     if (props.logoPath != null) {
+//         logo.value = (await import(/* @vite-ignore */ "../../assets/pictures/" + props.logoPath)).default;
+//     }
+// });
 
 </script>
 
