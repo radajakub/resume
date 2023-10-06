@@ -339,29 +339,29 @@ export class Data {
 
         // educations
         const alej = new Education(
-            "Gymnazium Praha 6 Nad Aleji",
+            "Gymnázium, Praha 6, Nad Alejí 1952",
             "GNA",
             "",
-            "General education",
-            new Interval(2011, 9, 1, 2019, 9, 1),
+            "General Education High School for students aiming to attend a university",
+            new Interval(2011, 9, 1, 2019, 6, 14),
             "High School",
             "logo_alej.png",
             "https://www.alej.cz/about-school/",
-            "One of the best High Schools in Prague to prepare students for Universities",
-            "Long description",
+            "One of the best High Schools in the Czech Republic providing great fundamentals in Math, Natural Sciences and Social Sciences",
+            "Gymnázium, Praha 6, Nad Alejí 1952 is a prestigious High School located in Prague in the Czech Republic. It places regularly at the top places of final exam leaderboards across the whole country. Vast majority of students attending this High School get accepted to Czech Universities in both technical and social fields. I passed most of the years with straigh 1's (a Czech equivalent of A on a (1-5) scale and every year with honors (grade average below 1.5). At the end of the studies we have to pass a state exam and additional school exams. I graduated from Math, Computer Science, English and mandatory Czech language, all of them were 1's. Moreover, I presented my final Computer Science project, which was a flash-cards web app (see Projects section). During the studies I also passed the Cambridge First Certificate in English (FCE).",
             [],
-            new Grades("A", "1-5", "A", true)
+            new Grades("1", "1-5", "1", true)
         );
         const feeBachelor = new Education(
             "Czech Technical University in Prague",
             "FEE CTU",
             "Faculty of Electrical Engineering",
             "Artificial Intelligence and Computer Science",
-            new Interval(2019, 9, 1, 2022, 9, 1),
+            new Interval(2019, 6, 21, 2022, 6, 14),
             "Bachelor",
             "logo_cvut.jpg",
             "https://oi.fel.cvut.cz/en/",
-            "Short description",
+            "Bachelor programme consisiting of Math, Algorithms and Computer Architectures and Introduction to Optimization and Artificial Intelligence",
             "Long description",
             [],
             new Grades("A", "1-5", "A", true)
