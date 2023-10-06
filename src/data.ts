@@ -44,6 +44,9 @@ export class Interval {
     }
 
     yearRange(): string {
+        if (this.start.year == this.end.year) {
+            return `${this.start.year}`;
+        }
         return `${this.start.year} - ${this.end.year}`;
     }
 }
@@ -251,16 +254,18 @@ export class Achievement {
     readonly shortDescription: string;
     readonly longDescription: string;
     readonly awardingInstitution: string;
+    readonly logoPath: string;
     readonly link: string;
     readonly achievement: string;
     readonly category: string;
     readonly interval: Interval;
 
-    constructor(name: string, shortDescription: string, longDescription: string, awardingInstitution: string, link: string, achievement: string, category: string, interval: Interval) {
+    constructor(name: string, shortDescription: string, longDescription: string, awardingInstitution: string, logoPath: string, link: string, achievement: string, category: string, interval: Interval) {
         this.name = name;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
         this.awardingInstitution = awardingInstitution;
+        this.logoPath = logoPath;
         this.link = link;
         this.achievement = achievement;
         this.category = category;
@@ -424,8 +429,20 @@ export class Data {
             new Interval(2008, 9, 1, 2012, 9, 1),
         );
 
+        const baltieNational = new Achievement(
+            "Baltie 2011 National Round",
+            "Participation and second place in a national round of Baltie 3 competition at 11 years old. Judges evaluated the algorithmic and code quality of solutions for given tasks",
+            "Long description",
+            "SGP Systems",
+            "logo_baltie.gif",
+            "https://soutez.tib.cz/souteze/baltie/baltie-2011/narodni",
+            "2nd place",
+            "Programming",
+            new Interval(2011, 5, 13, 2011, 5, 15),
+        );
+
         return new Data(
-            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, [alej, feeBachelor, kaist, feeMaster], [SWEHQ1], [baltie], [],
+            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, [alej, feeBachelor, kaist, feeMaster], [SWEHQ1], [baltie], [baltieNational],
         );
     }
 }

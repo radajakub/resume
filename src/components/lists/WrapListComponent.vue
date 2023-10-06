@@ -3,7 +3,8 @@ import { Education, Work, Project, Achievement, Skill } from "@/data.ts";
 import EducationComponent from "@/components/items/EducationComponent.vue";
 import WorkComonent from "@/components/items/WorkComonent.vue";
 import SkillComponent from "@/components/about_me/SkillComponent.vue";
-import ProjectComponent from "../items/ProjectComponent.vue";
+import ProjectComponent from "@/components/items/ProjectComponent.vue";
+import AchievementsComponent from "@/components/items/AchievementsComponent.vue";
 
 const props = defineProps<{
     educations?: Education[],
@@ -54,6 +55,10 @@ if (allOptions.filter((x) => x == true).length != 1) {
             </div>
             <div v-if="showProjects">
                 <ProjectComponent v-for="(project, index) in props.projects" :key="index" :project="project" />
+            </div>
+            <div v-if="showAchievements">
+                <AchievementsComponent v-for="(achievement, index) in props.achievements" :key="index"
+                    :achievement="achievement" />
             </div>
             <div v-if="showSkills">
                 <SkillComponent v-for="(skill, index) in props.skills" :key="index" :skill="skill" />
