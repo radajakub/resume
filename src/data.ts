@@ -308,6 +308,18 @@ export class Data {
         return this.educations.sort((a, b) => TimePoint.descending(a.timeFrame.end, b.timeFrame.end));
     }
 
+    worksSorted(): Work[] {
+        return this.works.sort((a, b) => TimePoint.descending(a.interval.end, b.interval.end));
+    }
+
+    projectsSorted(): Project[] {
+        return this.projects.sort((a, b) => TimePoint.descending(a.interval.end, b.interval.end));
+    }
+
+    achievementsSorted(): Achievement[] {
+        return this.achievements.sort((a, b) => TimePoint.descending(a.interval.end, b.interval.end));
+    }
+
     static init(): Data {
         // Personal info
         const firstName = "Jakub";

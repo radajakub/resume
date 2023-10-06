@@ -25,15 +25,15 @@ const data: Data | undefined = inject("data");
     </div>
 
     <div class="work-col mb-50">
-        <WrapListComponent :works="data?.works" />
+        <WrapListComponent :works="data?.worksSorted()" />
     </div>
 
     <div class="project-col mb-50">
-        <WrapListComponent :projects="data?.projects" />
+        <WrapListComponent :projects="data?.projectsSorted()" />
     </div>
 
     <div class="project-col mb-50">
-        <WrapListComponent :achievements="data?.achievements" />
+        <WrapListComponent :achievements="data?.achievementsSorted()" />
     </div>
 </template>
 
