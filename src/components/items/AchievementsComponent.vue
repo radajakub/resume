@@ -17,8 +17,8 @@ subtitles.push(achievement.achievement);
 <template>
     <ItemComponent :topLeft="achievement.category" :title="achievement.name" :logoPath="achievement.logoPath"
         :logo-link="achievement.link" :subtitles="subtitles" :short-text="achievement.shortDescription"
-        :bottomLeft="achievement.interval.yearRange()" :bottom-right="achievement.awardingInstitution"
-        :modalTitle="achievement.name" :modalWidth="props.modalWidth">
+        :mid-left="achievement.programmingLanguage?.name" :bottom-left="achievement.interval.yearRange()"
+        :bottom-right="achievement.awardingInstitution" :modalTitle="achievement.name" :modalWidth="props.modalWidth">
         <template #modal>
         </template>
     </ItemComponent>

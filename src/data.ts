@@ -259,8 +259,9 @@ export class Achievement {
     readonly achievement: string;
     readonly category: string;
     readonly interval: Interval;
+    readonly programmingLanguage?: ProgrammingLangauge;
 
-    constructor(name: string, shortDescription: string, longDescription: string, awardingInstitution: string, logoPath: string, link: string, achievement: string, category: string, interval: Interval) {
+    constructor(name: string, shortDescription: string, longDescription: string, awardingInstitution: string, logoPath: string, link: string, achievement: string, category: string, interval: Interval, programmingLanguage?: ProgrammingLangauge) {
         this.name = name;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
@@ -270,6 +271,7 @@ export class Achievement {
         this.achievement = achievement;
         this.category = category;
         this.interval = interval;
+        this.programmingLanguage = programmingLanguage;
     }
 }
 
@@ -355,6 +357,9 @@ export class Data {
         const ai = new Skill("AI/ML Tools", "fa-solid fa-brain", ["PyTorch", "NumPy", "scikit-learn", "DeepMind Control Suite",]);
         const traits = new Skill("Skills and Traits", "fa-solid fa-person", ["Adaptability", "Precision", "Quick learner", "Attention to Detail", "Clean code", "Problem solving", "Responsibility"]);
         const skills = [langauges, interests, programming, frameworks, ai, traits];
+
+        // programming languages
+        const julia = new ProgrammingLangauge("Julia");
 
         // educations
         const alej = new Education(
@@ -453,8 +458,57 @@ export class Data {
             new Interval(2011, 5, 13, 2011, 5, 15),
         );
 
+        const baltieInternational = new Achievement(
+            "Baltie 2011 International Round",
+            "Participation and third place in an international round of Baltie 3 competition at 11 years old. Judges evaluated the algorithmic and code quality of solutions for given tasks",
+            "Long description",
+            "SGP Systems",
+            "logo_baltie.gif",
+            "https://soutez.tib.cz/souteze/baltie/baltie-2011/mezinarodni",
+            "3rd place",
+            "Programming",
+            new Interval(2011, 6, 10, 2011, 6, 12),
+        );
+
+        const bachelorThesisDeansAward = new Achievement(
+            "Comparing Exploration Methods in Partially Observable Stochastic Games",
+            "Applying Reinforcement Learning to Heuristic Search Value Iteration for Partially Observable Stochastic Games",
+            "Long description",
+            "FEE CTU",
+            "logo_cvut.jpg",
+            "https://dspace.cvut.cz/handle/10467/101325",
+            "Dean's award for exceptional Bachelor Thesis",
+            "Reasearch Thesis",
+            new Interval(2022, 6, 16, 2022, 6, 16),
+            julia,
+        );
+
+        const seoulMarathon = new Achievement(
+            "Soul Marathon 2023 Relay for 2",
+            "Together with my runnind duo from Japan, we competed and won the two-person relay at Seoul. I ran the second part 22.2 kilometers long in time 1:24:44.",
+            "Long description",
+            "Seoul Marathon",
+            "logo_seoul.png",
+            "https://en.seoul-marathon.com",
+            "1st place",
+            "Running",
+            new Interval(2023, 3, 19, 2023, 3, 19),
+        );
+
+        const daeguHalfmarathon = new Achievement(
+            "Daegu International Half Marathon 2023",
+            "Two weeks after winning the Seoul Marathon Relay, at my first solo half marathon I placed 10th overall in new personal best 1:18:54.",
+            "Long description",
+            "Daegu International Marathon",
+            "logo_daegu.jpg",
+            "https://daegurace.com",
+            "10th place",
+            "Running",
+            new Interval(2023, 4, 2, 2023, 4, 2),
+        );
+
         return new Data(
-            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, [alej, feeBachelor, kaist, feeMaster], [SWEHQ1], [baltie], [baltieNational],
+            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, [alej, feeBachelor, kaist, feeMaster], [SWEHQ1], [baltie], [baltieNational, baltieInternational, bachelorThesisDeansAward, seoulMarathon, daeguHalfmarathon],
         );
     }
 }
