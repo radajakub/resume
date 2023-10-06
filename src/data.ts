@@ -402,7 +402,9 @@ export class Data {
             "logo_swehq.png",
             "https://swehq.com/en/",
             "Part-time",
-            [],
+            [
+                new ProgrammingLangauge("Typescript", "devicon-typescript-plain"),
+            ],
             "Development of a complex web application in a field of finance",
             "Long description",
             new Interval(2021, 6, 30, 2021, 11, 30)
