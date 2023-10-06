@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Education, Work, Project, Achievement, Skill } from "@/data.ts";
 import EducationComponent from "@/components/items/EducationComponent.vue";
+import WorkComonent from "@/components/items/WorkComonent.vue";
 import SkillComponent from "@/components/about_me/SkillComponent.vue";
 
 const props = defineProps<{
@@ -46,6 +47,9 @@ if (allOptions.filter((x) => x == true).length != 1) {
         <div class="wrap-list-body">
             <div v-if="showEducations">
                 <EducationComponent v-for="(education, index) in props.educations" :key="index" :education="education" />
+            </div>
+            <div v-if="showWorks">
+                <WorkComonent v-for="(work, index) in props.works" :key="index" :work="work" />
             </div>
             <div v-if="showSkills">
                 <SkillComponent v-for="(skill, index) in props.skills" :key="index" :skill="skill" />

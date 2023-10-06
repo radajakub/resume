@@ -201,18 +201,22 @@ export class Work {
     readonly field: string;
     readonly companyName: string;
     readonly logoPath: string;
+    readonly logoLink: string;
     readonly mode: string;
     readonly programmingLanguages: ProgrammingLangauge[];
+    readonly shortDescription: string;
     readonly description: string;
-    interval: Interval;
+    readonly interval: Interval;
 
-    constructor(title: string, field: string, companyName: string, logoPath: string, mode: string, programmingLanguages: ProgrammingLangauge[], description: string, interval: Interval) {
+    constructor(title: string, field: string, companyName: string, logoPath: string, logoLink: string, mode: string, programmingLanguages: ProgrammingLangauge[], shortDescription: string, description: string, interval: Interval) {
         this.title = title;
         this.field = field;
         this.companyName = companyName;
         this.logoPath = logoPath;
+        this.logoLink = logoLink;
         this.mode = mode;
         this.programmingLanguages = programmingLanguages;
+        this.shortDescription = shortDescription;
         this.description = description;
         this.interval = interval;
     }
@@ -391,10 +395,21 @@ export class Data {
             new Grades("A", "1-5", "A", true)
         );
 
-        const educations = [alej, feeBachelor, kaist, feeMaster];
+        const SWEHQ1 = new Work(
+            "Software Engineer",
+            "Kappka Web Software Development",
+            "SWEHQ",
+            "logo_swehq.png",
+            "https://swehq.com/en/",
+            "Part-time",
+            [],
+            "Development of a complex web application in a field of finance",
+            "Long description",
+            new Interval(2021, 6, 30, 2021, 11, 30)
+        );
 
         return new Data(
-            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, educations, [], [], [],
+            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, [alej, feeBachelor, kaist, feeMaster], [SWEHQ1], [], [],
         );
     }
 }
