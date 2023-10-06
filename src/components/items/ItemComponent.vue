@@ -33,7 +33,7 @@ watchEffect(async () => {
 </script>
 
 <template>
-    <div class="p-10">
+    <div class="mr-10 mb-10">
         <MainModaledComponent :modalTitle="props.modalTitle" :modalWidth="props.modalWidth" class="sized">
             <template #main>
                 <div class="main-col">
