@@ -27,6 +27,10 @@ const data: Data | undefined = inject("data");
     <div class="work-col mb-50">
         <WrapListComponent :works="data?.works" />
     </div>
+
+    <div class="project-col mb-50">
+        <WrapListComponent :projects="data?.projects" />
+    </div>
 </template>
 
 

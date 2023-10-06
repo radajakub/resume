@@ -188,9 +188,9 @@ export class Education {
 
 export class ProgrammingLangauge {
     readonly name: string;
-    readonly icon: string;
+    readonly icon?: string;
 
-    constructor(name: string, icon: string) {
+    constructor(name: string, icon?: string) {
         this.name = name;
         this.icon = icon;
     }
@@ -224,6 +224,7 @@ export class Work {
 
 export class Project {
     readonly topic: string;
+    readonly subtitle: string;
     readonly name: string;
     readonly relatedInstitution: string;
     readonly shortDescription: string;
@@ -232,8 +233,9 @@ export class Project {
     readonly programmingLanguages: ProgrammingLangauge[];
     readonly interval: Interval;
 
-    constructor(topic: string, name: string, relatedInstitution: string, shortDescription: string, longDescription: string, githubLink: string, programmingLanguages: ProgrammingLangauge[], interval: Interval) {
+    constructor(topic: string, subtitle: string, name: string, relatedInstitution: string, shortDescription: string, longDescription: string, githubLink: string, programmingLanguages: ProgrammingLangauge[], interval: Interval) {
         this.topic = topic;
+        this.subtitle = subtitle;
         this.name = name;
         this.relatedInstitution = relatedInstitution;
         this.shortDescription = shortDescription;
@@ -410,8 +412,20 @@ export class Data {
             new Interval(2021, 6, 30, 2021, 11, 30)
         );
 
+        const baltie = new Project(
+            "Programming",
+            "Graphical programming language Baltie 3 to learn C/C++",
+            "Baltie 3 projects",
+            "Extracurricular",
+            "Small projects made in my free time during Primary School. Also, I attended competitions with some of these programs.",
+            "Long description",
+            "https://github.com/radajakub/baltie",
+            [new ProgrammingLangauge("Baltie 3"),],
+            new Interval(2008, 9, 1, 2012, 9, 1),
+        );
+
         return new Data(
-            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, [alej, feeBachelor, kaist, feeMaster], [SWEHQ1], [], [],
+            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, [alej, feeBachelor, kaist, feeMaster], [SWEHQ1], [baltie], [],
         );
     }
 }
