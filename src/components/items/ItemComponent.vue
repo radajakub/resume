@@ -7,6 +7,7 @@ import ProgressBarComponent from "../ProgressBarComponent.vue";
 const props = defineProps<{
     modalTitle: string,
     modalWidth?: number,
+    modalEnabled?: boolean,
     topLeft?: string,
     topRight?: string,
     percentage?: number,
@@ -21,6 +22,8 @@ const props = defineProps<{
     bottomRight?: string,
 }>();
 
+const modalEnabled = props.modalEnabled ?? false;
+
 const showMiddleRow = props.midLeft != null || props.midRight != null;
 const showBottomRow = props.bottomLeft != null || props.bottomRight != null;
 
@@ -30,7 +33,8 @@ const logo = props.logoPath != null ? "/pictures/" + props.logoPath : "";
 
 <template>
     <div class="mr-10 mb-10">
-        <MainModaledComponent :modalTitle="props.modalTitle" :modalWidth="props.modalWidth" class="sized">
+        <MainModaledComponent :modalTitle="props.modalTitle" :modalWidth="props.modalWidth" :modalEnabled="modalEnabled"
+            class="sized">
             <template #main>
                 <div class="main-col">
                     <RowComponent :bottomSeparator=true :bottomSeparatorDotted=true>

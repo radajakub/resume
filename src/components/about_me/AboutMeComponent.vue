@@ -7,7 +7,7 @@ const data: Data | undefined = inject("data");
 </script>
 
 <template>
-    <MainModaledComponent modalTitle="About Me" :modalWidth=80>
+    <MainModaledComponent modalTitle="About Me" :modalWidth=80 :modalEnabled="true">
         <template #main>
             <div class="p-10">
                 <div class="title mb-10">About me</div>

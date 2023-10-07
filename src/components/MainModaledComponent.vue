@@ -4,10 +4,10 @@ import { ref } from "vue";
 import ShadowComponent from "@/components/ShadowComponent.vue";
 import ModalComponent from "@/components/ModalComponent.vue";
 
-const props = defineProps<{ modalTitle: string, modalWidth?: number }>();
+const props = defineProps<{ modalTitle: string, modalWidth?: number, modalEnabled?: boolean }>();
 
 const modalVisible = ref(false);
-const modalEnabled = false;
+const modalEnabled = props.modalEnabled ?? true;
 </script>
 
 <template>
