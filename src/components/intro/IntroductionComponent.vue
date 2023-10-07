@@ -15,34 +15,38 @@ const filteredContacts = data?.contacts.filter((contact) => contact.use);
 </script>
 
 <template>
-    <div class="thin-border rounded-border pv-20 frame">
-        <!-- photo and name section -->
-        <div class="pb-10 center-self">
-            <ProfilePictureComponent :show-border="profilePictureShowBorder" />
+    <div class="wrapper">
+        <div class="thin-border rounded-border pv-20 frame">
+            <!-- photo and name section -->
+            <div class="pb-10 center-self">
+                <ProfilePictureComponent :show-border="profilePictureShowBorder" />
+            </div>
+            <div class="center heading ph-20">{{ data?.firstName }} {{ data?.lastName }}</div>
+            <div class="ph-20">
+                <BadgeComponent v-for="(title, index) in data?.titles" :key="index" class="text">{{ title }}
+                </BadgeComponent>
+            </div>
+            <div class="pv-10">
+                <SeparatorComponent :dotted="introComponentDottedSeparator" />
+            </div>
+            <!-- personal information section -->
+            <div class="ph-20">
+                <InfoComponent :icon="data?.dateOfBirth.icon!" :heading="data?.dateOfBirth.name!"
+                    :value="data?.dateOfBirth.date.format()!" />
+                <InfoComponent :icon="data?.age.icon!" :heading="data?.age.name!"
+                    :value="data?.dateOfBirth.date.computeAge().toString()!" />
+                <InfoComponent :icon="data?.location.icon!" :heading="data?.location.name!"
+                    :value="data?.location.format()!" />
+            </div>
+            <div class="pv-10">
+                <SeparatorComponent :dotted="introComponentDottedSeparator" />
+            </div>
+            <div class="ph-20">
+                <InfoComponent v-for="(contact, index) in filteredContacts" :key="index" :url="contact.link"
+                    :icon="contact.icon" :heading="contact.name" :value="contact.username" />
+            </div>
+            <!-- contacts information section -->
         </div>
-        <div class="center heading ph-20">{{ data?.firstName }} {{ data?.lastName }}</div>
-        <div class="ph-20">
-            <BadgeComponent v-for="(title, index) in data?.titles" :key="index" class="text">{{ title }}</BadgeComponent>
-        </div>
-        <div class="pv-10">
-            <SeparatorComponent :dotted="introComponentDottedSeparator" />
-        </div>
-        <!-- personal information section -->
-        <div class="ph-20">
-            <InfoComponent :icon="data?.dateOfBirth.icon!" :heading="data?.dateOfBirth.name!"
-                :value="data?.dateOfBirth.date.format()!" />
-            <InfoComponent :icon="data?.age.icon!" :heading="data?.age.name!"
-                :value="data?.dateOfBirth.date.computeAge().toString()!" />
-            <InfoComponent :icon="data?.location.icon!" :heading="data?.location.name!" :value="data?.location.format()!" />
-        </div>
-        <div class="pv-10">
-            <SeparatorComponent :dotted="introComponentDottedSeparator" />
-        </div>
-        <div class="ph-20">
-            <InfoComponent v-for="(contact, index) in filteredContacts" :key="index" :url="contact.link"
-                :icon="contact.icon" :heading="contact.name" :value="contact.username" />
-        </div>
-        <!-- contacts information section -->
     </div>
 </template>
 
@@ -53,5 +57,6 @@ const filteredContacts = data?.contacts.filter((contact) => contact.use);
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: start;
+    height: fit-content;
 }
 </style>

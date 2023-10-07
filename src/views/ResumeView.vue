@@ -16,7 +16,8 @@ const data: Data | undefined = inject("data");
     <div class="intro-row mb-50">
         <IntroductionComponent />
         <div class="about-me-col ml-20">
-            <AboutMeComponent class="mb-50" />
+            <AboutMeComponent class="mb-20" />
+            <WrapListComponent :skills="data?.skills" />
         </div>
     </div>
 

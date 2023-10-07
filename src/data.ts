@@ -484,7 +484,7 @@ export class Data {
         );
 
         const seoulMarathon = new Achievement(
-            "Soul Marathon 2023 Relay for 2",
+            "Soul Marathon 2023 Relay",
             "Together with my runnind duo from Japan, we competed and won the two-person relay at Seoul. I ran the second part 22.2 kilometers long in time 1:24:44.",
             "Long description",
             "Seoul Marathon",

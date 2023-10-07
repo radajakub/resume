@@ -6,8 +6,8 @@ const props = defineProps<{ skill: Skill }>();
 </script>
 
 <template>
-    <div class="skill sharp-border thin-border">
-        <div class="header-line subsubtitle center p-10">
+    <div class="skill sharp-border thin-border white-bg mr-10 mb-10">
+        <div class="header-line subtitle center p-10">
             <div class="mr-10 header-icon">
                 <font-awesome-icon :icon="props.skill.icon" />
             </div>
@@ -16,8 +16,8 @@ const props = defineProps<{ skill: Skill }>();
             </div>
         </div>
         <SeparatorComponent no-vertical-padding />
-        <div class="skill-list p-10">
-            <div v-for="(skill, index) in props.skill.skills" :key="index" class="text bold"> {{ skill }}</div>
+        <div class="skill-list m-10">
+            <div v-for="(skill, index) in props.skill.skills" :key="index" class="subsubtitle bold ph-10"> {{ skill }}</div>
         </div>
     </div>
 </template>
@@ -34,17 +34,20 @@ const props = defineProps<{ skill: Skill }>();
 
 .skill-list {
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    align-content: center;
     line-height: 1.5;
+    height: 100%;
+    overflow: scroll;
 }
 
 .skill {
     display: flex;
     flex-direction: column;
-    width: 250px;
-    height: 100%;
+    width: 280px;
+    height: 200px;
 }
 </style>
