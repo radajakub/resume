@@ -360,6 +360,22 @@ export class Data {
 
         // programming languages
         const julia = new ProgrammingLangauge("Julia");
+        const typescript = new ProgrammingLangauge("Typescript");
+        const c = new ProgrammingLangauge("C");
+        const cpp = new ProgrammingLangauge("C++");
+        const python = new ProgrammingLangauge("Python");
+        const html = new ProgrammingLangauge("HTML");
+        const css = new ProgrammingLangauge("CSS");
+        const javascript = new ProgrammingLangauge("Javascript");
+        const flutter = new ProgrammingLangauge("Flutter");
+        const node = new ProgrammingLangauge("NodeJS");
+        const angular = new ProgrammingLangauge("Angular");
+        const vue = new ProgrammingLangauge("Vue.js");
+        const dart = new ProgrammingLangauge("Dart");
+        const django = new ProgrammingLangauge("Django");
+        const docker = new ProgrammingLangauge("Docker");
+        const android = new ProgrammingLangauge("Android");
+        const ios = new ProgrammingLangauge("iOS");
 
         // educations
         const alej = new Education(
@@ -419,20 +435,65 @@ export class Data {
             new Grades("A", "1-5", "A", true)
         );
 
+        const scalesoft = new Work(
+            "Front End Web Developer",
+            "Software Engineering",
+            "Scalesoft",
+            "logo_scalesoft.png",
+            "http://in2.scalesoft.cz",
+            "Part-time",
+            [css, typescript, html, javascript, node],
+            "Two-week internship before the first academic year, where I made both determinate and indeterminate progress indicators in pure CSS. This then translated into one semester long part-time job, where I worked on a web app.",
+            "Long description",
+            new Interval(2019, 20, 8, 2019, 12, 31),
+        );
+
         const SWEHQ1 = new Work(
-            "Software Engineer",
             "Kappka Web Software Development",
+            "Software Engineering",
             "SWEHQ",
             "logo_swehq.png",
             "https://swehq.com/en/",
             "Part-time",
             [
-                new ProgrammingLangauge("Typescript", "devicon-typescript-plain"),
+                angular, typescript, html, css, javascript, node, docker
             ],
-            "Development of a complex web application in a field of finance",
+            "Development of a complex web application tool for mortgages for a big financial group. I worked on the front-end part of the application using Angular and Typescript.",
             "Long description",
             new Interval(2021, 6, 30, 2021, 11, 30)
         );
+
+        const SWEHQ2 = new Work(
+            "Cross-platform Mobile App Development and Web Development",
+            "Software Engineering",
+            "SWEHQ",
+            "logo_swehq.png",
+            "https://swehq.com/en/",
+            "Part-time",
+            [
+                flutter, dart, python, django, docker, android, ios
+            ],
+            "Developing a cross-platform social mobile application in the Flutter framework with backend in Python and Django. We started from scratch and successfully released it to both App Store and Google Play.",
+            "Long description",
+            new Interval(2022, 6, 30, 2023, 11, 30)
+        );
+
+        const ciirc = new Work(
+            "ROADEF Challenge 2020",
+            "Researcher and Developer",
+            "CIIRC CTU",
+            "logo_ciirc.jpg",
+            "https://www.ciirc.cvut.cz",
+            "Part-time",
+            [
+                cpp, c, python
+            ],
+            "Research and development of a solution for an international competition in discrete optimization. The problems were too large to be solved exactly so we had to derive a complex Metaheuristic algorithm to find approximate solutions.",
+            "Long description",
+            new Interval(2020, 7, 1, 2021, 6, 29)
+        );
+
+        const works = [scalesoft, SWEHQ1, SWEHQ2, ciirc];
 
         const baltie = new Project(
             "Programming",
@@ -534,7 +595,7 @@ export class Data {
         const achievements = [baltieNational, baltieInternational, bachelorThesisDeansAward, seoulMarathon, daeguHalfmarathon, FCE, roadef];
 
         return new Data(
-            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, [alej, feeBachelor, kaist, feeMaster], [SWEHQ1], [baltie], achievements,
+            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, [alej, feeBachelor, kaist, feeMaster], works, [baltie], achievements,
         );
     }
 }
