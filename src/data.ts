@@ -376,6 +376,7 @@ export class Data {
         const docker = new ProgrammingLangauge("Docker");
         const android = new ProgrammingLangauge("Android");
         const ios = new ProgrammingLangauge("iOS");
+        const baltie3 = new ProgrammingLangauge("Baltie 3");
 
         // educations
         const alej = new Education(
@@ -507,6 +508,8 @@ export class Data {
             new Interval(2008, 9, 1, 2012, 9, 1),
         );
 
+        const projects = [baltie];
+
         const baltieNational = new Achievement(
             "Baltie 2011 National Round",
             "Participation and second place in a national round of Baltie 3 competition at 11 years old. Judges evaluated the algorithmic and code quality of solutions for given tasks",
@@ -517,6 +520,7 @@ export class Data {
             "2nd place",
             "Programming",
             new Interval(2011, 5, 13, 2011, 5, 15),
+            baltie3,
         );
 
         const baltieInternational = new Achievement(
@@ -529,6 +533,7 @@ export class Data {
             "3rd place",
             "Programming",
             new Interval(2011, 6, 10, 2011, 6, 12),
+            baltie3,
         );
 
         const bachelorThesisDeansAward = new Achievement(
@@ -584,18 +589,19 @@ export class Data {
             "ROADEF Challenge 2020",
             "Together with my friend we placed second at a discrete optimization competition in the junior category. Moreouver, our paper was published in the Journal of Heuristics.",
             "Long description",
-            "EURO - Association of European Operational Research Societies",
+            "EURO",
             "logo_roadef.png",
             "https://www.roadef.org/challenge/2020/en/",
             "2nd place in the junior category + paper published in the Journal of Heuristics",
             "Research / Project",
             new Interval(2021, 6, 14, 2021, 6, 14),
+            cpp,
         );
 
         const achievements = [baltieNational, baltieInternational, bachelorThesisDeansAward, seoulMarathon, daeguHalfmarathon, FCE, roadef];
 
         return new Data(
-            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, [alej, feeBachelor, kaist, feeMaster], works, [baltie], achievements,
+            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, [alej, feeBachelor, kaist, feeMaster], works, projects, achievements,
         );
     }
 }
