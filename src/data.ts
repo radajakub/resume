@@ -421,10 +421,10 @@ export class Data {
             "Master",
             "logo_kaist.gif",
             "https://www.kaist.ac.kr/en/",
-            "Short description",
+            "Exchange programme in South Korea during my first year of Master's studies. Apart from the new things I learned, it gave me plenty of experience into my future life.",
             "Long description",
             [],
-            new Grades("A", "1-5", "A", true)
+            new Grades("A-B", "A-F", "None", false)
         );
         const feeMaster = new Education(
             "Czech Technical University in Prague",
@@ -435,11 +435,12 @@ export class Data {
             "Master",
             "logo_cvut.jpg",
             "https://oi.fel.cvut.cz/en/",
-            "Short description",
+            "Master programm following the Bachelor programme with focus on Artificial Intelligence and Machine Learning.",
             "Long description",
             [],
-            new Grades("A", "1-5", "A", true)
+            new Grades("None yet", "1-5", "None yet", false)
         );
+        const educations = [alej, feeBachelor, kaist, feeMaster];
 
         const scalesoft = new Work(
             "Front End Web Developer",
@@ -726,7 +727,7 @@ export class Data {
         const achievements = [baltieNational, baltieInternational, bachelorThesisDeansAward, seoulMarathon, daeguHalfmarathon, FCE, roadef];
 
         return new Data(
-            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, [alej, feeBachelor, kaist, feeMaster], works, projects, achievements,
+            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, educations, works, projects, achievements,
         );
     }
 }
