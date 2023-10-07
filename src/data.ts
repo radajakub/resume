@@ -507,8 +507,34 @@ export class Data {
             new Interval(2023, 4, 2, 2023, 4, 2),
         );
 
+        const FCE = new Achievement(
+            "Cambridge First Certificate in English",
+            "During High School I prepared for and passed the Cambridge First Certificate in English (FCE) which was then accepted instead of English exam for graduation.",
+            "Long description",
+            "Cambridge English",
+            "logo_fce.png",
+            "https://www.cambridgeenglish.org/exams-and-tests/first/",
+            "Official B2 level certificate in English",
+            "Languages",
+            new Interval(2017, 6, 17, 2017, 6, 17),
+        );
+
+        const roadef = new Achievement(
+            "ROADEF Challenge 2020",
+            "Together with my friend we placed second at a discrete optimization competition in the junior category. Moreouver, our paper was published in the Journal of Heuristics.",
+            "Long description",
+            "EURO - Association of European Operational Research Societies",
+            "logo_roadef.png",
+            "https://www.roadef.org/challenge/2020/en/",
+            "2nd place in the junior category + paper published in the Journal of Heuristics",
+            "Research / Project",
+            new Interval(2021, 6, 14, 2021, 6, 14),
+        );
+
+        const achievements = [baltieNational, baltieInternational, bachelorThesisDeansAward, seoulMarathon, daeguHalfmarathon, FCE, roadef];
+
         return new Data(
-            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, [alej, feeBachelor, kaist, feeMaster], [SWEHQ1], [baltie], [baltieNational, baltieInternational, bachelorThesisDeansAward, seoulMarathon, daeguHalfmarathon],
+            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, [alej, feeBachelor, kaist, feeMaster], [SWEHQ1], [baltie], achievements,
         );
     }
 }

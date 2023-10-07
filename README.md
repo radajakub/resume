@@ -20,9 +20,6 @@ In the future, it will be loaded from a JSON file.
   - Education - finish them
   - Work
   - Projects
-  - Achievements
-    - ROADEF
-    - FCE
 
 ### UI
 - Make order in colors and select colormap
