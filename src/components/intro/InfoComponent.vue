@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import LinkComponent from "@/components/LinkComponent.vue";
+import BadgeComponent from "../BadgeComponent.vue";
 
-const props = defineProps<{ icon: string, heading: string, value: string, url?: string, border?: boolean }>();
+const props = defineProps<{ icon: string, heading: string, value: string, url?: string, border?: boolean, badge?: string }>();
 
 </script>
 
@@ -19,6 +20,9 @@ const props = defineProps<{ icon: string, heading: string, value: string, url?: 
                     {{ props.value }}
                 </div>
             </div>
+            <div v-if="props.badge != null" class="ml-20">
+                <BadgeComponent class="text">{{ props.badge }}</BadgeComponent>
+            </div>
         </div>
     </LinkComponent>
 </template>
@@ -27,7 +31,8 @@ const props = defineProps<{ icon: string, heading: string, value: string, url?: 
 .row {
     display: flex;
     flex-direction: row;
-    height: fit-content
+    height: fit-content;
+    align-items: center;
 }
 
 .icon {
@@ -44,12 +49,4 @@ const props = defineProps<{ icon: string, heading: string, value: string, url?: 
     line-height: 1.2;
     margin: auto 0;
 }
-
-/* .light-color {
-    color: var(--color-text-light);
-} */
-
-/* .value-color {
-    color: var(--color-text);
-} */
 </style>

@@ -36,7 +36,7 @@ const filteredContacts = data?.contacts.filter((contact) => contact.use);
                 <InfoComponent :icon="data?.age.icon!" :heading="data?.age.name!"
                     :value="data?.dateOfBirth.date.computeAge().toString()!" />
                 <InfoComponent :icon="data?.location.icon!" :heading="data?.location.name!"
-                    :value="data?.location.format()!" />
+                    :value="data?.location.format()!" badge="FLEXIBLE" />
             </div>
             <div class="pv-10">
                 <SeparatorComponent :dotted="introComponentDottedSeparator" />
