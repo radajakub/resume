@@ -46,6 +46,7 @@
   --border-radius: 2px;
 
   --intro-width: 350px;
+  --scroll-width: 60px;
 
   --profile-picture-border-color: var(--base2);
   --profile-picture-size: 200px;

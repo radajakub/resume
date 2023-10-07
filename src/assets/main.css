@@ -3,6 +3,8 @@
 @import './fonts.css';
 
 body {
+  scroll-behavior: smooth;
+  margin: 0;
   padding: var(--base-padding-vertical) var(--base-padding-horizontal);
   color: var(--color-text);
   background-color: var(--color-background);
@@ -18,6 +20,18 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
+}
+
+a:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
 }
 
 .center {
