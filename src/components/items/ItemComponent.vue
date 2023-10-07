@@ -42,7 +42,7 @@ const logo = props.logoPath != null ? "/pictures/" + props.logoPath : "";
                     </RowComponent>
                     <div class="main-row">
                         <div class="ph-10 pt-10 pb-5">
-                            <div class="subtitle">{{ props.title }}</div>
+                            <div class="subtitle-smaller">{{ props.title }}</div>
                         </div>
                         <RowComponent>
                             <div class="title-col pr-20">
@@ -57,7 +57,7 @@ const logo = props.logoPath != null ? "/pictures/" + props.logoPath : "";
                                 </LinkComponent>
                             </div>
                         </RowComponent>
-                        <div class="ph-10 pb-10 pt-5">
+                        <div class="ph-10 pb-10 pt-5 smaller-text">
                             {{ props.shortText }}
                         </div>
                     </div>

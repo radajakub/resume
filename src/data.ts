@@ -377,6 +377,11 @@ export class Data {
         const android = new ProgrammingLangauge("Android");
         const ios = new ProgrammingLangauge("iOS");
         const baltie3 = new ProgrammingLangauge("Baltie 3");
+        const java = new ProgrammingLangauge("Java");
+        const javafx = new ProgrammingLangauge("JavaFX");
+        const latex = new ProgrammingLangauge("LaTeX");
+        const pytorch = new ProgrammingLangauge("PyTorch");
+        const rust = new ProgrammingLangauge("Rust");
 
         // educations
         const alej = new Education(
@@ -504,11 +509,131 @@ export class Data {
             "Small projects made in my free time during Primary School. Also, I attended competitions with some of these programs.",
             "Long description",
             "https://github.com/radajakub/baltie",
-            [new ProgrammingLangauge("Baltie 3"),],
+            [baltie3],
             new Interval(2008, 9, 1, 2012, 9, 1),
         );
 
-        const projects = [baltie];
+        const doubleOracle = new Project(
+            "Game Theory",
+            "Semestral project in Julia programming language University course",
+            "Double Oracle Algorithm for solving zero-sum normal-form games",
+            "FEE CTU",
+            "Package created as a final project for a class at FEE CTU. It is written using Julia features such as multiple dispatch, immutable structures and vectorized operations.",
+            "Long description",
+            "https://github.com/radajakub/DoubleOracle",
+            [julia],
+            new Interval(2023, 1, 1, 2023, 2, 15),
+        );
+
+        const flashcards = new Project(
+            "Software Engineering",
+            "Graduation project at High School",
+            "Flashcards web app ran in Electron",
+            "GNA",
+            "Project made in my last year of High School. It is a web app for learning vocabulary and definitions with flashcards. It features creation of flashcards, learning mode and multiple tests, which include error tolerance using Levenshtein distance.",
+            "Long Description",
+            "https://github.com/radajakub/flashcards",
+            [javascript, html, python, css, django],
+            new Interval(2019, 2, 1, 2019, 5, 15),
+        );
+
+        const resume = new Project(
+            "Software Engineering",
+            "Free-time personal project",
+            "Resume / Personal portfolio webpage",
+            "Personal",
+            "This webpage is a personal project to create my CV and to learn Vue.js framework. I also tried deploying the application to GitHub Pages with cusotm domain.",
+            "Long Description",
+            "https://github.com/radajakub/resume",
+            [vue, typescript, html, css],
+            new Interval(2023, 9, 1, 2023, 10, 30),
+        );
+
+        const chess = new Project(
+            "Software Engineering",
+            "Semestral project in Java",
+            "Chess Game with GUI and simple artificial player",
+            "FEE CTU",
+            "Offline chess application with full rules (including Castling and En Passant), time options, arbitrary starting positions, simple computer player and export/import in the PGN format.",
+            "Long description",
+            "https://github.com/radajakub/chess-game",
+            [java, javafx],
+            new Interval(2020, 2, 1, 2020, 5, 20),
+        );
+
+        const pong = new Project(
+            "Low-level programming",
+            "Semestral project in Computer Architectures",
+            "Pong game for a microcontroller",
+            "FEE CTU",
+            "Single and multi-player Pong game programmed for a microcontroller. In the project, I learned how to build very low-level programming in C, how fonts and graphical elements are rendered on a display and how to get input from sensors.",
+            "Long description",
+            "https://github.com/radajakub/apong",
+            [c],
+            new Interval(2020, 6, 1, 2020, 6, 15)
+        );
+
+        const warehouseAllocation = new Project(
+            "Optimization",
+            "Semestral project from Evolutionary Algorithms",
+            "Evolutionary and Memetic Algorithms",
+            "FEE CTU",
+            "I implemented three algorithms, simple Local Search, Evolutionary Algorithm and Memetic Algorithm with multiple evolutionary operators and compared them on a Warehouse Allocation problem.",
+            "Long description",
+            "https://github.com/radajakub/warehouse-allocation",
+            [cpp, python, latex],
+            new Interval(2021, 9, 25, 2022, 1, 15)
+        );
+
+        const bThesis = new Project(
+            "Game Theory, Reinformcent Learning",
+            "Bachelor Thesis combining Game Theory and Reinforcement Learning",
+            "Comparing Exploration Methods in Partially Observable Stochastic Games",
+            "FEE CTU",
+            "To solve Partially Observable Stochastic Games there exists a Heuristic Search Value Iteration algorithm. It can have problems with exploration, so I tried to use various Bandit algorithms to steer the algorithm in a correct direction.",
+            "Long description",
+            "https://github.com/radajakub/bachelor-thesis",
+            [julia, latex, python],
+            new Interval(2021, 9, 25, 2022, 5, 25),
+        );
+
+        const sac = new Project(
+            "Reinforcement Learning",
+            "Semestral project in Mathematical Foundations of Reinforcement Learning",
+            "Soft Actor-Critic algorithm implementation",
+            "KAIST",
+            "Implementation of the Soft Actor-Critic algorithm for solving the Walker domain from Deep Mind Control Suite. I successfully learned the weights to make the Walker run.",
+            "Long description",
+            "https://github.com/radajakub/soft-actor-critic",
+            [python, pytorch],
+            new Interval(2023, 6, 5, 2023, 6, 15),
+        );
+
+        const kecc = new Project(
+            "Compiler Design",
+            "Semestral project in Compiler Design",
+            "Implementation of KAIST Educational C Compiler in Rust",
+            "KAIST",
+            "During the semester we went through implementation of a complete C compiler in Rust programming language. The most important parts were the optimizations of intermediate representation.",
+            "Long description",
+            "https://github.com/kaist-cp/kecc-public",
+            [rust],
+            new Interval(2023, 2, 25, 2023, 6, 10),
+        );
+
+        const gml = new Project(
+            "Dimensionality Reduction",
+            "Semestral project in Graph Machine Learnign and Mining",
+            "Developing a novel approach to Dimensionality Reduction using Graphs",
+            "KAIST",
+            "With my group of friends we tried to develop an algorithm to process and visualize high-dimensional data using graphs. Our algorithm could compete with state of the art in precision. It unrolled the Swiss Roll dataset.",
+            "Long description",
+            "",
+            [python, pytorch],
+            new Interval(2023, 5, 15, 2023, 6, 1)
+        );
+
+        const projects = [baltie, doubleOracle, flashcards, resume, chess, pong, warehouseAllocation, bThesis, sac, kecc, gml];
 
         const baltieNational = new Achievement(
             "Baltie 2011 National Round",

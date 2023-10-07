@@ -13,6 +13,11 @@
     font-size: 20px;
 }
 
+.subtitle-smaller {
+    font-weight: var(--semi-bold);
+    font-size: 18px;
+}
+
 .subsubtitle {
     font-weight: var(--medium);
     font-size: 16px;
@@ -31,4 +36,9 @@
 .light-text {
     font-weight: var(--light);
     font-size: 14px;
+}
+
+.smaller-text {
+    font-weight: var(--medium);
+    font-size: 12px;
 }
