@@ -18,8 +18,9 @@ In the future, it will be loaded from a JSON file.
 ### Data
 - Add all data
   - Education - finish them
-  - Work
   - Projects
+
+- Add long descriptions and modal details to everything
 
 ### UI
 - Make order in colors and select colormap
