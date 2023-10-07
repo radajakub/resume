@@ -26,13 +26,6 @@ const showBottomRow = props.bottomLeft != null || props.bottomRight != null;
 
 const logo = props.logoPath != null ? "/pictures/" + props.logoPath : "";
 
-// const logo = ref();
-// watchEffect(async () => {
-//     if (props.logoPath != null) {
-//         logo.value = (await import(/* @vite-ignore */ "../../assets/pictures/" + props.logoPath)).default;
-//     }
-// });
-
 </script>
 
 <template>
