@@ -2,10 +2,6 @@ export const profilePictureShowBorder = true;
 
 export const introComponentDottedSeparator = false;
 
-export function computePercentage(curr: number, max: number): number {
-    return Math.max(Math.min(Math.ceil(curr * 100 / max), 100), 0);
-}
-
 export function openLink(url?: string): void {
     if (url != null) {
         window.open(new URL(url), "_blank");

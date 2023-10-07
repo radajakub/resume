@@ -2,13 +2,14 @@
 import MainModaledComponent from "@/components/MainModaledComponent.vue";
 import LinkComponent from "@/components/LinkComponent.vue";
 import RowComponent from "@/components/items/RowComponent.vue";
-// import { ref, watchEffect } from "vue";
+import ProgressBarComponent from "../ProgressBarComponent.vue";
 
 const props = defineProps<{
     modalTitle: string,
     modalWidth?: number,
-    topLeft: string,
+    topLeft?: string,
     topRight?: string,
+    percentage?: number,
     title: string,
     subtitles: string[],
     shortText?: string,
@@ -25,7 +26,6 @@ const showBottomRow = props.bottomLeft != null || props.bottomRight != null;
 
 
 const logo = props.logoPath != null ? "/pictures/" + props.logoPath : "";
-
 </script>
 
 <template>
@@ -35,7 +35,10 @@ const logo = props.logoPath != null ? "/pictures/" + props.logoPath : "";
                 <div class="main-col">
                     <RowComponent :bottomSeparator=true :bottomSeparatorDotted=true>
                         <div class="text">{{ props.topLeft }}</div>
-                        <div class="text">{{ props.topRight }}</div>
+                        <div v-if="props.percentage == null" class="text">{{ props.topRight }}</div>
+                        <div v-if="props.percentage != null" class="progress">
+                            <ProgressBarComponent :percentage="props.percentage" />
+                        </div>
                     </RowComponent>
                     <div class="main-row">
                         <div class="ph-10 pt-10 pb-5">
@@ -76,6 +79,10 @@ const logo = props.logoPath != null ? "/pictures/" + props.logoPath : "";
 </template>
 
 <style scoped>
+.progress {
+    width: 100px;
+}
+
 .sized {
     width: 400px;
     height: 350px;

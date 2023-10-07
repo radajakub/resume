@@ -1,30 +1,23 @@
 <script setup lang="ts">
-import { computePercentage } from "@/utils.ts";
-
-const props = defineProps<{ color: string, max: number, curr: number }>();
-
-const percentage = computePercentage(props.curr, props.max);
+const props = defineProps<{ percentage: number }>();
 </script>
 
 <template>
     <div class="wrapper">
-        <div class="text">{{ percentage }}%</div>
         <div class="outline">
-            <div class="bar" :width="percentage" :class="{ 'right-border': percentage != 100 }"></div>
+            <div class="bar" :style="{ width: props.percentage + '%' }"
+                :class="{ 'right-border': props.percentage != 100 }"></div>
         </div>
+        <div class="text ml-5">{{ props.percentage }}%</div>
     </div>
 </template>
 
 <style scoped>
 .wrapper {
     position: relative;
-}
-
-.text {
-    font-size: 20px;
-    position: relative;
-    text-align: right;
-    height: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .outline {
@@ -59,15 +52,5 @@ const percentage = computePercentage(props.curr, props.max);
 /* add right border only when the percentage is less than 100% */
 .right-border {
     border-right: var(--border-thickness) solid var(--color-border);
-}
-
-.progress-enter-active,
-.progress-leave-active {
-    width: v-bind(percentage) 1s ease;
-}
-
-.progress-enter-from,
-.progress-leave-to {
-    width: 0;
 }
 </style>

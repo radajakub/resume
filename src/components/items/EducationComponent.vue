@@ -18,7 +18,7 @@ subtitles.push(education.specialization);
 </script>
 
 <template>
-    <ItemComponent :topLeft="education.level" :topRight="education.timeFrame.computePercentage() + '%'"
+    <ItemComponent :topLeft="education.level" :percentage="education.timeFrame.computePercentage()"
         :title="education.school" :logoPath="education.logoPath" :logo-link="education.link" :subtitles="subtitles"
         :short-text="education.shortDescription" :midLeft="education.grades.result"
         :midRight="education.grades.graduatedWithHonors ? 'Honors' : ''" :modalTitle="education.school"
