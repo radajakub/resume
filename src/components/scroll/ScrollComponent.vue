@@ -8,7 +8,7 @@ const props = defineProps<{
 }>();
 
 function createLink(label: string) {
-    return label.toLowerCase().replaceAll(" ", "-");
+    return label.toLowerCase().split(" ").join("");
 }
 
 const links = props.labels.map((label) => createLink(label));
@@ -26,6 +26,18 @@ function clickSection(index: number) {
         behavior: "smooth",
     });
 }
+
+document.addEventListener("scroll", () => {
+    for (var i = 0; i < links.length; i++) {
+        var elementBox = document.getElementById(links[i]).getBoundingClientRect();
+        var middle = elementBox.top + elementBox.height / 2;
+        if (middle >= 0) {
+            active.value = i;
+            break;
+        }
+    }
+});
+
 </script>
 
 <template>

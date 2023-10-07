@@ -11,7 +11,7 @@ import { Data } from "@/data.ts";
 const data: Data | undefined = inject("data");
 
 const sections = [
-    "Introduction", "Skills", "Education", "Work", "Projects", "Achievements"
+    "About me", "Skills", "Education", "Work", "Projects", "Achievements"
 ];
 </script>
 
