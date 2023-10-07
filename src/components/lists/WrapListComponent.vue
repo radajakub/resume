@@ -20,23 +20,23 @@ const showProjects = props.projects != null;
 const showAchievements = props.achievements != null;
 const showSkills = props.skills != null;
 
-var carouselTitle = "";
+var wrapListTitle = "";
 if (showEducations) {
-    carouselTitle = "Education";
+    wrapListTitle = "Education";
 } else if (showWorks) {
-    carouselTitle = "Work";
+    wrapListTitle = "Work";
 } else if (showProjects) {
-    carouselTitle = "Projects";
+    wrapListTitle = "Projects";
 } else if (showAchievements) {
-    carouselTitle = "Achievements";
+    wrapListTitle = "Achievements";
 } else if (showSkills) {
-    carouselTitle = "Skills";
+    wrapListTitle = "Skills";
 }
 
 const allOptions = [showEducations, showWorks, showProjects, showAchievements, showSkills];
 
 if (allOptions.filter((x) => x == true).length != 1) {
-    throw Error("Carousel: Exactly one of educations, works, projects, or achievements must be true");
+    throw Error("Wrap List: Exactly one of educations, works, projects, or achievements must be true");
 }
 
 </script>
@@ -44,7 +44,7 @@ if (allOptions.filter((x) => x == true).length != 1) {
 <template>
     <div class="wrap-list">
         <div class="heading">
-            {{ carouselTitle }}
+            {{ wrapListTitle }}
         </div>
         <div class="wrap-list-body">
             <div v-if="showEducations">
