@@ -119,11 +119,15 @@ export class Course {
     readonly name: string;
     readonly description: string;
     readonly grade: string;
+    readonly credits: number;
+    readonly semester: number;
 
-    constructor(name: string, description: string, grade: string) {
+    constructor(name: string, description: string, grade: string, credits: number, semester = 0) {
         this.name = name;
         this.description = description;
         this.grade = grade;
+        this.credits = credits;
+        this.semester = semester;
     }
 }
 
@@ -144,16 +148,34 @@ export class Thesis {
 }
 
 export class Grades {
+    static gradeLookup = new Map<string, number>([
+        ["A", 1], ["B", 1.5], ["C", 2], ["D", 2.5], ["E", 3], ["F", 4],
+        ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5],
+    ]);
+
+    readonly courses: Course[];
     readonly result: string;
+    readonly showGPA: boolean;
     readonly scale: string;
-    readonly graduationGrade: string;
     readonly graduatedWithHonors: boolean;
 
-    constructor(result: string, scale: string, graduationGrade: string, graduatedWithHonors: boolean) {
-        this.result = result;
+    constructor(scale: string, graduatedWithHonors: boolean, courses: Course[], showGPA = false) {
+        this.courses = courses;
+        this.showGPA = showGPA;
         this.scale = scale;
-        this.graduationGrade = graduationGrade;
         this.graduatedWithHonors = graduatedWithHonors;
+        this.result = this.averageGrade();
+    }
+
+    averageGrade(): string {
+        if (this.courses.length == 0) {
+            return "";
+        }
+
+        const sumOfCredits = this.courses.map(c => c.credits).reduce((a, b) => a + b);
+        const sumOfGrades = this.courses.map(c => (Grades.gradeLookup.get(c.grade) ?? 0) * c.credits).reduce((a, b) => a + b);
+        const average = Math.round((sumOfGrades / sumOfCredits + Number.EPSILON) * 100) / 100;
+        return average.toString();
     }
 }
 
@@ -168,11 +190,10 @@ export class Education {
     readonly link: string;
     readonly shortDescription: string;
     readonly longDescription: string;
-    readonly courses: Course[];
     readonly grades: Grades;
     readonly thesis?: Thesis;
 
-    constructor(school: string, shortcut: string, faculty: string, specialization: string, timeFrame: Interval, level: string, logoPath: string, link: string, shortDescription: string, longDescription: string, courses: Course[], grades: Grades, thesis?: Thesis) {
+    constructor(school: string, shortcut: string, faculty: string, specialization: string, timeFrame: Interval, level: string, logoPath: string, link: string, shortDescription: string, longDescription: string, grades: Grades, thesis?: Thesis) {
         this.school = school;
         this.shortcut = shortcut == "" ? undefined : shortcut;
         this.faculty = faculty == "" ? undefined : faculty;
@@ -183,7 +204,6 @@ export class Education {
         this.link = link;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
-        this.courses = courses;
         this.grades = grades;
         this.thesis = thesis;
     }
@@ -395,8 +415,9 @@ export class Data {
             "https://www.alej.cz/about-school/",
             "One of the best High Schools in the Czech Republic providing great fundamentals in Math, Natural Sciences and Social Sciences",
             "Gymnázium, Praha 6, Nad Alejí 1952 is a prestigious High School located in Prague in the Czech Republic. It places regularly at the top places of final exam leaderboards across the whole country. Vast majority of students attending this High School get accepted to Czech Universities in both technical and social fields. I passed most of the years with straigh 1's (a Czech equivalent of A on a (1-5) scale and every year with honors (grade average below 1.5). At the end of the studies we have to pass a state exam and additional school exams. I graduated from Math, Computer Science, English and mandatory Czech language, all of them were 1's. Moreover, I presented my final Computer Science project, which was a flash-cards web app (see Projects section). During the studies I also passed the Cambridge First Certificate in English (FCE).",
-            [],
-            new Grades("1", "1-5", "1", true)
+            new Grades("1-5", true, [
+                new Course("Math", "High School mathematics", "1", 1, 1),
+            ]),
         );
         const feeBachelor = new Education(
             "Czech Technical University in Prague",
@@ -409,8 +430,34 @@ export class Data {
             "https://oi.fel.cvut.cz/en/",
             "Bachelor programme consisiting of Math, Algorithms and Computer Architectures and Introduction to Optimization and Artificial Intelligence",
             "Long description",
-            [],
-            new Grades("A", "1-5", "A", true)
+            new Grades("1-4", true, [
+                new Course("Evolutionary Optimization Algorithms", "Local Search, Evolutionary and Genetic Algorithms", "A", 6, 5),
+                new Course("Optimization and Game Theory", "Convex Optimization, Duality, Normal Form Games", "A", 4, 6),
+                new Course("Linear Algebra", "Introduction to Abstract Linear Algebra", "A", 7, 1),
+                new Course("Logic and Graphs", "Propositional and Predicate Logic, Resolution, Graph Theory", "B", 5, 2),
+                new Course("Mathematical Analysis 1", "One-dimensional Calculus", "C", 7, 2),
+                new Course("Mathematical Analysis 2", "Multi-dimensional Calculus", "A", 7, 3),
+                new Course("Probability and Statistics", "Probability Theory, Statistics, Markov Chains", "A", 7, 3),
+                new Course("Optimization", "Optimization with Linear Algebra, Gradient methods, Linear Programming", "B", 7, 4),
+                new Course("Computer Architectures", "Modern RISC Processor Design", "A", 5, 2),
+                new Course("Database Systems", "Relation Databases, SQL, Relational Algebra", "A", 6, 4),
+                new Course("Julia for Optimization and Learning", "Introduction to the Julia language and multiple dispatch approaches", "A", 4, 6),
+                new Course("Programmin in Java", "Introduction to Object Oriented Programming and Java", "A", 6, 2),
+                new Course("Procedural Programming", "Programming in C", "A", 6, 1),
+                new Course("Discrete Mathematics", "Integers, Relations, Mappings, Induction and other proofs", "A", 5, 1),
+                new Course("Languages, Automats and Gramatics", "Finite and Pushdown Automata, Languages, Turing Machines", "A", 6, 5),
+                new Course("Numerical Analysis", "Numerical Algorithms for Interpolation, Integration, Equation Solving, ...", "A", 6, 3),
+                new Course("Algorithms", "Computational Complexity, Graph Algorithms, Sorting, Dynamic Programming, ...", "A", 6, 3),
+                new Course("Solving Problems and other Games", "Introduction to Python and AI", "A", 6, 1),
+                new Course("Recognition and Machine Learning", "Introduction to Pattern Recognition, Classifiers, Neural Nets, Regression, SVM, ...", "B", 6, 5),
+                new Course("Operating Systems", "Processes, Threads, Kernels, Memory Management, ...", "A", 4, 3),
+                new Course("Parallel and Distributed Computing", "Parallelism in C/C++, OpenMP, Parallel Algorithms, Distributed Algorithms", "A", 6, 4),
+                new Course("Introduction to Artificial Intelligence", "Search, CSP, Games, Logic, Planning, Monte Carlo Tree Search, ...", "A", 6, 4),
+                new Course("Computer Networks", "Introduction to Networking, Protocols and Infrastructure, Error Correction", "A", 5, 2),
+                new Course("Cryptography and Information Security", "Cyphers, Hashing, Authentication, Autorization, Safe Protocols", "A", 5, 5),
+                new Course("Functional Programming", "Lips, Haskell, Lambda Calculus", "A", 6, 4),
+                new Course("Final Exam", "Final Exam for the Bachelor's Degree - 2 Topics + Thesis Defense", "A/A", 0, 6)
+            ], true),
         );
         const kaist = new Education(
             "Korean Advanced Insitute of Science and Technology",
@@ -423,8 +470,12 @@ export class Data {
             "https://www.kaist.ac.kr/en/",
             "Exchange programme in South Korea during my first year of Master's studies. Apart from the new things I learned, it gave me plenty of experience into my future life.",
             "Long description",
-            [],
-            new Grades("A-B", "A-F", "None", false)
+            new Grades("A-F", true, [
+                new Course("Mathematical Foundations of Reinforcement Learning", "From Dynamic Programming to Entropy RL and Soft Actor-Critic", "B0", 3, 0),
+                new Course("Basics of Quantum Information and Quantum Computing", "Quantum Theory, Circuits and Algorithms", "A+", 3, 0),
+                new Course("Graph Machine Learning and Mining", "Graph Theory, Graph Neural Networks, Knowledge Graphs", "B+", 3, 0),
+                new Course("Compiler Design", "Semantic Analysis, Code Generation, Optimization", "B0", 3, 0),
+            ], false),
         );
         const feeMaster = new Education(
             "Czech Technical University in Prague",
@@ -437,8 +488,13 @@ export class Data {
             "https://oi.fel.cvut.cz/en/",
             "Master programm following the Bachelor programme with focus on Artificial Intelligence and Machine Learning.",
             "Long description",
-            [],
-            new Grades("None yet", "1-5", "None yet", false)
+            new Grades("1-4", true, [
+                new Course("Computational Game Theory", "Algorithms to Solve Normal Form Games, Extensive Games and Cooperational Games", "A", 6, 1),
+                new Course("Advanced Algorithms", "Graph Theory, Isomorphisms, Heaps and Data Structures, ...", "A", 6, 1),
+                new Course("Digital Image Processing", "Image Filtering, Edge Detection, Image Segmentation, ...", "A", 6, 1),
+                new Course("Scientific Programming in Julia", "In-depth Analysis of Julia Language, its Compilation, Typesystem, Multiple Dispatch and Performance", "A", 4, 1),
+                new Course("Statistical Machine Learning", "Error Bounds, VC Dimension, Structured Perceptron and SVM, Neural Networks, Bayesian Learning, EM Algorithm, ...", "A", 6, 1)
+            ], true),
         );
         const educations = [alej, feeBachelor, kaist, feeMaster];
 

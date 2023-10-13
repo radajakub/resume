@@ -16,13 +16,11 @@ In the future, it will be loaded from a JSON file.
 ## TODO
 
 ### Data
-
 - Add long descriptions and modal details to everything
+- Add Thesis to FEE
 
 ### UI
 - Make order in colors and select colormap
-- Add course item
-- Add modals for each item
 
 ### Features
 - Add a print button which will generate latex according to stanford recommendation

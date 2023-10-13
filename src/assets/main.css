@@ -46,6 +46,11 @@ a:visited {
   border: var(--border-thickness) solid var(--color-border);
 }
 
+.horizontal-border {
+  border-top: var(--border-thickness) solid var(--color-border);
+  border-bottom: var(--border-thickness) solid var(--color-border);
+}
+
 .rounded-border {
   border-radius: var(--border-radius);
 }
@@ -64,4 +69,8 @@ a:visited {
 
 .lighter-border {
   border-color: var(--base0);
+}
+
+.sticky-header {
+  position: sticky;
 }

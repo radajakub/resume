@@ -5,7 +5,7 @@ import LinkComponent from "@/components/LinkComponent.vue";
 const props = defineProps<{ show: boolean, title: string, widthPerc?: number }>();
 defineEmits<{ (e: "close"): void }>();
 
-const actual_width = (props.widthPerc ?? 60);
+const actual_width = (props.widthPerc ?? 80);
 const actual_width_string = actual_width.toString() + "%";
 const left_string = ((100 - actual_width) / 2).toString() + "%";
 </script>
@@ -19,11 +19,11 @@ const left_string = ((100 - actual_width) / 2).toString() + "%";
                     <div class="title center pv-10">
                         {{ props.title }}
                     </div>
-                    <SeparatorComponent />
-                    <div class="p-20 modal-body">
+                    <SeparatorComponent :no-vertical-padding="true" />
+                    <div class="pv-20 modal-body">
                         <slot></slot>
                     </div>
-                    <SeparatorComponent />
+                    <SeparatorComponent :no-vertical-padding="true" />
                     <LinkComponent @click="$emit('close')">
                         <div class="center subtitle pv-5">
                             Close
