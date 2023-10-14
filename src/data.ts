@@ -132,18 +132,20 @@ export class Course {
 }
 
 export class Thesis {
+    readonly level: string;
     readonly title: string;
     readonly grade: string;
     readonly badges: string[];
     readonly description: string;
-    readonly awards: string[];
+    readonly link?: string;
 
-    constructor(title: string, grade: string, badges: string[], description: string, awards: string[]) {
+    constructor(level: string, title: string, grade: string, badges: string[], description: string, link: string) {
+        this.level = level;
         this.title = title;
         this.grade = grade;
         this.badges = badges;
         this.description = description;
-        this.awards = awards;
+        this.link = link;
     }
 }
 
@@ -456,8 +458,12 @@ export class Data {
                 new Course("Computer Networks", "Introduction to Networking, Protocols and Infrastructure, Error Correction", "A", 5, 2),
                 new Course("Cryptography and Information Security", "Cyphers, Hashing, Authentication, Autorization, Safe Protocols", "A", 5, 5),
                 new Course("Functional Programming", "Lips, Haskell, Lambda Calculus", "A", 6, 4),
-                new Course("Final Exam", "Final Exam for the Bachelor's Degree - 2 Topics + Thesis Defense", "A/A", 0, 6)
+                new Course("Final Exam", "Final Exam for the Bachelor's Degree - 2 Random Topics: Calculus 1 + Numerical Methdos", "A", 0, 6),
+                new Course("Bachlor Thesis", "Presentation and Defense", "A", 0, 6)
             ], true),
+            new Thesis("bachelor", "Comparing Exploration Methods in Partially Observable Stochastic Games", "A", ["Game Theory", "Reinforcement Learning", "Optimization", "Linear Programming"], "Stochastic Games or Markov Games is a class of Games in Competitive Game Theory which can model many real world situations. With Partial Observability, we prevent agents to see the whole state of the game thus making the reasoning more probabilistic. These games can be solved by by methods heavily relying on Linear Programming, most notably the Heuristic Search Value Iteration. These methods suffer poor scalability, mostly caused by the size of linear programs and by poor exploration. In my thesis, I tried using many Bandit algorithms to see if they can learn which actions are better than others and if they can help steer the exploration in more promising ways.",
+                "https://dspace.cvut.cz/handle/10467/101325",
+            ),
         );
         const kaist = new Education(
             "Korean Advanced Insitute of Science and Technology",

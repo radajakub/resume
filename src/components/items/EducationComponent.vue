@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import ItemComponent from "@/components/items/ItemComponent.vue";
 import { Education, Grades } from "@/data.ts";
-import CourseComponent from "./CourseComponent.vue";
+import CourseComponent from "@/components/items/CourseComponent.vue";
+import ThesisComponent from "@/components/items/ThesisComponent.vue";
 
 const props = defineProps<{
     education: Education,
@@ -37,7 +38,12 @@ function createGradeString(grades: Grades) {
         :bottom-right="education.shortcut" :modalEnabled="true" :modalTitle="education.school"
         :modalWidth="props.modalWidth">
         <template #modal>
-            <CourseComponent :courses="education.grades.courses" />
+            <div class="mb-50" v-if="education.grades.courses.length > 0">
+                <CourseComponent :courses="education.grades.courses" />
+            </div>
+            <div class="mb-50" v-if="education.thesis != null">
+                <ThesisComponent :thesis="education.thesis" />
+            </div>
         </template>
     </ItemComponent>
 </template>

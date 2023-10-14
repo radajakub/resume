@@ -17,9 +17,11 @@ const data: Data | undefined = inject("data");
             </div>
         </template>
         <template #modal>
-            <p v-for="(paragraph, index) in data?.aboutMe" class="text" :key="index">
-                {{ paragraph }}
-            </p>
+            <div class="ph-20">
+                <p v-for="(paragraph, index) in data?.aboutMe" class="text" :key="index">
+                    {{ paragraph }}
+                </p>
+            </div>
         </template>
     </MainModaledComponent>
 </template>
