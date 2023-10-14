@@ -361,7 +361,7 @@ export class Data {
         const location = new Location("Location", "fa-solid fa-map-location-dot", "Prague", "Czechia", true);
 
         // contacts
-        const phone = new Contact("Phone number", "fa-solid fa-mobile", "+420 604 730 409", "tel:+420777777777");
+        const phone = new Contact("Phone number", "fa-solid fa-mobile", "+420 604 730 409", "tel:+420604730409");
         const email = new Contact("Email address", "fa-solid fa-envelope", "dev.jakubrada@icloud.com", "mailto:dev.jakubrada@icloud.com");
         const github = new Contact("GitHub", "fa-brands fa-github", "radajakub", "https://github.com/radajakub");
         const linkedin = new Contact("LinkedIn", "fa-brands fa-linkedin", "radajakub", "https://www.linkedin.com/in/radajakub");
