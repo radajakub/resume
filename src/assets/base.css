@@ -10,12 +10,6 @@
   --highlight-click: #d3d3d3;
 }
 
-/* TODO: dark color scheme */
-/* @media (prefers-color-scheme: dark) {
-  :root {
-  }
-} */
-
 :root {
   --base-padding-horizontal: 50px;
   --base-padding-vertical: 50px;
