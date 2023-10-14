@@ -417,9 +417,7 @@ export class Data {
             "https://www.alej.cz/about-school/",
             "One of the best High Schools in the Czech Republic providing great fundamentals in Math, Natural Sciences and Social Sciences",
             "Gymnázium, Praha 6, Nad Alejí 1952 is a prestigious High School located in Prague in the Czech Republic. It places regularly at the top places of final exam leaderboards across the whole country. Vast majority of students attending this High School get accepted to Czech Universities in both technical and social fields. I passed most of the years with straigh 1's (a Czech equivalent of A on a (1-5) scale and every year with honors (grade average below 1.5). At the end of the studies we have to pass a state exam and additional school exams. I graduated from Math, Computer Science, English and mandatory Czech language, all of them were 1's. Moreover, I presented my final Computer Science project, which was a flash-cards web app (see Projects section). During the studies I also passed the Cambridge First Certificate in English (FCE).",
-            new Grades("1-5", true, [
-                new Course("Math", "High School mathematics", "1", 1, 1),
-            ]),
+            new Grades("1-5", true, []),
         );
         const feeBachelor = new Education(
             "Czech Technical University in Prague",

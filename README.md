@@ -17,7 +17,6 @@ In the future, it will be loaded from a JSON file.
 
 ### Data
 - Add long descriptions and modal details to everything
-- Add Thesis to FEE
 
 ### UI
 - Make order in colors and select colormap
