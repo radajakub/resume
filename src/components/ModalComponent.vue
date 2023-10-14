@@ -52,7 +52,7 @@ const left_string = ((100 - actual_width) / 2).toString() + "%";
     z-index: 999;
     top: 10%;
     height: 80%;
-    background-color: var(--color-background-modal);
+    background-color: var(--color-background);
     box-shadow: 0 0 var(--modal-shadow-size) var(--modal-shadow-color);
     transition: all var(--modal-translation-time) ease;
     display: flex;

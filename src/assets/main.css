@@ -68,7 +68,7 @@ a:visited {
 }
 
 .white-bg {
-  background: var(--white);
+  background: var(--highlight);
 }
 
 .lighter-border {

@@ -66,7 +66,7 @@ document.addEventListener("scroll", () => {
 
 .element:hover {
     background-color: var(--color-background-hover);
-    color: var(--button-active-text-color);
+    color: var(--color-border);
 }
 
 .element.active {
