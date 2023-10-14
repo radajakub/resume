@@ -14,7 +14,6 @@ for (var course of props.courses) {
     gradesBySemester.get(course.semester)?.push(course);
 }
 const semesters = Array.from(gradesBySemester.keys()).sort();
-console.log(gradesBySemester);
 
 </script>
 

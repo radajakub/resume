@@ -22,25 +22,17 @@ const showAchievements = props.achievements != null;
 const showSkills = props.skills != null;
 
 var carouselTitle = "";
-var numberOfElements = 0;
 if (showEducations) {
     carouselTitle = "Education";
-    numberOfElements = props.educations.length;
 } else if (showWorks) {
     carouselTitle = "Work";
-    numberOfElements = props.works.length;
 } else if (showProjects) {
     carouselTitle = "Projects";
-    numberOfElements = props.projects.length;
 } else if (showAchievements) {
     carouselTitle = "Achievements";
-    numberOfElements = props.achievements.length;
 } else if (showSkills) {
     carouselTitle = "Skills";
-    numberOfElements = props.skills.length;
 }
-
-console.log(numberOfElements);
 
 const allOptions = [showEducations, showWorks, showProjects, showAchievements, showSkills];
 

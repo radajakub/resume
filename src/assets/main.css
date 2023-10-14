@@ -22,6 +22,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.modal-opened {
+  overflow: hidden;
+}
+
 a:link {
   text-decoration: inherit;
   color: inherit;

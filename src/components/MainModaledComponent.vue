@@ -8,15 +8,30 @@ const props = defineProps<{ modalTitle: string, modalWidth?: number, modalEnable
 
 const modalVisible = ref(false);
 const modalEnabled = props.modalEnabled ?? true;
+
+function openModal() {
+    if (modalEnabled) {
+        modalVisible.value = true;
+        document.body.classList.add("modal-opened");
+    }
+}
+
+function closeModal() {
+    if (modalEnabled) {
+        modalVisible.value = false;
+        document.body.classList.remove("modal-opened");
+    }
+}
+
 </script>
 
 <template>
     <ShadowComponent>
-        <div class="container white-bg thin-border sharp-border" @click="() => modalVisible = true">
+        <div class="container white-bg thin-border sharp-border" @click="openModal">
             <slot name="main"></slot>
         </div>
-        <ModalComponent v-if="modalEnabled" :widthPerc="props.modalWidth" :title="props.modalTitle"
-            @close="modalVisible = false" :show="modalVisible">
+        <ModalComponent v-if="modalEnabled" :widthPerc="props.modalWidth" :title="props.modalTitle" @close="closeModal"
+            :show="modalVisible">
             <slot name="modal"></slot>
         </ModalComponent>
     </ShadowComponent>
