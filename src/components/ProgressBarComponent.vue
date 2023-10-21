@@ -4,11 +4,11 @@ const props = defineProps<{ percentage: number }>();
 
 <template>
     <div class="wrapper">
+        <div class="text mr-5">{{ props.percentage }}%</div>
         <div class="outline">
             <div class="bar" :style="{ width: props.percentage + '%' }"
                 :class="{ 'right-border': props.percentage != 100 }"></div>
         </div>
-        <div class="text ml-5">{{ props.percentage }}%</div>
     </div>
 </template>
 
