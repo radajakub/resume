@@ -449,7 +449,7 @@ export class Data {
                 new Course("Numerical Analysis", "Numerical Algorithms for Interpolation, Integration, Equation Solving, ...", "A", 6, 3),
                 new Course("Algorithms", "Computational Complexity, Graph Algorithms, Sorting, Dynamic Programming, ...", "A", 6, 3),
                 new Course("Solving Problems and other Games", "Introduction to Python and AI", "A", 6, 1),
-                new Course("Recognition and Machine Learning", "Introduction to Pattern Recognition, Classifiers, Neural Nets, Regression, SVM, ...", "B", 6, 5),
+                new Course("Pattern Recognition and Machine Learning", "Introduction to Pattern Recognition, Classifiers, Neural Nets, Regression, SVM, ...", "B", 6, 5),
                 new Course("Operating Systems", "Processes, Threads, Kernels, Memory Management, ...", "A", 4, 3),
                 new Course("Parallel and Distributed Computing", "Parallelism in C/C++, OpenMP, Parallel Algorithms, Distributed Algorithms", "A", 6, 4),
                 new Course("Introduction to Artificial Intelligence", "Search, CSP, Games, Logic, Planning, Monte Carlo Tree Search, ...", "A", 6, 4),
