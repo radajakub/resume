@@ -16,7 +16,7 @@ const links = props.labels.map((label) => createLink(label));
 const active = ref(0);
 
 function clickSection(index: number) {
-    active.value = index;
+    // active.value = index;
     var element = document.getElementById(links[index]);
     if (element == null) {
         throw new Error("[click] The id of scroll element is null");
@@ -53,7 +53,7 @@ document.addEventListener("scroll", () => {
             <div class="element" :class="{ active: index == active }" @click="clickSection(index)">
                 <span class="item pv-20">{{ label }}</span>
             </div>
-            <SeparatorComponent :dotted=true :noVerticalPadding=true v-if="index < props.labels.length - 1" />
+            <SeparatorComponent :noVerticalPadding=true v-if="index < props.labels.length - 1" />
         </div>
     </div>
 </template>
@@ -83,7 +83,7 @@ document.addEventListener("scroll", () => {
 }
 
 .item {
-    padding-right: 5;
+    /* padding-right: 5; */
     writing-mode: vertical-rl;
     transform: rotate(180deg);
 }
