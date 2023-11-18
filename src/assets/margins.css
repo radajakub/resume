@@ -71,12 +71,20 @@
 
 /* margins */
 
+.mt-50 {
+    margin-top: 50px;
+}
+
 .mr-5 {
     margin-right: 5px;
 }
 
 .mr-10 {
     margin-right: 10px;
+}
+
+.mr-20 {
+    margin-right: 20px;
 }
 
 .mb-10 {

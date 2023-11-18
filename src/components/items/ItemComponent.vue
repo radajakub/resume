@@ -32,7 +32,7 @@ const logo = props.logoPath != null ? "/pictures/" + props.logoPath : "";
 </script>
 
 <template>
-    <div class="mr-10 mb-10">
+    <div class="mr-20 mb-20">
         <MainModaledComponent :modalTitle="props.modalTitle" :modalWidth="props.modalWidth" :modalEnabled="modalEnabled"
             class="sized">
             <template #main>

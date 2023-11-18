@@ -21,10 +21,12 @@ const sections = [
         <ScrollComponent :labels="sections" />
     </div>
     <!-- introduction row [personal column, about me column] -->
-    <div class="ml-50">
+    <div class="body-margin">
         <div class="intro-row mb-50">
-            <IntroductionComponent id="introduction" />
-            <div class="about-me-col ml-20">
+            <div class="intro">
+                <IntroductionComponent id="introduction" />
+            </div>
+            <div class="about-me-col">
                 <AboutMeComponent id="aboutme" class="mb-20" />
                 <WrapListComponent id="skills" :skills="data?.skills" />
             </div>
@@ -50,6 +52,10 @@ const sections = [
 
 
 <style scoped>
+.body-margin {
+    margin-left: 50px;
+}
+
 .scroll-col {
     position: fixed;
     left: 20px;
@@ -65,5 +71,21 @@ const sections = [
 .about-me-col {
     height: fit-content;
     width: 100%;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 1100px) {
+    .intro-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-me-col {
+        margin-left: 0px;
+    }
+
+    .intro {
+        margin-bottom: 20px;
+    }
 }
 </style>
