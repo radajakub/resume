@@ -1,4 +1,4 @@
-import { Data } from "./data.ts";
+import { Data } from "./data";
 
 function command(name: string, params: string[], args: string[]): string {
     const paramstring = params.length > 0 ? `[${params.join(",")}]` : "";
@@ -26,6 +26,7 @@ class LaTeX {
     }
 
     texify(): void {
+        this.writeHeader();
         console.log("\\begin{document}");
 
         console.log(block("center", block("huge", command("textbf", [], [this.data.firstName + " " + this.data.lastName]))));
