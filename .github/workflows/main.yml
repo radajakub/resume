@@ -22,10 +22,12 @@ concurrency:
 
 jobs:
   # Single deploy job since we're just deploying
-  build-tex:
+  build-pdf:
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Git repository
         uses: actions/checkout@v3
       - name: Set up Node
         uses: actions/setup-node@v3
@@ -36,12 +38,6 @@ jobs:
         run: npm install
       - name: Build
         run: npm run resume
-  build-pdf:
-    needs: build-tex
-    runs-on: ubuntu-latest
-    steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v3
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
@@ -50,11 +46,12 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit -a -m "Generate PDF file"
+          git add main.pdf
+          git commit -m "Generate PDF file"
       - name: Push changes
         uses: ad-m/github-push-action@master
   deploy:
-    needs: [build-tex, build-pdf]
+    needs: build-pdf
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
