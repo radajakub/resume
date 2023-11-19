@@ -21,17 +21,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-      with:
-        ref: ${{ github.head_ref }}
-        fetch-depth: 0
-      with:
-        branch: ${{ github.head_ref }}
-
-jobs:
   # Single deploy job since we're just deploying
   build-tex:
     runs-on: ubuntu-latest
