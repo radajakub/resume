@@ -14,6 +14,9 @@ const data: Data | undefined = inject("data");
                 <p class="text pb-10 ">
                     {{ data?.aboutMe[0] }}
                 </p>
+                <div class="text">
+                    Click for more...
+                </div>
             </div>
         </template>
         <template #modal>

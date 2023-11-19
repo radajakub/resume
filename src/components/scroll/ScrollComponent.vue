@@ -133,9 +133,12 @@ screen and (max-height: 650px) {
 
     .element {
         height: 100%;
+        display: flex;
+        align-items: center;
     }
 
     .item {
+        transform: rotate(0deg);
         writing-mode: horizontal-tb;
         padding-left: 20px;
         padding-right: 20px;
