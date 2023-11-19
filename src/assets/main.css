@@ -4,7 +4,6 @@
 
 body {
   scroll-behavior: smooth;
-  /* overflow: hidden; */
   margin: 0;
   padding: var(--base-padding-vertical) var(--base-padding-horizontal);
   color: var(--color-text);

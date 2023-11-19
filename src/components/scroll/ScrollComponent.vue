@@ -2,16 +2,14 @@
 import { ref } from "vue";
 
 import SeparatorComponent from "@/components/SeparatorComponent.vue";
+import { Section } from "@/data.ts";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 const props = defineProps<{
-    labels: string[],
+    sections?: Section[],
 }>();
 
-function createLink(label: string) {
-    return label.toLowerCase().split(" ").join("");
-}
-
-const links = props.labels.map((label) => createLink(label));
+const links = props.sections?.map((section) => section.linkify()) ?? [];
 
 const active = ref(0);
 
@@ -21,7 +19,8 @@ function clickSection(index: number) {
     if (element == null) {
         throw new Error("[click] The id of scroll element is null");
     }
-    var y = element.getBoundingClientRect().top + window.scrollY;
+    var offset = document.documentElement.clientWidth < 1100 ? 70 : 0;
+    var y = element.getBoundingClientRect().top + window.scrollY - offset;
     if (index == 0) {
         y = 0;
     }
@@ -49,11 +48,15 @@ document.addEventListener("scroll", () => {
 
 <template>
     <div class="wrapper thin-border rounded-border">
-        <div v-for="(label, index) in props.labels" :key="index">
+        <div v-for="(section, index) in props.sections" :key="index">
             <div class="element vertical-separator" :class="{ active: index == active }" @click="clickSection(index)">
-                <span class="item">{{ label }}</span>
+                <span class="item-icon">
+                    <font-awesome-icon :icon="section.icon" />
+                </span>
+                <span class="item">{{ section.name }}</span>
             </div>
-            <SeparatorComponent class="separator" :noVerticalPadding=true v-if="index < props.labels.length - 1" />
+            <SeparatorComponent class="separator" :noVerticalPadding=true
+                v-if="index < (props.sections?.length ?? 0) - 1" />
         </div>
     </div>
 </template>
@@ -93,9 +96,32 @@ document.addEventListener("scroll", () => {
     transform: rotate(180deg);
     padding-top: 20px;
     padding-bottom: 20px;
+    font-size: 12px;
 }
 
-@media screen and (max-width: 1100px) {
+.item-icon {
+    display: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 20px;
+}
+
+@media screen and (max-height: 800px) {
+    .item {
+        display: none;
+    }
+
+    .item-icon {
+        display: block;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 1150px),
+screen and (max-height: 650px) {
     .wrapper {
         width: fit-content;
         height: var(--scroll-width);
@@ -129,5 +155,39 @@ document.addEventListener("scroll", () => {
         border-right: 0;
     }
 
+    @media screen and (max-height: 800px) {
+        .item {
+            display: block;
+            transform: rotate(0deg);
+        }
+
+        .item-icon {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .item {
+        display: none;
+    }
+
+    .item-icon {
+        display: block;
+    }
+
+    @media screen and (max-height: 800px) {
+        .item {
+            display: none;
+        }
+
+        .item-icon {
+            display: block;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
 }
 </style>

@@ -297,6 +297,24 @@ export class Achievement {
     }
 }
 
+export class Section {
+    readonly name: string;
+    readonly icon: string;
+
+    constructor(name: string, icon: string) {
+        this.name = name;
+        this.icon = icon;
+    }
+
+    linkify(): string {
+        return this.name.toLowerCase().split(" ").join("");
+    }
+}
+
+export enum Sections {
+    introduction, aboutme, skills, education, work, projects, achievements
+}
+
 export class Data {
     readonly firstName: string;
     readonly lastName: string;
@@ -326,6 +344,30 @@ export class Data {
         this.works = works;
         this.projects = projects;
         this.achievements = achievements;
+    }
+
+    sections(): Map<Sections, Section> {
+        const present: Map<Sections, Section> = new Map();
+        present.set(Sections.introduction, new Section("Introduction", "fa-solid fa-info"));
+        if (this.aboutMe.length != 0) {
+            present.set(Sections.aboutme, new Section("About Me", "fa-solid fa-user"));
+        }
+        if (this.skills.length != 0) {
+            present.set(Sections.skills, new Section("Skills", "fa-solid fa-lightbulb"));
+        }
+        if (this.educations.length != 0) {
+            present.set(Sections.education, new Section("Education", "fa-solid fa-graduation-cap"));
+        }
+        if (this.works.length != 0) {
+            present.set(Sections.work, new Section("Work", "fa-solid fa-computer"));
+        }
+        if (this.projects.length != 0) {
+            present.set(Sections.projects, new Section("Projects", "fa-code-branch"));
+        }
+        if (this.achievements.length != 0) {
+            present.set(Sections.achievements, new Section("Achievements", "fa-solid fa-award"));
+        }
+        return present;
     }
 
     educationsSorted(): Education[] {
