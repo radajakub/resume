@@ -1,5 +1,3 @@
-import { createWriteStream, WriteStream } from "fs";
-
 export class TimePoint {
     readonly year: number;
     readonly month: number;
@@ -835,43 +833,3 @@ export class Data {
         );
     }
 }
-
-function command(name: string, params: string[], args: string[]): string {
-    const paramstring = params.length > 0 ? `[${params.join(",")}]` : "";
-    return `\\${name}${paramstring}{${args.join(",")}}`;
-}
-
-function block(name: string, content: string): string {
-    return `\\begin{${name}}\n${content}\n\\end{${name}}`;
-}
-
-class LaTeX {
-    readonly data: Data;
-    output: string[];
-
-    constructor() {
-        this.data = Data.init();
-        this.output = [];
-    }
-
-    writeHeader(out: WriteStream): void {
-        out.write(command("documentclass", ["a4paper", "11pt"], ["article"]) + "\n");
-        out.write(command("usepackage", ["a4paper", "total={18cm, 27cm}"], ["geometry"]) + "\n");
-        out.write(command("usepackage", ["parfill"], ["parskip"]) + "\n");
-        out.write(command("usepackage", ["utf8"], ["inputenc"]) + "\n");
-    }
-
-    texify(output: string): void {
-        const out = createWriteStream(output, { flags: "w" });
-        this.writeHeader(out);
-        out.write("\\begin{document}\n");
-
-        out.write(block("center", block("huge", command("textbf", [], [this.data.firstName + " " + this.data.lastName]))));
-
-        out.write("\\end{document}\n");
-        out.close();
-    }
-}
-
-const latex = new LaTeX();
-latex.texify("resume/main.tex");

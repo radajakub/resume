@@ -46,13 +46,12 @@ jobs:
       - name: Commit files
         run: |
           git config --local user.email "dev.jakubrada@icloud.com"
-          git config --local user.name "Jakub Rada"
-          git add main.pdf
+          git config --local user.name "Jakub Rada[bot]"
+          git add *.pdf
           git commit -m "Generate PDF file"
       - name: Push changes
         uses: ad-m/github-push-action@master
   deploy:
-    needs: build-pdf
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
