@@ -54,11 +54,13 @@ const sections = [
 <style scoped>
 .body-margin {
     margin-left: 50px;
+    z-index: 0;
 }
 
 .scroll-col {
+    z-index: 10;
     position: fixed;
-    left: 20px;
+    left: var(--spacer-size);
     top: var(--base-padding-vertical);
 }
 
@@ -66,12 +68,14 @@ const sections = [
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .about-me-col {
     height: fit-content;
     width: 100%;
-    margin-left: 20px;
+    margin-left: var(--spacer-size);
 }
 
 @media screen and (max-width: 1100px) {
@@ -85,7 +89,21 @@ const sections = [
     }
 
     .intro {
-        margin-bottom: 20px;
+        margin-bottom: var(--spacer-size);
+    }
+
+    .body-margin {
+        margin-left: 0px;
+        margin-top: 50px;
+    }
+
+    .scroll-col {
+        background-color: var(--color-background);
+        position: fixed;
+        top: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 100%;
     }
 }
 </style>

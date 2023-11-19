@@ -50,10 +50,10 @@ document.addEventListener("scroll", () => {
 <template>
     <div class="wrapper thin-border rounded-border">
         <div v-for="(label, index) in props.labels" :key="index">
-            <div class="element" :class="{ active: index == active }" @click="clickSection(index)">
-                <span class="item pv-20">{{ label }}</span>
+            <div class="element vertical-separator" :class="{ active: index == active }" @click="clickSection(index)">
+                <span class="item">{{ label }}</span>
             </div>
-            <SeparatorComponent :noVerticalPadding=true v-if="index < props.labels.length - 1" />
+            <SeparatorComponent class="separator" :noVerticalPadding=true v-if="index < props.labels.length - 1" />
         </div>
     </div>
 </template>
@@ -62,11 +62,16 @@ document.addEventListener("scroll", () => {
 .element {
     width: 100%;
     cursor: pointer;
+    box-sizing: border-box;
 }
 
 .element:hover {
     background-color: var(--color-background-hover);
     color: var(--color-border);
+}
+
+.vertical-separator {
+    border: 0;
 }
 
 .element.active {
@@ -75,6 +80,7 @@ document.addEventListener("scroll", () => {
 }
 
 .wrapper {
+    background-color: var(--color-background);
     width: var(--scroll-width);
     display: flex;
     flex-direction: column;
@@ -83,8 +89,45 @@ document.addEventListener("scroll", () => {
 }
 
 .item {
-    /* padding-right: 5; */
     writing-mode: vertical-rl;
     transform: rotate(180deg);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+@media screen and (max-width: 1100px) {
+    .wrapper {
+        width: fit-content;
+        height: var(--scroll-width);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        margin: auto;
+    }
+
+    .element {
+        height: 100%;
+    }
+
+    .item {
+        writing-mode: horizontal-tb;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    .vertical-separator {
+        border-right: var(--border-thickness) solid var(--color-border);
+    }
+
+    .element:last-child.vertical-separator {
+        border-right: 0;
+    }
+
 }
 </style>
