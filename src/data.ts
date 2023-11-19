@@ -874,4 +874,4 @@ class LaTeX {
 }
 
 const latex = new LaTeX();
-latex.texify("resume/resume.tex");
+latex.texify("resume/main.tex");
