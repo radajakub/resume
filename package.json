@@ -9,7 +9,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "resume": "ts-node src/texify.ts > resume/main.tex"
+    "resume": "ts-node src/texify.ts > main.tex"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",

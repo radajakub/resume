@@ -42,7 +42,8 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
-          working_directory: ./resume
+          post_compile: |
+            mv main.pdf public/resume.pdf
       - name: Commit files
         run: |
           git config --local user.email "dev.jakubrada@icloud.com"
