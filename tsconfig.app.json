@@ -14,6 +14,9 @@
     "composite": true,
     "baseUrl": ".",
     "allowImportingTsExtensions": true,
+    "types": [
+      "node"
+    ],
     "paths": {
       "@/*": [
         "src/*"
