@@ -53,6 +53,7 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@master
   deploy:
+    needs: build-pdf
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
