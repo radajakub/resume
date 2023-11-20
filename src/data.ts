@@ -13,8 +13,9 @@ export class TimePoint {
         return (new Date(this.year, this.month, this.day)).getTime();
     }
 
-    format(): string {
-        return `${this.day < 10 ? "0" : "" + this.day}/${(this.month < 10 ? "0" : "") + this.month}/${this.year}`;
+    format(showDay = true): string {
+        const day = showDay ? `${(this.day < 10 ? "0" : "") + this.day}/` : "";
+        return `${day}${(this.month < 10 ? "0" : "") + this.month}/${this.year}`;
     }
 
     computeAge(): number {
@@ -318,6 +319,7 @@ export enum Sections {
 export class Data {
     readonly firstName: string;
     readonly lastName: string;
+    readonly degreesBeforeName: string[];
     readonly titles: string[];
     readonly aboutMe: string[];
     readonly dateOfBirth: DateOfBirth;
@@ -330,9 +332,10 @@ export class Data {
     readonly projects: Project[];
     readonly achievements: Achievement[];
 
-    constructor(firstName: string, lastName: string, titles: string[], aboutMe: string[], dateOfBirth: DateOfBirth, age: Age, location: Location, contacts: Contact[], skills: Skill[], educations: Education[], works: Work[], projects: Project[], achievements: Achievement[]) {
+    constructor(firstName: string, lastName: string, degreesBeforeName: string[], titles: string[], aboutMe: string[], dateOfBirth: DateOfBirth, age: Age, location: Location, contacts: Contact[], skills: Skill[], educations: Education[], works: Work[], projects: Project[], achievements: Achievement[]) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.degreesBeforeName = degreesBeforeName;
         this.titles = titles;
         this.aboutMe = aboutMe;
         this.dateOfBirth = dateOfBirth;
@@ -344,6 +347,16 @@ export class Data {
         this.works = works;
         this.projects = projects;
         this.achievements = achievements;
+    }
+
+    fullName(): string {
+        const parts = [];
+        if (this.degreesBeforeName.length != 0) {
+            parts.push(this.degreesBeforeName.join(", "));
+        }
+        parts.push(this.firstName);
+        parts.push(this.lastName);
+        return parts.join(" ");
     }
 
     sections(): Map<Sections, Section> {
@@ -390,6 +403,7 @@ export class Data {
         // Personal info
         const firstName = "Jakub";
         const lastName = "Rada";
+        const degreesBeforeName = ["Bc."];
         const titles = ["AI/ML Master student", "Researcher", "Software Engineer"];
         const aboutMe = [
             "I am a Computer Science Master student specializing in Artificial Intelligence at Czech Technical University at Prague. My journey to this field started when I was very young. I started programming when I was 8 in a programming language called Baltie 3. It is a graphical programming language which was specifically designed to teach children how to code in C. Instead of writing code as a text, children drag and connect blocks which represent individual keywords and commands of the C language (and some more to make it easier) to create programs. This language was one of the things that inspired MIT professors to create the well-known language Scratch. I regularly competed at competitions on regional and national level and when I was 11 I ended up second in the national round in the Czech Republic and then placed third in the international round, which comprised the whole central Europe (mostly Czech Republic, Slovakia, Hungary and Poland).",
@@ -532,7 +546,7 @@ export class Data {
             "Master",
             "logo_cvut.jpg",
             "https://oi.fel.cvut.cz/en/",
-            "Master programm following the Bachelor programme with focus on Artificial Intelligence and Machine Learning.",
+            "Master programme following the Bachelor programme with focus on Artificial Intelligence and Machine Learning.",
             "Long description",
             new Grades("1-4", true, [
                 new Course("Computational Game Theory", "Algorithms to Solve Normal Form Games, Extensive Games and Cooperational Games", "A", 6, 1),
@@ -558,7 +572,7 @@ export class Data {
         );
 
         const SWEHQ1 = new Work(
-            "Kappka Web Software Development",
+            "Web Software Development (Kappka)",
             "Software Engineering",
             "SWEHQ",
             "logo_swehq.png",
@@ -573,7 +587,7 @@ export class Data {
         );
 
         const SWEHQ2 = new Work(
-            "Cross-platform Mobile App Development and Web Development",
+            "Cross-platform Mobile App Development (WeAllMeet.live)",
             "Software Engineering",
             "SWEHQ",
             "logo_swehq.png",
@@ -645,7 +659,7 @@ export class Data {
             "Free-time personal project",
             "Resume / Personal portfolio webpage",
             "Personal",
-            "This webpage is a personal project to create my CV and to learn Vue.js framework. I also tried deploying the application to GitHub Pages with cusotm domain.",
+            "Personal webpage and generated resume to learn Vue.js framework. I also tried deploying the application to GitHub Pages with cusotm domain.",
             "Long Description",
             "https://github.com/radajakub/resume",
             [vue, typescript, html, css],
@@ -829,7 +843,7 @@ export class Data {
         const achievements = [baltieNational, baltieInternational, bachelorThesisDeansAward, seoulMarathon, daeguHalfmarathon, FCE, roadef];
 
         return new Data(
-            firstName, lastName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, educations, works, projects, achievements,
+            firstName, lastName, degreesBeforeName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, educations, works, projects, achievements,
         );
     }
 }
