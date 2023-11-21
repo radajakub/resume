@@ -122,6 +122,15 @@ class LaTeX {
             this.newLine();
         }
         this.newLine();
+        this.section("Publications");
+        this.newLine();
+        for (const publication of this.data.publicationsSorted()) {
+            const left = [command("textbf", publication.title), publication.publisher];
+            const right = [command("textbf", publication.date.format(false)), publication.getCategoryString()];
+            this.splitText(left, right, 0.8);
+            this.newLine();
+        }
+        this.newLine();
         this.section("Experience");
         this.newLine();
         for (const work of this.data.worksSorted()) {

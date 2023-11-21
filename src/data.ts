@@ -1,3 +1,5 @@
+/*eslint indent: [2, 4, {"SwitchCase": 1}]*/
+
 export class TimePoint {
     readonly year: number;
     readonly month: number;
@@ -298,6 +300,42 @@ export class Achievement {
     }
 }
 
+export enum PublicationCategories {
+    paper, package
+}
+
+
+export class Publication {
+    readonly title: string;
+    readonly shortDescription: string;
+    readonly publisher: string;
+    readonly logoPath: string;
+    readonly link: string;
+    readonly category: PublicationCategories;
+    readonly date: TimePoint;
+
+    constructor(title: string, shortDescription: string, publisher: string, logoPath: string, link: string, category: PublicationCategories, date: TimePoint) {
+        this.title = title;
+        this.shortDescription = shortDescription;
+        this.publisher = publisher;
+        this.logoPath = logoPath;
+        this.link = link;
+        this.category = category;
+        this.date = date;
+    }
+
+    getCategoryString(): string {
+        switch (this.category) {
+            case PublicationCategories.paper:
+                return "Paper";
+            case PublicationCategories.package:
+                return "Package";
+            default:
+                return "";
+        }
+    }
+}
+
 export class Section {
     readonly name: string;
     readonly icon: string;
@@ -313,7 +351,7 @@ export class Section {
 }
 
 export enum Sections {
-    introduction, aboutme, skills, education, work, projects, achievements
+    introduction, aboutme, skills, education, work, projects, achievements, publications
 }
 
 export class Data {
@@ -331,8 +369,9 @@ export class Data {
     readonly works: Work[];
     readonly projects: Project[];
     readonly achievements: Achievement[];
+    readonly publications: Publication[];
 
-    constructor(firstName: string, lastName: string, degreesBeforeName: string[], titles: string[], aboutMe: string[], dateOfBirth: DateOfBirth, age: Age, location: Location, contacts: Contact[], skills: Skill[], educations: Education[], works: Work[], projects: Project[], achievements: Achievement[]) {
+    constructor(firstName: string, lastName: string, degreesBeforeName: string[], titles: string[], aboutMe: string[], dateOfBirth: DateOfBirth, age: Age, location: Location, contacts: Contact[], skills: Skill[], educations: Education[], works: Work[], projects: Project[], achievements: Achievement[], publications: Publication[]) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.degreesBeforeName = degreesBeforeName;
@@ -347,6 +386,7 @@ export class Data {
         this.works = works;
         this.projects = projects;
         this.achievements = achievements;
+        this.publications = publications;
     }
 
     fullName(): string {
@@ -380,6 +420,9 @@ export class Data {
         if (this.achievements.length != 0) {
             present.set(Sections.achievements, new Section("Achievements", "fa-solid fa-award"));
         }
+        if (this.publications.length != 0) {
+            present.set(Sections.publications, new Section("Publications", "fa-solid fa-paperclip"));
+        }
         return present;
     }
 
@@ -397,6 +440,10 @@ export class Data {
 
     achievementsSorted(): Achievement[] {
         return this.achievements.sort((a, b) => TimePoint.descending(a.interval.end, b.interval.end));
+    }
+
+    publicationsSorted(): Publication[] {
+        return this.publications.sort((a, b) => TimePoint.descending(a.date, b.date));
     }
 
     static init(): Data {
@@ -842,8 +889,19 @@ export class Data {
 
         const achievements = [baltieNational, baltieInternational, bachelorThesisDeansAward, seoulMarathon, daeguHalfmarathon, FCE, roadef];
 
+        const roadefPaper = new Publication(
+            "The ALNS metaheuristic for the transmission maintenance scheduling",
+            "Paper describing our solution that was published after final round of the ROADEF 2020 competition",
+            "Journal of Metaheristics / Springer Nature",
+            "logo_springer.svg",
+            "https://link.springer.com/article/10.1007/s10732-023-09514-x",
+            PublicationCategories.paper,
+            new TimePoint(2023, 5, 27),
+        );
+        const publications = [roadefPaper];
+
         return new Data(
-            firstName, lastName, degreesBeforeName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, educations, works, projects, achievements,
+            firstName, lastName, degreesBeforeName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, educations, works, projects, achievements, publications,
         );
     }
 }

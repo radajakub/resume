@@ -94,15 +94,15 @@ document.addEventListener("scroll", () => {
 .item {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: var(--half-spacer-size);
+    padding-bottom: var(--half-spacer-size);
     font-size: 12px;
 }
 
 .item-icon {
     display: none;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: var(--half-spacer-size);
+    padding-right: var(--half-spacer-size);
     font-size: 20px;
 }
 
@@ -115,8 +115,8 @@ document.addEventListener("scroll", () => {
         display: block;
         padding-left: 0;
         padding-right: 0;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: var(--half-spacer-size);
+        padding-bottom: var(--half-spacer-size);
     }
 }
 
@@ -140,10 +140,10 @@ screen and (max-height: 650px) {
     .item {
         transform: rotate(0deg);
         writing-mode: horizontal-tb;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-top: 0px;
-        padding-bottom: 0px;
+        padding-left: var(--half-spacer-size);
+        padding-right: var(--half-spacer-size);
+        padding-top: 0;
+        padding-bottom: 0;
     }
 
     .separator {
@@ -186,8 +186,8 @@ screen and (max-height: 650px) {
 
         .item-icon {
             display: block;
-            padding-left: 20px;
-            padding-right: 20px;
+            padding-left: var(--half-spacer-size);
+            padding-right: var(--half-spacer-size);
             padding-top: 0;
             padding-bottom: 0;
         }

@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { Education, Work, Project, Achievement, Skill } from "@/data.ts";
+import { Education, Work, Project, Achievement, Skill, Publication } from "@/data.ts";
 import EducationComponent from "@/components/items/EducationComponent.vue";
 import WorkComonent from "@/components/items/WorkComonent.vue";
 import SkillComponent from "@/components/about_me/SkillComponent.vue";
 import ProjectComponent from "@/components/items/ProjectComponent.vue";
 import AchievementsComponent from "@/components/items/AchievementsComponent.vue";
+import PublicationComponent from "@/components/items/PublicationComponent.vue";
 
 const props = defineProps<{
     educations?: Education[],
@@ -12,6 +13,7 @@ const props = defineProps<{
     projects?: Project[],
     achievements?: Achievement[],
     skills?: Skill[],
+    publications?: Publication[],
 }>();
 
 const showEducations = props.educations != null;
@@ -19,6 +21,7 @@ const showWorks = props.works != null;
 const showProjects = props.projects != null;
 const showAchievements = props.achievements != null;
 const showSkills = props.skills != null;
+const showPublications = props.publications != null;
 
 var wrapListTitle = "";
 if (showEducations) {
@@ -31,9 +34,11 @@ if (showEducations) {
     wrapListTitle = "Achievements";
 } else if (showSkills) {
     wrapListTitle = "Skills";
+} else if (showPublications) {
+    wrapListTitle = "Publications";
 }
 
-const allOptions = [showEducations, showWorks, showProjects, showAchievements, showSkills];
+const allOptions = [showEducations, showWorks, showProjects, showAchievements, showSkills, showPublications];
 
 if (allOptions.filter((x) => x == true).length != 1) {
     throw Error("Wrap List: Exactly one of educations, works, projects, or achievements must be true");
@@ -62,6 +67,10 @@ if (allOptions.filter((x) => x == true).length != 1) {
             </div>
             <div v-if="showSkills">
                 <SkillComponent v-for="(skill, index) in props.skills" :key="index" :skill="skill" />
+            </div>
+            <div v-if="showPublications">
+                <PublicationComponent v-for="(publication, index) in props.publications" :key="index"
+                    :publication="publication" />
             </div>
         </div>
     </div>

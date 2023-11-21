@@ -54,6 +54,10 @@ const sectionsArray = Array.from(sections.values());
         <div class="project-col mb-50">
             <WrapListComponent id="achievements" :achievements="data.achievementsSorted()" />
         </div>
+
+        <div class="project-col mb-50">
+            <WrapListComponent id="publications" :publications="data.publicationsSorted()" />
+        </div>
     </div>
 </template>
 
@@ -72,7 +76,7 @@ const sectionsArray = Array.from(sections.values());
     z-index: 10;
     position: fixed;
     left: var(--spacer-size);
-    top: var(--base-padding-vertical);
+    top: var(--spacer-size);
 }
 
 .intro-row {
