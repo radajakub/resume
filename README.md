@@ -5,7 +5,8 @@ My resume built with vue.js framework
 ## Build and install
 
 The project is built with Vue.js 3 and uses `npm`.
-To preview the resume, run `npm run dev`.
+To preview the personal web page, run `npm run dev`.
+To build a resume run `npm run resume`.
 
 ## Data format
 
@@ -18,5 +19,3 @@ In the future, it will be loaded from a JSON file.
 ### Data
 - Add long descriptions and modal details to everything
 
-### Features
-- Add a print button which will generate latex according to stanford recommendation
