@@ -6,7 +6,7 @@ const props = defineProps<{
 </script>
 
 <template>
-    <div class="shadowed" :class="{ clickable: clickable }">
+    <div class="shadowed" :class="{ clickable: props.clickable }">
         <slot></slot>
     </div>
 </template>
