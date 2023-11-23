@@ -38,6 +38,9 @@ function createGradeString(grades: Grades) {
         :bottom-right="education.shortcut" :modalEnabled="true" :modalTitle="education.school"
         :modalWidth="props.modalWidth">
         <template #modal>
+            <div class="mb-50">
+                <div class="text ph-20">{{ education.longDescription }}</div>
+            </div>
             <div class="mb-50" v-if="education.grades.courses.length > 0">
                 <CourseComponent :courses="education.grades.courses" />
             </div>

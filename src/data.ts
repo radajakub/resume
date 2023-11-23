@@ -532,7 +532,7 @@ export class Data {
             "logo_cvut.jpg",
             "https://oi.fel.cvut.cz/en/",
             "Bachelor programme consisiting of Math, Algorithms and Computer Architectures and Introduction to Optimization and Artificial Intelligence",
-            "Long description",
+            "Czech Technical University in Prague is one of the best technical universities in the Czech Republic with long tradition. I studied a programme called Open Informatics with specialization named Introduction to Artificial Intelligence and Computer Science. The programme starts with Math and general Computer Science courses in the first three semesters. In the last three semesters it builds on these fundamentals and introduces more advanced topics such as Introduction to Artificial Intelligence, Pattern Recognition and Machine Learning, Languages and Automatons and many more. The studies are concluded with a Bachelor Thesis and what is called a State Exam, which summarizes all courses during the programme. Each student draws 2 questions randomly and has to answer them before a committee of professors. After these two questions, the student defends the Bachelor Thesis. I got my degree with A's from both questions and with an A from the defense. Moreover, I graduated with honors, which means that my overall grade average was below 1.5 and I got straight A's from graduation exam. Also, my thesis was awarded the Dean's award for exceptional theses.",
             new Grades("1-4", true, [
                 new Course("Evolutionary Optimization Algorithms", "Local Search, Evolutionary and Genetic Algorithms", "A", 6, 5),
                 new Course("Optimization and Game Theory", "Convex Optimization, Duality, Normal Form Games", "A", 4, 6),
@@ -576,7 +576,7 @@ export class Data {
             "logo_kaist.gif",
             "https://www.kaist.ac.kr/en/",
             "Exchange programme in South Korea during my first year of Master's studies. Apart from the new things I learned, it gave me plenty of experience into my future life.",
-            "Long description",
+            "Korean Advanced Institute of Science and Technology is a famous university in South Korea. It is regarded as the best technical university in the country and it is ranked among the best universities in the world. I attended the university during my first year of Master's studies as an exchange student. I studied four courses, which were all very interesting and challenging. I especially enjoyed Mathematical Foundations of Reinforcement Learning, where I learned a lot and would like to focus on this field more in the future. I would be able to pass the courses with better grades but I chose to travel a lot since it is a great opportunity to see the country and the culture and thus I did not have much time to study. What pleased me is that I was able to perform well even on a much higher-ranked university than my home one and that I could keep up with local full-time students.",
             new Grades("A-F", true, [
                 new Course("Mathematical Foundations of Reinforcement Learning", "From Dynamic Programming to Entropy RL and Soft Actor-Critic", "B0", 3, 0),
                 new Course("Basics of Quantum Information and Quantum Computing", "Quantum Theory, Circuits and Algorithms", "A+", 3, 0),
@@ -594,7 +594,7 @@ export class Data {
             "logo_cvut.jpg",
             "https://oi.fel.cvut.cz/en/",
             "Master programme following the Bachelor programme with focus on Artificial Intelligence and Machine Learning.",
-            "Long description",
+            "This programme directly follows the Bachelor programme and it deepens the knowledge in the field of Artificial Intelligence and Machine Learning, namely Statistic and Symbolic Machine Learning, Game Theory, Logical Reasoning, Robotics and many more. My studying was delayed because of an exchange programme mentioned next.",
             new Grades("1-4", true, [
                 new Course("Computational Game Theory", "Algorithms to Solve Normal Form Games, Extensive Games and Cooperational Games", "A", 6, 1),
                 new Course("Advanced Algorithms", "Graph Theory, Isomorphisms, Heaps and Data Structures, ...", "A", 6, 1),
