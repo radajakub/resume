@@ -3,6 +3,7 @@ import { inject } from "vue";
 
 import IntroductionComponent from "@/components/intro/IntroductionComponent.vue";
 import AboutMeComponent from "@/components/about_me/AboutMeComponent.vue";
+import GoalComponent from "@/components/about_me/GoalComponent.vue";
 import WrapListComponent from "@/components/lists/WrapListComponent.vue";
 import ScrollComponent from "@/components/scroll/ScrollComponent.vue";
 
@@ -24,7 +25,6 @@ const sectionsArray = Array.from(sections.values());
     <div class="scroll-col">
         <ScrollComponent :sections="sectionsArray" />
     </div>
-    <div :id="sections.get(Sections.introduction)?.linkify()" class="topclass"></div>
     <!-- introduction row [personal column, about me column] -->
     <div class="body-margin">
         <div class="intro-row mb-50">
@@ -32,6 +32,8 @@ const sectionsArray = Array.from(sections.values());
                 <IntroductionComponent />
             </div>
             <div class="about-me-col">
+                <GoalComponent v-if="sections.get(Sections.introduction)"
+                    :id="sections.get(Sections.introduction)?.linkify()" class="mb-20" />
                 <AboutMeComponent v-if="sections.get(Sections.aboutme)" :id="sections.get(Sections.aboutme)?.linkify()"
                     class="mb-20" />
                 <WrapListComponent v-if="sections.get(Sections.skills)" :id="sections.get(Sections.skills)?.linkify()"

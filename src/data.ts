@@ -360,6 +360,7 @@ export class Data {
     readonly degreesBeforeName: string[];
     readonly titles: string[];
     readonly aboutMe: string[];
+    readonly goals: string;
     readonly dateOfBirth: DateOfBirth;
     readonly age: Age;
     readonly location: Location;
@@ -371,12 +372,13 @@ export class Data {
     readonly achievements: Achievement[];
     readonly publications: Publication[];
 
-    constructor(firstName: string, lastName: string, degreesBeforeName: string[], titles: string[], aboutMe: string[], dateOfBirth: DateOfBirth, age: Age, location: Location, contacts: Contact[], skills: Skill[], educations: Education[], works: Work[], projects: Project[], achievements: Achievement[], publications: Publication[]) {
+    constructor(firstName: string, lastName: string, degreesBeforeName: string[], titles: string[], aboutMe: string[], goals: string, dateOfBirth: DateOfBirth, age: Age, location: Location, contacts: Contact[], skills: Skill[], educations: Education[], works: Work[], projects: Project[], achievements: Achievement[], publications: Publication[]) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.degreesBeforeName = degreesBeforeName;
         this.titles = titles;
         this.aboutMe = aboutMe;
+        this.goals = goals;
         this.dateOfBirth = dateOfBirth;
         this.age = age;
         this.location = location;
@@ -459,6 +461,9 @@ export class Data {
             "My areas of interest are Artificial Intelligence, machine learning, optimization and computer science in general. I enjoy programming in C/C++, Julia, Haskell and Python but other languages are definitely not an obstacle for me. I never want to stop learning.",
             "Outside of Artificial Intelligence and Computer Science I enjoy sports, mainly running and recently weightlifiting, reading books, travelling and learning new things. I have been running sice I was 6 years old with only short pauses caused by injuries. Now, I specialize in longer distances from 5km to Half-Marathons. As my biggest achievements in the sport I consider a time 34:42 at 10km distance and 1:18:54 at Half-Marathon. I ran the second time in South Korea during my exchange and it put me on 10th place at the International Daegu Half-Marathon only two weeks after winning a Marathon relay for two during the Seoul Marathon 2023."
         ];
+        const goals =
+            "I love learning new things, constantly improving my skills and abilities. I am interested in Artificial Intelligence, Machine Learning, Quantum Computing and Optimization and I want to contribute to pushing the boundaries of what is possible. I believe these fields can help us solve many important problems in this world and I want to be a part of it."
+            ;
         const dateOfBirth = new DateOfBirth("Date of birth", "fa-solid fa-cake-candles", new TimePoint(2000, 2, 25));
         const age = new Age("Age", "fa-solid fa-calendar-days");
         const location = new Location("Location", "fa-solid fa-map-location-dot", "Prague", "Czechia", true);
@@ -901,7 +906,7 @@ export class Data {
         const publications = [roadefPaper];
 
         return new Data(
-            firstName, lastName, degreesBeforeName, titles, aboutMe, dateOfBirth, age, location, contacts, skills, educations, works, projects, achievements, publications,
+            firstName, lastName, degreesBeforeName, titles, aboutMe, goals, dateOfBirth, age, location, contacts, skills, educations, works, projects, achievements, publications,
         );
     }
 }
