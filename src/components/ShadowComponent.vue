@@ -1,7 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const props = defineProps<{
+    clickable: boolean,
+}>();
+
+</script>
 
 <template>
-    <div class="shadowed">
+    <div class="shadowed" :class="{ clickable: clickable }">
         <slot></slot>
     </div>
 </template>
@@ -12,10 +17,13 @@
     box-shadow: var(--translation-size-neg-double) var(--translation-size-pos-double) var(--shadow-color);
 }
 
+.clickable {
+    cursor: pointer;
+}
+
 .shadowed {
     height: 100%;
     width: 100%;
-    cursor: pointer;
     transition: transform var(--translation-time) ease, box-shadow var(--translation-time) ease;
 }
 </style>

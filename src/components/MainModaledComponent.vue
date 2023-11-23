@@ -26,7 +26,7 @@ function closeModal() {
 </script>
 
 <template>
-    <ShadowComponent>
+    <ShadowComponent :clickable="modalEnabled">
         <div class="container white-bg thin-border sharp-border" @click="openModal">
             <slot name="main"></slot>
         </div>
