@@ -615,7 +615,7 @@ export class Data {
             [css, typescript, html, javascript, node],
             "Two-week internship before the first academic year, where I made both determinate and indeterminate progress indicators in pure CSS. This then translated into one semester long part-time job, where I worked on a web app.",
             "Long description",
-            new Interval(2019, 20, 8, 2019, 12, 31),
+            new Interval(2019, 8, 20, 2019, 12, 31),
         );
 
         const SWEHQ1 = new Work(
