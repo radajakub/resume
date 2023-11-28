@@ -922,7 +922,7 @@ export class Data {
         const deepMindLetter = new CoverLetter(
             "deepmind",
             "Google DeepMind",
-            ["Testing cover letter for deepmind"],
+            ["My dream is doing something which is meaningful and can help move knowledge, technology and humanity forward. During my studies I found that Computer Science and especially Artificial Intelligence is one of the best fields to achieve this and that I am good at it. I have been coding since I was eight years old in various programming languages. I started in Baltie 3, which is a Czech programming language and inspiration for Scratch, and I attended and succeeded at it at both national and international level. I continued coding until I got into University where my fascination with Artificial Intelligence started. I got familiar with many parts of AI and I found that Reinforcement Learning is my favorite. My attention was caught by AlphaGo and I went in this direction. I chose Reinforcement Learning as one of the topics in my Bachelor thesis, where I tried to use it to solve problems in Game Theory which are untractable by standard methods. A course I took during an exchange programme at KAIST in South Korea, called Mathematical Foundations of Reinforcement Learning, deepened my knowledge about this field and introduced me to state of the art algorithms. I want to continue in this direction and I belive that DeepMind is the best place to do this. I would love to be a part of the team for an internship now and hopefully in the future as a researcher after I finish my studies."],
         );
 
         const coverLetters = [deepMindLetter];
