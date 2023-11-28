@@ -5,6 +5,10 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ['master']
+    paths:
+      - '**.tex'
+      - 'src/data.ts'
+      - 'src/texify.ts'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -37,19 +41,20 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
-        run: npm run resume
+        run: npm run texify
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: main.tex
+          root_file: |
+            *.tex
           post_compile: |
-            mv main.pdf public/resume.pdf
+            mv *.pdf public/
       - name: Commit files
         run: |
           git config --local user.email "dev.jakubrada@icloud.com"
           git config --local user.name "Jakub Rada[bot]"
           git add *.pdf
-          git commit -m "Generate PDF file"
+          git commit -m "Generate PDF files"
       - name: Push changes
         uses: ad-m/github-push-action@master
   deploy:

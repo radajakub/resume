@@ -1,4 +1,5 @@
-import { Data, TimePoint } from "./data";
+import { CoverLetter, Data, TimePoint } from "./data";
+import { writeFileSync } from "fs";
 
 function define(name: string, args?: string, params?: string[]): string {
     const paramstring = params !== undefined && params.length > 0 ? `[${params.join(",")}]` : "";
@@ -34,16 +35,34 @@ class LaTeX {
         this.output = [];
     }
 
-    header(): void {
-        this.output.push(define("documentclass", "article", ["a4paper", "11pt"]));
-        this.output.push(define("usepackage", "geometry", ["a4paper", "total={18cm, 27cm}"]));
-        this.output.push(define("usepackage", "parskip", ["parfill"]));
-        this.output.push(define("usepackage", "inputenc", ["utf8"]));
-        this.output.push(define("usepackage", "fontenc", ["T1"]));
+    clear(): void {
+        this.output = [];
+    }
+
+    add(item: string): void {
+        this.output.push(item);
+    }
+
+    header(height = 27, width = 18): void {
+        this.add(define("documentclass", "article", ["a4paper", "11pt"]));
+        this.add(define("usepackage", "geometry", ["a4paper", `total={${width}cm, ${height}cm}`]));
+        this.add(define("usepackage", "parskip", ["parfill"]));
+        this.add(define("usepackage", "inputenc", ["utf8"]));
+        this.add(define("usepackage", "fontenc", ["T1"]));
+    }
+
+    fancyHeader(title: string): void {
+        this.add(define("usepackage", "fancyhdr"));
+        this.add(define("usepackage", "datetime", ["ddmmyyyy"]));
+        this.add(command("pagestyle", "fancy"));
+        this.add(command("fancyhf", ""));
+        this.add(command("lhead", command("today")));
+        this.add(command("chead", title));
+        this.add(command("rhead", this.data.fullName()));
     }
 
     title(): void {
-        this.output.push(block("center", block("Huge", command("textbf", command("textsc", this.data.fullName())))));
+        this.add(block("center", block("Huge", command("textbf", command("textsc", this.data.fullName())))));
     }
 
     info(): void {
@@ -58,29 +77,29 @@ class LaTeX {
                 contacts[3] = command("textbf", contact.username);
             }
         }
-        this.output.push(block("center", contacts.join(" " + mathcommand("cdot") + " ")));
+        this.add(block("center", contacts.join(" " + mathcommand("cdot") + " ")));
     }
 
     newLine(): void {
-        this.output.push("");
+        this.add("");
     }
 
     section(title: string): void {
-        this.output.push(command("section*", command("textsc", title)));
-        this.output.push(command("hrule",));
+        this.add(command("section*", command("textsc", title)));
+        this.add(command("hrule",));
     }
 
     splitText(left: string[], right: string[], firstwidth = 0.5): void {
-        this.output.push(command("begin", "minipage", ["t"], `${firstwidth}\\textwidth`));
-        this.output.push(command("begin", "flushleft"));
-        left.forEach((line) => this.output.push(line, ""));
-        this.output.push(command("end", "flushleft"));
-        this.output.push(command("end", "minipage"));
-        this.output.push(command("begin", "minipage", ["t"], `${Math.round((1 - firstwidth) * 100) / 100}\\textwidth`));
-        this.output.push(command("begin", "flushright"));
-        right.forEach((line) => this.output.push(line, ""));
-        this.output.push(command("end", "flushright"));
-        this.output.push(command("end", "minipage"));
+        this.add(command("begin", "minipage", ["t"], `${firstwidth}\\textwidth`));
+        this.add(command("begin", "flushleft"));
+        left.forEach((line) => { this.add(line); this.add(""); });
+        this.add(command("end", "flushleft"));
+        this.add(command("end", "minipage"));
+        this.add(command("begin", "minipage", ["t"], `${Math.round((1 - firstwidth) * 100) / 100}\\textwidth`));
+        this.add(command("begin", "flushright"));
+        right.forEach((line) => { this.add(line); this.add(""); });
+        this.add(command("end", "flushright"));
+        this.add(command("end", "minipage"));
     }
 
     duration(start: TimePoint, end: TimePoint, bold: boolean): string {
@@ -92,24 +111,26 @@ class LaTeX {
     }
 
     itemize(items: string[]): void {
-        this.output.push(command("begin", "itemize"));
-        items.forEach((item) => this.output.push(command("item", item)));
-        this.output.push(command("end", "itemize"));
+        this.add(command("begin", "itemize"));
+        items.forEach((item) => this.add(command("item", item)));
+        this.add(command("end", "itemize"));
     }
 
-    texify(): void {
+    texifyResume(): void {
+        this.output = [];
+
         this.header();
         this.newLine();
-        this.output.push(command("begin", "document"));
+        this.add(command("begin", "document"));
 
         this.title();
         this.info();
         this.newLine();
         this.section("Skills");
         for (const skill of this.data.skills) {
-            this.output.push(command("textbf", skill.name + ":"));
-            this.output.push(skill.skills.join(", "));
-            this.output.push("");
+            this.add(command("textbf", skill.name + ":"));
+            this.add(skill.skills.join(", "));
+            this.add("");
         }
         this.newLine();
         this.section("Education");
@@ -160,12 +181,40 @@ class LaTeX {
             this.newLine();
         }
 
+        this.add(command("end", "document"));
 
-        this.output.push(command("end", "document"));
+        this.writeToFile("resume.tex");
+    }
 
-        this.output.forEach((line) => console.log(line));
+    texifyCoverLetter(cl: CoverLetter): void {
+        this.output = [];
+        this.header(25);
+        this.fancyHeader(cl.company);
+
+        this.newLine();
+        this.add(command("begin", "document"));
+
+        cl.paragraphs.forEach((p) => {
+            this.add(p);
+            this.add("");
+        });
+
+        this.add(command("end", "document"));
+
+        this.writeToFile(`${cl.name}.tex`);
+    }
+
+    writeToFile(filename: string): void {
+        writeFileSync(filename, this.output.join("\n"), { flag: "w" });
+    }
+
+    texifyCoverLetters(): void {
+        for (const cl of this.data.coverLetters) {
+            this.texifyCoverLetter(cl);
+        }
     }
 }
 
 const latex = new LaTeX();
-latex.texify();
+// latex.texifyResume();
+latex.texifyCoverLetters();

@@ -354,6 +354,18 @@ export enum Sections {
     introduction, aboutme, skills, education, work, projects, achievements, publications
 }
 
+export class CoverLetter {
+    name: string;
+    company: string;
+    paragraphs: string[];
+
+    constructor(name: string, company: string, paragraphs: string[]) {
+        this.name = name;
+        this.company = company;
+        this.paragraphs = paragraphs;
+    }
+}
+
 export class Data {
     readonly firstName: string;
     readonly lastName: string;
@@ -371,8 +383,9 @@ export class Data {
     readonly projects: Project[];
     readonly achievements: Achievement[];
     readonly publications: Publication[];
+    readonly coverLetters: CoverLetter[];
 
-    constructor(firstName: string, lastName: string, degreesBeforeName: string[], titles: string[], aboutMe: string[], goals: string, dateOfBirth: DateOfBirth, age: Age, location: Location, contacts: Contact[], skills: Skill[], educations: Education[], works: Work[], projects: Project[], achievements: Achievement[], publications: Publication[]) {
+    constructor(firstName: string, lastName: string, degreesBeforeName: string[], titles: string[], aboutMe: string[], goals: string, dateOfBirth: DateOfBirth, age: Age, location: Location, contacts: Contact[], skills: Skill[], educations: Education[], works: Work[], projects: Project[], achievements: Achievement[], publications: Publication[], coverLetters: CoverLetter[]) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.degreesBeforeName = degreesBeforeName;
@@ -389,6 +402,7 @@ export class Data {
         this.projects = projects;
         this.achievements = achievements;
         this.publications = publications;
+        this.coverLetters = coverLetters;
     }
 
     fullName(): string {
@@ -905,8 +919,16 @@ export class Data {
         );
         const publications = [roadefPaper];
 
+        const deepMindLetter = new CoverLetter(
+            "deepmind",
+            "Google DeepMind",
+            ["Testing cover letter for deepmind"],
+        );
+
+        const coverLetters = [deepMindLetter];
+
         return new Data(
-            firstName, lastName, degreesBeforeName, titles, aboutMe, goals, dateOfBirth, age, location, contacts, skills, educations, works, projects, achievements, publications,
+            firstName, lastName, degreesBeforeName, titles, aboutMe, goals, dateOfBirth, age, location, contacts, skills, educations, works, projects, achievements, publications, coverLetters,
         );
     }
 }
