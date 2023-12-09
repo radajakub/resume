@@ -12,10 +12,5 @@ To build a resume run `npm run resume`.
 
 Data types are specified in `src/data.ts` file.
 The last `Data` class contains initializing constructor.
-In the future, it will be loaded from a JSON file.
 
-## TODO
-
-### Data
-- Add long descriptions and modal details to everything
-
+In the future, it is possible to extend it by filling the data from an online form.
