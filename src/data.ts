@@ -600,7 +600,7 @@ export class Data {
             "KAIST",
             "Faculty of Electrical Engineering",
             "Exchange programme",
-            new Interval(2023, 9, 1, 2023, 9, 1),
+            new Interval(2023, 2, 25, 2023, 6, 30),
             "Master",
             "logo_kaist.gif",
             "https://www.kaist.ac.kr/en/",
