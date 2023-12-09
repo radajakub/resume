@@ -15,7 +15,14 @@ export class TimePoint {
         return (new Date(this.year, this.month, this.day)).getTime();
     }
 
-    format(showDay = true): string {
+    isFuture(): boolean {
+        return this.toTime() > Date.now();
+    }
+
+    format(showDay = true, hideFuture = false): string {
+        if (hideFuture && this.isFuture()) {
+            return "present";
+        }
         const day = showDay ? `${(this.day < 10 ? "0" : "") + this.day}/` : "";
         return `${day}${(this.month < 10 ? "0" : "") + this.month}/${this.year}`;
     }
@@ -46,9 +53,12 @@ export class Interval {
         return Math.min(Math.round(currInterval * 100 / wholeInterval), 100);
     }
 
-    yearRange(): string {
+    yearRange(hideFuture = false): string {
         if (this.start.year == this.end.year) {
             return `${this.start.year}`;
+        }
+        if (hideFuture && this.end.isFuture()) {
+            return `${this.start.year} - present`;
         }
         return `${this.start.year} - ${this.end.year}`;
     }
@@ -664,7 +674,7 @@ export class Data {
             ],
             "Developing a cross-platform social mobile application in the Flutter framework with backend in Python and Django. We started from scratch and successfully released it to both App Store and Google Play.",
             "Long description",
-            new Interval(2022, 6, 30, 2023, 11, 30)
+            new Interval(2022, 6, 30, 2024, 9, 30)
         );
 
         const ciirc = new Work(

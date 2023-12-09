@@ -20,7 +20,7 @@ subtitles.push(work.field);
 <template>
     <ItemComponent :topLeft="work.companyName" :topRight="work.mode" :title="work.title" :logoPath="work.logoPath"
         :logo-link="work.logoLink" :subtitles="subtitles" :short-text="work.shortDescription" :midLeft="languageString"
-        :bottomLeft="work.interval.yearRange()" :modalTitle="work.title" :modalWidth="props.modalWidth">
+        :bottomLeft="work.interval.yearRange(true)" :modalTitle="work.title" :modalWidth="props.modalWidth">
         <template #modal>
         </template>
     </ItemComponent>

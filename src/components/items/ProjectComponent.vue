@@ -22,7 +22,7 @@ subtitles.push(project.subtitle);
 <template>
     <ItemComponent :topLeft="project.relatedInstitution" :title="project.name" logoPath="logo_github.png"
         :logo-link="project.githubLink" :subtitles="subtitles" :short-text="project.shortDescription"
-        :midLeft="languageString" :bottomLeft="project.interval.yearRange()" :modalTitle="project.name"
+        :midLeft="languageString" :bottomLeft="project.interval.yearRange(true)" :modalTitle="project.name"
         :modalWidth="props.modalWidth">
         <template #modal>
         </template>

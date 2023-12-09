@@ -103,7 +103,7 @@ class LaTeX {
     }
 
     duration(start: TimePoint, end: TimePoint, bold: boolean): string {
-        const s = start.format(false) + " - " + end.format(false);
+        const s = start.format(false) + " - " + end.format(false, true);
         if (bold) {
             return command("textbf", s);
         }
@@ -216,5 +216,5 @@ class LaTeX {
 }
 
 const latex = new LaTeX();
-// latex.texifyResume();
+latex.texifyResume();
 latex.texifyCoverLetters();
