@@ -1,14 +1,13 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy Resume to GitHub Pages
+name: Deploy
 
 on:
   # Runs on pushes targeting the default branch
-  push:
+  workflow_run:
+    workflows: [Build LaTeX]
     branches: ['master']
-    paths:
-      - '**.tex'
-      - 'src/data.ts'
-      - 'src/texify.ts'
+    types:
+      - completed
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -26,39 +25,7 @@ concurrency:
 
 jobs:
   # Single deploy job since we're just deploying
-  build-pdf:
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Set up Git repository
-        uses: actions/checkout@v3
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run texify
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: |
-            *.tex
-          post_compile: |
-            mv *.pdf public/
-      - name: Commit files
-        run: |
-          git config --local user.email "dev.jakubrada@icloud.com"
-          git config --local user.name "Jakub Rada[bot]"
-          git add *.pdf
-          git commit -m "Generate PDF files"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
   deploy:
-    needs: build-pdf
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
