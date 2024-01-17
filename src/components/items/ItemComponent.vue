@@ -89,7 +89,7 @@ const logo = props.logoPath != null ? "/pictures/" + props.logoPath : "";
 
 .sized {
     width: 400px;
-    height: 350px;
+    height: 400px;
 }
 
 .main-col {

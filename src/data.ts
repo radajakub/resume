@@ -224,7 +224,7 @@ export class Education {
     }
 }
 
-export class ProgrammingLangauge {
+export class ProgrammingLanguage {
     readonly name: string;
     readonly icon?: string;
 
@@ -241,12 +241,12 @@ export class Work {
     readonly logoPath: string;
     readonly logoLink: string;
     readonly mode: string;
-    readonly programmingLanguages: ProgrammingLangauge[];
+    readonly programmingLanguages: ProgrammingLanguage[];
     readonly shortDescription: string;
     readonly description: string;
     readonly interval: Interval;
 
-    constructor(title: string, field: string, companyName: string, logoPath: string, logoLink: string, mode: string, programmingLanguages: ProgrammingLangauge[], shortDescription: string, description: string, interval: Interval) {
+    constructor(title: string, field: string, companyName: string, logoPath: string, logoLink: string, mode: string, programmingLanguages: ProgrammingLanguage[], shortDescription: string, description: string, interval: Interval) {
         this.title = title;
         this.field = field;
         this.companyName = companyName;
@@ -268,10 +268,10 @@ export class Project {
     readonly shortDescription: string;
     readonly longDescription: string;
     readonly githubLink: string;
-    readonly programmingLanguages: ProgrammingLangauge[];
+    readonly programmingLanguages: ProgrammingLanguage[];
     readonly interval: Interval;
 
-    constructor(topic: string, subtitle: string, name: string, relatedInstitution: string, shortDescription: string, longDescription: string, githubLink: string, programmingLanguages: ProgrammingLangauge[], interval: Interval) {
+    constructor(topic: string, subtitle: string, name: string, relatedInstitution: string, shortDescription: string, longDescription: string, githubLink: string, programmingLanguages: ProgrammingLanguage[], interval: Interval) {
         this.topic = topic;
         this.subtitle = subtitle;
         this.name = name;
@@ -294,9 +294,9 @@ export class Achievement {
     readonly achievement: string;
     readonly category: string;
     readonly interval: Interval;
-    readonly programmingLanguage?: ProgrammingLangauge;
+    readonly programmingLanguage?: ProgrammingLanguage;
 
-    constructor(name: string, shortDescription: string, longDescription: string, awardingInstitution: string, logoPath: string, link: string, achievement: string, category: string, interval: Interval, programmingLanguage?: ProgrammingLangauge) {
+    constructor(name: string, shortDescription: string, longDescription: string, awardingInstitution: string, logoPath: string, link: string, achievement: string, category: string, interval: Interval, programmingLanguage?: ProgrammingLanguage) {
         this.name = name;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
@@ -513,29 +513,31 @@ export class Data {
         const skills = [langauges, interests, programming, frameworks, ai, traits];
 
         // programming languages
-        const julia = new ProgrammingLangauge("Julia");
-        const typescript = new ProgrammingLangauge("Typescript");
-        const c = new ProgrammingLangauge("C");
-        const cpp = new ProgrammingLangauge("C++");
-        const python = new ProgrammingLangauge("Python");
-        const html = new ProgrammingLangauge("HTML");
-        const css = new ProgrammingLangauge("CSS");
-        const javascript = new ProgrammingLangauge("Javascript");
-        const flutter = new ProgrammingLangauge("Flutter");
-        const node = new ProgrammingLangauge("NodeJS");
-        const angular = new ProgrammingLangauge("Angular");
-        const vue = new ProgrammingLangauge("Vue.js");
-        const dart = new ProgrammingLangauge("Dart");
-        const django = new ProgrammingLangauge("Django");
-        const docker = new ProgrammingLangauge("Docker");
-        const android = new ProgrammingLangauge("Android");
-        const ios = new ProgrammingLangauge("iOS");
-        const baltie3 = new ProgrammingLangauge("Baltie 3");
-        const java = new ProgrammingLangauge("Java");
-        const javafx = new ProgrammingLangauge("JavaFX");
-        const latex = new ProgrammingLangauge("LaTeX");
-        const pytorch = new ProgrammingLangauge("PyTorch");
-        const rust = new ProgrammingLangauge("Rust");
+        const julia = new ProgrammingLanguage("Julia");
+        const typescript = new ProgrammingLanguage("Typescript");
+        const c = new ProgrammingLanguage("C");
+        const cpp = new ProgrammingLanguage("C++");
+        const python = new ProgrammingLanguage("Python");
+        const matlab = new ProgrammingLanguage("Matlab");
+        const pysat = new ProgrammingLanguage("PySAT");
+        const html = new ProgrammingLanguage("HTML");
+        const css = new ProgrammingLanguage("CSS");
+        const javascript = new ProgrammingLanguage("Javascript");
+        const flutter = new ProgrammingLanguage("Flutter");
+        const node = new ProgrammingLanguage("NodeJS");
+        const angular = new ProgrammingLanguage("Angular");
+        const vue = new ProgrammingLanguage("Vue.js");
+        const dart = new ProgrammingLanguage("Dart");
+        const django = new ProgrammingLanguage("Django");
+        const docker = new ProgrammingLanguage("Docker");
+        const android = new ProgrammingLanguage("Android");
+        const ios = new ProgrammingLanguage("iOS");
+        const baltie3 = new ProgrammingLanguage("Baltie 3");
+        const java = new ProgrammingLanguage("Java");
+        const javafx = new ProgrammingLanguage("JavaFX");
+        const latex = new ProgrammingLanguage("LaTeX");
+        const pytorch = new ProgrammingLanguage("PyTorch");
+        const rust = new ProgrammingLanguage("Rust");
 
         // educations
         const alej = new Education(
@@ -821,12 +823,36 @@ export class Data {
             "KAIST",
             "With my group of friends we tried to develop an algorithm to process and visualize high-dimensional data using graphs. Our algorithm could compete with state of the art in precision. It unrolled the Swiss Roll dataset.",
             "Long description",
-            "",
+            "https://github.com/radajakub/GML-dim-reduction",
             [python, pytorch],
             new Interval(2023, 5, 15, 2023, 6, 1)
         );
 
-        const projects = [baltie, doubleOracle, flashcards, resume, chess, pong, warehouseAllocation, bThesis, sac, kecc, gml];
+        const lightup = new Project(
+            "LightUp",
+            "Assignment in Logical Reasoning and Programming",
+            "Solving a grid puzzle using SAT solving",
+            "FEE CTU",
+            "Instead of using traditional search methods to solve grid puzzles, we had to use SAT solving, PySAT in particular, to solve a LightUp puzzle. The details of the assignment can be seen in the repository.",
+            "Long description",
+            "https://github.com/radajakub/LightUp",
+            [python, pysat],
+            new Interval(2023, 9, 25, 2024, 1, 14),
+        );
+
+        const objectReconstruction = new Project(
+            "Object Reconstruction",
+            "Semestral project in 3D Computer Vision",
+            "Reconstructing 3D objects from a set of 2D images",
+            "FEE CTU",
+            "Building a pipeline of Computer Vision methods to estimate 3D point cloud from a set of images from different angles. It focused on estimating epipolar geometries and camera gluing. Also, a great coding excercise.",
+            "Long description",
+            "https://github.com/radajakub/ObjectReconstruction",
+            [python, matlab],
+            new Interval(2023, 9, 25, 2024, 1, 14),
+        );
+
+        const projects = [baltie, doubleOracle, flashcards, resume, chess, pong, warehouseAllocation, bThesis, sac, kecc, gml, lightup, objectReconstruction];
 
         const baltieNational = new Achievement(
             "Baltie 2011 National Round",
