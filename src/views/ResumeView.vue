@@ -45,6 +45,10 @@ const sectionsArray = Array.from(sections.values());
             <WrapListComponent :id="sections.get(Sections.education)?.linkify()" :educations="data.educationsSorted()" />
         </div>
 
+        <div class="membership-col mb-50">
+            <WrapListComponent id="memberships" :memberships="data.membershipsSorted()" />
+        </div>
+
         <div class="work-col mb-50">
             <WrapListComponent id="work" :works="data.worksSorted()" />
         </div>
@@ -53,11 +57,11 @@ const sectionsArray = Array.from(sections.values());
             <WrapListComponent id="projects" :projects="data.projectsSorted()" />
         </div>
 
-        <div class="project-col mb-50">
+        <div class="achievement-col mb-50">
             <WrapListComponent id="achievements" :achievements="data.achievementsSorted()" />
         </div>
 
-        <div class="project-col mb-50">
+        <div class="publication-col mb-50">
             <WrapListComponent id="publications" :publications="data.publicationsSorted()" />
         </div>
     </div>

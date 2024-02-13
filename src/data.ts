@@ -346,6 +346,24 @@ export class Publication {
     }
 }
 
+export class Membership {
+    readonly name: string;
+    readonly category: string;
+    readonly shortDescription: string;
+    readonly logoPath: string;
+    readonly link: string;
+    readonly date: TimePoint;
+
+    constructor(name: string, category: string, shortDescription: string, logoPath: string, link: string, date: TimePoint) {
+        this.name = name;
+        this.category = category;
+        this.shortDescription = shortDescription;
+        this.logoPath = logoPath;
+        this.link = link;
+        this.date = date;
+    }
+}
+
 export class Section {
     readonly name: string;
     readonly icon: string;
@@ -361,7 +379,7 @@ export class Section {
 }
 
 export enum Sections {
-    introduction, aboutme, skills, education, work, projects, achievements, publications
+    introduction, aboutme, skills, education, memberships, work, publications, projects, achievements
 }
 
 export class CoverLetter {
@@ -393,9 +411,10 @@ export class Data {
     readonly projects: Project[];
     readonly achievements: Achievement[];
     readonly publications: Publication[];
+    readonly memberships: Membership[];
     readonly coverLetters: CoverLetter[];
 
-    constructor(firstName: string, lastName: string, degreesBeforeName: string[], titles: string[], aboutMe: string[], goals: string, dateOfBirth: DateOfBirth, age: Age, location: Location, contacts: Contact[], skills: Skill[], educations: Education[], works: Work[], projects: Project[], achievements: Achievement[], publications: Publication[], coverLetters: CoverLetter[]) {
+    constructor(firstName: string, lastName: string, degreesBeforeName: string[], titles: string[], aboutMe: string[], goals: string, dateOfBirth: DateOfBirth, age: Age, location: Location, contacts: Contact[], skills: Skill[], educations: Education[], works: Work[], projects: Project[], achievements: Achievement[], publications: Publication[], memberships: Membership[], coverLetters: CoverLetter[]) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.degreesBeforeName = degreesBeforeName;
@@ -412,6 +431,7 @@ export class Data {
         this.projects = projects;
         this.achievements = achievements;
         this.publications = publications;
+        this.memberships = memberships;
         this.coverLetters = coverLetters;
     }
 
@@ -436,6 +456,9 @@ export class Data {
         }
         if (this.educations.length != 0) {
             present.set(Sections.education, new Section("Education", "fa-solid fa-graduation-cap"));
+        }
+        if (this.memberships.length != 0) {
+            present.set(Sections.memberships, new Section("Memberships", "fa-solid fa-building-columns"));
         }
         if (this.works.length != 0) {
             present.set(Sections.work, new Section("Work", "fa-solid fa-computer"));
@@ -472,6 +495,10 @@ export class Data {
         return this.publications.sort((a, b) => TimePoint.descending(a.date, b.date));
     }
 
+    membershipsSorted(): Membership[] {
+        return this.memberships.sort((a, b) => TimePoint.descending(a.date, b.date));
+    }
+
     static init(): Data {
         // Personal info
         const firstName = "Jakub";
@@ -480,7 +507,7 @@ export class Data {
         const titles = ["AI/ML Master student", "Researcher", "Software Engineer"];
         const aboutMe = [
             "I am a Computer Science Master student specializing in Artificial Intelligence at Czech Technical University at Prague. My journey to this field started when I was very young. I started programming when I was 8 in a programming language called Baltie 3. It is a graphical programming language which was specifically designed to teach children how to code in C. Instead of writing code as a text, children drag and connect blocks which represent individual keywords and commands of the C language (and some more to make it easier) to create programs. This language was one of the things that inspired MIT professors to create the well-known language Scratch. I regularly competed at competitions on regional and national level and when I was 11 I ended up second in the national round in the Czech Republic and then placed third in the international round, which comprised the whole central Europe (mostly Czech Republic, Slovakia, Hungary and Poland).",
-            "I attended one of the best general high schools in the Czech Republic and I graduated with straight A's from Math, Computer Science and the Czech language. Right after finishing high school I got accepted to the Faculty of Electrical Engineering at Czech Technical University in Prague, which is regarded as the best Computer Science faculty in the Czech Republic. I chose to specialize in Artificial Intelligence as it was the most theoretical specialization. In June 2022, I graduated from the Bachelor programme with honors. Moreover, my Bachelor thesis titled Comparing Exploration Methods in Partially Observable Stochastic Games received the dean's award for exceptional theses. Now, I study a third semester of a Master programme with the same specialization. During the first year of Master's I went to an exchange programme to the Korean Advanced Institute of Science and Technology (KAIST), which is regarded as the best technical university in South Korea. There, I studied in depth Reinforcement Learning, Quantum Computing, Grapm Machine Learning and Compiler Design.",
+            "I attended one of the best general high schools in the Czech Republic and I graduated with straight A's from Math, Computer Science and the Czech language. Right after finishing high school I got accepted to the Faculty of Electrical Engineering at Czech Technical University in Prague, which is regarded as the best Computer Science faculty in the Czech Republic. I chose to specialize in Artificial Intelligence as it was the most theoretical specialization. In June 2022, I graduated from the Bachelor programme with honors. Moreover, my Bachelor thesis titled Comparing Exploration Methods in Partially Observable Stochastic Games received the dean's award for exceptional theses. Now, I study a third semester of a Master programme with the same specialization. During the first year of Master's I went to an exchange programme to the Korean Advanced Institute of Science and Technology (KAIST), which is regarded as the best technical university in South Korea. There, I studied in depth Reinforcement Learning, Quantum Computing, Grapm Machine Learning and Compiler Design. After returning to the Czech Republic, I continued my graduate studies. In February 2024, I was accepted and introduced as a member of the Honorary Society in Computer and Information Science, Upsilon Pi Epislon.",
             "During my studies I participated in an research project in the field of discrete optimization. Our two-member team participated at an international competition ROADEF 2020 consisting of more than 70 international teams and which is regularly organized by the EURO association. In a tough competition, we placed second in the junior cathegory. The paper about our solution was then published in the Journal of Heuristics on Springer. Also, I worked and work as a part-time software engineer in SWEHQ. I worked in development of complex web and mobile applications using mainly Typescript, Angular, NodeJS and most importantly Flutter.",
             "My areas of interest are Artificial Intelligence, machine learning, optimization and computer science in general. I enjoy programming in C/C++, Julia, Haskell and Python but other languages are definitely not an obstacle for me. I never want to stop learning.",
             "Outside of Artificial Intelligence and Computer Science I enjoy sports, mainly running and recently weightlifiting, reading books, travelling and learning new things. I have been running sice I was 6 years old with only short pauses caused by injuries. Now, I specialize in longer distances from 5km to Half-Marathons. As my biggest achievements in the sport I consider a time 34:42 at 10km distance and 1:18:54 at Half-Marathon. I ran the second time in South Korea during my exchange and it put me on 10th place at the International Daegu Half-Marathon only two weeks after winning a Marathon relay for two during the Seoul Marathon 2023."
@@ -955,6 +982,17 @@ export class Data {
         );
         const publications = [roadefPaper];
 
+        const upe = new Membership(
+            "Upsilon Pi Epsilon",
+            "Honorary Society",
+            "International Honor Society for the Computing and Information Disciplines",
+            "logo_upe.png",
+            "https://upe.acm.org",
+            new TimePoint(2024, 2, 13),
+        );
+
+        const memberships = [upe];
+
         const deepMindLetter = new CoverLetter(
             "deepmind",
             "Google DeepMind",
@@ -969,7 +1007,7 @@ export class Data {
         const coverLetters = [deepMindLetter, appleLetter];
 
         return new Data(
-            firstName, lastName, degreesBeforeName, titles, aboutMe, goals, dateOfBirth, age, location, contacts, skills, educations, works, projects, achievements, publications, coverLetters,
+            firstName, lastName, degreesBeforeName, titles, aboutMe, goals, dateOfBirth, age, location, contacts, skills, educations, works, projects, achievements, publications, memberships, coverLetters,
         );
     }
 }

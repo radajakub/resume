@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { Education, Work, Project, Achievement, Skill, Publication } from "@/data.ts";
+import { Education, Work, Project, Achievement, Skill, Publication, Membership } from "@/data.ts";
 import EducationComponent from "@/components/items/EducationComponent.vue";
 import WorkComonent from "@/components/items/WorkComonent.vue";
 import SkillComponent from "@/components/about_me/SkillComponent.vue";
 import ProjectComponent from "@/components/items/ProjectComponent.vue";
 import AchievementsComponent from "@/components/items/AchievementsComponent.vue";
 import PublicationComponent from "@/components/items/PublicationComponent.vue";
+import MembershipComponent from "@/components/items/MembershipComponent.vue";
 
 const props = defineProps<{
     educations?: Education[],
@@ -14,6 +15,7 @@ const props = defineProps<{
     achievements?: Achievement[],
     skills?: Skill[],
     publications?: Publication[],
+    memberships?: Membership[],
 }>();
 
 const showEducations = props.educations != null;
@@ -22,6 +24,7 @@ const showProjects = props.projects != null;
 const showAchievements = props.achievements != null;
 const showSkills = props.skills != null;
 const showPublications = props.publications != null;
+const showMemberships = props.memberships != null;
 
 var wrapListTitle = "";
 if (showEducations) {
@@ -36,9 +39,11 @@ if (showEducations) {
     wrapListTitle = "Skills";
 } else if (showPublications) {
     wrapListTitle = "Publications";
+} else if (showMemberships) {
+    wrapListTitle = "Memberships and Societies";
 }
 
-const allOptions = [showEducations, showWorks, showProjects, showAchievements, showSkills, showPublications];
+const allOptions = [showEducations, showWorks, showProjects, showAchievements, showSkills, showPublications, showMemberships];
 
 if (allOptions.filter((x) => x == true).length != 1) {
     throw Error("Wrap List: Exactly one of educations, works, projects, or achievements must be true");
@@ -71,6 +76,10 @@ if (allOptions.filter((x) => x == true).length != 1) {
             <div v-if="showPublications">
                 <PublicationComponent v-for="(publication, index) in props.publications" :key="index"
                     :publication="publication" />
+            </div>
+            <div v-if="showMemberships">
+                <MembershipComponent v-for="(membership, index) in props.memberships" :key="index"
+                    :membership="membership" />
             </div>
         </div>
     </div>
