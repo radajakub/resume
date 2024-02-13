@@ -658,7 +658,12 @@ export class Data {
                 new Course("Advanced Algorithms", "Graph Theory, Isomorphisms, Heaps and Data Structures, ...", "A", 6, 1),
                 new Course("Digital Image Processing", "Image Filtering, Edge Detection, Image Segmentation, ...", "A", 6, 1),
                 new Course("Scientific Programming in Julia", "In-depth Analysis of Julia Language, its Compilation, Typesystem, Multiple Dispatch and Performance", "A", 4, 1),
-                new Course("Statistical Machine Learning", "Error Bounds, VC Dimension, Structured Perceptron and SVM, Neural Networks, Bayesian Learning, EM Algorithm, ...", "A", 6, 1)
+                new Course("Statistical Machine Learning", "Error Bounds, VC Dimension, Structured Perceptron and SVM, Neural Networks, Bayesian Learning, EM Algorithm, ...", "A", 6, 1),
+
+                new Course("Three Dimensionsal Computer Vision", "Projective geometry, Projective Camera, Epipolar Geometry, RANSAC, Camera Gluing, Bundle Adjustment, Stereovision, Point Clouds, ...", "A", 6, 3),
+                new Course("Logical Reasoning and Programming", "SAT Solving, Satisfiability Modulo Theories, First Order Logic, Resolution, Prolog, ...", "A", 6, 3),
+                new Course("Statistical Data Analysis", "Linear Regression, Non-linear regression, Discriminant Analysis, Clustering, Dimensionality reduction, Robust Statistics, ...", "A", 6, 3),
+                new Course("Artificial Intelligence in Robotics", "TSP, TSPN, Dubins Vehicles, Navigation, Planning, Multi-Goal and Multi-Robot Planning, ...", "A", 6, 3),
             ], true),
         );
         const educations = [alej, feeBachelor, kaist, feeMaster];
