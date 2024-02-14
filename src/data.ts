@@ -353,14 +353,16 @@ export class Membership {
     readonly logoPath: string;
     readonly link: string;
     readonly date: TimePoint;
+    readonly validity: string;
 
-    constructor(name: string, category: string, shortDescription: string, logoPath: string, link: string, date: TimePoint) {
+    constructor(name: string, category: string, shortDescription: string, logoPath: string, link: string, date: TimePoint, validity: string) {
         this.name = name;
         this.category = category;
         this.shortDescription = shortDescription;
         this.logoPath = logoPath;
         this.link = link;
         this.date = date;
+        this.validity = validity;
     }
 }
 
@@ -994,6 +996,7 @@ export class Data {
             "logo_upe.png",
             "https://upe.acm.org",
             new TimePoint(2024, 2, 13),
+            "Lifetime",
         );
 
         const memberships = [upe];

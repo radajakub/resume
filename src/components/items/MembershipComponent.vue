@@ -16,7 +16,8 @@ const subtitles: string[] = [];
 <template>
     <ItemComponent :topLeft="membership.category" :title="membership.name" :logoPath="membership.logoPath"
         :logo-link="membership.link" :subtitles="subtitles" :short-text="membership.shortDescription"
-        :bottom-left="membership.date.format()" :modal-title="membership.name" :modal-enabled=false>
+        :bottom-left="membership.date.format()" :bottom-right="membership.validity" :modal-title="membership.name"
+        :modal-enabled=false>
         <template #modal>
         </template>
     </ItemComponent>

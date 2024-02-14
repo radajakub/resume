@@ -143,6 +143,15 @@ class LaTeX {
             this.newLine();
         }
         this.newLine();
+        this.section("Memberships and Societies");
+        for (const membership of this.data.membershipsSorted()) {
+            const left = [command("textbf", membership.name), membership.category];
+            const right = [command("textbf", membership.date.format(false)), membership.validity];
+            this.splitText(left, right, 0.7);
+            this.itemize([membership.shortDescription]);
+            this.newLine();
+        }
+        this.newLine();
         this.section("Publications");
         this.newLine();
         for (const publication of this.data.publicationsSorted()) {
