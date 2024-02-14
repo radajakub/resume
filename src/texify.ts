@@ -148,7 +148,6 @@ class LaTeX {
             const left = [command("textbf", membership.name), membership.category];
             const right = [command("textbf", membership.date.format(false)), membership.validity];
             this.splitText(left, right, 0.7);
-            this.itemize([membership.shortDescription]);
             this.newLine();
         }
         this.newLine();
