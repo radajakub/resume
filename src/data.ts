@@ -1012,7 +1012,13 @@ export class Data {
             "Apple",
             ["My dream is doing something which is meaningful and can help move knowledge, technology and humanity forward. During my studies I found that Computer Science and especially Artificial Intelligence is one of the best fields to achieve this and that I am good at it. I have been coding since I was eight years old in various programming languages. I started in Baltie 3, which is a Czech programming language and inspiration for Scratch, and I attended and succeeded at competitions at both national and international level. I have continued coding until I got into University where my fascination with Artificial Intelligence started. I got familiar with many parts of AI and Machine Learning both at my home university in Prague and at Korean Advanced Institute of Science and Technology in South Korea during an exchange programme. I always strive for quality in my projects and code and I see it in Apple and its products, which I enjoy in professional and personal life. I would love to contribute to developing high-quality products and help bring even more of Artificial Intelligence and Machine Learning to the end user and further enhance the experience.",]);
 
-        const coverLetters = [deepMindLetter, appleLetter];
+        const huggingFaceLetter = new CoverLetter("huggingFace", "Hugging Face", [
+            "My dream is doing something which is meaningful and can help move knowledge, technology and humanity forward. During my life and studies I have found that Computer Science and especially Artificial Intelligence is one of the key fields of science to achieve this and that I am good at it.",
+            "I have been coding since I was eight years old in various programming languages and I attended and won competitions at various levels. I have continued coding until I got into university where my fascination with Artificial Intelligence started. I got familiar with many subfields of AI and Machine Learning both at my home university in Prague and at Korean Advanced Institute of Science and Technology in South Korea during an exchange programme. During university I also gained valuable expereince in Software Development on both web and mobile platforms.",
+            "I am hard-working, motivated and always eager to learn. In my studies, my code and my life in general I always strive for perfection and I am not afraid to take on new challenges. I think what Hugging Face is doing is remarkable and important and I believe that I can contribute.",
+        ]);
+
+        const coverLetters = [deepMindLetter, appleLetter, huggingFaceLetter];
 
         return new Data(
             firstName, lastName, degreesBeforeName, titles, aboutMe, goals, dateOfBirth, age, location, contacts, skills, educations, works, projects, achievements, publications, memberships, coverLetters,
