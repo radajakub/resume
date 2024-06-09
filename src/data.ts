@@ -654,7 +654,7 @@ export class Data {
             "logo_cvut.jpg",
             "https://oi.fel.cvut.cz/en/",
             "Master programme following the Bachelor programme with focus on Artificial Intelligence and Machine Learning.",
-            "This programme directly follows the Bachelor programme and it deepens the knowledge in the field of Artificial Intelligence and Machine Learning, namely Statistic and Symbolic Machine Learning, Game Theory, Logical Reasoning, Robotics and many more. My studying was delayed because of an exchange programme mentioned next.",
+            "This programme directly follows the Bachelor programme and it deepens the knowledge in the field of Artificial Intelligence and Machine Learning, namely Optimization, Statistic and Symbolic Machine Learning, Game Theory, Logical Reasoning and Planning, Robotics and many more. My studying was delayed because of an exchange programme at KAIST.",
             new Grades("1-4", true, [
                 new Course("Computational Game Theory", "Algorithms to Solve Normal Form Games, Extensive Games and Cooperational Games", "A", 6, 1),
                 new Course("Advanced Algorithms", "Graph Theory, Isomorphisms, Heaps and Data Structures, ...", "A", 6, 1),
@@ -666,6 +666,12 @@ export class Data {
                 new Course("Logical Reasoning and Programming", "SAT Solving, Satisfiability Modulo Theories, First Order Logic, Resolution, Prolog, ...", "A", 6, 3),
                 new Course("Statistical Data Analysis", "Linear Regression, Non-linear regression, Discriminant Analysis, Clustering, Dimensionality reduction, Robust Statistics, ...", "A", 6, 3),
                 new Course("Artificial Intelligence in Robotics", "TSP, TSPN, Dubins Vehicles, Navigation, Planning, Multi-Goal and Multi-Robot Planning, ...", "A", 6, 3),
+
+                new Course("Planning for Artificial Intelligence", "Simulations and Abstractions, LM-Cut, PDDL, STRIPS, ...", "A", 6, 4),
+                new Course("Theory of Algorithms", "Complexity theory, Turing Machines, Complexity classes, Undecidability, Randomized algorithms", "A", 6, 4),
+                new Course("Deep Learning", "Deep Neural Networks, VAEs, Metric Learning, Initialization, Regularization, Adaptive Learning, Adversarial Learning, ...", "A", 6, 4),
+                new Course("Combinatorial Optimization", "ILP, Shortest Paths, Network Flows and Cuts, Matching, TSP, Knapsack problem, Scheduling, CSP, ...", "B", 6, 4),
+                new Course("Quantum Computing", "Quantum Computing, Deutsch-Josza, Grover, Quantum Fourier Transform, Adiabatic Quantum Computing, Quantum Random Walks, Quantum Error Correction", "", 5, 4),
             ], true),
         );
         const educations = [alej, feeBachelor, kaist, feeMaster];
@@ -757,7 +763,7 @@ export class Data {
         const flashcards = new Project(
             "Software Engineering",
             "Graduation project at High School",
-            "Flashcards web app ran in Electron",
+            "Flashcards web app in Electron",
             "GNA",
             "Project made in my last year of High School. It is a web app for learning vocabulary and definitions with flashcards. It features creation of flashcards, learning mode and multiple tests, which include error tolerance using Levenshtein distance.",
             "Long Description",
@@ -886,7 +892,31 @@ export class Data {
             new Interval(2023, 9, 25, 2024, 1, 14),
         );
 
-        const projects = [baltie, doubleOracle, flashcards, resume, chess, pong, warehouseAllocation, bThesis, sac, kecc, gml, lightup, objectReconstruction];
+        const feedbackarcset = new Project(
+            "Metaheuristic Algorithm",
+            "Semestral project in Combinatorial Optimization",
+            "Weighted Feedback Arc Set Problem",
+            "FEE CTU",
+            "Adaptive Large Neighborhood Search with Simulated Annealing to solve the Feedback Arc Set Problem with weighted edges represented as a permutation.",
+            "Long description",
+            "https://github.com/radajakub/FeedbackArcSetProblem",
+            [cpp],
+            new Interval(2024, 5, 1, 2024, 5, 17),
+        );
+
+        const qsim = new Project(
+            "qsim",
+            "Project in Quantum Computing",
+            "Quantum Simulator (Quantum Circuits)",
+            "FEE CTU",
+            "Implementing a Quantum Circuits model of computation in C++ done in a modular way where the user composes a circuit from gates and then runs the simulation with optional measurements. It has similar API to qiskit. For reference the Deutsch-Josza algorithm and Simon's algorithm are prepared.",
+            "Long description",
+            "https://github.com/radajakub/qsim",
+            [cpp],
+            new Interval(2024, 4, 20, 2024, 5, 11),
+        );
+
+        const projects = [baltie, doubleOracle, flashcards, resume, chess, pong, warehouseAllocation, bThesis, sac, kecc, gml, objectReconstruction, qsim, feedbackarcset];
 
         const baltieNational = new Achievement(
             "Baltie 2011 National Round",
