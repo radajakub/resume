@@ -49,6 +49,10 @@ const sectionsArray = Array.from(sections.values());
             <WrapListComponent id="memberships" :memberships="data.membershipsSorted()" />
         </div>
 
+        <div class="publication-col mb-50">
+            <WrapListComponent id="publications" :publications="data.publicationsSorted()" />
+        </div>
+
         <div class="work-col mb-50">
             <WrapListComponent id="work" :works="data.worksSorted()" />
         </div>
@@ -59,10 +63,6 @@ const sectionsArray = Array.from(sections.values());
 
         <div class="achievement-col mb-50">
             <WrapListComponent id="achievements" :achievements="data.achievementsSorted()" />
-        </div>
-
-        <div class="publication-col mb-50">
-            <WrapListComponent id="publications" :publications="data.publicationsSorted()" />
         </div>
     </div>
 </template>
