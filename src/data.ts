@@ -464,6 +464,9 @@ export class Data {
         if (this.memberships.length != 0) {
             present.set(Sections.memberships, new Section("Memberships", "fa-solid fa-building-columns"));
         }
+        if (this.publications.length != 0) {
+            present.set(Sections.publications, new Section("Publications", "fa-solid fa-paperclip"));
+        }
         if (this.works.length != 0) {
             present.set(Sections.work, new Section("Work", "fa-solid fa-computer"));
         }
@@ -472,9 +475,6 @@ export class Data {
         }
         if (this.achievements.length != 0) {
             present.set(Sections.achievements, new Section("Achievements", "fa-solid fa-award"));
-        }
-        if (this.publications.length != 0) {
-            present.set(Sections.publications, new Section("Publications", "fa-solid fa-paperclip"));
         }
         return present;
     }
@@ -869,18 +869,6 @@ export class Data {
             new Interval(2023, 5, 15, 2023, 6, 1)
         );
 
-        const lightup = new Project(
-            "LightUp",
-            "Assignment in Logical Reasoning and Programming",
-            "Solving a grid puzzle using SAT solving",
-            "FEE CTU",
-            "Instead of using traditional search methods to solve grid puzzles, we had to use SAT solving, PySAT in particular, to solve a LightUp puzzle. The details of the assignment can be seen in the repository.",
-            "Long description",
-            "https://github.com/radajakub/LightUp",
-            [python, pysat],
-            new Interval(2023, 9, 25, 2024, 1, 14),
-        );
-
         const objectReconstruction = new Project(
             "Object Reconstruction",
             "Semestral project in 3D Computer Vision",
@@ -1032,24 +1020,7 @@ export class Data {
 
         const memberships = [upe];
 
-        const deepMindLetter = new CoverLetter(
-            "deepmind",
-            "Google DeepMind",
-            ["My dream is doing something which is meaningful and can help move knowledge, technology and humanity forward. During my studies I found that Computer Science and especially Artificial Intelligence is one of the best fields to achieve this and that I am good at it. I have been coding since I was eight years old in various programming languages. I started in Baltie 3, which is a Czech programming language and inspiration for Scratch, and I attended and succeeded at competitions at both national and international level. I have continued coding until I got into University where my fascination with Artificial Intelligence started. I got familiar with many parts of AI and I found that Reinforcement Learning is my favorite. My attention was caught by AlphaGo and I went in this direction. I chose Reinforcement Learning as one of the topics in my Bachelor thesis, where I tried to use it to solve problems in Game Theory which are untractable by standard methods. A course I took during an exchange programme at KAIST in South Korea, called Mathematical Foundations of Reinforcement Learning, deepened my knowledge about this field and introduced me to state of the art algorithms. I want to continue in this direction and I belive that DeepMind is the best place to do this. I would love to be a part of the team for an internship now and hopefully in the future as a researcher after I finish my studies."],
-        );
-
-        const appleLetter = new CoverLetter(
-            "apple",
-            "Apple",
-            ["My dream is doing something which is meaningful and can help move knowledge, technology and humanity forward. During my studies I found that Computer Science and especially Artificial Intelligence is one of the best fields to achieve this and that I am good at it. I have been coding since I was eight years old in various programming languages. I started in Baltie 3, which is a Czech programming language and inspiration for Scratch, and I attended and succeeded at competitions at both national and international level. I have continued coding until I got into University where my fascination with Artificial Intelligence started. I got familiar with many parts of AI and Machine Learning both at my home university in Prague and at Korean Advanced Institute of Science and Technology in South Korea during an exchange programme. I always strive for quality in my projects and code and I see it in Apple and its products, which I enjoy in professional and personal life. I would love to contribute to developing high-quality products and help bring even more of Artificial Intelligence and Machine Learning to the end user and further enhance the experience.",]);
-
-        const huggingFaceLetter = new CoverLetter("huggingFace", "Hugging Face", [
-            "My dream is doing something which is meaningful and can help move knowledge, technology and humanity forward. During my life and studies I have found that Computer Science and especially Artificial Intelligence is one of the key fields of science to achieve this and that I am good at it.",
-            "I have been coding in various programming languages since I was eight years old and I attended and won competitions at various levels. I have continued coding until I got into university where my fascination with Artificial Intelligence started. I got familiar with many subfields of AI and Machine Learning both at my home university in Prague and at Korean Advanced Institute of Science and Technology in South Korea during an exchange programme. During university I also gained valuable expereince in Software Development on both web and mobile platforms.",
-            "I am hard-working, motivated and always eager to learn. In my studies, my code and my life in general I always strive for perfection and I am not afraid to take on new challenges. I think what Hugging Face is doing is remarkable and important and I believe that I can contribute.",
-        ]);
-
-        const coverLetters = [deepMindLetter, appleLetter, huggingFaceLetter];
+        const coverLetters: CoverLetter[] = [];
 
         return new Data(
             firstName, lastName, degreesBeforeName, titles, aboutMe, goals, dateOfBirth, age, location, web, contacts, skills, educations, works, projects, achievements, publications, memberships, coverLetters,
