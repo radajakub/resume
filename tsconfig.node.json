@@ -9,8 +9,10 @@
   ],
   "compilerOptions": {
     "composite": true,
+    "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Bundler",
+    "noEmit": true,
     "allowImportingTsExtensions": true,
     "types": [
       "node"
