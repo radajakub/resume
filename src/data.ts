@@ -406,6 +406,7 @@ export class Data {
     readonly dateOfBirth: DateOfBirth;
     readonly age: Age;
     readonly location: Location;
+    readonly web: Contact;
     readonly contacts: Contact[];
     readonly skills: Skill[];
     readonly educations: Education[];
@@ -416,7 +417,7 @@ export class Data {
     readonly memberships: Membership[];
     readonly coverLetters: CoverLetter[];
 
-    constructor(firstName: string, lastName: string, degreesBeforeName: string[], titles: string[], aboutMe: string[], goals: string, dateOfBirth: DateOfBirth, age: Age, location: Location, contacts: Contact[], skills: Skill[], educations: Education[], works: Work[], projects: Project[], achievements: Achievement[], publications: Publication[], memberships: Membership[], coverLetters: CoverLetter[]) {
+    constructor(firstName: string, lastName: string, degreesBeforeName: string[], titles: string[], aboutMe: string[], goals: string, dateOfBirth: DateOfBirth, age: Age, location: Location, web: Contact, contacts: Contact[], skills: Skill[], educations: Education[], works: Work[], projects: Project[], achievements: Achievement[], publications: Publication[], memberships: Membership[], coverLetters: CoverLetter[]) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.degreesBeforeName = degreesBeforeName;
@@ -426,6 +427,7 @@ export class Data {
         this.dateOfBirth = dateOfBirth;
         this.age = age;
         this.location = location;
+        this.web = web;
         this.contacts = contacts;
         this.skills = skills;
         this.educations = educations;
@@ -514,16 +516,15 @@ export class Data {
             "My areas of interest are Artificial Intelligence, machine learning, optimization and computer science in general. I enjoy programming in C/C++, Julia, Haskell and Python but other languages are definitely not an obstacle for me. I never want to stop learning.",
             "Outside of Artificial Intelligence and Computer Science I enjoy sports, mainly running and recently weightlifiting, reading books, travelling and learning new things. I have been running sice I was 6 years old with only short pauses caused by injuries. Now, I specialize in longer distances from 5km to Half-Marathons. As my biggest achievements in the sport I consider a time 34:42 at 10km distance and 1:18:54 at Half-Marathon. I ran the second time in South Korea during my exchange and it put me on 10th place at the International Daegu Half-Marathon only two weeks after winning a Marathon relay for two during the Seoul Marathon 2023."
         ];
-        const goals =
-            "I love learning new things, constantly improving my skills and abilities. I am interested in Artificial Intelligence, Machine Learning, Quantum Computing and Optimization and I want to contribute to pushing the boundaries of what is possible. I believe these fields can help us solve many important problems in this world and I want to be a part of it."
-            ;
+        const goals = "I love learning new things, constantly improving my skills and abilities. I am interested in Artificial Intelligence, Machine Learning, Quantum Computing and Optimization and I want to contribute to pushing the boundaries of what is possible. I believe these fields can help us solve many important problems in this world and I want to be a part of it.";
         const dateOfBirth = new DateOfBirth("Date of birth", "fa-solid fa-cake-candles", new TimePoint(2000, 2, 25));
         const age = new Age("Age", "fa-solid fa-calendar-days");
         const location = new Location("Location", "fa-solid fa-map-location-dot", "Prague", "Czechia", true);
 
         // contacts
+        const web = new Contact("Website", "fa-solid fa-globe", "www.jakubrada.com", "https://jakubrada.com");
         const phone = new Contact("Phone number", "fa-solid fa-mobile", "+420 604 730 409", "tel:+420604730409");
-        const email = new Contact("Email address", "fa-solid fa-envelope", "dev.jakubrada@icloud.com", "mailto:dev.jakubrada@icloud.com");
+        const email = new Contact("Email address", "fa-solid fa-envelope", "jakubrada@icloud.com", "mailto:jakubrada@icloud.com");
         const github = new Contact("GitHub", "fa-brands fa-github", "radajakub", "https://github.com/radajakub");
         const linkedin = new Contact("LinkedIn", "fa-brands fa-linkedin", "radajakub", "https://www.linkedin.com/in/radajakub");
         const discord = new Contact("Discord", "fa-brands fa-discord", "jakubrada", "", false);
@@ -534,11 +535,11 @@ export class Data {
 
         // skills
         const langauges = new Skill("Languages", "fa-solid fa-language", ["Czech", "English", "Spanish"]);
-        const interests = new Skill("Interests", "fa-solid fa-heart", ["Running", "Gym", "Coding", "Reading", "Learning", "Rap music"]);
-        const programming = new Skill("Programming Languages", "fa-solid fa-code", ["C/C++", "Julia", "Python", "Rust", "Haskell", "Java", "Javascript/Typescript", "Dart", "SQL", "HTML/CSS"]);
+        const interests = new Skill("Interests", "fa-solid fa-heart", ["Running", "Gym", "Learning", "Coding", "Reading", "Hip-Hop music"]);
+        const programming = new Skill("Programming Languages", "fa-solid fa-code", ["C/C++", "Python", "Julia", "Rust", "Haskell", "Java", "Javascript/Typescript", "Dart", "SQL", "HTML/CSS"]);
         const frameworks = new Skill("Application Frameworks", "fa-brands fa-app-store-ios", ["Flutter", "Vue.js", "Angular", "Django", "NodeJS"]);
         const ai = new Skill("AI/ML Tools", "fa-solid fa-brain", ["PyTorch", "NumPy", "scikit-learn", "DeepMind Control Suite", "Gurobi", "PySAT", "Jupyter"]);
-        const traits = new Skill("Skills and Traits", "fa-solid fa-person", ["Adaptability", "Precision", "Quick learner", "Attention to Detail", "Clean code", "Problem solving", "Responsibility"]);
+        const traits = new Skill("Skills and Traits", "fa-solid fa-person", ["Hardworking", "Adaptability", "Precision", "Quick learner", "Attention to Detail", "Clean code", "Problem solving", "Responsibility"]);
         const skills = [langauges, interests, programming, frameworks, ai, traits];
 
         // programming languages
@@ -671,7 +672,7 @@ export class Data {
                 new Course("Theory of Algorithms", "Complexity theory, Turing Machines, Complexity classes, Undecidability, Randomized algorithms", "A", 6, 4),
                 new Course("Deep Learning", "Deep Neural Networks, VAEs, Metric Learning, Initialization, Regularization, Adaptive Learning, Adversarial Learning, ...", "A", 6, 4),
                 new Course("Combinatorial Optimization", "ILP, Shortest Paths, Network Flows and Cuts, Matching, TSP, Knapsack problem, Scheduling, CSP, ...", "B", 6, 4),
-                new Course("Quantum Computing", "Quantum Computing, Deutsch-Josza, Grover, Quantum Fourier Transform, Adiabatic Quantum Computing, Quantum Random Walks, Quantum Error Correction", "", 5, 4),
+                new Course("Quantum Computing", "Quantum Computing, Deutsch-Josza, Grover, Quantum Fourier Transform, Adiabatic Quantum Computing, Quantum Random Walks, Quantum Error Correction", "A", 5, 4),
             ], true),
         );
         const educations = [alej, feeBachelor, kaist, feeMaster];
@@ -1051,7 +1052,7 @@ export class Data {
         const coverLetters = [deepMindLetter, appleLetter, huggingFaceLetter];
 
         return new Data(
-            firstName, lastName, degreesBeforeName, titles, aboutMe, goals, dateOfBirth, age, location, contacts, skills, educations, works, projects, achievements, publications, memberships, coverLetters,
+            firstName, lastName, degreesBeforeName, titles, aboutMe, goals, dateOfBirth, age, location, web, contacts, skills, educations, works, projects, achievements, publications, memberships, coverLetters,
         );
     }
 }

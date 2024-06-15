@@ -66,7 +66,7 @@ class LaTeX {
     }
 
     info(): void {
-        const contacts: string[] = ["", "", "", ""];
+        const contacts: string[] = ["", "", "", "", ""];
         contacts[0] = command("textbf", this.data.location.format());
         contacts[1] = command("textbf", this.data.dateOfBirth.date.format());
         for (const contact of this.data.contacts) {
@@ -77,6 +77,7 @@ class LaTeX {
                 contacts[3] = command("textbf", contact.username);
             }
         }
+        contacts[4] = command("textbf", this.data.web.username);
         this.add(block("center", contacts.join(" " + mathcommand("cdot") + " ")));
     }
 

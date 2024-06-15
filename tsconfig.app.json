@@ -13,6 +13,7 @@
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
+    "noEmit": true,
     "allowImportingTsExtensions": true,
     "types": [
       "node"
