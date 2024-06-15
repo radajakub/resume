@@ -43,7 +43,7 @@ class LaTeX {
         this.output.push(item);
     }
 
-    header(height = 27, width = 18): void {
+    header(height = 27, width = 18.5): void {
         this.add(define("documentclass", "article", ["a4paper", "11pt"]));
         this.add(define("usepackage", "geometry", ["a4paper", `total={${width}cm, ${height}cm}`]));
         this.add(define("usepackage", "parskip", ["parfill"]));
