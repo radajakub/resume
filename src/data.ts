@@ -12,7 +12,7 @@ export class TimePoint {
     }
 
     toTime(): number {
-        return (new Date(this.year, this.month, this.day)).getTime();
+        return (new Date(this.year, this.month - 1, this.day)).getTime();
     }
 
     isFuture(): boolean {
