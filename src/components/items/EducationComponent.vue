@@ -25,7 +25,7 @@ function createGradeString(grades: Grades) {
     if (!grades.showGPA) {
         return "";
     }
-    return "Grade average: " + grades.result + " (scale " + grades.scale + ")";
+    return "Grade average: " + grades.result + (grades.scale != "" ? " (scale " + grades.scale + ")" : "");
 }
 
 </script>

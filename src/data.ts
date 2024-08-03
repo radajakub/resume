@@ -163,9 +163,11 @@ export class Thesis {
 }
 
 export class Grades {
+    static noGrade = "Passed";
+
     static gradeLookup = new Map<string, number>([
-        ["A", 1], ["B", 1.5], ["C", 2], ["D", 2.5], ["E", 3], ["F", 4],
-        ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5],
+        ["A", 1], ["B", 1.5], ["C", 2], ["D", 2.5], ["E", 3], ["F", 4], ["Z", 0],
+        ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5], ["0", 0],
     ]);
 
     readonly courses: Course[];
@@ -189,6 +191,11 @@ export class Grades {
 
         const sumOfCredits = this.courses.map(c => c.credits).reduce((a, b) => a + b);
         const sumOfGrades = this.courses.map(c => (Grades.gradeLookup.get(c.grade) ?? 0) * c.credits).reduce((a, b) => a + b);
+
+        if (sumOfGrades == 0) {
+            return Grades.noGrade;
+        }
+
         const average = Math.round((sumOfGrades / sumOfCredits + Number.EPSILON) * 100) / 100;
         return average.toString();
     }
@@ -549,7 +556,6 @@ export class Data {
         const cpp = new ProgrammingLanguage("C++");
         const python = new ProgrammingLanguage("Python");
         const matlab = new ProgrammingLanguage("Matlab");
-        const pysat = new ProgrammingLanguage("PySAT");
         const html = new ProgrammingLanguage("HTML");
         const css = new ProgrammingLanguage("CSS");
         const javascript = new ProgrammingLanguage("Javascript");
@@ -675,7 +681,38 @@ export class Data {
                 new Course("Quantum Computing", "Quantum Computing, Deutsch-Josza, Grover, Quantum Fourier Transform, Adiabatic Quantum Computing, Quantum Random Walks, Quantum Error Correction", "A", 5, 4),
             ], true),
         );
-        const educations = [alej, feeBachelor, kaist, feeMaster];
+        const essai2024 = new Education(
+            "European Summer in Artificial Intelligence",
+            "ESSAI & ACAI 2024",
+            "",
+            "Artificial Intelligence",
+            new Interval(2024, 7, 15, 2024, 7, 26),
+            "Master / PhD",
+            "logo_essai.png",
+            "https://essai2024.di.uoa.gr/index.html",
+            "2nd European Summer School on Artificial Intelligence and 21st Advanced Course on Artificial Intelligence",
+            "Two week long summer school in Athens, Greece. Each of both weeks of the school the students could choose three courses from a wide range of topics in Artificial Intelligence and Machine Learning. The courses consisted of 5 standard lectures and were taught by professors and assistant professors from top European universities. After the three courses, each day there was a invited tutorial on some advanced topic.",
+            new Grades("", false, [
+                new Course("Integrated Konwledge-based and Data-driven Reasoning, Control, and Learning in Robotics", "Control, reasoning, robot planning based on logic", "Z", 0.25, 1),
+                new Course("Logic-Based Explainable Artificial Intelligence", "Explainability in Decision trees and more complicated models, incorrectness of current SOTA tools", "Z", 0.25, 1),
+                new Course("Game-Theoretic Approach to Temporal Synthesis", "Solving temporal synthesis as a Game on different types of automata (DFA, Buchi, coBuchi, ...)", "Z", 0.25, 1),
+                new Course("Deep Learning and Computer Vision for Surface Anomaly Detection", "", "Z", 0.05, 1),
+                new Course("Equivariance in Learning for Perception", "", "Z", 0.05, 1),
+                new Course("Diffusion Models in Medical Imaging and Analysis", "", "Z", 0.05, 1),
+                new Course("Advancemenets in Self-Supervised Learning for Speech Technologies", "", "Z", 0.05, 1),
+                new Course("Artificial Intelligence for Earth Observation - ESA theta lab", "", "Z", 0.05, 1),
+                new Course("Multi-Agent Systems and Evolution", "Game Theory and Evolution in Complex Networks", "Z", 0.25, 2),
+                new Course("Learning to Behave via Imitation", "Reinforcement Learning, Inverse Reinforcement Learning, Imitation Learning", "Z", 0.25, 2),
+                new Course("Machines Learning Pearl's Ladder of Causation", "Causality, Bayesian Networks, ...", "Z", 0.25, 2),
+                new Course("Generative Models for Robot Control", "", "Z", 0.05, 2),
+                new Course("Exploring the Intersection of Voting Theory and AI", "", "Z", 0.05, 2),
+                new Course("Can LLMs Reason and Plan?", "", "Z", 0.05, 2),
+                new Course("The Power of Graph Learning", "", "Z", 0.05, 2),
+                new Course("Self-designing AI Systems", "", "Z", 0.05, 2),
+            ], true),
+        );
+
+        const educations = [alej, feeBachelor, kaist, feeMaster, essai2024];
 
         const scalesoft = new Work(
             "Front End Web Developer",
