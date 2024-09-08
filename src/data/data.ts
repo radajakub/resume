@@ -19,7 +19,7 @@ import {
   Membership,
   Publication,
   PublicationCategories,
-} from "@/data/types";
+} from "./types";
 
 export function initData(): Data {
   // Personal info

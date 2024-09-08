@@ -1,4 +1,4 @@
-import { CoverLetter, Data, TimePoint } from "@/data/types";
+import { CoverLetter, Data, TimePoint } from "./types";
 import { writeFileSync } from "fs";
 import { initData } from "./data";
 
@@ -31,8 +31,8 @@ class LaTeX {
   readonly data: Data;
   output: string[];
 
-  constructor() {
-    this.data = initData();
+  constructor(data: Data) {
+    this.data = data;
     this.output = [];
   }
 
@@ -234,6 +234,7 @@ class LaTeX {
   }
 }
 
-const latex = new LaTeX();
+const data = initData();
+const latex = new LaTeX(data);
 latex.texifyResume();
 latex.texifyCoverLetters();
