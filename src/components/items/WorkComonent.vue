@@ -9,9 +9,9 @@ const props = defineProps<{
 }>();
 
 const work = props.work;
-const langNum = props.langNum ?? 2;
+const langNum = props.langNum ?? 4;
 const languageString = work.programmingLanguages
-  .splice(0, langNum)
+  .slice(0, langNum)
   .map((lang) => lang.name)
   .join(" | ");
 

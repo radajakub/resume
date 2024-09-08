@@ -516,14 +516,14 @@ export function initData(): Data {
   );
 
   const SWEHQ2 = new Work(
-    "Cross-platform Mobile App Development (WeAllMeet.live)",
+    "Web and Mobile Software Development",
     "Software Engineering",
     "SWEHQ",
     "logo_swehq.png",
     "https://swehq.com/en/",
     "Part-time",
-    [flutter, dart, python, django, docker, android, ios],
-    "Developing a cross-platform social mobile application in the Flutter framework with backend in Python and Django. We started from scratch and successfully released it to both App Store and Google Play.",
+    [flutter, dart, vue, python, javascript, typescript, django, docker, android, ios],
+    "Developing multiple complex mobile and web apps in various languages. Namely, a social mobile app released for both iOS and Android (Joinly), a web app for aggregating and selling holiday tours, a web app for one of Ministries of the Czech Republic and a web app serving as a monitoring system for analogue missions (CommonTongue). Worked on both Frontend and Backend parts.",
     "Long description",
     new Interval(2022, 6, 30, 2024, 9, 30)
   );
