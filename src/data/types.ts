@@ -131,14 +131,14 @@ export class Course {
   readonly description: string;
   readonly grade: string;
   readonly credits: number;
-  readonly semester: number;
+  readonly group: number;
 
   constructor(name: string, description: string, grade: string, credits: number, semester = 0) {
     this.name = name;
     this.description = description;
     this.grade = grade;
     this.credits = credits;
-    this.semester = semester;
+    this.group = semester;
   }
 }
 
@@ -162,6 +162,7 @@ export class Thesis {
 
 export class Grades {
   static noGrade = "Passed";
+  static defaultGroupLabel = "Semester";
 
   static gradeLookup = new Map<string, number>([
     ["A", 1],
@@ -170,7 +171,7 @@ export class Grades {
     ["D", 2.5],
     ["E", 3],
     ["F", 4],
-    ["Z", 0],
+    ["Pass", 0],
     ["1", 1],
     ["2", 2],
     ["3", 3],
@@ -179,18 +180,26 @@ export class Grades {
     ["0", 0],
   ]);
 
+  readonly groupLabel: string;
   readonly courses: Course[];
   readonly result: string;
   readonly showGPA: boolean;
   readonly scale: string;
   readonly graduatedWithHonors: boolean;
 
-  constructor(scale: string, graduatedWithHonors: boolean, courses: Course[], showGPA = false) {
+  constructor(
+    scale: string,
+    graduatedWithHonors: boolean,
+    courses: Course[],
+    showGPA = false,
+    groupLabel = Grades.defaultGroupLabel
+  ) {
     this.courses = courses;
     this.showGPA = showGPA;
     this.scale = scale;
     this.graduatedWithHonors = graduatedWithHonors;
     this.result = this.averageGrade();
+    this.groupLabel = groupLabel;
   }
 
   averageGrade(): string {

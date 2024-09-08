@@ -482,7 +482,8 @@ export function initData(): Data {
         new Course("The Power of Graph Learning", "", "Z", 0.05, 2),
         new Course("Self-designing AI Systems", "", "Z", 0.05, 2),
       ],
-      true
+      true,
+      "Week"
     )
   );
 

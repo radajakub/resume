@@ -51,7 +51,7 @@ function createGradeString(grades: Grades) {
         <div class="text ph-20">{{ education.longDescription }}</div>
       </div>
       <div v-if="education.grades.courses.length > 0" class="mb-50">
-        <CourseComponent :courses="education.grades.courses" />
+        <CourseComponent :grades="education.grades" />
       </div>
       <div v-if="education.thesis != null" class="mb-50">
         <ThesisComponent :thesis="education.thesis" />

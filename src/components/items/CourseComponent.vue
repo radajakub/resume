@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { Course } from "@/data/types";
+import { Course, Grades } from "@/data/types";
 import SeparatorComponent from "@/components/SeparatorComponent.vue";
 
 const props = defineProps<{
-  courses: Course[];
+  grades: Grades;
 }>();
 
 const gradesBySemester: Map<number, Course[]> = new Map<number, Course[]>();
-for (const course of props.courses) {
-  if (!gradesBySemester.has(course.semester)) {
-    gradesBySemester.set(course.semester, []);
+for (const course of props.grades.courses) {
+  if (!gradesBySemester.has(course.group)) {
+    gradesBySemester.set(course.group, []);
   }
-  gradesBySemester.get(course.semester)?.push(course);
+  gradesBySemester.get(course.group)?.push(course);
 }
 const semesters = Array.from(gradesBySemester.keys()).sort();
 </script>
@@ -28,7 +28,7 @@ const semesters = Array.from(gradesBySemester.keys()).sort();
       </div>
     </div>
     <div v-for="(semester, index) in semesters" :key="index" class="group">
-      <div v-if="semester != 0" class="ph-20 pt-10 subtitle">Semester {{ semester }}</div>
+      <div v-if="semester != 0" class="ph-20 pt-10 subtitle">{{ grades.groupLabel }} {{ semester }}</div>
       <div class="white-bg horizontal-border sharp-border">
         <div v-for="(course, courseIndex) in gradesBySemester.get(semester)" :key="courseIndex">
           <div class="ph-20 pv-10 course">
