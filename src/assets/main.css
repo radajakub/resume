@@ -1,6 +1,6 @@
-@import './base.css';
-@import './margins.css';
-@import './fonts.css';
+@import "./base.css";
+@import "./margins.css";
+@import "./fonts.css";
 
 body {
   scroll-behavior: smooth;
@@ -8,7 +8,7 @@ body {
   padding: var(--base-padding-vertical) var(--base-padding-horizontal);
   color: var(--color-text);
   background-color: var(--color-background);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 15px;
 
   cursor: default;

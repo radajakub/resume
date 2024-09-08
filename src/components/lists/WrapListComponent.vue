@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Education, Work, Project, Achievement, Skill, Publication, Membership } from "@/data.ts";
+import { Education, Work, Project, Achievement, Skill, Publication, Membership } from "@/data/types";
 import EducationComponent from "@/components/items/EducationComponent.vue";
 import WorkComonent from "@/components/items/WorkComonent.vue";
 import SkillComponent from "@/components/about_me/SkillComponent.vue";
@@ -9,13 +9,13 @@ import PublicationComponent from "@/components/items/PublicationComponent.vue";
 import MembershipComponent from "@/components/items/MembershipComponent.vue";
 
 const props = defineProps<{
-    educations?: Education[],
-    works?: Work[],
-    projects?: Project[],
-    achievements?: Achievement[],
-    skills?: Skill[],
-    publications?: Publication[],
-    memberships?: Membership[],
+  educations?: Education[];
+  works?: Work[];
+  projects?: Project[];
+  achievements?: Achievement[];
+  skills?: Skill[];
+  publications?: Publication[];
+  memberships?: Membership[];
 }>();
 
 const showEducations = props.educations != null;
@@ -28,67 +28,79 @@ const showMemberships = props.memberships != null;
 
 var wrapListTitle = "";
 if (showEducations) {
-    wrapListTitle = "Education";
+  wrapListTitle = "Education";
 } else if (showWorks) {
-    wrapListTitle = "Work";
+  wrapListTitle = "Work";
 } else if (showProjects) {
-    wrapListTitle = "Projects";
+  wrapListTitle = "Projects";
 } else if (showAchievements) {
-    wrapListTitle = "Achievements";
+  wrapListTitle = "Achievements";
 } else if (showSkills) {
-    wrapListTitle = "Skills";
+  wrapListTitle = "Skills";
 } else if (showPublications) {
-    wrapListTitle = "Publications";
+  wrapListTitle = "Publications";
 } else if (showMemberships) {
-    wrapListTitle = "Memberships and Societies";
+  wrapListTitle = "Memberships and Societies";
 }
 
-const allOptions = [showEducations, showWorks, showProjects, showAchievements, showSkills, showPublications, showMemberships];
+const allOptions = [
+  showEducations,
+  showWorks,
+  showProjects,
+  showAchievements,
+  showSkills,
+  showPublications,
+  showMemberships,
+];
 
 if (allOptions.filter((x) => x == true).length != 1) {
-    throw Error("Wrap List: Exactly one of educations, works, projects, or achievements must be true");
+  throw Error("Wrap List: Exactly one of educations, works, projects, or achievements must be true");
 }
-
 </script>
 
 <template>
-    <div class="wrap-list">
-        <div class="heading">
-            {{ wrapListTitle }}
-        </div>
-        <div class="wrap-list-body">
-            <div v-if="showEducations">
-                <EducationComponent v-for="(education, index) in props.educations" :key="index" :education="education" />
-            </div>
-            <div v-if="showWorks">
-                <WorkComonent v-for="(work, index) in props.works" :key="index" :work="work" />
-            </div>
-            <div v-if="showProjects">
-                <ProjectComponent v-for="(project, index) in props.projects" :key="index" :project="project" />
-            </div>
-            <div v-if="showAchievements">
-                <AchievementsComponent v-for="(achievement, index) in props.achievements" :key="index"
-                    :achievement="achievement" />
-            </div>
-            <div v-if="showSkills">
-                <SkillComponent v-for="(skill, index) in props.skills" :key="index" :skill="skill" />
-            </div>
-            <div v-if="showPublications">
-                <PublicationComponent v-for="(publication, index) in props.publications" :key="index"
-                    :publication="publication" />
-            </div>
-            <div v-if="showMemberships">
-                <MembershipComponent v-for="(membership, index) in props.memberships" :key="index"
-                    :membership="membership" />
-            </div>
-        </div>
+  <div class="wrap-list">
+    <div class="heading">
+      {{ wrapListTitle }}
     </div>
+    <div class="wrap-list-body">
+      <div v-if="showEducations">
+        <EducationComponent v-for="(education, index) in props.educations" :key="index" :education="education" />
+      </div>
+      <div v-if="showWorks">
+        <WorkComonent v-for="(work, index) in props.works" :key="index" :work="work" />
+      </div>
+      <div v-if="showProjects">
+        <ProjectComponent v-for="(project, index) in props.projects" :key="index" :project="project" />
+      </div>
+      <div v-if="showAchievements">
+        <AchievementsComponent
+          v-for="(achievement, index) in props.achievements"
+          :key="index"
+          :achievement="achievement"
+        />
+      </div>
+      <div v-if="showSkills">
+        <SkillComponent v-for="(skill, index) in props.skills" :key="index" :skill="skill" />
+      </div>
+      <div v-if="showPublications">
+        <PublicationComponent
+          v-for="(publication, index) in props.publications"
+          :key="index"
+          :publication="publication"
+        />
+      </div>
+      <div v-if="showMemberships">
+        <MembershipComponent v-for="(membership, index) in props.memberships" :key="index" :membership="membership" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
-.wrap-list-body>div {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+.wrap-list-body > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 </style>
