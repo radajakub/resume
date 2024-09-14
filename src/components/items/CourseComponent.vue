@@ -61,6 +61,7 @@ const semesters = Array.from(gradesBySemester.keys()).sort();
   flex-wrap: nowrap;
   width: 100%;
   align-items: center;
+  gap: 10px;
 }
 
 .left {
