@@ -19,8 +19,8 @@ function clickSection(index: number) {
   if (element == null) {
     throw new Error("[click] The id of scroll element is null");
   }
-  var offset = document.documentElement.clientWidth < 1100 ? 70 : 0;
-  var y = element.getBoundingClientRect().top + window.scrollY - offset;
+  const offset = document.documentElement.clientWidth < 1100 || document.documentElement.clientHeight < 650 ? 70 : 0;
+  let y = element.getBoundingClientRect().top + window.scrollY - offset;
   if (index == 0) {
     y = 0;
   }
