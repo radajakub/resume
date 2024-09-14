@@ -178,16 +178,16 @@ class LaTeX {
       this.newLine();
     }
     this.newLine();
-    this.section("Projects");
-    this.newLine();
-    for (const project of this.data.projectsSorted()) {
-      const left = [command("textbf", project.name), project.subtitle];
-      const right = [this.duration(project.interval.start, project.interval.end, true), project.relatedInstitution];
-      this.splitText(left, right, 0.7);
-      this.itemize([project.programmingLanguages.map((lang) => lang.name).join(", ")]);
-      this.newLine();
-    }
-    this.newLine();
+    // this.section("Projects");
+    // this.newLine();
+    // for (const project of this.data.projectsSorted()) {
+    //   const left = [command("textbf", project.name), project.subtitle];
+    //   const right = [this.duration(project.interval.start, project.interval.end, true), project.relatedInstitution];
+    //   this.splitText(left, right, 0.7);
+    //   this.itemize([project.programmingLanguages.map((lang) => lang.name).join(", ")]);
+    //   this.newLine();
+    // }
+    // this.newLine();
     this.section("Achievements");
     this.newLine();
     for (const achievement of this.data.achievementsSorted()) {
