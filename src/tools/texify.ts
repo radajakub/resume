@@ -86,6 +86,10 @@ class LaTeX {
     this.add("");
   }
 
+  newPage(): void {
+    this.add(command("pagebreak"));
+  }
+
   section(title: string): void {
     this.add(command("section*", command("textsc", title)));
     this.add(command("hrule"));
@@ -168,6 +172,7 @@ class LaTeX {
       this.newLine();
     }
     this.newLine();
+    this.newPage();
     this.section("Experience");
     this.newLine();
     for (const work of this.data.worksSorted()) {
@@ -237,4 +242,4 @@ class LaTeX {
 const data = initData();
 const latex = new LaTeX(data);
 latex.texifyResume();
-latex.texifyCoverLetters();
+// latex.texifyCoverLetters();
