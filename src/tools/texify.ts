@@ -1,6 +1,6 @@
-import { CoverLetter, Data, TimePoint } from "./types";
+import { CoverLetter, Data, TimePoint } from "../data/types";
 import { writeFileSync } from "fs";
-import { initData } from "./data";
+import { initData } from "../data/data";
 
 function define(name: string, args?: string, params?: string[]): string {
   const paramstring = params !== undefined && params.length > 0 ? `[${params.join(",")}]` : "";

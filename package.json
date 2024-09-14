@@ -11,7 +11,7 @@
     "lint": "eslint . --max-warnings=0 && prettier --check .",
     "lint:fix": "eslint . --fix",
     "prettier": "prettier --write .",
-    "texify": "ts-node src/data/texify.ts"
+    "texify": "ts-node src/tools/texify.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
