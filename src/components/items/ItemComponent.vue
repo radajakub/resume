@@ -33,52 +33,55 @@ const logo = props.logoPath != null ? "/pictures/" + props.logoPath : "";
 <template>
   <div class="mr-20 mb-20">
     <MainModaledComponent
-      :modal-title="props.modalTitle"
-      :modal-width="props.modalWidth"
+      :modal-title="modalTitle"
+      :modal-width="modalWidth"
       :modal-enabled="modalEnabled"
       class="sized"
     >
       <template #main>
         <div class="main-col">
           <RowComponent :bottom-separator="true" :bottom-separator-dotted="true">
-            <div class="text">{{ props.topLeft }}</div>
-            <div v-if="props.percentage == null" class="text">{{ props.topRight }}</div>
-            <div v-if="props.percentage != null" class="progress">
-              <ProgressBarComponent :percentage="props.percentage" />
+            <div class="text">{{ topLeft }}</div>
+            <div v-if="percentage == null" class="text">{{ topRight }}</div>
+            <div v-if="percentage != null" class="progress">
+              <ProgressBarComponent :percentage="percentage" />
             </div>
           </RowComponent>
           <div class="main-row">
             <div class="ph-10 pt-10 pb-5">
-              <div class="subtitle-smaller">{{ props.title }}</div>
+              <div class="subtitle-smaller">{{ title }}</div>
             </div>
             <RowComponent>
-              <div class="title-col pr-20">
+              <div v-if="subtitles.length > 0" class="title-col pr-20">
                 <div
-                  v-for="(subtitle, index) in props.subtitles"
+                  v-for="(subtitle, index) in subtitles"
                   :key="index"
                   class="text"
-                  :class="{ 'pb-5': index < props.subtitles.length - 1 }"
+                  :class="{ 'pb-5': index < subtitles.length - 1 }"
                 >
                   {{ subtitle }}
                 </div>
               </div>
-              <div v-if="props.logoPath != null" class="logo-col">
-                <LinkComponent :url="props.logoLink" :white-bg="true">
+              <div v-else class="title-col">
+                <slot name="content"></slot>
+              </div>
+              <div v-if="logoPath != null" class="logo-col">
+                <LinkComponent :url="logoLink" :white-bg="true">
                   <img :src="logo" class="img-link p-5" />
                 </LinkComponent>
               </div>
             </RowComponent>
             <div class="ph-10 pb-10 pt-5 smaller-text">
-              {{ props.shortText }}
+              {{ shortText }}
             </div>
           </div>
           <RowComponent v-if="showMiddleRow" :top-separator="true" :top-separator-dotted="true">
-            <div class="text">{{ props.midLeft }}</div>
-            <div class="text">{{ props.midRight }}</div>
+            <div class="text">{{ midLeft }}</div>
+            <div class="text">{{ midRight }}</div>
           </RowComponent>
           <RowComponent v-if="showBottomRow" :top-separator="true" :top-separator-dotted="true">
-            <div class="text">{{ props.bottomLeft }}</div>
-            <div class="text">{{ props.bottomRight }}</div>
+            <div class="text">{{ bottomLeft }}</div>
+            <div class="text">{{ bottomRight }}</div>
           </RowComponent>
         </div>
       </template>

@@ -52,24 +52,37 @@ const sectionsArray = Array.from(sections.values());
       <WrapListComponent :id="sections.get(Sections.education)?.linkify()" :educations="data.educationsSorted()" />
     </div>
 
+    <div v-if="sections.get(Sections.certificates)" class="edu-col mb-50">
+      <WrapListComponent
+        :id="sections.get(Sections.certificates)?.linkify()"
+        :certificates="data.certificatessSorted()"
+      />
+    </div>
+
     <div class="membership-col mb-50">
-      <WrapListComponent id="memberships" :memberships="data.membershipsSorted()" />
+      <WrapListComponent :id="sections.get(Sections.memberships)?.linkify()" :memberships="data.membershipsSorted()" />
     </div>
 
     <div class="publication-col mb-50">
-      <WrapListComponent id="publications" :publications="data.publicationsSorted()" />
+      <WrapListComponent
+        :id="sections.get(Sections.publications)?.linkify()"
+        :publications="data.publicationsSorted()"
+      />
     </div>
 
     <div class="work-col mb-50">
-      <WrapListComponent id="work" :works="data.worksSorted()" />
+      <WrapListComponent :id="sections.get(Sections.work)?.linkify()" :works="data.worksSorted()" />
     </div>
 
     <div class="project-col mb-50">
-      <WrapListComponent id="projects" :projects="data.projectsSorted()" />
+      <WrapListComponent :id="sections.get(Sections.projects)?.linkify()" :projects="data.projectsSorted()" />
     </div>
 
     <div class="achievement-col mb-50">
-      <WrapListComponent id="achievements" :achievements="data.achievementsSorted()" />
+      <WrapListComponent
+        :id="sections.get(Sections.achievements)?.linkify()"
+        :achievements="data.achievementsSorted()"
+      />
     </div>
   </div>
 </template>

@@ -8,8 +8,6 @@ const props = defineProps<{
 }>();
 
 const membership = props.membership;
-
-const subtitles: string[] = [];
 </script>
 
 <template>
@@ -18,10 +16,10 @@ const subtitles: string[] = [];
     :title="membership.name"
     :logo-path="membership.logoPath"
     :logo-link="membership.link"
-    :subtitles="subtitles"
     :short-text="membership.shortDescription"
-    :bottom-left="membership.date.format()"
-    :bottom-right="membership.validity"
+    :subtitles="[]"
+    :bottom-left="membership.interval.format()"
+    :bottom-right="membership.interval.length()"
     :modal-title="membership.name"
     :modal-enabled="false"
   >

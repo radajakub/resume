@@ -33,6 +33,7 @@ import {
   faLightbulb,
   faPaperclip,
   faBuildingColumns,
+  faCertificate,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faLinkedin,
@@ -75,7 +76,8 @@ library.add(
   faComputer,
   faLightbulb,
   faPaperclip,
-  faBuildingColumns
+  faBuildingColumns,
+  faCertificate
 );
 
 const data: Data = initData();

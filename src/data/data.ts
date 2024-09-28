@@ -15,10 +15,11 @@ import {
   Work,
   Project,
   Achievement,
-  CoverLetter,
   Membership,
   Publication,
   PublicationCategories,
+  TestSection,
+  Certificate,
 } from "./types";
 
 export function initData(): Data {
@@ -150,7 +151,7 @@ export function initData(): Data {
     "GNA",
     "",
     "General Education High School for students aiming to attend a university",
-    new Interval(2011, 9, 1, 2019, 6, 14),
+    Interval.build(2011, 9, 1, 2019, 6, 14),
     "High School",
     "logo_alej.png",
     "https://www.alej.cz/about-school/",
@@ -163,7 +164,7 @@ export function initData(): Data {
     "FEE CTU",
     "Faculty of Electrical Engineering",
     "Artificial Intelligence and Computer Science",
-    new Interval(2019, 6, 21, 2022, 6, 14),
+    Interval.build(2019, 6, 21, 2022, 6, 14),
     "Bachelor",
     "logo_cvut.jpg",
     "https://oi.fel.cvut.cz/en/",
@@ -283,7 +284,7 @@ export function initData(): Data {
     "KAIST",
     "Faculty of Electrical Engineering",
     "Exchange programme",
-    new Interval(2023, 2, 25, 2023, 6, 30),
+    Interval.build(2023, 2, 25, 2023, 6, 30),
     "Master",
     "logo_kaist.gif",
     "https://www.kaist.ac.kr/en/",
@@ -324,7 +325,7 @@ export function initData(): Data {
     "FEE CTU",
     "Faculty of Electrical Engineering",
     "Artificial Intelligence",
-    new Interval(2022, 9, 1, 2025, 9, 1),
+    Interval.build(2022, 9, 1, 2025, 9, 1),
     "Master",
     "logo_cvut.jpg",
     "https://oi.fel.cvut.cz/en/",
@@ -431,7 +432,7 @@ export function initData(): Data {
     "ESSAI & ACAI 2024",
     "",
     "Artificial Intelligence",
-    new Interval(2024, 7, 15, 2024, 7, 26),
+    Interval.build(2024, 7, 15, 2024, 7, 26),
     "Master / PhD",
     "logo_essai.png",
     "https://essai2024.di.uoa.gr/index.html",
@@ -499,7 +500,7 @@ export function initData(): Data {
     [css, typescript, html, javascript, node],
     "Two-week internship before the first academic year, where I made both determinate and indeterminate progress indicators in pure CSS. This then translated into one semester long part-time job, where I worked on a web app.",
     "Long description",
-    new Interval(2019, 8, 20, 2019, 12, 31)
+    Interval.build(2019, 8, 20, 2019, 12, 31)
   );
 
   const SWEHQ1 = new Work(
@@ -512,7 +513,7 @@ export function initData(): Data {
     [angular, typescript, html, css, javascript, node, docker],
     "Development of a complex web application tool for mortgages for a big financial group. I worked on the front-end part of the application using Angular and Typescript.",
     "Long description",
-    new Interval(2021, 6, 30, 2021, 11, 30)
+    Interval.build(2021, 6, 30, 2021, 11, 30)
   );
 
   const SWEHQ2 = new Work(
@@ -525,7 +526,7 @@ export function initData(): Data {
     [flutter, dart, vue, python, javascript, typescript, django, docker, android, ios],
     "Developing multiple complex mobile and web apps in various languages. Namely, a social mobile app released for both iOS and Android (Joinly), a web app for aggregating and selling holiday tours, a web app for one of Ministries of the Czech Republic and a web app serving as a monitoring system for analogue missions (CommonTongue). Worked on both Frontend and Backend parts.",
     "Long description",
-    new Interval(2022, 6, 30, 2024, 9, 30)
+    Interval.build(2022, 6, 30, 2024, 9, 30)
   );
 
   const ciirc = new Work(
@@ -538,7 +539,7 @@ export function initData(): Data {
     [cpp, c, python],
     "Research and development of a solution for an international competition in discrete optimization. The problems were too large to be solved exactly so we had to derive a complex Metaheuristic algorithm to find approximate solutions.",
     "Long description",
-    new Interval(2020, 7, 1, 2021, 6, 29)
+    Interval.build(2020, 7, 1, 2021, 6, 29)
   );
 
   const works = [scalesoft, SWEHQ1, SWEHQ2, ciirc];
@@ -552,7 +553,7 @@ export function initData(): Data {
     "Long description",
     "https://github.com/radajakub/baltie",
     [baltie3],
-    new Interval(2008, 9, 1, 2012, 9, 1)
+    Interval.build(2008, 9, 1, 2012, 9, 1)
   );
 
   const doubleOracle = new Project(
@@ -564,7 +565,7 @@ export function initData(): Data {
     "Long description",
     "https://github.com/radajakub/DoubleOracle",
     [julia],
-    new Interval(2023, 1, 1, 2023, 2, 15)
+    Interval.build(2023, 1, 1, 2023, 2, 15)
   );
 
   const flashcards = new Project(
@@ -576,7 +577,7 @@ export function initData(): Data {
     "Long Description",
     "https://github.com/radajakub/flashcards",
     [javascript, html, python, css, django],
-    new Interval(2019, 2, 1, 2019, 5, 15)
+    Interval.build(2019, 2, 1, 2019, 5, 15)
   );
 
   const resume = new Project(
@@ -588,7 +589,7 @@ export function initData(): Data {
     "Long Description",
     "https://github.com/radajakub/resume",
     [vue, typescript, html, css],
-    new Interval(2023, 9, 1, 2023, 10, 30)
+    Interval.build(2023, 9, 1, 2023, 10, 30)
   );
 
   const chess = new Project(
@@ -600,7 +601,7 @@ export function initData(): Data {
     "Long description",
     "https://github.com/radajakub/chess-game",
     [java, javafx],
-    new Interval(2020, 2, 1, 2020, 5, 20)
+    Interval.build(2020, 2, 1, 2020, 5, 20)
   );
 
   const pong = new Project(
@@ -612,7 +613,7 @@ export function initData(): Data {
     "Long description",
     "https://github.com/radajakub/apong",
     [c],
-    new Interval(2020, 6, 1, 2020, 6, 15)
+    Interval.build(2020, 6, 1, 2020, 6, 15)
   );
 
   const warehouseAllocation = new Project(
@@ -624,7 +625,7 @@ export function initData(): Data {
     "Long description",
     "https://github.com/radajakub/warehouse-allocation",
     [cpp, python, latex],
-    new Interval(2021, 9, 25, 2022, 1, 15)
+    Interval.build(2021, 9, 25, 2022, 1, 15)
   );
 
   const bThesis = new Project(
@@ -636,7 +637,7 @@ export function initData(): Data {
     "Long description",
     "https://github.com/radajakub/bachelor-thesis",
     [julia, latex, python],
-    new Interval(2021, 9, 25, 2022, 5, 25)
+    Interval.build(2021, 9, 25, 2022, 5, 25)
   );
 
   const sac = new Project(
@@ -648,7 +649,7 @@ export function initData(): Data {
     "Long description",
     "https://github.com/radajakub/soft-actor-critic",
     [python, pytorch],
-    new Interval(2023, 6, 5, 2023, 6, 15)
+    Interval.build(2023, 6, 5, 2023, 6, 15)
   );
 
   const kecc = new Project(
@@ -660,7 +661,7 @@ export function initData(): Data {
     "Long description",
     "https://github.com/kaist-cp/kecc-public",
     [rust],
-    new Interval(2023, 2, 25, 2023, 6, 10)
+    Interval.build(2023, 2, 25, 2023, 6, 10)
   );
 
   const gml = new Project(
@@ -672,7 +673,7 @@ export function initData(): Data {
     "Long description",
     "https://github.com/radajakub/GML-dim-reduction",
     [python, pytorch],
-    new Interval(2023, 5, 15, 2023, 6, 1)
+    Interval.build(2023, 5, 15, 2023, 6, 1)
   );
 
   const objectReconstruction = new Project(
@@ -684,7 +685,7 @@ export function initData(): Data {
     "Long description",
     "https://github.com/radajakub/ObjectReconstruction",
     [python, matlab],
-    new Interval(2023, 9, 25, 2024, 1, 14)
+    Interval.build(2023, 9, 25, 2024, 1, 14)
   );
 
   const feedbackarcset = new Project(
@@ -696,7 +697,7 @@ export function initData(): Data {
     "Long description",
     "https://github.com/radajakub/FeedbackArcSetProblem",
     [cpp],
-    new Interval(2024, 5, 1, 2024, 5, 17)
+    Interval.build(2024, 5, 1, 2024, 5, 17)
   );
 
   const qsim = new Project(
@@ -708,7 +709,7 @@ export function initData(): Data {
     "Long description",
     "https://github.com/radajakub/qsim",
     [cpp],
-    new Interval(2024, 4, 20, 2024, 5, 11)
+    Interval.build(2024, 4, 20, 2024, 5, 11)
   );
 
   const projects = [
@@ -737,7 +738,7 @@ export function initData(): Data {
     "https://soutez.tib.cz/souteze/baltie/baltie-2011/narodni",
     "2nd place",
     "Programming",
-    new Interval(2011, 5, 13, 2011, 5, 15),
+    Interval.build(2011, 5, 13, 2011, 5, 15),
     baltie3
   );
 
@@ -750,7 +751,7 @@ export function initData(): Data {
     "https://soutez.tib.cz/souteze/baltie/baltie-2011/mezinarodni",
     "3rd place",
     "Programming",
-    new Interval(2011, 6, 10, 2011, 6, 12),
+    Interval.build(2011, 6, 10, 2011, 6, 12),
     baltie3
   );
 
@@ -763,7 +764,7 @@ export function initData(): Data {
     "https://dspace.cvut.cz/handle/10467/101325",
     "Dean's award for exceptional Bachelor Thesis",
     "Reasearch Thesis",
-    new Interval(2022, 6, 16, 2022, 6, 16),
+    Interval.build(2022, 6, 16, 2022, 6, 16),
     julia
   );
 
@@ -776,7 +777,7 @@ export function initData(): Data {
     "https://en.seoul-marathon.com",
     "1st place",
     "Running",
-    new Interval(2023, 3, 19, 2023, 3, 19)
+    Interval.build(2023, 3, 19, 2023, 3, 19)
   );
 
   const daeguHalfmarathon = new Achievement(
@@ -788,19 +789,7 @@ export function initData(): Data {
     "https://daegurace.com",
     "10th place",
     "Running",
-    new Interval(2023, 4, 2, 2023, 4, 2)
-  );
-
-  const FCE = new Achievement(
-    "Cambridge First Certificate in English",
-    "During High School I prepared for and passed the Cambridge First Certificate in English (FCE) which was then accepted instead of English exam for graduation.",
-    "Long description",
-    "Cambridge English",
-    "logo_fce.png",
-    "https://www.cambridgeenglish.org/exams-and-tests/first/",
-    "Official B2 level certificate in English",
-    "Languages",
-    new Interval(2017, 6, 17, 2017, 6, 17)
+    Interval.build(2023, 4, 2, 2023, 4, 2)
   );
 
   const roadef = new Achievement(
@@ -812,7 +801,7 @@ export function initData(): Data {
     "https://www.roadef.org/challenge/2020/en/",
     "2nd place in the junior category + paper published in the Journal of Heuristics",
     "Research / Project",
-    new Interval(2021, 6, 14, 2021, 6, 14),
+    Interval.build(2021, 6, 14, 2021, 6, 14),
     cpp
   );
 
@@ -822,7 +811,6 @@ export function initData(): Data {
     bachelorThesisDeansAward,
     seoulMarathon,
     daeguHalfmarathon,
-    FCE,
     roadef,
   ];
 
@@ -843,13 +831,37 @@ export function initData(): Data {
     "International Honor Society for the Computing and Information Disciplines",
     "logo_upe.png",
     "https://upe.acm.org",
-    new TimePoint(2024, 2, 13),
-    "Lifetime"
+    new Interval(new TimePoint(2024, 2, 13), TimePoint.infinity())
+  );
+
+  const fce = new Certificate(
+    "Cambridge First Certificate in English",
+    "B2 certificate in English",
+    "During High School I prepared for and passed the Cambridge First Certificate in English (FCE) which was then accepted instead of English exam for graduation.",
+    [],
+    "logo_fce.png",
+    "https://www.cambridgeenglish.org/exams-and-tests/first/",
+    new Interval(new TimePoint(2017, 6, 17), TimePoint.infinity())
+  );
+
+  const toefl = new Certificate(
+    "TOEFL iBT",
+    "English proficiency test",
+    "",
+    [
+      new TestSection("Reading", 29, 30),
+      new TestSection("Listening", 29, 30),
+      new TestSection("Speaking", 28, 30),
+      new TestSection("Writing", 30, 30),
+    ],
+    "logo_toefl.svg",
+    "https://www.ets.org/toefl/test-takers/ibt/about.html",
+    new Interval(new TimePoint(2024, 9, 21), new TimePoint(2026, 9, 21))
   );
 
   const memberships = [upe];
 
-  const coverLetters: CoverLetter[] = [];
+  const certificates = [fce, toefl];
 
   return new Data(
     firstName,
@@ -870,6 +882,6 @@ export function initData(): Data {
     achievements,
     publications,
     memberships,
-    coverLetters
+    certificates
   );
 }

@@ -1,4 +1,8 @@
 export class TimePoint {
+  static infinity(): TimePoint {
+    return new TimePoint(-1, -1, -1);
+  }
+
   readonly year: number;
   readonly month: number;
   readonly day: number;
@@ -7,6 +11,10 @@ export class TimePoint {
     this.year = year;
     this.month = month;
     this.day = day;
+  }
+
+  get isInfinity(): boolean {
+    return this.year == -1 && this.month == -1 && this.day == -1;
   }
 
   toTime(): number {
@@ -32,17 +40,24 @@ export class TimePoint {
   }
 
   static descending(a: TimePoint, b: TimePoint) {
+    if (a.isInfinity && b.isInfinity) return 0;
+    if (a.isInfinity) return -1;
+    if (b.isInfinity) return 1;
     return b.toTime() - a.toTime();
   }
 }
 
 export class Interval {
+  static build(syear: number, smonth: number, sday: number, eyear: number, emonth: number, eday: number) {
+    return new Interval(new TimePoint(syear, smonth, sday), new TimePoint(eyear, emonth, eday));
+  }
+
   readonly start: TimePoint;
   readonly end: TimePoint;
 
-  constructor(syear: number, smonth: number, sday: number, eyear: number, emonth: number, eday: number) {
-    this.start = new TimePoint(syear, smonth, sday);
-    this.end = new TimePoint(eyear, emonth, eday);
+  constructor(start: TimePoint, end: TimePoint) {
+    this.start = start;
+    this.end = end;
   }
 
   computePercentage(): number {
@@ -59,6 +74,27 @@ export class Interval {
       return `${this.start.year} - present`;
     }
     return `${this.start.year} - ${this.end.year}`;
+  }
+
+  format(showDay = true, hideFuture = false): string {
+    if (this.end.isInfinity) {
+      return this.start.format(showDay, hideFuture);
+    }
+    return `${this.start.format(showDay, hideFuture)} - ${this.end.format(showDay, hideFuture)}`;
+  }
+
+  length(): string {
+    if (this.end.isInfinity) {
+      return "Lifetime";
+    }
+    const diff = this.end.toTime() - this.start.toTime();
+    return new Date(diff).getFullYear() - new Date(0).getFullYear() + " years";
+  }
+
+  static descending(a: Interval, b: Interval) {
+    const sortFrom = TimePoint.descending(a.start, b.start);
+    if (sortFrom) return sortFrom;
+    return TimePoint.descending(a.end, b.end);
   }
 }
 
@@ -426,14 +462,25 @@ export class Publication {
   }
 }
 
+export class TestSection {
+  readonly name: string;
+  readonly points: number;
+  readonly maxPoints: number;
+
+  constructor(name: string, points: number, maxPoints: number) {
+    this.name = name;
+    this.points = points;
+    this.maxPoints = maxPoints;
+  }
+}
+
 export class Membership {
   readonly name: string;
   readonly category: string;
   readonly shortDescription: string;
   readonly logoPath: string;
   readonly link: string;
-  readonly date: TimePoint;
-  readonly validity: string;
+  readonly interval: Interval;
 
   constructor(
     name: string,
@@ -441,17 +488,56 @@ export class Membership {
     shortDescription: string,
     logoPath: string,
     link: string,
-    date: TimePoint,
-    validity: string
+    interval: Interval
   ) {
     this.name = name;
     this.category = category;
     this.shortDescription = shortDescription;
     this.logoPath = logoPath;
     this.link = link;
-    this.date = date;
-    this.validity = validity;
+    this.interval = interval;
   }
+}
+
+export class Certificate {
+  readonly name: string;
+  readonly category: string;
+  readonly shortDescription: string;
+  readonly testSections: TestSection[];
+  readonly logoPath: string;
+  readonly link: string;
+  readonly interval: Interval;
+
+  constructor(
+    name: string,
+    category: string,
+    shortDescription: string,
+    testSections: TestSection[],
+    logoPath: string,
+    link: string,
+    interval: Interval
+  ) {
+    this.name = name;
+    this.category = category;
+    this.shortDescription = shortDescription;
+    this.testSections = testSections;
+    this.logoPath = logoPath;
+    this.link = link;
+    this.interval = interval;
+  }
+}
+
+export enum Sections {
+  introduction,
+  aboutme,
+  skills,
+  education,
+  work,
+  projects,
+  achievements,
+  publications,
+  memberships,
+  certificates,
 }
 
 export class Section {
@@ -464,31 +550,7 @@ export class Section {
   }
 
   linkify(): string {
-    return this.name.toLowerCase().split(" ").join("");
-  }
-}
-
-export enum Sections {
-  introduction,
-  aboutme,
-  skills,
-  education,
-  memberships,
-  work,
-  publications,
-  projects,
-  achievements,
-}
-
-export class CoverLetter {
-  name: string;
-  company: string;
-  paragraphs: string[];
-
-  constructor(name: string, company: string, paragraphs: string[]) {
-    this.name = name;
-    this.company = company;
-    this.paragraphs = paragraphs;
+    return this.name.toLowerCase().split(" ").join("-");
   }
 }
 
@@ -511,7 +573,7 @@ export class Data {
   readonly achievements: Achievement[];
   readonly publications: Publication[];
   readonly memberships: Membership[];
-  readonly coverLetters: CoverLetter[];
+  readonly certificates: Certificate[];
 
   constructor(
     firstName: string,
@@ -532,7 +594,7 @@ export class Data {
     achievements: Achievement[],
     publications: Publication[],
     memberships: Membership[],
-    coverLetters: CoverLetter[]
+    certificates: Certificate[]
   ) {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -552,7 +614,7 @@ export class Data {
     this.achievements = achievements;
     this.publications = publications;
     this.memberships = memberships;
-    this.coverLetters = coverLetters;
+    this.certificates = certificates;
   }
 
   fullName(): string {
@@ -576,6 +638,9 @@ export class Data {
     }
     if (this.educations.length != 0) {
       present.set(Sections.education, new Section("Education", "fa-solid fa-graduation-cap"));
+    }
+    if (this.certificates.length != 0) {
+      present.set(Sections.certificates, new Section("Certificates", "fa-solid fa-certificate"));
     }
     if (this.memberships.length != 0) {
       present.set(Sections.memberships, new Section("Memberships", "fa-solid fa-building-columns"));
@@ -616,6 +681,10 @@ export class Data {
   }
 
   membershipsSorted(): Membership[] {
-    return this.memberships.sort((a, b) => TimePoint.descending(a.date, b.date));
+    return this.memberships.sort((a, b) => Interval.descending(a.interval, b.interval));
+  }
+
+  certificatessSorted(): Certificate[] {
+    return this.certificates.sort((a, b) => Interval.descending(a.interval, b.interval));
   }
 }
