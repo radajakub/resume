@@ -1,4 +1,4 @@
-import { CoverLetter, Data, TimePoint } from "../data/types";
+import { Data, TimePoint } from "../data/types";
 import { writeFileSync } from "fs";
 import { initData } from "../data/data";
 
@@ -158,7 +158,7 @@ class LaTeX {
     this.section("Memberships and Societies");
     for (const membership of this.data.membershipsSorted()) {
       const left = [command("textbf", membership.name), membership.category];
-      const right = [command("textbf", membership.date.format(false)), membership.validity];
+      const right = [command("textbf", membership.interval.format(false))];
       this.splitText(left, right, 0.7);
       this.newLine();
     }
@@ -210,32 +210,8 @@ class LaTeX {
     this.writeToFile("resume.tex");
   }
 
-  texifyCoverLetter(cl: CoverLetter): void {
-    this.output = [];
-    this.header(25);
-    this.fancyHeader(cl.company);
-
-    this.newLine();
-    this.add(command("begin", "document"));
-
-    cl.paragraphs.forEach((p) => {
-      this.add(p);
-      this.add("");
-    });
-
-    this.add(command("end", "document"));
-
-    this.writeToFile(`${cl.name}.tex`);
-  }
-
   writeToFile(filename: string): void {
     writeFileSync(filename, this.output.join("\n"), { flag: "w" });
-  }
-
-  texifyCoverLetters(): void {
-    for (const cl of this.data.coverLetters) {
-      this.texifyCoverLetter(cl);
-    }
   }
 }
 

@@ -43,7 +43,7 @@ if (showEducations) {
 } else if (showPublications) {
   wrapListTitle = "Publications";
 } else if (showMemberships) {
-  wrapListTitle = "Memberships and Certificates";
+  wrapListTitle = "Memberships and Societies";
 } else if (showCertificates) {
   wrapListTitle = "Certificates";
 }

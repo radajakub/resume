@@ -20,7 +20,7 @@ const sectionsArray = Array.from(sections.values());
 </script>
 
 <template>
-  <div class="scroll-col">
+  <div class="scroll-row">
     <ScrollComponent :sections="sectionsArray" />
   </div>
   <!-- introduction row [personal column, about me column] -->
@@ -88,20 +88,29 @@ const sectionsArray = Array.from(sections.values());
 </template>
 
 <style scoped>
+.intro {
+  margin-bottom: var(--spacer-size);
+}
+
 .body-margin {
-  margin-left: 50px;
-  z-index: 0;
+  margin-left: 0px;
+  margin-top: 40px;
 }
 
 .topclass {
   height: 10px;
 }
 
-.scroll-col {
+.scroll-row {
   z-index: 10;
   position: fixed;
-  left: var(--spacer-size);
-  top: var(--spacer-size);
+  background-color: var(--color-background);
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
 }
 
 .intro-row {
@@ -118,27 +127,6 @@ const sectionsArray = Array.from(sections.values());
   margin-left: var(--spacer-size);
 }
 
-@media screen and (max-height: 650px) {
-  .intro {
-    margin-bottom: var(--spacer-size);
-  }
-
-  .body-margin {
-    margin-left: 0px;
-    margin-top: 40px;
-  }
-
-  .scroll-col {
-    background-color: var(--color-background);
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 100%;
-  }
-}
-
 @media screen and (max-width: 1150px) {
   .intro-row {
     flex-direction: column;
@@ -147,25 +135,6 @@ const sectionsArray = Array.from(sections.values());
 
   .about-me-col {
     margin-left: 0px;
-  }
-
-  .intro {
-    margin-bottom: var(--spacer-size);
-  }
-
-  .body-margin {
-    margin-left: 0px;
-    margin-top: 40px;
-  }
-
-  .scroll-col {
-    background-color: var(--color-background);
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 100%;
   }
 }
 </style>
