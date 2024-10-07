@@ -3,6 +3,10 @@ export class TimePoint {
     return new TimePoint(-1, -1, -1);
   }
 
+  static zero(): TimePoint {
+    return new TimePoint(0, 0, 0);
+  }
+
   readonly year: number;
   readonly month: number;
   readonly day: number;
@@ -15,6 +19,10 @@ export class TimePoint {
 
   get isInfinity(): boolean {
     return this.year == -1 && this.month == -1 && this.day == -1;
+  }
+
+  get isZero(): boolean {
+    return this.year == 0 && this.month == 0 && this.day == 0;
   }
 
   toTime(): number {
@@ -77,7 +85,7 @@ export class Interval {
   }
 
   format(showDay = true, hideFuture = false): string {
-    if (this.end.isInfinity) {
+    if (this.end.isInfinity || this.end.isZero) {
       return this.start.format(showDay, hideFuture);
     }
     return `${this.start.format(showDay, hideFuture)} - ${this.end.format(showDay, hideFuture)}`;
@@ -86,6 +94,9 @@ export class Interval {
   length(): string {
     if (this.end.isInfinity) {
       return "Lifetime";
+    }
+    if (this.start.isZero) {
+      return "";
     }
     const diff = this.end.toTime() - this.start.toTime();
     return new Date(diff).getFullYear() - new Date(0).getFullYear() + " years";

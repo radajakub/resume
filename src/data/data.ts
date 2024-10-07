@@ -738,7 +738,7 @@ export function initData(): Data {
     "https://soutez.tib.cz/souteze/baltie/baltie-2011/narodni",
     "2nd place",
     "Programming",
-    Interval.build(2011, 5, 13, 2011, 5, 15),
+    new Interval(new TimePoint(2011, 5, 13), TimePoint.zero()),
     baltie3
   );
 
@@ -751,7 +751,7 @@ export function initData(): Data {
     "https://soutez.tib.cz/souteze/baltie/baltie-2011/mezinarodni",
     "3rd place",
     "Programming",
-    Interval.build(2011, 6, 10, 2011, 6, 12),
+    new Interval(new TimePoint(2011, 6, 12), TimePoint.zero()),
     baltie3
   );
 
@@ -764,7 +764,7 @@ export function initData(): Data {
     "https://dspace.cvut.cz/handle/10467/101325",
     "Dean's award for exceptional Bachelor Thesis",
     "Reasearch Thesis",
-    Interval.build(2022, 6, 16, 2022, 6, 16),
+    new Interval(new TimePoint(2022, 11, 5), TimePoint.zero()),
     julia
   );
 
@@ -777,7 +777,7 @@ export function initData(): Data {
     "https://en.seoul-marathon.com",
     "1st place",
     "Running",
-    Interval.build(2023, 3, 19, 2023, 3, 19)
+    new Interval(new TimePoint(2023, 3, 19), TimePoint.zero())
   );
 
   const daeguHalfmarathon = new Achievement(
@@ -789,7 +789,7 @@ export function initData(): Data {
     "https://daegurace.com",
     "10th place",
     "Running",
-    Interval.build(2023, 4, 2, 2023, 4, 2)
+    new Interval(new TimePoint(2023, 4, 2), TimePoint.zero())
   );
 
   const roadef = new Achievement(
@@ -801,7 +801,7 @@ export function initData(): Data {
     "https://www.roadef.org/challenge/2020/en/",
     "2nd place in the junior category + paper published in the Journal of Heuristics",
     "Research / Project",
-    Interval.build(2021, 6, 14, 2021, 6, 14),
+    new Interval(new TimePoint(2021, 6, 14), TimePoint.zero()),
     cpp
   );
 
