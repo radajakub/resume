@@ -1,4 +1,4 @@
-import { Data, TimePoint } from "../data/types";
+import { Data, TestSection, TimePoint } from "../data/types";
 import { writeFileSync } from "fs";
 import { initData } from "../data/data";
 
@@ -157,7 +157,24 @@ class LaTeX {
     this.newLine();
     this.section("Certificates");
     for (const certificate of this.data.certificatessSorted()) {
-      const left = [command("textbf", certificate.name), certificate.category];
+      const left = [];
+      if (certificate.testSections.length) {
+        const totalSection: TestSection = {
+          name: "Total",
+          points: certificate.testSections.map((section) => section.points).reduce((a, b) => a + b, 0),
+          maxPoints: certificate.testSections.map((section) => section.maxPoints).reduce((a, b) => a + b, 0),
+        };
+        left.push(
+          command("textbf", `${certificate.name} (${math(`${totalSection.points}/${totalSection.maxPoints}`)})`)
+        );
+        const scores = certificate.testSections
+          .map((section) => section.name + " " + math(section.points.toString()))
+          .reduce((a, b) => a + ", " + b);
+        left.push(scores);
+      } else {
+        left.push(command("textbf", certificate.name));
+        left.push(certificate.category);
+      }
       const right = [command("textbf", certificate.interval.format(false)), certificate.interval.length()];
       this.splitText(left, right, 0.7);
       this.newLine();
