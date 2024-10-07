@@ -1,4 +1,4 @@
-import { Data, TestSection, TimePoint } from "../data/types";
+import { Data, Interval, TestSection } from "../data/types";
 import { writeFileSync } from "fs";
 import { initData } from "../data/data";
 
@@ -114,12 +114,9 @@ class LaTeX {
     this.add(command("end", "minipage"));
   }
 
-  duration(start: TimePoint, end: TimePoint, bold: boolean): string {
-    const s = start.format(false) + " - " + end.format(false, true);
-    if (bold) {
-      return command("textbf", s);
-    }
-    return s;
+  duration(interval: Interval, bold: boolean): string {
+    const s = interval.format(false, true);
+    return bold ? command("textbf", s) : s;
   }
 
   itemize(items: string[]): void {
@@ -149,7 +146,7 @@ class LaTeX {
     this.newLine();
     for (const education of this.data.educationsSorted()) {
       const left = [command("textbf", education.school), education.specialization];
-      const right = [this.duration(education.timeFrame.start, education.timeFrame.end, true), education.level];
+      const right = [this.duration(education.timeFrame, true), education.level];
       this.splitText(left, right, 0.7);
       this.itemize([education.shortDescription]);
       this.newLine();
@@ -201,7 +198,7 @@ class LaTeX {
     this.newLine();
     for (const work of this.data.worksSorted()) {
       const left = [command("textbf", work.title), work.companyName + " | " + work.mode];
-      const right = [this.duration(work.interval.start, work.interval.end, true), work.field];
+      const right = [this.duration(work.interval, true), work.field];
       this.splitText(left, right, 0.7);
       this.itemize([work.programmingLanguages.map((lang) => lang.name).join(", "), work.shortDescription]);
       this.newLine();
@@ -221,10 +218,7 @@ class LaTeX {
     this.newLine();
     for (const achievement of this.data.achievementsSorted()) {
       const left = [command("textbf", achievement.name), achievement.achievement];
-      const right = [
-        this.duration(achievement.interval.start, achievement.interval.end, true),
-        achievement.awardingInstitution,
-      ];
+      const right = [this.duration(achievement.interval, true), achievement.awardingInstitution];
       this.splitText(left, right, 0.7);
       this.newLine();
     }
