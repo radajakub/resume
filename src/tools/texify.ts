@@ -197,7 +197,6 @@ class LaTeX {
       this.newLine();
     }
     this.newLine();
-    this.newPage();
     this.section("Experience");
     this.newLine();
     for (const work of this.data.worksSorted()) {
