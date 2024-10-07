@@ -817,7 +817,7 @@ export function initData(): Data {
   const roadefPaper = new Publication(
     "The ALNS metaheuristic for the transmission maintenance scheduling",
     "Paper describing our solution that was published after final round of the ROADEF 2020 competition",
-    "Journal of Metaheristics / Springer Nature",
+    "Journal of Heuristics / Springer Nature",
     "logo_springer.svg",
     "https://link.springer.com/article/10.1007/s10732-023-09514-x",
     PublicationCategories.paper,
@@ -827,7 +827,7 @@ export function initData(): Data {
 
   const upe = new Membership(
     "Upsilon Pi Epsilon",
-    "Honorary Society",
+    "Honor Society",
     "International Honor Society for the Computing and Information Disciplines",
     "logo_upe.png",
     "https://upe.acm.org",
