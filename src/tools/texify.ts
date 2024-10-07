@@ -155,10 +155,18 @@ class LaTeX {
       this.newLine();
     }
     this.newLine();
+    this.section("Certificates");
+    for (const certificate of this.data.certificatessSorted()) {
+      const left = [command("textbf", certificate.name), certificate.category];
+      const right = [command("textbf", certificate.interval.format(false)), certificate.interval.length()];
+      this.splitText(left, right, 0.7);
+      this.newLine();
+    }
+    this.newLine();
     this.section("Memberships and Societies");
     for (const membership of this.data.membershipsSorted()) {
       const left = [command("textbf", membership.name), membership.category];
-      const right = [command("textbf", membership.interval.format(false))];
+      const right = [command("textbf", membership.interval.format(false)), membership.interval.length()];
       this.splitText(left, right, 0.7);
       this.newLine();
     }

@@ -1,10 +1,12 @@
 <script setup lang="ts">
-const props = defineProps<{ percentage: number }>();
+const props = withDefaults(defineProps<{ percentage: number; showNumber?: boolean }>(), {
+  showNumber: true,
+});
 </script>
 
 <template>
   <div class="wrapper">
-    <div class="text mr-5">{{ props.percentage }}%</div>
+    <div v-if="showNumber" class="text mr-5">{{ props.percentage }}%</div>
     <div class="outline">
       <div
         class="bar"

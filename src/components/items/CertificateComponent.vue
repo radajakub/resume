@@ -1,11 +1,24 @@
 <script setup lang="ts">
 import ItemComponent from "@/components/items/ItemComponent.vue";
-import { Certificate } from "@/data/types";
+import { Certificate, TestSection } from "@/data/types";
+import TestSectionComponent from "./TestSectionComponent.vue";
 
-defineProps<{
+const props = defineProps<{
   certificate: Certificate;
   modalWidth?: number;
 }>();
+
+const totalSection: TestSection = {
+  name: "Total",
+  points: props.certificate.testSections.map((section) => section.points).reduce((a, b) => a + b, 0),
+  maxPoints: props.certificate.testSections.map((section) => section.maxPoints).reduce((a, b) => a + b, 0),
+};
+
+const cols = 2;
+const grid: TestSection[][] = [];
+for (let i = 0; i < props.certificate.testSections.length; i += cols) {
+  grid.push(props.certificate.testSections.slice(i, i + cols));
+}
 </script>
 
 <template>
@@ -23,10 +36,44 @@ defineProps<{
   >
     <template #modal> </template>
 
-    <template #content>
-      <!-- TODO add here -->
+    <template v-if="props.certificate.testSections.length" #content>
+      <div class="row">
+        <div v-for="(row, rowIndex) of grid" :key="rowIndex" :class="{ 'margin-right': rowIndex < grid.length - 1 }">
+          <TestSectionComponent
+            v-for="(section, sectionIndex) of row"
+            :key="section.name"
+            :section="section"
+            :class="{ 'margin-bottom': sectionIndex < row.length - 1 }"
+          />
+        </div>
+      </div>
+      <div class="total">
+        <TestSectionComponent :section="totalSection" />
+      </div>
     </template>
   </ItemComponent>
 </template>
 
-<style scoped></style>
+<style scoped lang="css">
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.margin-bottom {
+  margin-bottom: 20px;
+}
+
+.margin-right {
+  margin-right: 20px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.total {
+  margin-top: 30px;
+}
+</style>

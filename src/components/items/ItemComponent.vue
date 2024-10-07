@@ -52,18 +52,20 @@ const logo = props.logoPath != null ? "/pictures/" + props.logoPath : "";
               <div class="subtitle-smaller">{{ title }}</div>
             </div>
             <RowComponent>
-              <div v-if="subtitles.length > 0" class="title-col pr-20">
-                <div
-                  v-for="(subtitle, index) in subtitles"
-                  :key="index"
-                  class="text"
-                  :class="{ 'pb-5': index < subtitles.length - 1 }"
-                >
-                  {{ subtitle }}
-                </div>
-              </div>
-              <div v-else class="title-col">
-                <slot name="content"></slot>
+              <div class="title-col pr-20">
+                <template v-if="subtitles.length > 0">
+                  <div
+                    v-for="(subtitle, index) in subtitles"
+                    :key="index"
+                    class="text"
+                    :class="{ 'pb-5': index < subtitles.length - 1 }"
+                  >
+                    {{ subtitle }}
+                  </div>
+                </template>
+                <template v-else>
+                  <slot name="content"></slot>
+                </template>
               </div>
               <div v-if="logoPath != null" class="logo-col">
                 <LinkComponent :url="logoLink" :white-bg="true">
