@@ -526,7 +526,7 @@ export function initData(): Data {
     [flutter, dart, vue, python, javascript, typescript, django, docker, android, ios],
     "Developing multiple complex mobile and web apps in various languages. Namely, a social mobile app released for both iOS and Android (Joinly), a web app for aggregating and selling holiday tours, a web app for one of Ministries of the Czech Republic and a web app serving as a monitoring system for analogue missions (CommonTongue). Worked on both Frontend and Backend parts.",
     "Long description",
-    new Interval(new TimePoint(2022, 6, 30), TimePoint.infinity())
+    Interval.build(2022, 6, 30, 2025, 6, 30)
   );
 
   const ciirc = new Work(
