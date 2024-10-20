@@ -12,5 +12,3 @@ To build a resume in `LaTeX` run `npm run texify`.
 
 Data types are specified in `src/data.ts` file.
 The last `Data` class contains initializing constructor.
-
-In the future, it is possible to extend it by filling the data from an online form.
