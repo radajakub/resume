@@ -43,7 +43,6 @@ const props = defineProps<{ skill: Skill }>();
   align-content: center;
   line-height: 1.5;
   height: 100%;
-  overflow: scroll;
 }
 
 .skill {

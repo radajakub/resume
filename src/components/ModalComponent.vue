@@ -61,7 +61,8 @@ const left_string = ((100 - actual_width) / 2).toString() + "%";
 }
 
 .modal-body {
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   flex: 1;
 }
 
