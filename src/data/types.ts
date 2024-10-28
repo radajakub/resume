@@ -516,6 +516,21 @@ export class Certificate {
     this.link = link;
     this.interval = interval;
   }
+
+  getTotalSection(): TestSection {
+    if (this.aggregation === "mean") {
+      return new TestSection(
+        "Overall",
+        Math.ceil(this.testSections.map((section) => section.points).reduce((a, b) => a + b, 0) / this.testSections.length),
+        Math.ceil(this.testSections.map((section) => section.maxPoints).reduce((a, b) => a + b, 0) / this.testSections.length)
+      );
+    }
+    return new TestSection(
+      "Total",
+      this.testSections.map((section) => section.points).reduce((a, b) => a + b, 0),
+      this.testSections.map((section) => section.maxPoints).reduce((a, b) => a + b, 0)
+    );
+  }
 }
 
 export enum Sections {

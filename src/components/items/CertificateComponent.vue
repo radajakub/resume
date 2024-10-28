@@ -8,23 +8,7 @@ const props = defineProps<{
   modalWidth?: number;
 }>();
 
-const buildSumSection = (certificate: Certificate) => {
-  return {
-    name: "Total",
-    points: certificate.testSections.map((section) => section.points).reduce((a, b) => a + b, 0),
-    maxPoints: certificate.testSections.map((section) => section.maxPoints).reduce((a, b) => a + b, 0),
-  };
-};
-
-const buildMeanSection = (certificate: Certificate) => {
-  return {
-    name: "Overall",
-    points: Math.ceil(certificate.testSections.map((section) => section.points).reduce((a, b) => a + b, 0) / certificate.testSections.length),
-    maxPoints: Math.ceil(certificate.testSections.map((section) => section.maxPoints).reduce((a, b) => a + b, 0) / certificate.testSections.length),
-  };
-};
-
-const totalSection: TestSection = props.certificate.aggregation === "sum" ? buildSumSection(props.certificate) : buildMeanSection(props.certificate);
+const totalSection: TestSection = props.certificate.getTotalSection();
 
 const grid: TestSection[][] = [];
 const extra = props.certificate.testSections.length % 2 === 1 ? [props.certificate.testSections[props.certificate.testSections.length - 1]] : [];
