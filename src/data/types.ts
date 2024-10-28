@@ -234,13 +234,7 @@ export class Grades {
   readonly scale: string;
   readonly graduatedWithHonors: boolean;
 
-  constructor(
-    scale: string,
-    graduatedWithHonors: boolean,
-    courses: Course[],
-    showGPA = false,
-    groupLabel = Grades.defaultGroupLabel
-  ) {
+  constructor(scale: string, graduatedWithHonors: boolean, courses: Course[], showGPA = false, groupLabel = Grades.defaultGroupLabel) {
     this.courses = courses;
     this.showGPA = showGPA;
     this.scale = scale;
@@ -255,9 +249,7 @@ export class Grades {
     }
 
     const sumOfCredits = this.courses.map((c) => c.credits).reduce((a, b) => a + b);
-    const sumOfGrades = this.courses
-      .map((c) => (Grades.gradeLookup.get(c.grade) ?? 0) * c.credits)
-      .reduce((a, b) => a + b);
+    const sumOfGrades = this.courses.map((c) => (Grades.gradeLookup.get(c.grade) ?? 0) * c.credits).reduce((a, b) => a + b);
 
     if (sumOfGrades == 0) {
       return Grades.noGrade;
@@ -443,15 +435,7 @@ export class Publication {
   readonly category: PublicationCategories;
   readonly date: TimePoint;
 
-  constructor(
-    title: string,
-    shortDescription: string,
-    publisher: string,
-    logoPath: string,
-    link: string,
-    category: PublicationCategories,
-    date: TimePoint
-  ) {
+  constructor(title: string, shortDescription: string, publisher: string, logoPath: string, link: string, category: PublicationCategories, date: TimePoint) {
     this.title = title;
     this.shortDescription = shortDescription;
     this.publisher = publisher;
@@ -493,14 +477,7 @@ export class Membership {
   readonly link: string;
   readonly interval: Interval;
 
-  constructor(
-    name: string,
-    category: string,
-    shortDescription: string,
-    logoPath: string,
-    link: string,
-    interval: Interval
-  ) {
+  constructor(name: string, category: string, shortDescription: string, logoPath: string, link: string, interval: Interval) {
     this.name = name;
     this.category = category;
     this.shortDescription = shortDescription;
@@ -515,6 +492,7 @@ export class Certificate {
   readonly category: string;
   readonly shortDescription: string;
   readonly testSections: TestSection[];
+  readonly aggregation: "sum" | "mean";
   readonly logoPath: string;
   readonly link: string;
   readonly interval: Interval;
@@ -524,6 +502,7 @@ export class Certificate {
     category: string,
     shortDescription: string,
     testSections: TestSection[],
+    aggregation: "sum" | "mean",
     logoPath: string,
     link: string,
     interval: Interval
@@ -532,6 +511,7 @@ export class Certificate {
     this.category = category;
     this.shortDescription = shortDescription;
     this.testSections = testSections;
+    this.aggregation = aggregation;
     this.logoPath = logoPath;
     this.link = link;
     this.interval = interval;

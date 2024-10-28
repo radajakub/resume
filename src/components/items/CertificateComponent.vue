@@ -8,16 +8,28 @@ const props = defineProps<{
   modalWidth?: number;
 }>();
 
-const totalSection: TestSection = {
-  name: "Total",
-  points: props.certificate.testSections.map((section) => section.points).reduce((a, b) => a + b, 0),
-  maxPoints: props.certificate.testSections.map((section) => section.maxPoints).reduce((a, b) => a + b, 0),
+const buildSumSection = (certificate: Certificate) => {
+  return {
+    name: "Total",
+    points: certificate.testSections.map((section) => section.points).reduce((a, b) => a + b, 0),
+    maxPoints: certificate.testSections.map((section) => section.maxPoints).reduce((a, b) => a + b, 0),
+  };
 };
 
-const cols = 2;
+const buildMeanSection = (certificate: Certificate) => {
+  return {
+    name: "Overall",
+    points: Math.ceil(certificate.testSections.map((section) => section.points).reduce((a, b) => a + b, 0) / certificate.testSections.length),
+    maxPoints: Math.ceil(certificate.testSections.map((section) => section.maxPoints).reduce((a, b) => a + b, 0) / certificate.testSections.length),
+  };
+};
+
+const totalSection: TestSection = props.certificate.aggregation === "sum" ? buildSumSection(props.certificate) : buildMeanSection(props.certificate);
+
 const grid: TestSection[][] = [];
-for (let i = 0; i < props.certificate.testSections.length; i += cols) {
-  grid.push(props.certificate.testSections.slice(i, i + cols));
+const extra = props.certificate.testSections.length % 2 === 1 ? [props.certificate.testSections[props.certificate.testSections.length - 1]] : [];
+for (let i = 0; i < props.certificate.testSections.length - extra.length; i += 2) {
+  grid.push(props.certificate.testSections.slice(i, i + 2));
 }
 </script>
 
@@ -47,6 +59,9 @@ for (let i = 0; i < props.certificate.testSections.length; i += cols) {
           />
         </div>
       </div>
+      <div v-if="extra.length" class="extra">
+        <TestSectionComponent :section="extra[0]" />
+      </div>
       <div class="total">
         <TestSectionComponent :section="totalSection" />
       </div>
@@ -71,6 +86,10 @@ for (let i = 0; i < props.certificate.testSections.length; i += cols) {
 .col {
   display: flex;
   flex-direction: column;
+}
+
+.extra {
+  margin-top: 20px;
 }
 
 .total {
