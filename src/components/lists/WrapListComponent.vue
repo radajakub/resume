@@ -43,21 +43,12 @@ if (showEducations) {
 } else if (showPublications) {
   wrapListTitle = "Publications";
 } else if (showMemberships) {
-  wrapListTitle = "Memberships and Societies";
+  wrapListTitle = "Fellowships and Societies";
 } else if (showCertificates) {
   wrapListTitle = "Certificates";
 }
 
-const allOptions = [
-  showEducations,
-  showWorks,
-  showProjects,
-  showAchievements,
-  showSkills,
-  showPublications,
-  showMemberships,
-  showCertificates,
-];
+const allOptions = [showEducations, showWorks, showProjects, showAchievements, showSkills, showPublications, showMemberships, showCertificates];
 
 if (allOptions.filter((x) => x == true).length != 1) {
   throw Error("Wrap List: Exactly one of educations, works, projects, or achievements must be true");
@@ -80,31 +71,19 @@ if (allOptions.filter((x) => x == true).length != 1) {
         <ProjectComponent v-for="(project, index) in props.projects" :key="index" :project="project" />
       </div>
       <div v-if="showAchievements">
-        <AchievementsComponent
-          v-for="(achievement, index) in props.achievements"
-          :key="index"
-          :achievement="achievement"
-        />
+        <AchievementsComponent v-for="(achievement, index) in props.achievements" :key="index" :achievement="achievement" />
       </div>
       <div v-if="showSkills">
         <SkillComponent v-for="(skill, index) in props.skills" :key="index" :skill="skill" />
       </div>
       <div v-if="showPublications">
-        <PublicationComponent
-          v-for="(publication, index) in props.publications"
-          :key="index"
-          :publication="publication"
-        />
+        <PublicationComponent v-for="(publication, index) in props.publications" :key="index" :publication="publication" />
       </div>
       <div v-if="showMemberships">
         <MembershipComponent v-for="(membership, index) in props.memberships" :key="index" :membership="membership" />
       </div>
       <div v-if="showCertificates">
-        <CertificateComponent
-          v-for="(certificate, index) in props.certificates"
-          :key="index"
-          :certificate="certificate"
-        />
+        <CertificateComponent v-for="(certificate, index) in props.certificates" :key="index" :certificate="certificate" />
       </div>
     </div>
   </div>

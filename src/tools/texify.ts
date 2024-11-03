@@ -166,7 +166,7 @@ class LaTeX {
   }
 
   memberships(): void {
-    this.section("Memberships and Societies");
+    this.section("Fellowships and Societies");
     for (const membership of this.data.membershipsSorted()) {
       const left = [command("textbf", membership.name), membership.category];
       const right = [command("textbf", membership.interval.format(false)), membership.interval.length()];
