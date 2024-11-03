@@ -154,7 +154,7 @@ class LaTeX {
 
   certificates(): void {
     this.section("Certificates");
-    for (const certificate of this.data.certificatessSorted()) {
+    for (const certificate of this.data.certificatesSorted(true)) {
       const left = [];
       if (certificate.testSections.length) {
         const totalSection: TestSection = certificate.getTotalSection();
@@ -173,7 +173,7 @@ class LaTeX {
 
   memberships(): void {
     this.section("Fellowships and Societies");
-    for (const membership of this.data.membershipsSorted()) {
+    for (const membership of this.data.membershipsSorted(true)) {
       const left = [textbf(membership.name), membership.category];
       const right = [textbf(membership.interval.format(false)), membership.interval.length()];
       this.splitText(left, right, 0.7);
@@ -184,7 +184,7 @@ class LaTeX {
   publications(): void {
     this.section("Publications");
     this.newLine();
-    for (const publication of this.data.publicationsSorted()) {
+    for (const publication of this.data.publicationsSorted(true)) {
       const left = [textbf(publication.title), publication.publisher];
       const right = [textbf(publication.date.format(false)), publication.getCategoryString()];
       this.splitText(left, right, 0.8);
@@ -195,7 +195,7 @@ class LaTeX {
   experience(): void {
     this.section("Experience");
     this.newLine();
-    for (const work of this.data.worksSorted()) {
+    for (const work of this.data.worksSorted(true)) {
       const left = [textbf(work.title), work.companyName + " | " + work.mode];
       const right = [this.duration(work.interval, true), work.field];
       this.splitText(left, right, 0.7);
@@ -207,7 +207,7 @@ class LaTeX {
   projects(): void {
     this.section("Projects");
     this.newLine();
-    for (const project of this.data.projectsSorted()) {
+    for (const project of this.data.projectsSorted(true)) {
       const left = [textbf(project.name), project.subtitle];
       const right = [this.duration(project.interval, true), project.relatedInstitution];
       this.splitText(left, right, 0.7);
@@ -219,7 +219,7 @@ class LaTeX {
   achievements(): void {
     this.section("Achievements");
     this.newLine();
-    for (const achievement of this.data.achievementsSorted()) {
+    for (const achievement of this.data.achievementsSorted(true)) {
       const left = [textbf(achievement.name), achievement.achievement];
       const right = [this.duration(achievement.interval, true), achievement.awardingInstitution];
       this.splitText(left, right, 0.7);

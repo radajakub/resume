@@ -48,9 +48,7 @@ export class TimePoint {
   }
 
   static descending(a: TimePoint, b: TimePoint) {
-    if (a.isInfinity && b.isInfinity) return 0;
-    if (a.isInfinity) return -1;
-    if (b.isInfinity) return 1;
+    if (a.isInfinity || b.isInfinity) return 0;
     return b.toTime() - a.toTime();
   }
 }
@@ -277,7 +275,15 @@ export class Grades {
   }
 }
 
-export class Education {
+export class InResume {
+  readonly includeInResume: boolean;
+
+  constructor(includeInResume: boolean) {
+    this.includeInResume = includeInResume;
+  }
+}
+
+export class Education extends InResume {
   readonly school: string;
   readonly shortcut?: string;
   readonly faculty?: string;
@@ -303,8 +309,10 @@ export class Education {
     shortDescription: string,
     longDescription: string,
     grades: Grades,
-    thesis?: Thesis
+    thesis?: Thesis,
+    includeInResume = true
   ) {
+    super(includeInResume);
     this.school = school;
     this.shortcut = shortcut == "" ? undefined : shortcut;
     this.faculty = faculty == "" ? undefined : faculty;
@@ -330,7 +338,7 @@ export class ProgrammingLanguage {
   }
 }
 
-export class Work {
+export class Work extends InResume {
   readonly title: string;
   readonly field: string;
   readonly companyName: string;
@@ -352,8 +360,10 @@ export class Work {
     programmingLanguages: ProgrammingLanguage[],
     shortDescription: string,
     description: string,
-    interval: Interval
+    interval: Interval,
+    includeInResume = true
   ) {
+    super(includeInResume);
     this.title = title;
     this.field = field;
     this.companyName = companyName;
@@ -367,7 +377,7 @@ export class Work {
   }
 }
 
-export class Project {
+export class Project extends InResume {
   readonly topic: string;
   readonly subtitle: string;
   readonly name: string;
@@ -387,8 +397,10 @@ export class Project {
     longDescription: string,
     githubLink: string,
     programmingLanguages: ProgrammingLanguage[],
-    interval: Interval
+    interval: Interval,
+    includeInResume = true
   ) {
+    super(includeInResume);
     this.topic = topic;
     this.subtitle = subtitle;
     this.name = name;
@@ -401,7 +413,7 @@ export class Project {
   }
 }
 
-export class Achievement {
+export class Achievement extends InResume {
   readonly name: string;
   readonly shortDescription: string;
   readonly longDescription: string;
@@ -423,8 +435,10 @@ export class Achievement {
     achievement: string,
     category: string,
     interval: Interval,
-    programmingLanguage?: ProgrammingLanguage
+    programmingLanguage?: ProgrammingLanguage,
+    includeInResume = true
   ) {
+    super(includeInResume);
     this.name = name;
     this.shortDescription = shortDescription;
     this.longDescription = longDescription;
@@ -443,7 +457,7 @@ export enum PublicationCategories {
   package,
 }
 
-export class Publication {
+export class Publication extends InResume {
   readonly title: string;
   readonly shortDescription: string;
   readonly publisher: string;
@@ -452,7 +466,17 @@ export class Publication {
   readonly category: PublicationCategories;
   readonly date: TimePoint;
 
-  constructor(title: string, shortDescription: string, publisher: string, logoPath: string, link: string, category: PublicationCategories, date: TimePoint) {
+  constructor(
+    title: string,
+    shortDescription: string,
+    publisher: string,
+    logoPath: string,
+    link: string,
+    category: PublicationCategories,
+    date: TimePoint,
+    includeInResume = true
+  ) {
+    super(includeInResume);
     this.title = title;
     this.shortDescription = shortDescription;
     this.publisher = publisher;
@@ -486,7 +510,7 @@ export class TestSection {
   }
 }
 
-export class Membership {
+export class Membership extends InResume {
   readonly name: string;
   readonly category: string;
   readonly shortDescription: string;
@@ -494,7 +518,8 @@ export class Membership {
   readonly link: string;
   readonly interval: Interval;
 
-  constructor(name: string, category: string, shortDescription: string, logoPath: string, link: string, interval: Interval) {
+  constructor(name: string, category: string, shortDescription: string, logoPath: string, link: string, interval: Interval, includeInResume = true) {
+    super(includeInResume);
     this.name = name;
     this.category = category;
     this.shortDescription = shortDescription;
@@ -504,7 +529,7 @@ export class Membership {
   }
 }
 
-export class Certificate {
+export class Certificate extends InResume {
   readonly name: string;
   readonly category: string;
   readonly shortDescription: string;
@@ -522,8 +547,10 @@ export class Certificate {
     aggregation: "sum" | "mean",
     logoPath: string,
     link: string,
-    interval: Interval
+    interval: Interval,
+    includeInResume = true
   ) {
+    super(includeInResume);
     this.name = name;
     this.category = category;
     this.shortDescription = shortDescription;
@@ -683,31 +710,31 @@ export class Data {
     return present;
   }
 
-  educationsSorted(): Education[] {
-    return this.educations.sort((a, b) => Interval.descending(a.interval, b.interval));
+  educationsSorted(isResume = false): Education[] {
+    return this.educations.filter((e) => (isResume ? e.includeInResume : true)).sort((a, b) => Interval.descending(a.interval, b.interval));
   }
 
-  worksSorted(): Work[] {
-    return this.works.sort((a, b) => Interval.descending(a.interval, b.interval));
+  worksSorted(isResume = false): Work[] {
+    return this.works.filter((w) => (isResume ? w.includeInResume : true)).sort((a, b) => Interval.descending(a.interval, b.interval));
   }
 
-  projectsSorted(): Project[] {
-    return this.projects.sort((a, b) => Interval.descending(a.interval, b.interval));
+  projectsSorted(isResume = false): Project[] {
+    return this.projects.filter((p) => (isResume ? p.includeInResume : true)).sort((a, b) => Interval.descending(a.interval, b.interval));
   }
 
-  achievementsSorted(): Achievement[] {
-    return this.achievements.sort((a, b) => Interval.descending(a.interval, b.interval));
+  achievementsSorted(isResume = false): Achievement[] {
+    return this.achievements.filter((a) => (isResume ? a.includeInResume : true)).sort((a, b) => Interval.descending(a.interval, b.interval));
   }
 
-  publicationsSorted(): Publication[] {
-    return this.publications.sort((a, b) => TimePoint.descending(a.date, b.date));
+  publicationsSorted(isResume = false): Publication[] {
+    return this.publications.filter((p) => (isResume ? p.includeInResume : true)).sort((a, b) => TimePoint.descending(a.date, b.date));
   }
 
-  membershipsSorted(): Membership[] {
-    return this.memberships.sort((a, b) => Interval.descending(a.interval, b.interval));
+  membershipsSorted(isResume = false): Membership[] {
+    return this.memberships.filter((m) => (isResume ? m.includeInResume : true)).sort((a, b) => Interval.descending(a.interval, b.interval));
   }
 
-  certificatessSorted(): Certificate[] {
-    return this.certificates.sort((a, b) => Interval.descending(a.interval, b.interval));
+  certificatesSorted(isResume = false): Certificate[] {
+    return this.certificates.filter((c) => (isResume ? c.includeInResume : true)).sort((a, b) => Interval.descending(a.interval, b.interval));
   }
 }

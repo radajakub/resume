@@ -598,7 +598,8 @@ export function initData(): Data {
     "2nd place",
     "Programming",
     new Interval(new TimePoint(2011, 5, 13), TimePoint.zero()),
-    baltie3
+    baltie3,
+    true
   );
 
   const baltieInternational = new Achievement(
@@ -611,7 +612,8 @@ export function initData(): Data {
     "3rd place",
     "Programming",
     new Interval(new TimePoint(2011, 6, 12), TimePoint.zero()),
-    baltie3
+    baltie3,
+    true
   );
 
   const bachelorThesisDeansAward = new Achievement(
@@ -624,7 +626,8 @@ export function initData(): Data {
     "Dean's award for exceptional Bachelor Thesis",
     "Reasearch Thesis",
     new Interval(new TimePoint(2022, 11, 5), TimePoint.zero()),
-    julia
+    julia,
+    true
   );
 
   const seoulMarathon = new Achievement(
@@ -636,7 +639,9 @@ export function initData(): Data {
     "https://en.seoul-marathon.com",
     "1st place",
     "Running",
-    new Interval(new TimePoint(2023, 3, 19), TimePoint.zero())
+    new Interval(new TimePoint(2023, 3, 19), TimePoint.zero()),
+    undefined,
+    false
   );
 
   const daeguHalfmarathon = new Achievement(
@@ -648,7 +653,9 @@ export function initData(): Data {
     "https://daegurace.com",
     "10th place",
     "Running",
-    new Interval(new TimePoint(2023, 4, 2), TimePoint.zero())
+    new Interval(new TimePoint(2023, 4, 2), TimePoint.zero()),
+    undefined,
+    false
   );
 
   const roadef = new Achievement(
@@ -658,10 +665,11 @@ export function initData(): Data {
     "EURO",
     "logo_roadef.png",
     "https://www.roadef.org/challenge/2020/en/",
-    "2nd place in the junior category + paper published in the Journal of Heuristics",
+    "2nd place in the junior category",
     "Research / Project",
     new Interval(new TimePoint(2021, 6, 14), TimePoint.zero()),
-    cpp
+    cpp,
+    true
   );
 
   const achievements = [baltieNational, baltieInternational, bachelorThesisDeansAward, seoulMarathon, daeguHalfmarathon, roadef];
