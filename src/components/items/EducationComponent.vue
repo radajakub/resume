@@ -32,7 +32,7 @@ function createGradeString(grades: Grades) {
 <template>
   <ItemComponent
     :top-left="education.level"
-    :percentage="education.timeFrame.computePercentage()"
+    :percentage="education.interval.computePercentage()"
     :title="education.school"
     :logo-path="education.logoPath"
     :logo-link="education.link"
@@ -40,7 +40,7 @@ function createGradeString(grades: Grades) {
     :short-text="education.shortDescription"
     :mid-left="createGradeString(education.grades)"
     :mid-right="createGraudationString(education.grades)"
-    :bottom-left="education.timeFrame.yearRange(true)"
+    :bottom-left="education.interval.yearRange(true)"
     :bottom-right="education.shortcut"
     :modal-enabled="true"
     :modal-title="education.school"

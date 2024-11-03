@@ -103,9 +103,9 @@ export class Interval {
   }
 
   static descending(a: Interval, b: Interval) {
-    const sortFrom = TimePoint.descending(a.start, b.start);
-    if (sortFrom) return sortFrom;
-    return TimePoint.descending(a.end, b.end);
+    const sortEnd = TimePoint.descending(a.end, b.end);
+    if (sortEnd) return sortEnd;
+    return TimePoint.descending(a.start, b.start);
   }
 }
 
@@ -265,7 +265,7 @@ export class Education {
   readonly shortcut?: string;
   readonly faculty?: string;
   readonly specialization: string;
-  readonly timeFrame: Interval;
+  readonly interval: Interval;
   readonly level: string;
   readonly logoPath: string;
   readonly link: string;
@@ -292,7 +292,7 @@ export class Education {
     this.shortcut = shortcut == "" ? undefined : shortcut;
     this.faculty = faculty == "" ? undefined : faculty;
     this.specialization = specialization;
-    this.timeFrame = timeFrame;
+    this.interval = timeFrame;
     this.level = level;
     this.logoPath = logoPath;
     this.link = link;
@@ -667,19 +667,19 @@ export class Data {
   }
 
   educationsSorted(): Education[] {
-    return this.educations.sort((a, b) => TimePoint.descending(a.timeFrame.end, b.timeFrame.end));
+    return this.educations.sort((a, b) => Interval.descending(a.interval, b.interval));
   }
 
   worksSorted(): Work[] {
-    return this.works.sort((a, b) => TimePoint.descending(a.interval.end, b.interval.end));
+    return this.works.sort((a, b) => Interval.descending(a.interval, b.interval));
   }
 
   projectsSorted(): Project[] {
-    return this.projects.sort((a, b) => TimePoint.descending(a.interval.end, b.interval.end));
+    return this.projects.sort((a, b) => Interval.descending(a.interval, b.interval));
   }
 
   achievementsSorted(): Achievement[] {
-    return this.achievements.sort((a, b) => TimePoint.descending(a.interval.end, b.interval.end));
+    return this.achievements.sort((a, b) => Interval.descending(a.interval, b.interval));
   }
 
   publicationsSorted(): Publication[] {

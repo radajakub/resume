@@ -139,7 +139,7 @@ class LaTeX {
     this.newLine();
     for (const education of this.data.educationsSorted()) {
       const left = [command("textbf", education.school), education.specialization];
-      const right = [this.duration(education.timeFrame, true), education.level];
+      const right = [this.duration(education.interval, true), education.level];
       this.splitText(left, right, 0.7);
       this.itemize([education.shortDescription]);
       this.newLine();
