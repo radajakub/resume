@@ -29,3 +29,8 @@ coverage
 *.sw?
 
 *.tex
+*.aux
+*.out
+*.fdb_latexmk
+*.fls
+*.synctex.gz

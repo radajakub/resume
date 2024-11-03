@@ -125,23 +125,16 @@ class LaTeX {
     this.add(command("end", "itemize"));
   }
 
-  texifyResume(): void {
-    this.output = [];
-
-    this.header();
-    this.newLine();
-    this.add(command("begin", "document"));
-
-    this.title();
-    this.info();
-    this.newLine();
+  skills(): void {
     this.section("Skills");
     for (const skill of this.data.skills) {
       this.add(command("textbf", skill.name + ":"));
       this.add(skill.skills.join(", "));
       this.add("");
     }
-    this.newLine();
+  }
+
+  education(): void {
     this.section("Education");
     this.newLine();
     for (const education of this.data.educationsSorted()) {
@@ -151,7 +144,9 @@ class LaTeX {
       this.itemize([education.shortDescription]);
       this.newLine();
     }
-    this.newLine();
+  }
+
+  certificates(): void {
     this.section("Certificates");
     for (const certificate of this.data.certificatessSorted()) {
       const left = [];
@@ -168,7 +163,9 @@ class LaTeX {
       this.splitText(left, right, 0.7);
       this.newLine();
     }
-    this.newLine();
+  }
+
+  memberships(): void {
     this.section("Memberships and Societies");
     for (const membership of this.data.membershipsSorted()) {
       const left = [command("textbf", membership.name), membership.category];
@@ -176,7 +173,9 @@ class LaTeX {
       this.splitText(left, right, 0.7);
       this.newLine();
     }
-    this.newLine();
+  }
+
+  publications(): void {
     this.section("Publications");
     this.newLine();
     for (const publication of this.data.publicationsSorted()) {
@@ -185,7 +184,9 @@ class LaTeX {
       this.splitText(left, right, 0.8);
       this.newLine();
     }
-    this.newLine();
+  }
+
+  experience(): void {
     this.section("Experience");
     this.newLine();
     for (const work of this.data.worksSorted()) {
@@ -195,17 +196,21 @@ class LaTeX {
       this.itemize([work.programmingLanguages.map((lang) => lang.name).join(", "), work.shortDescription]);
       this.newLine();
     }
+  }
+
+  projects(): void {
+    this.section("Projects");
     this.newLine();
-    // this.section("Projects");
-    // this.newLine();
-    // for (const project of this.data.projectsSorted()) {
-    //   const left = [command("textbf", project.name), project.subtitle];
-    //   const right = [this.duration(project.interval.start, project.interval.end, true), project.relatedInstitution];
-    //   this.splitText(left, right, 0.7);
-    //   this.itemize([project.programmingLanguages.map((lang) => lang.name).join(", ")]);
-    //   this.newLine();
-    // }
-    // this.newLine();
+    for (const project of this.data.projectsSorted()) {
+      const left = [command("textbf", project.name), project.subtitle];
+      const right = [this.duration(project.interval, true), project.relatedInstitution];
+      this.splitText(left, right, 0.7);
+      this.itemize([project.programmingLanguages.map((lang) => lang.name).join(", ")]);
+      this.newLine();
+    }
+  }
+
+  achievements(): void {
     this.section("Achievements");
     this.newLine();
     for (const achievement of this.data.achievementsSorted()) {
@@ -214,6 +219,41 @@ class LaTeX {
       this.splitText(left, right, 0.7);
       this.newLine();
     }
+  }
+
+  texifyResume(): void {
+    this.output = [];
+
+    this.header();
+    this.newLine();
+    this.add(command("begin", "document"));
+
+    this.title();
+    this.info();
+    this.newLine();
+
+    this.education();
+    this.newLine();
+
+    this.memberships();
+    this.newLine();
+
+    this.publications();
+    this.newLine();
+
+    this.experience();
+    this.newLine();
+
+    // this.projects();
+    // this.newLine();
+
+    this.achievements();
+    this.newLine();
+
+    this.certificates();
+    this.newLine();
+
+    this.skills();
 
     this.add(command("end", "document"));
 
@@ -228,4 +268,3 @@ class LaTeX {
 const data = initData();
 const latex = new LaTeX(data);
 latex.texifyResume();
-// latex.texifyCoverLetters();
