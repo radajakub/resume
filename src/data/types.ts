@@ -81,6 +81,9 @@ export class Interval {
     if (hideFuture && this.end.isFuture()) {
       return `${this.start.year} - present`;
     }
+    if (this.end.isZero) {
+      return `${this.start.year}`;
+    }
     return `${this.start.year} - ${this.end.year}`;
   }
 
