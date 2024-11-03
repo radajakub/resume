@@ -1,4 +1,4 @@
-import { Data, Interval, TestSection } from "../data/types";
+import { ContactType, Data, Interval, TestSection } from "../data/types";
 import { writeFileSync } from "fs";
 import { initData } from "../data/data";
 
@@ -13,6 +13,14 @@ function command(name: string, args?: string, params?: string[], kwargs?: string
   const argstring = args !== undefined ? `{${args}}` : "";
   const kwargstring = kwargs !== undefined ? `{${kwargs}}` : "";
   return `\\${name}${argstring}${paramstring}${kwargstring}`;
+}
+
+function textbf(content?: string): string {
+  return command("textbf", content);
+}
+
+function href(content?: string, url?: string): string {
+  return command("href", url ?? "", undefined, content ?? "");
 }
 
 function block(name: string, content: string): string {
@@ -50,6 +58,7 @@ class LaTeX {
     this.add(define("usepackage", "parskip", ["parfill"]));
     this.add(define("usepackage", "inputenc", ["utf8"]));
     this.add(define("usepackage", "fontenc", ["T1"]));
+    this.add(define("usepackage", "hyperref"));
   }
 
   fancyHeader(title: string): void {
@@ -63,22 +72,19 @@ class LaTeX {
   }
 
   title(): void {
-    this.add(block("center", block("Huge", command("textbf", command("textsc", this.data.fullName())))));
+    this.add(block("center", block("Huge", textbf(command("textsc", this.data.fullName())))));
   }
 
   info(): void {
-    const contacts: string[] = ["", "", "", "", ""];
-    contacts[0] = command("textbf", this.data.location.format());
-    contacts[1] = command("textbf", this.data.dateOfBirth.date.format());
-    for (const contact of this.data.contacts) {
-      if (contact.name === "Email address") {
-        contacts[2] = command("textbf", contact.username);
-      }
-      if (contact.name === "Phone number") {
-        contacts[3] = command("textbf", contact.username);
-      }
-    }
-    contacts[4] = command("textbf", this.data.web.username);
+    const contactTypes = [ContactType.email, ContactType.web, ContactType.github, ContactType.linkedin];
+    const contacts = contactTypes
+      .map((ct) => this.data.contacts.get(ct))
+      .map((c) => {
+        if (c !== undefined && [ContactType.github, ContactType.linkedin].includes(c.type)) {
+          return textbf(`${c.name}: ${href(c.username, c.link)}`);
+        }
+        return textbf(href(c?.username, c?.link));
+      });
     this.add(block("center", contacts.join(" " + mathcommand("cdot") + " ")));
   }
 
@@ -116,7 +122,7 @@ class LaTeX {
 
   duration(interval: Interval, bold: boolean): string {
     const s = interval.format(false, true);
-    return bold ? command("textbf", s) : s;
+    return bold ? textbf(s) : s;
   }
 
   itemize(items: string[]): void {
@@ -128,7 +134,7 @@ class LaTeX {
   skills(): void {
     this.section("Skills");
     for (const skill of this.data.skills) {
-      this.add(command("textbf", skill.name + ":"));
+      this.add(textbf(skill.name + ":"));
       this.add(skill.skills.join(", "));
       this.add("");
     }
@@ -138,7 +144,7 @@ class LaTeX {
     this.section("Education");
     this.newLine();
     for (const education of this.data.educationsSorted()) {
-      const left = [command("textbf", education.school), education.specialization];
+      const left = [textbf(education.school), education.specialization];
       const right = [this.duration(education.interval, true), education.level];
       this.splitText(left, right, 0.7);
       this.itemize([education.shortDescription]);
@@ -152,14 +158,14 @@ class LaTeX {
       const left = [];
       if (certificate.testSections.length) {
         const totalSection: TestSection = certificate.getTotalSection();
-        left.push(command("textbf", `${certificate.name} (${math(`${totalSection.points}/${totalSection.maxPoints}`)})`));
+        left.push(textbf(`${certificate.name} (${math(`${totalSection.points}/${totalSection.maxPoints}`)})`));
         const scores = certificate.testSections.map((section) => section.name + " " + math(section.points.toString())).reduce((a, b) => a + ", " + b);
         left.push(scores);
       } else {
-        left.push(command("textbf", certificate.name));
+        left.push(textbf(certificate.name));
         left.push(certificate.category);
       }
-      const right = [command("textbf", certificate.interval.format(false)), certificate.interval.length()];
+      const right = [textbf(certificate.interval.format(false)), certificate.interval.length()];
       this.splitText(left, right, 0.7);
       this.newLine();
     }
@@ -168,8 +174,8 @@ class LaTeX {
   memberships(): void {
     this.section("Fellowships and Societies");
     for (const membership of this.data.membershipsSorted()) {
-      const left = [command("textbf", membership.name), membership.category];
-      const right = [command("textbf", membership.interval.format(false)), membership.interval.length()];
+      const left = [textbf(membership.name), membership.category];
+      const right = [textbf(membership.interval.format(false)), membership.interval.length()];
       this.splitText(left, right, 0.7);
       this.newLine();
     }
@@ -179,8 +185,8 @@ class LaTeX {
     this.section("Publications");
     this.newLine();
     for (const publication of this.data.publicationsSorted()) {
-      const left = [command("textbf", publication.title), publication.publisher];
-      const right = [command("textbf", publication.date.format(false)), publication.getCategoryString()];
+      const left = [textbf(publication.title), publication.publisher];
+      const right = [textbf(publication.date.format(false)), publication.getCategoryString()];
       this.splitText(left, right, 0.8);
       this.newLine();
     }
@@ -190,7 +196,7 @@ class LaTeX {
     this.section("Experience");
     this.newLine();
     for (const work of this.data.worksSorted()) {
-      const left = [command("textbf", work.title), work.companyName + " | " + work.mode];
+      const left = [textbf(work.title), work.companyName + " | " + work.mode];
       const right = [this.duration(work.interval, true), work.field];
       this.splitText(left, right, 0.7);
       this.itemize([work.programmingLanguages.map((lang) => lang.name).join(", "), work.shortDescription]);
@@ -202,7 +208,7 @@ class LaTeX {
     this.section("Projects");
     this.newLine();
     for (const project of this.data.projectsSorted()) {
-      const left = [command("textbf", project.name), project.subtitle];
+      const left = [textbf(project.name), project.subtitle];
       const right = [this.duration(project.interval, true), project.relatedInstitution];
       this.splitText(left, right, 0.7);
       this.itemize([project.programmingLanguages.map((lang) => lang.name).join(", ")]);
@@ -214,7 +220,7 @@ class LaTeX {
     this.section("Achievements");
     this.newLine();
     for (const achievement of this.data.achievementsSorted()) {
-      const left = [command("textbf", achievement.name), achievement.achievement];
+      const left = [textbf(achievement.name), achievement.achievement];
       const right = [this.duration(achievement.interval, true), achievement.awardingInstitution];
       this.splitText(left, right, 0.7);
       this.newLine();

@@ -5,12 +5,12 @@ import BadgeComponent from "@/components/BadgeComponent.vue";
 import ProfilePictureComponent from "@/components/intro/ProfilePictureComponent.vue";
 import SeparatorComponent from "@/components/SeparatorComponent.vue";
 import InfoComponent from "@/components/intro/InfoComponent.vue";
-import { Data } from "@/data/types";
+import { ContactType, Data } from "@/data/types";
 import { inject } from "vue";
 
 const data: Data | undefined = inject("data");
 
-const filteredContacts = data?.contacts.filter((contact) => contact.use);
+const filteredContacts = [...(data?.contacts.values() ?? [])].filter((contact) => contact.use && contact.type !== ContactType.web);
 </script>
 
 <template>
@@ -29,22 +29,9 @@ const filteredContacts = data?.contacts.filter((contact) => contact.use);
       </div>
       <!-- personal information section -->
       <div class="ph-20">
-        <InfoComponent
-          :icon="data?.dateOfBirth.icon!"
-          :heading="data?.dateOfBirth.name!"
-          :value="data?.dateOfBirth.date.format()!"
-        />
-        <InfoComponent
-          :icon="data?.age.icon!"
-          :heading="data?.age.name!"
-          :value="data?.dateOfBirth.date.computeAge().toString()!"
-        />
-        <InfoComponent
-          :icon="data?.location.icon!"
-          :heading="data?.location.name!"
-          :value="data?.location.format()!"
-          badge="FLEXIBLE"
-        />
+        <InfoComponent :icon="data?.dateOfBirth.icon!" :heading="data?.dateOfBirth.name!" :value="data?.dateOfBirth.date.format()!" />
+        <InfoComponent :icon="data?.age.icon!" :heading="data?.age.name!" :value="data?.dateOfBirth.date.computeAge().toString()!" />
+        <InfoComponent :icon="data?.location.icon!" :heading="data?.location.name!" :value="data?.location.format()!" badge="FLEXIBLE" />
       </div>
       <div class="pv-10">
         <SeparatorComponent :dotted="introComponentDottedSeparator" />

@@ -160,13 +160,27 @@ export class Location extends Info {
   }
 }
 
+export enum ContactType {
+  web,
+  phone,
+  email,
+  github,
+  linkedin,
+  discord,
+  leetcode,
+  hackerrank,
+  kaggle,
+}
+
 export class Contact extends Info {
+  readonly type: ContactType;
   readonly username: string;
   readonly link: string;
   readonly use: boolean;
 
-  constructor(name: string, icon: string, username: string, link: string, use = true) {
+  constructor(name: string, icon: string, type: ContactType, username: string, link: string, use = true) {
     super(name, icon);
+    this.type = type;
     this.username = username;
     this.link = link;
     this.use = use;
@@ -571,7 +585,7 @@ export class Data {
   readonly age: Age;
   readonly location: Location;
   readonly web: Contact;
-  readonly contacts: Contact[];
+  readonly contacts: Map<ContactType, Contact>;
   readonly skills: Skill[];
   readonly educations: Education[];
   readonly works: Work[];
@@ -592,7 +606,7 @@ export class Data {
     age: Age,
     location: Location,
     web: Contact,
-    contacts: Contact[],
+    contacts: Map<ContactType, Contact>,
     skills: Skill[],
     educations: Education[],
     works: Work[],

@@ -20,6 +20,7 @@ import {
   PublicationCategories,
   TestSection,
   Certificate,
+  ContactType,
 } from "./types";
 
 export function initData(): Data {
@@ -45,16 +46,26 @@ export function initData(): Data {
     "I love learning new things and constantly improving my skills and abilities. I am interested in Artificial Intelligence, especially Reinforcement Learning, Machine Learning, Quantum Computing and Optimization and I want to contribute to pushing the boundaries of what is possible. I believe these fields can help us solve many important problems in this world and I want to be a part of it.";
 
   // contacts
-  const web = new Contact("Website", "fa-solid fa-globe", "www.jakubrada.com", "https://jakubrada.com");
-  const phone = new Contact("Phone number", "fa-solid fa-mobile", "+420 604 730 409", "tel:+420604730409");
-  const email = new Contact("Email address", "fa-solid fa-envelope", "jakubrada@icloud.com", "mailto:jakubrada@icloud.com");
-  const github = new Contact("GitHub", "fa-brands fa-github", "radajakub", "https://github.com/radajakub");
-  const linkedin = new Contact("LinkedIn", "fa-brands fa-linkedin", "radajakub", "https://www.linkedin.com/in/radajakub");
-  const discord = new Contact("Discord", "fa-brands fa-discord", "jakubrada", "", false);
-  const leetcode = new Contact("LeetCode", "", "jakubrada", "https://leetcode.com/jakubrada", false);
-  const hackerrank = new Contact("HackerRank", "fa-brands fa-hackerrank", "jakubrada", "https://www.hackerrank.com/jakubrada", false);
-  const kaggle = new Contact("Kaggle", "fa-brands fa-kaggle", "radajakub", "https://www.kaggle.com/radajakub", false);
-  const contacts = [phone, email, github, linkedin, discord, leetcode, hackerrank, kaggle];
+  const web = new Contact("Website", "fa-solid fa-globe", ContactType.web, "www.jakubrada.com", "https://jakubrada.com");
+  const phone = new Contact("Phone number", "fa-solid fa-mobile", ContactType.phone, "+420 604 730 409", "tel:+420604730409");
+  const email = new Contact("Email address", "fa-solid fa-envelope", ContactType.email, "jakubrada@icloud.com", "mailto:jakubrada@icloud.com");
+  const github = new Contact("GitHub", "fa-brands fa-github", ContactType.github, "radajakub", "https://github.com/radajakub");
+  const linkedin = new Contact("LinkedIn", "fa-brands fa-linkedin", ContactType.linkedin, "radajakub", "https://www.linkedin.com/in/radajakub");
+  const discord = new Contact("Discord", "fa-brands fa-discord", ContactType.discord, "jakubrada", "", false);
+  const leetcode = new Contact("LeetCode", "", ContactType.leetcode, "jakubrada", "https://leetcode.com/jakubrada", false);
+  const hackerrank = new Contact("HackerRank", "fa-brands fa-hackerrank", ContactType.hackerrank, "jakubrada", "https://www.hackerrank.com/jakubrada", false);
+  const kaggle = new Contact("Kaggle", "fa-brands fa-kaggle", ContactType.kaggle, "radajakub", "https://www.kaggle.com/radajakub", false);
+  const contacts = new Map([
+    [ContactType.web, web],
+    [ContactType.phone, phone],
+    [ContactType.email, email],
+    [ContactType.github, github],
+    [ContactType.linkedin, linkedin],
+    [ContactType.discord, discord],
+    [ContactType.leetcode, leetcode],
+    [ContactType.hackerrank, hackerrank],
+    [ContactType.kaggle, kaggle],
+  ]);
 
   // skills
   const langauges = new Skill("Languages", "fa-solid fa-language", ["Czech", "English", "Spanish"]);
