@@ -227,6 +227,17 @@ class LaTeX {
     }
   }
 
+  hackathons(): void {
+    this.section("Hackathons");
+    this.newLine();
+    for (const hackathon of this.data.hackathonsSorted(true)) {
+      const left = [textbf(hackathon.name), hackathon.place];
+      const right = [this.duration(hackathon.interval, true), hackathon.topic];
+      this.splitText(left, right, 0.7);
+      this.newLine();
+    }
+  }
+
   texifyResume(): void {
     this.output = [];
 
@@ -245,6 +256,9 @@ class LaTeX {
     this.newLine();
 
     this.publications();
+    this.newLine();
+
+    this.hackathons();
     this.newLine();
 
     this.experience();
