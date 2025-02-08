@@ -111,6 +111,9 @@ export function initData(): Data {
   const latex = new ProgrammingLanguage("LaTeX");
   const pytorch = new ProgrammingLanguage("PyTorch");
   const rust = new ProgrammingLanguage("Rust");
+  const mistral = new ProgrammingLanguage("Mistral AI");
+  const elevenLabs = new ProgrammingLanguage("Eleven Labs");
+  const whisper = new ProgrammingLanguage("OpenAI whisper");
 
   // educations
   const alej = new Education(
@@ -288,6 +291,10 @@ export function initData(): Data {
           5,
           4
         ),
+        new Course("Computer Security", "Computer Security, Intrusion Detection, Attacks, Web Attacks, Malware, ...", "A", 6, 5),
+        new Course("Programming in Python", "Python, OOP, Package management, ...", "A", 5, 5),
+        new Course("Learning for Robotics", "Deep Learning, Convolutional Neural Networks, Segmentation, Reinforcement Learning, ...", "A", 6, 5),
+        new Course("Individual Project", "Refining the statistical model for RANSAC based on the 3Dreconstruction data", "B", 6, 5),
       ],
       true
     )
@@ -571,6 +578,30 @@ export function initData(): Data {
     Interval.build(2024, 4, 20, 2024, 5, 11)
   );
 
+  const gameOfLife = new Project(
+    "Algorithms, Software Engineering",
+    "Project in Programming in Python",
+    "Multiplayer Game of Life",
+    "FEE CTU",
+    "My own extension of Conway's Game of Life which I tried to extend to arbitrary number of players. The goal is now not only to evolve and survive but also to win in the evolution over other players. The implementation includes the engine and a GUI application.",
+    "", // Add long description
+    "https://github.com/radajakub/game-of-life",
+    [python],
+    Interval.build(2024, 12, 29, 2025, 1, 12)
+  );
+
+  const shyguy = new Project(
+    "AI Game",
+    "Project for the Mistral AI Game Jam 2025",
+    "Shyguy's Wingman",
+    "Mistral AI Game Jam",
+    "An AI game where the main character is a shy guy who wants to get a girlfriend. The player cannot control him directly but he can control his wingman and can try to persuade him or push him around. Shuyguy can also talk to other AI NPCs to get information or confidence.",
+    "", // Add long description
+    "https://github.com/radajakub/ShyguysWingmanJS",
+    [javascript, python, mistral, elevenLabs, whisper],
+    Interval.build(2025, 1, 24, 2025, 1, 26)
+  );
+
   const projects = [
     baltie,
     doubleOracle,
@@ -586,6 +617,8 @@ export function initData(): Data {
     objectReconstruction,
     qsim,
     feedbackarcset,
+    gameOfLife,
+    shyguy,
   ];
 
   const baltieNational = new Achievement(
