@@ -56,6 +56,10 @@ const sectionsArray = Array.from(sections.values());
       <WrapListComponent :id="sections.get(Sections.work)?.linkify()" :works="data.worksSorted()" />
     </div>
 
+    <div class="hackathon-col mb-50">
+      <WrapListComponent :id="sections.get(Sections.hackathons)?.linkify()" :hackathons="data.hackathonsSorted()" />
+    </div>
+
     <div class="project-col mb-50">
       <WrapListComponent :id="sections.get(Sections.projects)?.linkify()" :projects="data.projectsSorted()" />
     </div>

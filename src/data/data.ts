@@ -21,6 +21,7 @@ import {
   TestSection,
   Certificate,
   ContactType,
+  Hackathon,
 } from "./types";
 
 export function initData(): Data {
@@ -759,6 +760,21 @@ export function initData(): Data {
 
   const certificates = [fce, toefl];
 
+  const mistralGameJam2025 = new Hackathon(
+    "Shyguy's Wingman",
+    "Mistral AI Game Jam 2025",
+    "Paris, France",
+    ["Mistral AI", "Hugging Face", "Eleven Labs", "Scaleway", "Nebius"],
+    "A three-day hackathon in Paris where we had to develop a game in a team of six. The theme of the hackathon was 'You don’t control the character'. As none of us was a game developer, we developed a game in javascript where the user can influence player's actions by interacting with his LLM by text or voice and by pushing him to interact with NPCs. The judges loved our game and we got into the final round of pitches.",
+    "", // Add long description
+    "https://huggingface.co/spaces/Mistral-AI-Game-Jam/shyguys_2",
+    "logo_mistral.png",
+    [javascript, python, mistral, elevenLabs, whisper],
+    new Interval(new TimePoint(2025, 1, 24), new TimePoint(2025, 1, 26))
+  );
+
+  const hackathons = [mistralGameJam2025];
+
   return new Data(
     firstName,
     lastName,
@@ -778,6 +794,7 @@ export function initData(): Data {
     achievements,
     publications,
     memberships,
-    certificates
+    certificates,
+    hackathons
   );
 }

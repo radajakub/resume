@@ -413,6 +413,45 @@ export class Project extends InResume {
   }
 }
 
+export class Hackathon extends InResume {
+  readonly topic: string;
+  readonly name: string;
+  readonly place: string;
+  readonly sponsors: string[];
+  readonly shortDescription: string;
+  readonly longDescription: string;
+  readonly link: string;
+  readonly logoPath: string;
+  readonly programmingLanguages: ProgrammingLanguage[];
+  readonly interval: Interval;
+
+  constructor(
+    topic: string,
+    name: string,
+    place: string,
+    sponsors: string[],
+    shortDescription: string,
+    longDescription: string,
+    link: string,
+    logoPath: string,
+    programmingLanguages: ProgrammingLanguage[],
+    interval: Interval,
+    includeInResume = true
+  ) {
+    super(includeInResume);
+    this.topic = topic;
+    this.name = name;
+    this.place = place;
+    this.sponsors = sponsors;
+    this.shortDescription = shortDescription;
+    this.longDescription = longDescription;
+    this.link = link;
+    this.logoPath = logoPath;
+    this.programmingLanguages = programmingLanguages;
+    this.interval = interval;
+  }
+}
+
 export class Achievement extends InResume {
   readonly name: string;
   readonly shortDescription: string;
@@ -588,6 +627,7 @@ export enum Sections {
   publications,
   memberships,
   certificates,
+  hackathons,
 }
 
 export class Section {
@@ -624,6 +664,7 @@ export class Data {
   readonly publications: Publication[];
   readonly memberships: Membership[];
   readonly certificates: Certificate[];
+  readonly hackathons: Hackathon[];
 
   constructor(
     firstName: string,
@@ -644,7 +685,8 @@ export class Data {
     achievements: Achievement[],
     publications: Publication[],
     memberships: Membership[],
-    certificates: Certificate[]
+    certificates: Certificate[],
+    hackathons: Hackathon[]
   ) {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -665,6 +707,7 @@ export class Data {
     this.publications = publications;
     this.memberships = memberships;
     this.certificates = certificates;
+    this.hackathons = hackathons;
   }
 
   fullName(): string {
@@ -701,6 +744,9 @@ export class Data {
     if (this.works.length != 0) {
       present.set(Sections.work, new Section("Work", "fa-solid fa-computer"));
     }
+    if (this.hackathons.length != 0) {
+      present.set(Sections.hackathons, new Section("Hackathons", "fa-solid fa-laptop-code"));
+    }
     if (this.projects.length != 0) {
       present.set(Sections.projects, new Section("Projects", "fa-code-branch"));
     }
@@ -720,6 +766,10 @@ export class Data {
 
   projectsSorted(isResume = false): Project[] {
     return this.projects.filter((p) => (isResume ? p.includeInResume : true)).sort((a, b) => Interval.descending(a.interval, b.interval));
+  }
+
+  hackathonsSorted(isResume = false): Hackathon[] {
+    return this.hackathons.filter((h) => (isResume ? h.includeInResume : true)).sort((a, b) => Interval.descending(a.interval, b.interval));
   }
 
   achievementsSorted(isResume = false): Achievement[] {

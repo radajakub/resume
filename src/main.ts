@@ -34,15 +34,9 @@ import {
   faPaperclip,
   faBuildingColumns,
   faCertificate,
+  faLaptopCode,
 } from "@fortawesome/free-solid-svg-icons";
-import {
-  faLinkedin,
-  faGithub,
-  faDiscord,
-  faHackerrank,
-  faKaggle,
-  faAppStoreIos,
-} from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin, faGithub, faDiscord, faHackerrank, faKaggle, faAppStoreIos } from "@fortawesome/free-brands-svg-icons";
 
 import type { Data } from "@/data/types";
 import { initData } from "@/data/data";
@@ -77,7 +71,8 @@ library.add(
   faLightbulb,
   faPaperclip,
   faBuildingColumns,
-  faCertificate
+  faCertificate,
+  faLaptopCode
 );
 
 const data: Data = initData();

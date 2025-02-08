@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Education, Work, Project, Achievement, Skill, Publication, Membership, Certificate } from "@/data/types";
+import { Education, Work, Project, Achievement, Skill, Publication, Membership, Certificate, Hackathon } from "@/data/types";
 import EducationComponent from "@/components/items/EducationComponent.vue";
 import WorkComonent from "@/components/items/WorkComonent.vue";
 import SkillComponent from "@/components/about_me/SkillComponent.vue";
@@ -8,6 +8,7 @@ import AchievementsComponent from "@/components/items/AchievementsComponent.vue"
 import PublicationComponent from "@/components/items/PublicationComponent.vue";
 import MembershipComponent from "@/components/items/MembershipComponent.vue";
 import CertificateComponent from "../items/CertificateComponent.vue";
+import HackathonComponent from "../items/HackathonComponent.vue";
 
 const props = defineProps<{
   educations?: Education[];
@@ -18,6 +19,7 @@ const props = defineProps<{
   publications?: Publication[];
   memberships?: Membership[];
   certificates?: Certificate[];
+  hackathons?: Hackathon[];
 }>();
 
 const showEducations = props.educations != null;
@@ -28,6 +30,7 @@ const showSkills = props.skills != null;
 const showPublications = props.publications != null;
 const showMemberships = props.memberships != null;
 const showCertificates = props.certificates != null;
+const showHackathons = props.hackathons != null;
 
 var wrapListTitle = "";
 if (showEducations) {
@@ -46,9 +49,11 @@ if (showEducations) {
   wrapListTitle = "Fellowships and Societies";
 } else if (showCertificates) {
   wrapListTitle = "Certificates";
+} else if (showHackathons) {
+  wrapListTitle = "Hackathons";
 }
 
-const allOptions = [showEducations, showWorks, showProjects, showAchievements, showSkills, showPublications, showMemberships, showCertificates];
+const allOptions = [showEducations, showWorks, showProjects, showAchievements, showSkills, showPublications, showMemberships, showCertificates, showHackathons];
 
 if (allOptions.filter((x) => x == true).length != 1) {
   throw Error("Wrap List: Exactly one of educations, works, projects, or achievements must be true");
@@ -84,6 +89,9 @@ if (allOptions.filter((x) => x == true).length != 1) {
       </div>
       <div v-if="showCertificates">
         <CertificateComponent v-for="(certificate, index) in props.certificates" :key="index" :certificate="certificate" />
+      </div>
+      <div v-if="showHackathons">
+        <HackathonComponent v-for="(hackathon, index) in props.hackathons" :key="index" :hackathon="hackathon" />
       </div>
     </div>
   </div>
