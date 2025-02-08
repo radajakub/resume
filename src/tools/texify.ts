@@ -120,8 +120,8 @@ class LaTeX {
     this.add(command("end", "minipage"));
   }
 
-  duration(interval: Interval, bold: boolean): string {
-    const s = interval.format(false, true);
+  duration(interval: Interval, bold: boolean, compressShort = false): string {
+    const s = interval.format(false, true, compressShort);
     return bold ? textbf(s) : s;
   }
 
@@ -232,7 +232,7 @@ class LaTeX {
     this.newLine();
     for (const hackathon of this.data.hackathonsSorted(true)) {
       const left = [textbf(hackathon.name), hackathon.topic];
-      const right = [this.duration(hackathon.interval, true), hackathon.place];
+      const right = [this.duration(hackathon.interval, true, true), hackathon.place];
       this.splitText(left, right, 0.7);
       this.newLine();
     }
