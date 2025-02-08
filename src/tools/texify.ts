@@ -231,8 +231,8 @@ class LaTeX {
     this.section("Hackathons");
     this.newLine();
     for (const hackathon of this.data.hackathonsSorted(true)) {
-      const left = [textbf(hackathon.name), hackathon.place];
-      const right = [this.duration(hackathon.interval, true), hackathon.topic];
+      const left = [textbf(hackathon.name), hackathon.topic];
+      const right = [this.duration(hackathon.interval, true), hackathon.place];
       this.splitText(left, right, 0.7);
       this.newLine();
     }

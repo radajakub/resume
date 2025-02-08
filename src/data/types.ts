@@ -85,10 +85,17 @@ export class Interval {
     return `${this.start.year} - ${this.end.year}`;
   }
 
-  format(showDay = true, hideFuture = false): string {
+  format(showDay = true, hideFuture = false, compressShort = false): string {
     if (this.end.isInfinity || this.end.isZero) {
       return this.start.format(showDay, hideFuture);
     }
+
+    // if the interval is less than a month, display only the month and not 'start - end'
+    const monthDiff = this.end.month - this.start.month;
+    if (compressShort && monthDiff < 1) {
+      return this.start.format(false, hideFuture);
+    }
+
     return `${this.start.format(showDay, hideFuture)} - ${this.end.format(showDay, hideFuture)}`;
   }
 
