@@ -115,6 +115,7 @@ export function initData(): Data {
   const mistral = new ProgrammingLanguage("Mistral AI");
   const elevenLabs = new ProgrammingLanguage("Eleven Labs");
   const whisper = new ProgrammingLanguage("OpenAI whisper");
+  const huggingFace = new ProgrammingLanguage("Hugging Face");
 
   // educations
   const alej = new Education(
@@ -773,7 +774,20 @@ export function initData(): Data {
     new Interval(new TimePoint(2025, 1, 24), new TimePoint(2025, 1, 26))
   );
 
-  const hackathons = [mistralGameJam2025];
+  const rakathon2025 = new Hackathon(
+    "OnkoApp",
+    "Rakathon 2025",
+    "Prague, Czech Republic",
+    ["RAG Agent", "Vue.js", "Hugging Face"],
+    "A two-day hackathon where we were supposed to develop a solution for one of 8 challenges regarding doctors and treatment of cancer patients. We build a platform for efficient planning of treatments, sharing of information and results between doctors and patients and providing educational information for patients. Our solution placed 2nd overall and awaits deployment into real hospitals!",
+    "", // Add long description
+    "https://www.rakathon.cz",
+    "logo_rakathon.png",
+    [vue, python, huggingFace],
+    new Interval(new TimePoint(2025, 4, 11), new TimePoint(2025, 4, 13))
+  );
+
+  const hackathons = [mistralGameJam2025, rakathon2025];
 
   return new Data(
     firstName,
