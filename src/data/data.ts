@@ -297,6 +297,7 @@ export function initData(): Data {
         new Course("Programming in Python", "Python, OOP, Package management, ...", "A", 5, 5),
         new Course("Learning for Robotics", "Deep Learning, Convolutional Neural Networks, Segmentation, Reinforcement Learning, ...", "A", 6, 5),
         new Course("Individual Project", "Refining the statistical model for RANSAC based on the 3Dreconstruction data", "B", 6, 5),
+        new Course("Diploma Thesis", "Probabilistic Modelling for Robust Scoring and Estimation of Geometric Relations", "Pass", 25, 6),
       ],
       true
     )
@@ -604,6 +605,18 @@ export function initData(): Data {
     Interval.build(2025, 1, 24, 2025, 1, 26)
   );
 
+  const mThesis = new Project(
+    "Probabilistic Modelling",
+    "Master Thesis in Computer Vision",
+    "Probabilistic Modelling for Robust Scoring and Estimation of Geometric Relations",
+    "FEE CTU",
+    "Scoring functions for robust estimation of geometric relations often assume isotropic Gaussian noise. Using anisotropic distributions led to better precision in locally optimizing the Essential matrix under learned covariance matrices.",
+    "", // Add long description
+    "https://github.com/radajakub/bachelor-thesis",
+    [python, pytorch],
+    Interval.build(2024, 9, 1, 2025, 5, 23)
+  );
+
   const projects = [
     baltie,
     doubleOracle,
@@ -621,6 +634,7 @@ export function initData(): Data {
     feedbackarcset,
     gameOfLife,
     shyguy,
+    mThesis,
   ];
 
   const baltieNational = new Achievement(

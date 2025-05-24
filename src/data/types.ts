@@ -270,8 +270,10 @@ export class Grades {
       return "";
     }
 
-    const sumOfCredits = this.courses.map((c) => c.credits).reduce((a, b) => a + b);
-    const sumOfGrades = this.courses.map((c) => (Grades.gradeLookup.get(c.grade) ?? 0) * c.credits).reduce((a, b) => a + b);
+    const classifiedCourses = this.courses.filter((c) => c.grade != "Pass");
+
+    const sumOfCredits = classifiedCourses.map((c) => c.credits).reduce((a, b) => a + b);
+    const sumOfGrades = classifiedCourses.map((c) => (Grades.gradeLookup.get(c.grade) ?? 0) * c.credits).reduce((a, b) => a + b);
 
     if (sumOfGrades == 0) {
       return Grades.noGrade;
