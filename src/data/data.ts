@@ -83,7 +83,16 @@ export function initData(): Data {
     "HTML/CSS",
   ]);
   const frameworks = new Skill("Application Frameworks", "fa-brands fa-app-store-ios", ["Flutter", "Vue.js", "Angular", "Django", "NodeJS"]);
-  const ai = new Skill("AI/ML Tools", "fa-solid fa-brain", ["PyTorch", "NumPy", "scikit-learn", "DeepMind Control Suite", "Gurobi", "PySAT"]);
+  const ai = new Skill("AI/ML Tools", "fa-solid fa-brain", [
+    "PyTorch",
+    "NumPy",
+    "scikit-learn",
+    "DeepMind Control Suite",
+    "Gurobi",
+    "PySAT",
+    "HuggingFace",
+    "Transformers",
+  ]);
   const traits = new Skill("Skills and Traits", "fa-solid fa-person", ["Dilligence", "Adaptability", "Perfectionism", "Problem solving", "Responsibilility"]);
   const skills = [langauges, interests, programming, frameworks, ai, traits];
 
@@ -224,7 +233,7 @@ export function initData(): Data {
     "logo_cvut.jpg",
     "https://oi.fel.cvut.cz/en/",
     "A follow-up Master's programme with focus on Artificial Intelligence and Machine Learning",
-    "This programme directly follows the Bachelor programme and it deepens the knowledge in the field of Artificial Intelligence and Machine Learning, namely Optimization, Statistic and Symbolic Machine Learning, Game Theory, Logical Reasoning and Planning, Robotics and many more. My graduation is delayed due to an exchange programme at KAIST and I expect to graduate in June 2025. As a Master Thesis topic, I chose studying and improving RANSAC algorithm heavily used in Computer Vision. Since February 2024, I am also a member of Upsilon Pi Epsilon, an honour society in Computer Science.",
+    "This programme directly follows the Bachelor programme and it deepens the knowledge in the field of Artificial Intelligence and Machine Learning, namely Optimization, Statistic and Symbolic Machine Learning, Game Theory, Logical Reasoning and Planning, Robotics and many more. My graduation is delayed due to an exchange programme at KAIST and I expect to graduate in June 2025. As a Master Thesis, I am using probabilistic modelling to improve scoring functions for RANSAC and following local refinement of Essential Matrix, where model noise as more general anisotropic Gaussian noise in contrast to the standard methods. Since February 2024, I am also a member of Upsilon Pi Epsilon, an honour society in Computer Science.",
     new Grades(
       "1-4",
       true,
@@ -605,6 +614,18 @@ export function initData(): Data {
     Interval.build(2025, 1, 24, 2025, 1, 26)
   );
 
+  const onkoapp = new Project(
+    "Software Engineering, RAG",
+    "Project for Rakathon 2025",
+    "OnkoApp",
+    "Rakathon 2025",
+    "An app that helps doctors plan treatments for cancer patients and for patients to see their progress and educational information about individual steps. App features RAG AI chatbot that answers questions regarding common questions and side effects of cancer treatments.",
+    "",
+    "",
+    [typescript, vue, python, huggingFace],
+    Interval.build(2025, 4, 11, 2025, 4, 13)
+  );
+
   const mThesis = new Project(
     "Probabilistic Modelling",
     "Master Thesis in Computer Vision",
@@ -634,6 +655,7 @@ export function initData(): Data {
     feedbackarcset,
     gameOfLife,
     shyguy,
+    onkoapp,
     mThesis,
   ];
 

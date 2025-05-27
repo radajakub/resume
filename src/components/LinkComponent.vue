@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { openLink } from "@/utils.ts";
+import { computed } from "vue";
 
 const props = defineProps<{ url?: string; border?: boolean; whiteBg?: boolean }>();
 
@@ -13,6 +14,8 @@ if (whiteBg) {
   clickColor = "var(--color-text)";
 }
 
+const hasLink = computed<boolean>(() => props.url !== undefined && props.url !== "");
+
 const onClick = () => {
   if (props.url != null) {
     openLink(props.url);
@@ -22,7 +25,7 @@ const onClick = () => {
 
 <template>
   <div @click.stop="onClick">
-    <div class="hover-box" :class="{ border: props.border }">
+    <div :class="{ border: props.border, 'hover-box': hasLink }">
       <slot></slot>
     </div>
   </div>
