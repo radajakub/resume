@@ -658,7 +658,7 @@ export class Data {
   readonly lastName: string;
   readonly degreesBeforeName: string[];
   readonly titles: string[];
-  readonly aboutMe: string[];
+  readonly aboutMe: string[][];
   readonly goals: string;
   readonly dateOfBirth: DateOfBirth;
   readonly age: Age;
@@ -680,7 +680,7 @@ export class Data {
     lastName: string,
     degreesBeforeName: string[],
     titles: string[],
-    aboutMe: string[],
+    aboutMe: string[][],
     goals: string,
     dateOfBirth: DateOfBirth,
     age: Age,

@@ -28,19 +28,60 @@ export function initData(): Data {
   // Personal info
   const firstName = "Jakub";
   const lastName = "Rada";
-  const degreesBeforeName = ["Bc."];
-  const titles = ["AI/ML Master student", "Researcher", "Software Engineer"];
+  const degreesBeforeName = ["Ing."];
+  const titles = ["AI/ML Master Graduate", "Researcher", "Software Engineer"];
 
   const dateOfBirth = new DateOfBirth("Date of birth", "fa-solid fa-cake-candles", new TimePoint(2000, 2, 25));
   const age = new Age("Age", "fa-solid fa-calendar-days");
   const location = new Location("Location", "fa-solid fa-map-location-dot", "Prague", "Czechia", true);
 
+  const education = [
+    "I am a Computer Science Master Graduate specializing in Artificial Intelligence at Czech Technical University in Prague.",
+    "My main interests are Reinforcement and Machine Learning, Computer Vision, Quantum Computing and Optimization, as well as probably any topic in Artificial Intelligence.",
+    "I completed both Bachelor degree and the following Master degree with honours, with converted GPA 3.87/4.0.",
+    "My Bachelor thesis, titled Comparing Exploration Methods in Partially Observable Stochastic Games, was trying to apply multi-armed bandit algorithms to partially observable stochastic games as a means of solving the exploration-exploitation trade-off and improving scalability of known algorithms. Thereofore, it was combining reinforcement learning and advanced game theory.",
+    "In my Master's thesis, titled Probabilistic Modelling for Robust Scoring and Estimation of Geometric Relations, which focused on 3D computer vision and inventing new scoring functions for the RANSAC algorithm, specifically for relative pose estimation. It combined probabilistic modelling, maximum-likelihood estimation, EM algorithm and many more advanced methods of machine learning and optimization. From the results we have been able to introduce a model that can handle anisotropic residual errors and improve the precision of refined essential matrix.",
+    "For both theses I received the Dean's award for exceptional theses, which is awarded to only a few students every year.",
+    "For my study achievements I was invited as a member of Upsilon Pi Epsilon, the first honour society in Computer Science.",
+  ];
+
+  const beginnings = [
+    "My journey to this field began when I was very young.",
+    "I started programming when I was 8 years old in a graphical programming language Baltie 3, which served as one of the inspirations for the well-known language Scratch originating at MIT.",
+    "In this language, I competed at both national and international levels and at the age of 11 I placed second in the Czech national round and a few months later third in the final Central-European round.",
+  ];
+
+  const other = [
+    "Apart from school, I have a lot of experience in the field.",
+    "For most of my time at university, I was working as a part-time software engineer and worked on various projects from complex web applications for major financial corporations in the Czech Republic, to a new mobile app to organize events and group people.",
+    "Doing this further refined my programming and engineering skills making me proficient in many languages and being able to built complex maintainable software as well as design AI and ML pipelines.",
+    "Also, I participated in some research projects.",
+    "Apart from working on my theses, each for a year in total, I developed together with my friend a new metaheuristic algorithm for combinatorial optimisation, which then placed second in well-known international competition ROADEF 2020. We publised the solution as a paper in the Journal of Heuristics.",
+    "Nevertheless, I participated in two big hackathons.",
+    "First one in Paris, the Mistral AI Game Jam, where we built an AI-powered game, where the user interacts with an AI agent through text and voice and tries to steer his actions to achieve the goal. In tough competition we made it to the final round of top 6 teams.",
+    "The second one was in Prague, Rakathon, the first hackathon in the Czech Republic meant to help cancer patients.",
+    "In 12 hours, I built a web app that help patients and doctors to share information easily and efficiently, as well as results of various treatments, leading to big savings in doctor's time which can be invested in other patients to reduce waiting times.",
+    "The panel of doctors and representatives of leading pharmaceutical companies, like Astra Zeneca or Novartis, were impressed by the solution and we placed second in the competition.",
+  ];
+
+  const expertise = [
+    "During my studies and work, I gained extensive theoretical and practical knowledge about programming, the complex underlying math and theory, building AI/ML pipelines, including designing model architectures and training them on real data to solve various tasks.",
+    "I have experience in quantum computing, I even implemented my own quantum circuit simulator in Python, similar in qiskit in functionality. I know symbolic and statistical machine learning, computer vision and image processing, both continuous and combinatorial optimization, logic and formal methods, planning methods and a little bit about robotics.",
+    "I also have expreience in software engineering and building software both from scratch or starting from existing codebases.",
+    "I am meticulous and detail-oriented, passionate and always striving to learn and improve my skills and abilities.",
+    "From hackathons and various competitions, I am confident that I can work under pressure and quickly test and implement ideas.",
+  ];
+
+  const extracurricular = [
+    "In my free time, I enjoy running, lifting weights, reading books, both sci-fi fiction and non-fiction, travelling and coding to explore my new ideas about products and apps that would help me and other people.",
+  ];
+
   const aboutMe = [
-    "I am a Computer Science Master student specializing in Artificial Intelligence at Czech Technical University in Prague. My journey to this field began when I was very young. I started programming when I was 8 years old in a graphical programming language Baltie 3, which served as one of the inspirations for the well-known language Scratch originating at MIT. In this language, I competed at both national and international levels and at the age of 11 I placed second in the Czech national round and a few months later third in the final Central-European round.",
-    "Then, I attended and excelled at one of the best high schools in the Czech Republic where I graduated with straight A's in Math, Computer Science and the Czech language. Due to my accomplishments at the high school level I got accepted without examination to the Faculty of Electrical Engineering at Czech Technical University in Prague, which is regarded as the best faculty for computer science in the Czech Republic. I chose to specialize in Artificial Intelligence. In June 2022, I graduated from the Bachelor programme with honours and my Bachelor thesis titled Comparing Exploration Methods in Partially Observable Stochastic Games received the Dean's Award for exceptional theses. Now, I continue studying a follow-up Master's programme in Artificial Intelligence. During the first year of my Master's, I travelled to South Korea as an exchange student at the Korean Advanced Institute of Science and Technology (KAIST), regarded as one of the best Korean universities. There, I studied Mathematical Foundations of Reinforcement Learning, Quantum Computing, Graph Machine Learning and Compiler Design. In February 2024, I was invited and introduced as a member of Upsilon Pi Epsilon, an honour society in computer science. I expect to graduate in 2025 with a Master of Science degree.",
-    "Apart from standard coursework, I gained valuable experience in research as well. My friend and I participated in an international competition ROADEF 2020 in combinatorial optimisation, I tried to combine reinforcement learning and game theory in my bachelor thesis, and together with my two friends at KAIST we developed a novel approach to data clustering using graphs. Lastly, I study ways of improving the Random Sampling and Consensus method used in computer vision. Moreover, alongside university, I worked part-time as a software engineer developing complex web and mobile applications.",
-    "My areas of interest are Reinforcement Learning, Optimisation, Artificial Intelligence in general and Quantum Computing. I enjoy programming in a wide spectrum of languages including C/C++, Julia, Python and Typescript. I have also some experience with Rust, Dart and Matlab. I love learning new languages, math and recently physics as well.",
-    "Outside of Computer Science and Artificial Intelligence, I enjoy sports, mostly running and weightlifting, reading books and travelling. Especially running has been my interest since 6 years old and I have been quite successful at regional and national levels. Recently, I participated and performed great at two international half-marathons in South Korea.",
+    ["Education", education.join(" ")],
+    ["Beginnings", beginnings.join(" ")],
+    ["Other activities", other.join(" ")],
+    ["Knowledge and experience", expertise.join(" ")],
+    ["Extracurricular", extracurricular.join(" ")],
   ];
 
   const goals =
@@ -82,7 +123,7 @@ export function initData(): Data {
     "Dart",
     "HTML/CSS",
   ]);
-  const frameworks = new Skill("Application Frameworks", "fa-brands fa-app-store-ios", ["Flutter", "Vue.js", "Angular", "Django", "NodeJS"]);
+  const frameworks = new Skill("Application Frameworks", "fa-brands fa-app-store-ios", ["Flutter", "Vue.js", "Angular", "Django", "NodeJS", "Docker"]);
   const ai = new Skill("AI/ML Tools", "fa-solid fa-brain", [
     "PyTorch",
     "NumPy",
@@ -228,12 +269,12 @@ export function initData(): Data {
     "FEE CTU",
     "Faculty of Electrical Engineering",
     "Artificial Intelligence",
-    Interval.build(2022, 9, 1, 2025, 9, 1),
+    Interval.build(2022, 9, 1, 2025, 6, 18),
     "Master",
     "logo_cvut.jpg",
     "https://oi.fel.cvut.cz/en/",
     "A follow-up Master's programme with focus on Artificial Intelligence and Machine Learning",
-    "This programme directly follows the Bachelor programme and it deepens the knowledge in the field of Artificial Intelligence and Machine Learning, namely Optimization, Statistic and Symbolic Machine Learning, Game Theory, Logical Reasoning and Planning, Robotics and many more. My graduation is delayed due to an exchange programme at KAIST and I expect to graduate in June 2025. As a Master Thesis, I am using probabilistic modelling to improve scoring functions for RANSAC and following local refinement of Essential Matrix, where model noise as more general anisotropic Gaussian noise in contrast to the standard methods. Since February 2024, I am also a member of Upsilon Pi Epsilon, an honour society in Computer Science.",
+    "This programme directly follows the Bachelor programme and it deepens the knowledge in the field of Artificial Intelligence and Machine Learning, namely Optimization, Statistic and Symbolic Machine Learning, Game Theory, Logical Reasoning and Planning, Robotics and many more. My graduation was delayed by one year due to an exchange programme at KAIST and successfully graduated in June 2025. As a Master Thesis, I used probabilistic modelling to improve scoring functions for RANSAC and the following local refinement of Essential Matrix, where we model noise as more general anisotropic Gaussian noise in contrast to the standard methods. Since February 2024, I am also a member of Upsilon Pi Epsilon, an honour society in Computer Science.",
     new Grades(
       "1-4",
       true,
@@ -307,8 +348,17 @@ export function initData(): Data {
         new Course("Learning for Robotics", "Deep Learning, Convolutional Neural Networks, Segmentation, Reinforcement Learning, ...", "A", 6, 5),
         new Course("Individual Project", "Refining the statistical model for RANSAC based on the 3Dreconstruction data", "B", 6, 5),
         new Course("Diploma Thesis", "Probabilistic Modelling for Robust Scoring and Estimation of Geometric Relations", "Pass", 25, 6),
+        new Course("Final Exam", "Final Exam for the Master's Degree - 2 Random Topics: Theory of Algorithms + Multi-armed bandit problem", "A", 0, 6),
       ],
       true
+    ),
+    new Thesis(
+      "master",
+      "Probabilistic Modelling for Robust Scoring and Estimation of Geometric Relations",
+      "A",
+      ["3D Computer Vision", "Probabilistic Modelling", "Maximum Likelihood Estimation", "EM algorithm", "Optimization"],
+      "Relative camera pose estimation from noisy point correspondences is a fundamental problem in 3D computer vision. The widely used RANSAC algorithm and its variants rely heavily on the choice of a robust scoring function for inlier selection, hypothesis evaluation, and model refinement. While prior work has explored probabilistic scoring functions, these typically assume isotropic Gaussian inlier noise and uniformly distributed outlier noise. In this thesis, we revisit the connection between the Sampson error and the isotropic probabilistic noise model, and extend it to the more general case of anisotropic noise. We derive two novel log-likelihood-based scoring functions that more accurately model anisotropic noise, potentially leading to improved estimation accuracy. To address observed uncompensated radial distortion in the image data, we propose three statistical models designed to account for this effect. These models are trained for integration into our proposed scoring functions. Additionally, we introduce a local optimization method for refining the Essential matrix using the probabilistic scores, both in non-robust and robust settings. We evaluate various combinations of the proposed noise models and scoring functions, and compare them with the Sampson error on real-world datasets. Our experiments demonstrate that the proposed scoring functions can yield more accurate pose estimates, although further investigation is needed for certain cases.",
+      "https://dspace.cvut.cz/handle/10467/123423"
     )
   );
   const essai2024 = new Education(
@@ -402,7 +452,7 @@ export function initData(): Data {
     "https://swehq.com/en/",
     "Part-time",
     [flutter, dart, vue, python, javascript, typescript, django, docker, android, ios],
-    "Development of multiple complex mobile and web applications in various languages. Specifically, a social mobile app for organizing events (Joinly), a web app for aggregating and selling holiday tours, a web app for one of the Ministries of the Czech Republic and a monitoring system for analogue missions (CommonTongue).",
+    "Development of multiple complex mobile and web applications in various languages. Specifically, a social mobile app for organizing events (Joinly), a web app for aggregating and selling holiday tours (Airstop), a web app for one of the Ministries of the Czech Republic and a monitoring system for analogue missions (CommonTongue). Currently, I am working on an AI-powered search engine for a local financial company to help them process internal methodologies.",
     "", // Add long description
     Interval.build(2022, 6, 30, 2025, 6, 30)
   );

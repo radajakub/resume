@@ -20,7 +20,7 @@ const filteredContacts = [...(data?.contacts.values() ?? [])].filter((contact) =
       <div class="pb-10 center-self">
         <ProfilePictureComponent :show-border="profilePictureShowBorder" />
       </div>
-      <div class="center heading ph-20">{{ data?.firstName }} {{ data?.lastName }}</div>
+      <div class="center heading ph-20">{{ data?.degreesBeforeName?.join(" ") }} {{ data?.firstName }} {{ data?.lastName }}</div>
       <div class="ph-20">
         <BadgeComponent v-for="(title, index) in data?.titles" :key="index" class="text">{{ title }} </BadgeComponent>
       </div>
