@@ -127,6 +127,7 @@ export function initData(): Data {
   const ai = new Skill("AI/ML Tools", "fa-solid fa-brain", [
     "PyTorch",
     "NumPy",
+    "JAX",
     "scikit-learn",
     "DeepMind Control Suite",
     "Gurobi",
