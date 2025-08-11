@@ -173,14 +173,17 @@ export function initData(): Data {
     "Gymnázium, Praha 6, Nad Alejí 1952",
     "GNA",
     "",
-    "General High School for students aiming to attend a university",
+    "General Purpose High School",
     Interval.build(2011, 9, 1, 2019, 6, 14),
     "High School",
     "logo_alej.png",
     "https://www.alej.cz/about-school/",
     "One of the best High Schools in the Czech Republic providing great fundamentals in Math, Natural Sciences and Social Sciences",
     "Gymnázium, Praha 6, Nad Alejí 1952 is a prestigious General High School located in Prague in the Czech Republic. It is regularly at the top of leaderboards in the final exam results in the whole country. The vast majority of students attending this school get accepted to Czech universities in both technical and social fields. I passed most of the years with straight 1's (a Czech equivalent of A on a (1-5) scale) and every year with honours (grade average below 1.5). I graduated in Math, Computer Science, English and mandatory Czech language with straight 1's. Moreover, I presented my final Computer Science project, a flash-card web app. During my studies, I also passed the Cambridge First Certificate in English (FCE).",
-    new Grades("1-5", true, [])
+    new Grades("1-5", false, []),
+    undefined,
+    undefined,
+    true
   );
   const feeBachelor = new Education(
     "Czech Technical University in Prague",
@@ -240,7 +243,9 @@ export function initData(): Data {
       ["Game Theory", "Reinforcement Learning", "Optimization", "Linear Programming"],
       "Stochastic Games or Markov Games is a class of Games in Competitive Game Theory which can model many real world situations. With Partial Observability, we prevent agents to see the whole state of the game thus making the reasoning more difficult. These games can be solved by by methods heavily relying on Linear Programming, most notably the Heuristic Search Value Iteration. These methods suffer poor scalability, mostly caused by the size of linear programs and by poor exploration. In my thesis, I tried using many Bandit algorithms to see if they can learn which actions are better than others and if they can help steer the exploration in more promising ways.",
       "https://dspace.cvut.cz/handle/10467/101325"
-    )
+    ),
+    undefined,
+    true
   );
   const kaist = new Education(
     "Korean Advanced Insitute of Science and Technology",
@@ -255,7 +260,7 @@ export function initData(): Data {
     "Korean Advanced Institute of Science and Technology is a famous university in South Korea. It is regarded as the best technical university in the country and it is ranked among the best universities in the world. I attended the university during my first year of Master's studies as an exchange student. I studied four courses, which were all very interesting and challenging. I especially enjoyed Mathematical Foundations of Reinforcement Learning, where I learned a lot and would like to focus on this field more in the future. I would be able to pass the courses with better grades but I chose to travel a lot since it is a great opportunity to see the country and the culture and thus I did not have much time to study. What pleased me is that I was able to perform well even on a much higher-ranked university than my home one and that I could keep up with local full-time students.",
     new Grades(
       "A-F",
-      true,
+      false,
       [
         new Course("Mathematical Foundations of Reinforcement Learning", "From Dynamic Programming to Entropy RL and Soft Actor-Critic", "B0", 3, 0),
         new Course("Basics of Quantum Information and Quantum Computing", "Quantum Theory, Circuits and Algorithms", "A+", 3, 0),
@@ -263,7 +268,10 @@ export function initData(): Data {
         new Course("Compiler Design", "Semantic Analysis, Code Generation, Optimization", "B0", 3, 0),
       ],
       false
-    )
+    ),
+    undefined,
+    undefined,
+    true
   );
   const feeMaster = new Education(
     "Czech Technical University in Prague",
@@ -360,7 +368,9 @@ export function initData(): Data {
       ["3D Computer Vision", "Probabilistic Modelling", "Maximum Likelihood Estimation", "EM algorithm", "Optimization"],
       "Relative camera pose estimation from noisy point correspondences is a fundamental problem in 3D computer vision. The widely used RANSAC algorithm and its variants rely heavily on the choice of a robust scoring function for inlier selection, hypothesis evaluation, and model refinement. While prior work has explored probabilistic scoring functions, these typically assume isotropic Gaussian inlier noise and uniformly distributed outlier noise. In this thesis, we revisit the connection between the Sampson error and the isotropic probabilistic noise model, and extend it to the more general case of anisotropic noise. We derive two novel log-likelihood-based scoring functions that more accurately model anisotropic noise, potentially leading to improved estimation accuracy. To address observed uncompensated radial distortion in the image data, we propose three statistical models designed to account for this effect. These models are trained for integration into our proposed scoring functions. Additionally, we introduce a local optimization method for refining the Essential matrix using the probabilistic scores, both in non-robust and robust settings. We evaluate various combinations of the proposed noise models and scoring functions, and compare them with the Sampson error on real-world datasets. Our experiments demonstrate that the proposed scoring functions can yield more accurate pose estimates, although further investigation is needed for certain cases.",
       "https://dspace.cvut.cz/handle/10467/123423"
-    )
+    ),
+    undefined,
+    true
   );
   const essai2024 = new Education(
     "European Summer in Artificial Intelligence",
@@ -414,7 +424,10 @@ export function initData(): Data {
       ],
       true,
       "Week"
-    )
+    ),
+    undefined,
+    undefined,
+    true
   );
 
   const educations = [alej, feeBachelor, kaist, feeMaster, essai2024];
@@ -429,7 +442,9 @@ export function initData(): Data {
     [css, typescript, html, javascript, node],
     "A two-week internship before starting Bachelor studies which then translated into a part-time job during the first semester.",
     "", // Add long description
-    Interval.build(2019, 8, 20, 2019, 12, 31)
+    Interval.build(2019, 8, 20, 2019, 12, 31),
+    ["Two-week internship before university translating into a part-time job during the first semester"],
+    true
   );
 
   const SWEHQ1 = new Work(
@@ -442,7 +457,9 @@ export function initData(): Data {
     [angular, typescript, html, css, javascript, node, docker],
     "Frontend developer for a complex web application for a major financial group in the Czech Republic. As a junior developer, I was responsible for the implementation of precise design, components for data visualisation and fixing bugs.",
     "", // Add long description
-    Interval.build(2021, 6, 30, 2021, 11, 30)
+    Interval.build(2021, 6, 30, 2021, 11, 30),
+    ["Junior Frontend developer building a complex web app for a major financial group in the Czech Republic"],
+    true
   );
 
   const SWEHQ2 = new Work(
@@ -455,7 +472,11 @@ export function initData(): Data {
     [flutter, dart, vue, python, javascript, typescript, django, docker, android, ios],
     "Development of multiple complex mobile and web applications in various languages. Specifically, a social mobile app for organizing events (Joinly), a web app for aggregating and selling holiday tours (Airstop), a web app for one of the Ministries of the Czech Republic and a monitoring system for analogue missions (CommonTongue). Currently, I am working on an AI-powered search engine for a local financial company to help them process internal methodologies.",
     "", // Add long description
-    Interval.build(2022, 6, 30, 2025, 6, 30)
+    Interval.build(2022, 6, 30, 2025, 6, 30),
+    [
+      "Medior/Senior Full-stack developer and AI engineer building multiple complex web and mobile applications, recently researching and building AI-powered RAG-like search system over private internal methodologies in finance",
+    ],
+    true
   );
 
   const ciirc = new Work(
@@ -468,7 +489,9 @@ export function initData(): Data {
     [cpp, c, python],
     "Research and development of an algorithm to solve an international competition in discrete optimisation ROADEF 2020. Due to the high complexity of the problem instances we had to develop a metaheuristic algorithm instead of an exact one.",
     "", // Add long description
-    Interval.build(2020, 7, 1, 2021, 6, 29)
+    Interval.build(2020, 7, 1, 2021, 6, 29),
+    ["Researcher and developer of a custom metaheuristic algorithm to solve complex combinatorial optimization problem"],
+    true
   );
 
   const works = [scalesoft, SWEHQ1, SWEHQ2, ciirc];
@@ -721,6 +744,7 @@ export function initData(): Data {
     "Programming",
     new Interval(new TimePoint(2011, 5, 13), TimePoint.zero()),
     baltie3,
+    undefined,
     true
   );
 
@@ -735,6 +759,7 @@ export function initData(): Data {
     "Programming",
     new Interval(new TimePoint(2011, 6, 12), TimePoint.zero()),
     baltie3,
+    undefined,
     true
   );
 
@@ -749,6 +774,7 @@ export function initData(): Data {
     "Reasearch Thesis",
     new Interval(new TimePoint(2022, 11, 5), TimePoint.zero()),
     julia,
+    undefined,
     true
   );
 
@@ -762,6 +788,7 @@ export function initData(): Data {
     "1st place",
     "Running",
     new Interval(new TimePoint(2023, 3, 19), TimePoint.zero()),
+    undefined,
     undefined,
     false
   );
@@ -777,6 +804,7 @@ export function initData(): Data {
     "Running",
     new Interval(new TimePoint(2023, 4, 2), TimePoint.zero()),
     undefined,
+    undefined,
     false
   );
 
@@ -791,6 +819,7 @@ export function initData(): Data {
     "Research / Project",
     new Interval(new TimePoint(2021, 6, 14), TimePoint.zero()),
     cpp,
+    undefined,
     true
   );
 
@@ -858,7 +887,12 @@ export function initData(): Data {
     "https://huggingface.co/spaces/Mistral-AI-Game-Jam/shyguys_2",
     "logo_mistral.png",
     [javascript, python, mistral, elevenLabs, whisper],
-    new Interval(new TimePoint(2025, 1, 24), new TimePoint(2025, 1, 26))
+    new Interval(new TimePoint(2025, 1, 24), new TimePoint(2025, 1, 26)),
+    6,
+    [
+      "AI-powered game where user tries to convince the main character with text and voice to perform actions and reach the goal while the story and other characters develop according to an LLM",
+    ],
+    true
   );
 
   const rakathon2025 = new Hackathon(
@@ -871,7 +905,12 @@ export function initData(): Data {
     "https://www.rakathon.cz",
     "logo_rakathon.png",
     [vue, python, huggingFace],
-    new Interval(new TimePoint(2025, 4, 11), new TimePoint(2025, 4, 13))
+    new Interval(new TimePoint(2025, 4, 11), new TimePoint(2025, 4, 13)),
+    2,
+    [
+      "Web application helping doctors to clearly share intermediate results and educational information and manage and confirm appointments to reduce administrative burden therefore saving time for actual treatment.",
+    ],
+    true
   );
 
   const hackathons = [mistralGameJam2025, rakathon2025];

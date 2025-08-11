@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ItemComponent from "@/components/items/ItemComponent.vue";
 import { Hackathon } from "@/data/types";
+import { formatOrdinal } from "@/utils";
 
 const props = defineProps<{
   hackathon: Hackathon;
@@ -22,6 +23,8 @@ const sponsorsString = hackathon.sponsors.slice(0, sponsorsNum).join(" | ");
 const subtitles: string[] = [];
 subtitles.push(hackathon.topic);
 subtitles.push(hackathon.place);
+
+const awardString = `${formatOrdinal(hackathon.award)} place`;
 </script>
 
 <template>
@@ -34,6 +37,7 @@ subtitles.push(hackathon.place);
     :short-text="hackathon.shortDescription"
     :mid-left="languageString"
     :bottom-left="hackathon.interval.yearRange(true)"
+    :bottom-right="awardString"
     :modal-title="hackathon.name"
     :modal-width="props.modalWidth"
   >

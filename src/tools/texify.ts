@@ -1,6 +1,7 @@
 import { ContactType, Data, Interval, TestSection } from "../data/types";
 import { writeFileSync } from "fs";
 import { initData } from "../data/data";
+import { formatOrdinal } from "../utils";
 
 function define(name: string, args?: string, params?: string[]): string {
   const paramstring = params !== undefined && params.length > 0 ? `[${params.join(",")}]` : "";
@@ -59,6 +60,7 @@ class LaTeX {
     this.add(define("usepackage", "inputenc", ["utf8"]));
     this.add(define("usepackage", "fontenc", ["T1"]));
     this.add(define("usepackage", "hyperref"));
+    this.fancyItemization();
   }
 
   fancyHeader(title: string): void {
@@ -69,6 +71,10 @@ class LaTeX {
     this.add(command("lhead", command("today")));
     this.add(command("chead", title));
     this.add(command("rhead", this.data.fullName()));
+  }
+
+  fancyItemization(): void {
+    this.add(command("renewcommand", command("labelitemi"), [], command("textendash")));
   }
 
   title(): void {
@@ -126,6 +132,7 @@ class LaTeX {
   }
 
   itemize(items: string[]): void {
+    if (items.length === 0) return;
     this.add(command("begin", "itemize"));
     items.forEach((item) => this.add(command("item", item)));
     this.add(command("end", "itemize"));
@@ -143,11 +150,16 @@ class LaTeX {
   education(): void {
     this.section("Education");
     this.newLine();
-    for (const education of this.data.educationsSorted()) {
+    for (const education of this.data.educationsSorted(true)) {
       const left = [textbf(education.school), education.specialization];
-      const right = [this.duration(education.interval, true), education.level];
+      const levelString = `${education.level}${education.grades.graduatedWithHonors ? " (honors)" : ""}`;
+      const right = [this.duration(education.interval, true), levelString];
       this.splitText(left, right, 0.7);
-      this.itemize([education.shortDescription]);
+      const items = education.resumeDescription ?? [];
+      if (education.thesis !== undefined) {
+        items.push(`${textbf("Thesis: ")} ${education.thesis.title}`);
+      }
+      this.itemize(items);
       this.newLine();
     }
   }
@@ -199,7 +211,7 @@ class LaTeX {
       const left = [textbf(work.title), work.companyName + " | " + work.mode];
       const right = [this.duration(work.interval, true), work.field];
       this.splitText(left, right, 0.7);
-      this.itemize([work.programmingLanguages.map((lang) => lang.name).join(", "), work.shortDescription]);
+      this.itemize([work.programmingLanguages.map((lang) => lang.name).join(", "), ...(work.resumeDescription ?? [])]);
       this.newLine();
     }
   }
@@ -231,9 +243,12 @@ class LaTeX {
     this.section("Hackathons");
     this.newLine();
     for (const hackathon of this.data.hackathonsSorted(true)) {
-      const left = [textbf(hackathon.name), hackathon.topic];
+      const name = textbf(hackathon.name);
+      const topic = `${hackathon.topic}, ${formatOrdinal(hackathon.award)} place`;
+      const left = [name, topic];
       const right = [this.duration(hackathon.interval, true, true), hackathon.place];
       this.splitText(left, right, 0.7);
+      this.itemize(hackathon.resumeDescription ?? []);
       this.newLine();
     }
   }
@@ -252,20 +267,17 @@ class LaTeX {
     this.education();
     this.newLine();
 
-    this.memberships();
-    this.newLine();
-
     this.publications();
-    this.newLine();
-
-    this.hackathons();
     this.newLine();
 
     this.experience();
     this.newLine();
 
-    // this.projects();
-    // this.newLine();
+    this.hackathons();
+    this.newLine();
+
+    this.memberships();
+    this.newLine();
 
     this.achievements();
     this.newLine();

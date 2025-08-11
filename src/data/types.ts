@@ -286,9 +286,11 @@ export class Grades {
 
 export class InResume {
   readonly includeInResume: boolean;
+  readonly resumeDescription?: string[];
 
-  constructor(includeInResume: boolean) {
+  constructor(includeInResume: boolean, resumeDescription?: string[]) {
     this.includeInResume = includeInResume;
+    this.resumeDescription = resumeDescription;
   }
 }
 
@@ -319,9 +321,10 @@ export class Education extends InResume {
     longDescription: string,
     grades: Grades,
     thesis?: Thesis,
+    resumeDescription?: string[],
     includeInResume = true
   ) {
-    super(includeInResume);
+    super(includeInResume, resumeDescription);
     this.school = school;
     this.shortcut = shortcut == "" ? undefined : shortcut;
     this.faculty = faculty == "" ? undefined : faculty;
@@ -370,9 +373,10 @@ export class Work extends InResume {
     shortDescription: string,
     description: string,
     interval: Interval,
+    resumeDescription?: string[],
     includeInResume = true
   ) {
-    super(includeInResume);
+    super(includeInResume, resumeDescription);
     this.title = title;
     this.field = field;
     this.companyName = companyName;
@@ -433,6 +437,7 @@ export class Hackathon extends InResume {
   readonly logoPath: string;
   readonly programmingLanguages: ProgrammingLanguage[];
   readonly interval: Interval;
+  readonly award: number; // place we finished in
 
   constructor(
     topic: string,
@@ -445,9 +450,11 @@ export class Hackathon extends InResume {
     logoPath: string,
     programmingLanguages: ProgrammingLanguage[],
     interval: Interval,
+    award: number,
+    resumeDescription?: string[],
     includeInResume = true
   ) {
-    super(includeInResume);
+    super(includeInResume, resumeDescription);
     this.topic = topic;
     this.name = name;
     this.place = place;
@@ -458,6 +465,7 @@ export class Hackathon extends InResume {
     this.logoPath = logoPath;
     this.programmingLanguages = programmingLanguages;
     this.interval = interval;
+    this.award = award;
   }
 }
 
@@ -484,9 +492,10 @@ export class Achievement extends InResume {
     category: string,
     interval: Interval,
     programmingLanguage?: ProgrammingLanguage,
+    resumeDescription?: string[],
     includeInResume = true
   ) {
-    super(includeInResume);
+    super(includeInResume, resumeDescription);
     this.name = name;
     this.shortDescription = shortDescription;
     this.longDescription = longDescription;
@@ -522,9 +531,10 @@ export class Publication extends InResume {
     link: string,
     category: PublicationCategories,
     date: TimePoint,
+    resumeDescription?: string[],
     includeInResume = true
   ) {
-    super(includeInResume);
+    super(includeInResume, resumeDescription);
     this.title = title;
     this.shortDescription = shortDescription;
     this.publisher = publisher;
@@ -566,8 +576,17 @@ export class Membership extends InResume {
   readonly link: string;
   readonly interval: Interval;
 
-  constructor(name: string, category: string, shortDescription: string, logoPath: string, link: string, interval: Interval, includeInResume = true) {
-    super(includeInResume);
+  constructor(
+    name: string,
+    category: string,
+    shortDescription: string,
+    logoPath: string,
+    link: string,
+    interval: Interval,
+    resumeDescription?: string[],
+    includeInResume = true
+  ) {
+    super(includeInResume, resumeDescription);
     this.name = name;
     this.category = category;
     this.shortDescription = shortDescription;
@@ -596,9 +615,10 @@ export class Certificate extends InResume {
     logoPath: string,
     link: string,
     interval: Interval,
+    resumeDescription?: string[],
     includeInResume = true
   ) {
-    super(includeInResume);
+    super(includeInResume, resumeDescription);
     this.name = name;
     this.category = category;
     this.shortDescription = shortDescription;
