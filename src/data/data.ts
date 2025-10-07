@@ -29,20 +29,21 @@ export function initData(): Data {
   const firstName = "Jakub";
   const lastName = "Rada";
   const degreesBeforeName = ["Ing."];
-  const titles = ["AI/ML Master Graduate", "Researcher", "Software Engineer"];
+  const titles = ["PhD AI Student", "AI/ML Master Graduate", "Senior Software Engineer"];
 
   const dateOfBirth = new DateOfBirth("Date of birth", "fa-solid fa-cake-candles", new TimePoint(2000, 2, 25));
   const age = new Age("Age", "fa-solid fa-calendar-days");
   const location = new Location("Location", "fa-solid fa-map-location-dot", "Prague", "Czechia", true);
 
   const education = [
-    "I am a Computer Science Master Graduate specializing in Artificial Intelligence at Czech Technical University in Prague.",
-    "My main interests are Reinforcement and Machine Learning, Computer Vision, Quantum Computing and Optimization, as well as probably any topic in Artificial Intelligence.",
+    "I am a Computer Science Master Graduate and current PhD student specializing in Artificial Intelligence and Machine Learning at Czech Technical University in Prague.",
+    "My main interests are Reinforcement and Deep Learning, Game Theory, Continual Learning, Computer Vision, Quantum Computing and Optimization, as well as probably any topic in Artificial Intelligence.",
     "I completed both Bachelor degree and the following Master degree with honours, with converted GPA 3.87/4.0.",
     "My Bachelor thesis, titled Comparing Exploration Methods in Partially Observable Stochastic Games, was trying to apply multi-armed bandit algorithms to partially observable stochastic games as a means of solving the exploration-exploitation trade-off and improving scalability of known algorithms. Thereofore, it was combining reinforcement learning and advanced game theory.",
-    "In my Master's thesis, titled Probabilistic Modelling for Robust Scoring and Estimation of Geometric Relations, which focused on 3D computer vision and inventing new scoring functions for the RANSAC algorithm, specifically for relative pose estimation. It combined probabilistic modelling, maximum-likelihood estimation, EM algorithm and many more advanced methods of machine learning and optimization. From the results we have been able to introduce a model that can handle anisotropic residual errors and improve the precision of refined essential matrix.",
+    "In my Master's thesis, titled Probabilistic Modelling for Robust Scoring and Estimation of Geometric Relations, I focused on 3D Computer Vision and inventing new probabilistic scoring functions for the RANSAC algorithm, specifically for the Relative Pose Estimation problem. It combined probabilistic modelling, maximum-likelihood estimation, EM algorithm and many more advanced methods of Machine Learning and Optimization. We have been able to introduce a novel anisotropic probabilistic model based on marginal and profile likelihood that can better handle residual errors in real data and improve the precision of refined essential matrix. The work comprised of deriving the complex model, estimating its parameters as well as developing several ML models that learn and estimate radial distortion in the images.",
     "For both theses I received the Dean's award for exceptional theses, which is awarded to only a few students every year.",
     "For my study achievements I was invited as a member of Upsilon Pi Epsilon, the first honour society in Computer Science.",
+    "In September 2025, I became a PhD student with doc. Mgr. Viliam Lisý, MSc., Ph.D., one of the authors of DeepStack. Together we will use Reinforcement Learning and Game Theory to investigate Large Language Models and their ability to plan and reason.",
   ];
 
   const beginnings = [
@@ -123,7 +124,15 @@ export function initData(): Data {
     "Dart",
     "HTML/CSS",
   ]);
-  const frameworks = new Skill("Application Frameworks", "fa-brands fa-app-store-ios", ["Flutter", "Vue.js", "Angular", "Django", "NodeJS", "Docker"]);
+  const frameworks = new Skill("Application Frameworks", "fa-brands fa-app-store-ios", [
+    "Flutter",
+    "Vue.js",
+    "NestJS",
+    "Angular",
+    "Django",
+    "NodeJS",
+    "Docker",
+  ]);
   const ai = new Skill("AI/ML Tools", "fa-solid fa-brain", [
     "PyTorch",
     "NumPy",
@@ -429,8 +438,24 @@ export function initData(): Data {
     undefined,
     true
   );
+  const feePhD = new Education(
+    "Czech Technical University in Prague",
+    "FEE CTU",
+    "Faculty of Electrical Engineering",
+    "Artificial Intelligence",
+    Interval.build(2025, 9, 1, 2029, 9, 1),
+    "PhD",
+    "logo_cvut.jpg",
+    "https://fel.cvut.cz/en/",
+    "PhD Studies and Research of Artificial Intelligence, Reinforcement Learning, Game Theory and Large Language Models with focus on reasoning, planning and playing games.",
+    "",
+    new Grades("", false, []),
+    undefined,
+    undefined,
+    true
+  );
 
-  const educations = [alej, feeBachelor, kaist, feeMaster, essai2024];
+  const educations = [alej, feeBachelor, kaist, feeMaster, essai2024, feePhD];
 
   const scalesoft = new Work(
     "Front End Web Developer",
@@ -472,7 +497,7 @@ export function initData(): Data {
     [flutter, dart, vue, python, javascript, typescript, django, docker, android, ios],
     "Development of multiple complex mobile and web applications in various languages. Specifically, a social mobile app for organizing events (Joinly), a web app for aggregating and selling holiday tours (Airstop), a web app for one of the Ministries of the Czech Republic and a monitoring system for analogue missions (CommonTongue). Currently, I am working on an AI-powered search engine for a local financial company to help them process internal methodologies.",
     "", // Add long description
-    Interval.build(2022, 6, 30, 2025, 6, 30),
+    Interval.build(2022, 6, 30, 2025, 9, 30),
     [
       "Medior/Senior Full-stack developer and AI engineer building multiple complex web and mobile applications, recently researching and building AI-powered RAG-like search system over private internal methodologies in finance",
     ],
@@ -494,7 +519,24 @@ export function initData(): Data {
     true
   );
 
-  const works = [scalesoft, SWEHQ1, SWEHQ2, ciirc];
+  const SWEHQ3 = new Work(
+    "Web and Mobile Software Development",
+    "AI and Software Engineer",
+    "SWEHQ",
+    "logo_swehq.png",
+    "https://swehq.com/en/",
+    "Part-time",
+    [python, typescript, docker, node],
+    "Development of advanced software solutions including AI-powered search agent and a computer vision system to handle photo documentation.",
+    "", // Add long description
+    Interval.build(2025, 9, 30, 2026, 9, 30),
+    [
+      "Medior/Senior Full-stack developer and AI engineer building complex web and mobile applications, recently researching and building AI-powered RAG-like search system over private internal methodologies in finance",
+    ],
+    true
+  );
+
+  const works = [scalesoft, SWEHQ1, SWEHQ2, ciirc, SWEHQ3];
 
   const baltie = new Project(
     "Programming",
