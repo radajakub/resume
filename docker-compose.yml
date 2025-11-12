@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  resume:
+    build: .
+    container_name: resume
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.resume.rule=Host(`jakubrada.com`) || Host(`www.jakubrada.com`) || Host(`resume.jakubrada.com`)"
+      - "traefik.http.routers.resume.entrypoints=websecure"
+      - "traefik.http.routers.resume.tls.certresolver=letsencrypt"
+    networks:
+      - traefik_proxy
+
+networks:
+  traefik_proxy:
+    external: true
