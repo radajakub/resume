@@ -499,7 +499,7 @@ export function initData(): Data {
     "Development of multiple complex mobile and web applications in various languages. Specifically, a social mobile app for organizing events (Joinly), a web app for aggregating and selling holiday tours (Airstop), a web app for one of the Ministries of the Czech Republic and a monitoring system for analogue missions (CommonTongue).",
     "", // Add long description
     Interval.build(2022, 6, 30, 2025, 9, 30),
-    ["Medior/Senior software engineer building multiple complex web and mobile applications"],
+    ["Medior software engineer building multiple complex web and mobile applications"],
     true
   );
 
