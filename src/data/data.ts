@@ -29,7 +29,7 @@ export function initData(): Data {
   const firstName = "Jakub";
   const lastName = "Rada";
   const degreesBeforeName = ["Ing."];
-  const titles = ["PhD AI Student", "AI/ML Master Graduate", "Senior Software Engineer"];
+  const titles = ["PhD AI Student", "AI/ML Master Graduate", "AI and Software Engineer"];
 
   const dateOfBirth = new DateOfBirth("Date of birth", "fa-solid fa-cake-candles", new TimePoint(2000, 2, 25));
   const age = new Age("Age", "fa-solid fa-calendar-days");
@@ -176,6 +176,7 @@ export function initData(): Data {
   const elevenLabs = new ProgrammingLanguage("Eleven Labs");
   const whisper = new ProgrammingLanguage("OpenAI whisper");
   const huggingFace = new ProgrammingLanguage("Hugging Face");
+  const nestjs = new ProgrammingLanguage("NestJS");
 
   // educations
   const alej = new Education(
@@ -447,7 +448,7 @@ export function initData(): Data {
     "PhD",
     "logo_cvut.jpg",
     "https://fel.cvut.cz/en/",
-    "PhD Studies and Research of Artificial Intelligence, Reinforcement Learning, Game Theory and Large Language Models with focus on reasoning, planning and playing games.",
+    "PhD Studies and Research of Artificial Intelligence, Reinforcement Learning, Game Theory and Large Language Models with focus on reasoning, planning and playing games. My first project tries to understand differences of reasoning between small local and commercial LLMs and the big ones. Alongside, I am investigating in-context learning and in-context reinforcement learning as an alternative to fine-tuning. Combination of these and automatic prompt optimization could lead to better ways to automatically build agents that can learn to solve any task.",
     "",
     new Grades("", false, []),
     undefined,
@@ -495,12 +496,10 @@ export function initData(): Data {
     "https://swehq.com/en/",
     "Part-time",
     [flutter, dart, vue, python, javascript, typescript, django, docker, android, ios],
-    "Development of multiple complex mobile and web applications in various languages. Specifically, a social mobile app for organizing events (Joinly), a web app for aggregating and selling holiday tours (Airstop), a web app for one of the Ministries of the Czech Republic and a monitoring system for analogue missions (CommonTongue). Currently, I am working on an AI-powered search engine for a local financial company to help them process internal methodologies.",
+    "Development of multiple complex mobile and web applications in various languages. Specifically, a social mobile app for organizing events (Joinly), a web app for aggregating and selling holiday tours (Airstop), a web app for one of the Ministries of the Czech Republic and a monitoring system for analogue missions (CommonTongue).",
     "", // Add long description
     Interval.build(2022, 6, 30, 2025, 9, 30),
-    [
-      "Medior/Senior Full-stack developer and AI engineer building multiple complex web and mobile applications, recently researching and building AI-powered RAG-like search system over private internal methodologies in finance",
-    ],
+    ["Medior/Senior software engineer building multiple complex web and mobile applications"],
     true
   );
 
@@ -520,18 +519,18 @@ export function initData(): Data {
   );
 
   const SWEHQ3 = new Work(
-    "Web and Mobile Software Development",
-    "AI and Software Engineer",
+    "AI Engineering",
+    "AI Engineer and Architect",
     "SWEHQ",
     "logo_swehq.png",
     "https://swehq.com/en/",
     "Part-time",
-    [python, typescript, docker, node],
-    "Development of advanced software solutions including AI-powered search agent and a computer vision system to handle photo documentation.",
+    [typescript, nestjs, python, docker],
+    "Designing and building advanced Retrieval-Augmented Generation system for precise search and answering domain-specific questions based on private internal methodologies",
     "", // Add long description
     Interval.build(2025, 9, 30, 2026, 9, 30),
     [
-      "Medior/Senior Full-stack developer and AI engineer building complex web and mobile applications, recently researching and building AI-powered RAG-like search system over private internal methodologies in finance",
+      "AI engineer designing and building advanced Retrieval-Augmented Generation system for precise search and answering domain-specific questions based on private internal methodologies",
     ],
     true
   );
@@ -723,7 +722,7 @@ export function initData(): Data {
     "Project for the Mistral AI Game Jam 2025",
     "Shyguy's Wingman",
     "Mistral AI Game Jam",
-    "An AI game where the main character is a shy guy who wants to get a girlfriend. The player cannot control him directly but he can control his wingman and can try to persuade him or push him around. Shuyguy can also talk to other AI NPCs to get information or confidence.",
+    "An AI game where the main character is a shy guy who wants to get a girlfriend. The player cannot control him directly but he can control his wingman and can try to persuade him or push him around. Shuyguy can also talk to other AI NPCs to get information or confidence",
     "", // Add long description
     "https://github.com/radajakub/ShyguysWingmanJS",
     [javascript, python, mistral, elevenLabs, whisper],
@@ -735,7 +734,7 @@ export function initData(): Data {
     "Project for Rakathon 2025",
     "OnkoApp",
     "Rakathon 2025",
-    "An app that helps doctors plan treatments for cancer patients and for patients to see their progress and educational information about individual steps. App features RAG AI chatbot that answers questions regarding common questions and side effects of cancer treatments.",
+    "An app that helps doctors plan treatments for cancer patients and for patients to see their progress and educational information about individual steps. App features RAG AI chatbot that answers questions regarding common questions and side effects of cancer treatments",
     "",
     "",
     [typescript, vue, python, huggingFace],
